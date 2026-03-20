@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Гайд пацієнта: від симптому до операції в Дніпрі | ОН Клінік</title>
+<meta name="description" content="Практичний гайд: як зрозуміти, що потрібна операція, як обрати хірурга і клініку, як підготуватися та що очікувати після. Без зайвих слів — тільки те, що важливо."/>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "name":"Практичний гайд для пацієнта хірурга",
+  "description":"Покроковий гайд від симптому до виписки. Як обрати хірурга, підготуватись до операції і зрозуміти вартість.",
+  "publisher":{"@type":"Organization","name":"ОН Клінік Дніпро","url":"https://onclinic.check-up.in.ua"},
+  "mainEntityOfPage":"https://onclinic.check-up.in.ua/gid-khirurgiya.html",
+  "inLanguage":"uk"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#0B4F9A;--blue-mid:#1464B8;--blue-light:#EEF5FF;
+  --gold:#C49A1A;--gold-light:#FBF6E2;--gold-mid:#F0DFA0;
+  --gray-50:#F9FAFB;--gray-100:#F3F4F6;--gray-200:#E5E7EB;
+  --gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-600:#6B7280;--gray-700:#374151;--gray-900:#111827;
+  --shadow-sm:0 1px 6px rgba(0,0,0,.06);--shadow-md:0 4px 20px rgba(0,0,0,.08)
+}
+body{font-family:'Inter',sans-serif;background:#fff;color:var(--gray-900);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;border-bottom:1px solid var(--gray-200);position:sticky;top:0;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);z-index:200}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--blue);letter-spacing:-.3px;text-decoration:none}
+.nav-sep{width:1px;height:18px;background:var(--gray-300)}
+.nav-badge{background:var(--gray-100);color:var(--gray-600);font-size:11px;padding:3px 9px;border-radius:20px}
+.nav-back{font-size:13px;color:var(--gray-600);text-decoration:none;display:flex;align-items:center;gap:5px}
+.nav-back:hover{color:var(--blue)}
+.nav-cta{background:var(--blue);color:#fff;border:none;padding:9px 22px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:background .2s;text-decoration:none}
+.nav-cta:hover{background:var(--blue-mid)}
+
+/* HEADER */
+.guide-header{max-width:760px;margin:0 auto;padding:64px 48px 48px}
+.guide-kicker{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.guide-kicker::before{content:'';width:20px;height:1.5px;background:var(--gold)}
+.guide-title{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:600;color:var(--blue);line-height:1.1;margin-bottom:20px}
+.guide-title em{font-style:italic;color:var(--gold)}
+.guide-lead{font-size:16px;color:var(--gray-600);line-height:1.8;margin-bottom:32px;max-width:620px}
+.guide-meta{display:flex;gap:24px;padding-top:20px;border-top:1px solid var(--gray-100)}
+.gm-item{font-size:12px;color:var(--gray-400)}
+.gm-item strong{color:var(--gray-700);display:block;font-size:13px;margin-bottom:2px}
+
+/* TOC */
+.toc-block{background:var(--blue-light);border-radius:14px;padding:24px 28px;max-width:760px;margin:0 auto 56px;padding-left:48px;padding-right:48px}
+.toc-block h2{font-size:13px;font-weight:600;color:var(--blue);margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.toc-list li{display:flex;align-items:center;gap:10px}
+.toc-num{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--blue);opacity:.35;width:24px;flex-shrink:0}
+.toc-list a{font-size:14px;color:var(--blue);text-decoration:none;font-weight:450}
+.toc-list a:hover{text-decoration:underline}
+
+/* CONTENT */
+.guide-body{max-width:760px;margin:0 auto;padding:0 48px 80px}
+.guide-section{margin-bottom:56px}
+.sec-num{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:var(--blue);margin-bottom:20px;line-height:1.2}
+.sec-body{font-size:15px;color:var(--gray-700);line-height:1.85}
+.sec-body p{margin-bottom:16px}
+.sec-body p:last-child{margin-bottom:0}
+.sec-body strong{color:var(--gray-900)}
+
+/* CHECKLIST */
+.checklist{list-style:none;display:flex;flex-direction:column;gap:10px;margin:20px 0}
+.checklist li{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--gray-700);line-height:1.55}
+.checklist li::before{content:'';width:18px;height:18px;border-radius:4px;background:var(--blue);flex-shrink:0;margin-top:1px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M4 9l3.5 3.5L14 6' stroke='white' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")}
+
+/* WARNING / CALLOUT boxes */
+.callout{border-radius:12px;padding:18px 20px;margin:20px 0;font-size:14px;line-height:1.65}
+.callout-blue{background:var(--blue-light);border-left:3px solid var(--blue);color:var(--gray-700)}
+.callout-gold{background:var(--gold-light);border-left:3px solid var(--gold);color:var(--gray-700)}
+.callout strong{color:var(--gray-900);display:block;margin-bottom:4px}
+
+/* STEPS */
+.steps{display:flex;flex-direction:column;margin:24px 0}
+.step{display:flex;gap:18px;padding-bottom:28px}
+.step:last-child{padding-bottom:0}
+.step-left{display:flex;flex-direction:column;align-items:center}
+.step-num{width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-line{width:2px;flex:1;background:var(--gray-200);margin:4px 0}
+.step-body{padding:4px 0 0;flex:1}
+.step-body h4{font-size:15px;font-weight:600;color:var(--gray-900);margin-bottom:6px}
+.step-body p{font-size:14px;color:var(--gray-600);line-height:1.6}
+
+/* CRITERIA GRID */
+.criteria-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.crit{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:12px;padding:16px 18px}
+.crit h4{font-size:14px;font-weight:600;color:var(--gray-900);margin-bottom:5px}
+.crit p{font-size:13px;color:var(--gray-600);line-height:1.5}
+
+/* DIVIDER */
+.sec-divider{border:none;border-top:1px solid var(--gray-100);margin:48px 0}
+
+/* CTA */
+.guide-cta{background:linear-gradient(135deg,var(--blue),var(--blue-mid));border-radius:16px;padding:36px 40px;text-align:center;margin-top:48px}
+.gcta-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:#fff;margin-bottom:10px}
+.gcta-sub{font-size:14px;color:rgba(255,255,255,.75);margin-bottom:24px;line-height:1.6}
+.gcta-btn{background:#fff;color:var(--blue);border:none;padding:13px 32px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;display:inline-block;transition:opacity .2s}
+.gcta-btn:hover{opacity:.9}
+.gcta-link{display:block;margin-top:14px;font-size:13px;color:rgba(255,255,255,.55);text-decoration:none}
+.gcta-link:hover{color:#fff}
+
+@media(max-width:760px){
+  .nav{padding:0 20px}.guide-header{padding:48px 24px 36px}.guide-body{padding:0 24px 60px}
+  .toc-block{margin-left:24px;margin-right:24px;padding:20px 20px}
+  .guide-title{font-size:36px}.criteria-grid{grid-template-columns:1fr}.guide-meta{flex-direction:column;gap:12px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand">
+    <a href="index.html" class="nav-logo">ОН Клінік Дніпро</a>
+    <div class="nav-sep"></div>
+    <span class="nav-badge">Гайд пацієнта</span>
+  </div>
+  <a href="index.html" class="nav-back">← Назад до операцій</a>
+  <a href="index.html#quiz" class="nav-cta">Підібрати хірурга</a>
+</nav>
+
+<!-- HEADER -->
+<div class="guide-header">
+  <p class="guide-kicker">Практичний гайд</p>
+  <h1 class="guide-title">Від симптому<br/>до <em>операції</em>:<br/>що важливо знати</h1>
+  <p class="guide-lead">Не ще одна стаття про грижу або ліпому. Це покроковий план — що робити, на що звертати увагу, як не переплатити і як не розчаруватися у виборі клініки.</p>
+  <div class="guide-meta">
+    <div class="gm-item"><strong>Для кого</strong>Пацієнт, який вперше планує операцію</div>
+    <div class="gm-item"><strong>Час читання</strong>~8 хвилин</div>
+    <div class="gm-item"><strong>Оновлено</strong>2025 рік</div>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc-block" style="margin-left:auto;margin-right:auto;max-width:760px;margin-left:48px;margin-right:48px">
+  <h2>Зміст</h2>
+  <ol class="toc-list">
+    <li><span class="toc-num">1</span><a href="#need">Як зрозуміти, що вам дійсно потрібна операція</a></li>
+    <li><span class="toc-num">2</span><a href="#surgeon">Як обрати хірурга: 5 питань, які вирішують все</a></li>
+    <li><span class="toc-num">3</span><a href="#clinic">Клініка: на що дивитись, крім ціни</a></li>
+    <li><span class="toc-num">4</span><a href="#consult">Консультація: що запитати, щоб не шкодувати</a></li>
+    <li><span class="toc-num">5</span><a href="#prepare">Підготовка до операції: чеклист</a></li>
+    <li><span class="toc-num">6</span><a href="#cost">Реальна вартість: що входить, що — ні</a></li>
+    <li><span class="toc-num">7</span><a href="#after">Відновлення: чого очікувати по тижнях</a></li>
+  </ol>
+</div>
+
+<!-- BODY -->
+<div class="guide-body">
+
+  <!-- SECTION 1 -->
+  <div class="guide-section" id="need">
+    <p class="sec-num">Крок 01</p>
+    <h2 class="sec-title">Як зрозуміти, що вам дійсно потрібна операція</h2>
+    <div class="sec-body">
+      <p>Більшість пацієнтів приходять на першу консультацію або надто пізно — коли симптоми давно заважають, або надто рано — коли лікування ще не потрібне. Ось орієнтири для найпоширеніших запитів.</p>
+    </div>
+    <div class="callout callout-blue">
+      <strong>Грижа (пупкова або пахова)</strong>
+      Операція — єдиний метод. Бандаж і вправи не закривають дефект в очеревині. Чим довше чекати, тим вищий ризик защемлення — це ургентна ситуація з госпіталізацією. Якщо грижа помітна або відчувається при навантаженні — консультація потрібна зараз.
+    </div>
+    <div class="callout callout-gold">
+      <strong>Ліпома або атерома</strong>
+      Спостереження прийнятне, якщо утворення менше 2 см, стабільне, не болить і не росте. При розмірі від 2–3 см, швидкому зростанні або незручній локалізації — видалення планове, але рекомендоване. Самостійне видавлювання атероми — пряма дорога до інфекції та більшого рубця.
+    </div>
+    <div class="callout callout-blue">
+      <strong>Пілонідальна кіста (кіста куприка)</strong>
+      При першому запаленні — часто достатньо розкрити і дренувати. Але при рецидиві показане радикальне висічення. Відкладати після другого загострення — не варто: кожен рецидив ускладнює операцію.
+    </div>
+    <div class="callout callout-gold">
+      <strong>Гінекомастія та рубці</strong>
+      Вирішення — виключно хірургічне. Косметологія і фізіотерапія не дають стійкого результату. Терміновості немає, але чим раніше — тим менше психологічний дискомфорт.
+    </div>
+  </div>
+
+  <hr class="sec-divider"/>
+
+  <!-- SECTION 2 -->
+  <div class="guide-section" id="surgeon">
+    <p class="sec-num">Крок 02</p>
+    <h2 class="sec-title">Як обрати хірурга: 5 питань, які вирішують все</h2>
+    <div class="sec-body">
+      <p>Сертифікат і посада — необхідна умова, але недостатня. Ось що насправді важливо:</p>
+    </div>
+    <div class="criteria-grid">
+      <div class="crit">
+        <h4>Спеціалізація, а не широкий профіль</h4>
+        <p>Хірург, який робить 5 типів операцій регулярно, дає кращий результат, ніж той, хто оперує все підряд раз на місяць.</p>
+      </div>
+      <div class="crit">
+        <h4>Чи пояснює він альтернативи</h4>
+        <p>Хороший хірург скаже, коли операція потрібна, а коли — ні. Якщо одразу тиснуть на "терміново" без огляду — це тривожний знак.</p>
+      </div>
+      <div class="crit">
+        <h4>Підхід до рубця</h4>
+        <p>Для більшості операцій косметичний результат важливий. Запитайте, чи бере участь пластичний хірург у плануванні розрізу.</p>
+      </div>
+      <div class="crit">
+        <h4>Відгуки — і тон відповідей</h4>
+        <p>Відгуки читайте уважно. Важливо не тільки "добре зашив", але і "пояснив, що буде після". Хірург, який комунікує — кращий досвід.</p>
+      </div>
+      <div class="crit">
+        <h4>Протокол ведення після операції</h4>
+        <p>Запитайте: "Як я зв'яжусь з вами після операції, якщо буде питання?" Хороша клініка — це не тільки операційна.</p>
+      </div>
+      <div class="crit">
+        <h4>Навчання та підвищення кваліфікації</h4>
+        <p>Стаж — не єдиний показник. Лікар, який навчається — знає сучасні техніки та протоколи. Запитайте про останні курси.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="sec-divider"/>
+
+  <!-- SECTION 3 -->
+  <div class="guide-section" id="clinic">
+    <p class="sec-num">Крок 03</p>
+    <h2 class="sec-title">Клініка: на що дивитись, крім ціни</h2>
+    <div class="sec-body">
+      <p>Найнижча ціна в операційній — часто найвища ціна у відновленні. Ось базовий чеклист клініки:</p>
+    </div>
+    <ul class="checklist">
+      <li><strong>Власний оперблок</strong> — орендована операційна означає нестандартне обладнання і чужий персонал. Власний оперблок — контрольоване середовище.</li>
+      <li><strong>Стаціонар в будівлі</strong> — якщо щось піде не так після операції, потрібна реакція за хвилини, а не за годину.</li>
+      <li><strong>Кваліфікований анестезіолог у штаті</strong> — не запрошений, а постійний. Він знає протоколи клініки і веде пацієнта стабільно.</li>
+      <li><strong>Прозоре ціноутворення</strong> — вартість операції узгоджується до початку. Ніяких "додаткових 3 000 грн за матеріали" після.</li>
+      <li><strong>Гістологія включена</strong> — при видаленні будь-якого утворення матеріал має перевірятись. Це не опція, це стандарт.</li>
+      <li><strong>Можливість отримати другу думку</strong> — якісна клініка не тисне на рішення. Вона дає час і відповідає на питання.</li>
+    </ul>
+  </div>
+
+  <hr class="sec-divider"/>
+
+  <!-- SECTION 4 -->
+  <div class="guide-section" id="consult">
+    <p class="sec-num">Крок 04</p>
+    <h2 class="sec-title">Консультація: що запитати, щоб не шкодувати</h2>
+    <div class="sec-body">
+      <p>Консультація — не просто огляд. Це ваш шанс прийняти рішення з повною інформацією. Ось питання, які варто поставити:</p>
+    </div>
+    <div class="callout callout-blue">
+      <strong>Питання про операцію</strong>
+      Який метод і чому саме він? Які є альтернативи? Що буде, якщо не робити операцію зараз? Скільки разів ви робили саме цю операцію?
+    </div>
+    <div class="callout callout-gold">
+      <strong>Питання про анестезію та відновлення</strong>
+      Який вид анестезії і чому? Чи буде анестезіолог увесь час операції? Скільки часу в стаціонарі? Коли зможу повернутись до роботи? Які обмеження після?
+    </div>
+    <div class="callout callout-blue">
+      <strong>Питання про вартість</strong>
+      Що входить у зазначену суму? Що може бути додатково? Чи є договір з фіксованою ціною? Як оплачуються витратні матеріали?
+    </div>
+    <div class="sec-body" style="margin-top:16px">
+      <p><strong>Порада:</strong> запишіть відповіді або попросіть роздрукувати план лікування. Гарна клініка не буде проти.</p>
+    </div>
+  </div>
+
+  <hr class="sec-divider"/>
+
+  <!-- SECTION 5 -->
+  <div class="guide-section" id="prepare">
+    <p class="sec-num">Крок 05</p>
+    <h2 class="sec-title">Підготовка до операції: чеклист</h2>
+    <div class="sec-body">
+      <p>Стандартний пакет передопераційного обстеження потрібний майже завжди, незалежно від складності операції:</p>
+    </div>
+    <ul class="checklist">
+      <li>Загальний аналіз крові + коагулограма (зсідання)</li>
+      <li>Біохімія крові (АЛТ, АСТ, білірубін, глюкоза, креатинін)</li>
+      <li>Група крові і резус-фактор (якщо не знаєте)</li>
+      <li>ЕКГ — навіть якщо ніколи не було проблем із серцем</li>
+      <li>Огляд терапевта — "немає протипоказань до операції"</li>
+      <li>УЗД зони операції (якщо ще не робили)</li>
+    </ul>
+    <div class="callout callout-gold" style="margin-top:20px">
+      <strong>Що взяти з собою в день операції</strong>
+      Паспорт, медична карта або виписки з інших клінік, результати всіх обстежень, перелік ліків, які ви приймаєте постійно. Одяг: зручний, просторий, без металевих застібок. Від їжі та пиття утримуватись від 6 годин до операції (якщо загальна анестезія).
+    </div>
+  </div>
+
+  <hr class="sec-divider"/>
+
+  <!-- SECTION 6 -->
+  <div class="guide-section" id="cost">
+    <p class="sec-num">Крок 06</p>
+    <h2 class="sec-title">Реальна вартість: що входить, що — ні</h2>
+    <div class="sec-body">
+      <p>Різниця між "ціною операції" і "повною вартістю лікування" може бути суттєвою. Ось що зазвичай не входить у базову ціну операції:</p>
+    </div>
+    <div class="criteria-grid">
+      <div class="crit">
+        <h4>Передопераційне обстеження</h4>
+        <p>Аналізи, ЕКГ, огляд терапевта — ~3 000–6 000 грн. Можна зробити в клініці або принести готові.</p>
+      </div>
+      <div class="crit">
+        <h4>Стаціонар (палата)</h4>
+        <p>1 доба — ~1 000–2 500 грн залежно від клініки та типу палати. Іноді включається до пакету.</p>
+      </div>
+      <div class="crit">
+        <h4>Анестезіологічний супровід</h4>
+        <p>Деякі клініки включають, деякі виставляють окремо. Уточнюйте до операції.</p>
+      </div>
+      <div class="crit">
+        <h4>Витратні матеріали</h4>
+        <p>Сітка для герніопластики — зазвичай включена. Шовний матеріал — уточнюйте.</p>
+      </div>
+      <div class="crit">
+        <h4>Гістологічне дослідження</h4>
+        <p>~700–1 500 грн. Обов'язкове при видаленні будь-якого новоутворення.</p>
+      </div>
+      <div class="crit">
+        <h4>Повторні огляди</h4>
+        <p>Мінімум 1–2 огляди після операції. Іноді входять у вартість, іноді — ні.</p>
+      </div>
+    </div>
+    <div class="callout callout-blue" style="margin-top:16px">
+      <strong>Порада</strong>
+      Попросіть клініку скласти повний кошторис до операції. Хороша клініка зробить це без питань. Якщо ухиляються від конкретних цифр — це сигнал.
+    </div>
+  </div>
+
+  <hr class="sec-divider"/>
+
+  <!-- SECTION 7 -->
+  <div class="guide-section" id="after">
+    <p class="sec-num">Крок 07</p>
+    <h2 class="sec-title">Відновлення: чого очікувати по тижнях</h2>
+    <div class="sec-body">
+      <p>Терміни відрізняються залежно від операції. Ось орієнтири для найпоширеніших:</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-left"><div class="step-num">1</div><div class="step-line"></div></div>
+        <div class="step-body">
+          <h4>День операції — 1 доба</h4>
+          <p>Виходите з анестезії, перебуваєте під наглядом. При відсутності ускладнень — виписка наступного дня. Ліпоми та рубці — амбулаторно, додому в той самий день.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left"><div class="step-num">2</div><div class="step-line"></div></div>
+        <div class="step-body">
+          <h4>Тиждень 1–2: обмеження та огляди</h4>
+          <p>Фізичне навантаження мінімальне. Для гриж — не піднімати більше 3 кг. Для гінекомастії — компресійна пов'язка. Огляд хірурга для зняття або контролю швів.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left"><div class="step-num">3</div><div class="step-line"></div></div>
+        <div class="step-body">
+          <h4>Тиждень 2–4: поступове повернення</h4>
+          <p>Легка фізична активність дозволена. Сидяча робота — з першого тижня для більшості операцій. Активний спорт — після дозволу хірурга (зазвичай 4–6 тижнів).</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left"><div class="step-num">4</div><div class="step-line"></div></div>
+        <div class="step-body">
+          <h4>Місяць 2–3: догляд за рубцем</h4>
+          <p>Силіконові пластирі або гелі — 2–3 місяці після зняття швів. Уникати засмаги зони рубця щонайменше рік. Повторний огляд для оцінки результату.</p>
+        </div>
+      </div>
+    </div>
+    <div class="callout callout-gold" style="margin-top:0">
+      <strong>Коли одразу до лікаря</strong>
+      Підвищення температури вище 38°, посилення болю або набряку після 3-го дня, виділення з рани, зміна кольору шкіри навколо рубця — це привід зателефонувати хірургу в той самий день.
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="guide-cta">
+    <div class="gcta-title">Готові поговорити з хірургом?</div>
+    <div class="gcta-sub">Первинна консультація в ОН Клінік Дніпро — 30–45 хвилин. Огляд, план лікування, орієнтовна вартість. Без тиску на рішення.</div>
+    <a href="index.html#quiz" class="gcta-btn">Підібрати хірурга за 3 питання</a>
+    <a href="index.html" class="gcta-link">Переглянути операції та кейси →</a>
+  </div>
+
+</div>
+
+</body>
+</html>
