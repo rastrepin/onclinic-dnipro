@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Хірургія в Дніпрі — Видалення гриж та новоутворень | ОН Клінік</title>
+  <meta name="description" content="Видалення грижі, ліпоми, гінекомастії та пілонідальної кісти в Дніпрі. Власний оперблок. Хірург і пластичний хірург. Запис онлайн." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0B1829;
+      --navy-mid: #142236;
+      --navy-light: #1d3454;
+      --teal: #1ABCB0;
+      --teal-dark: #14a096;
+      --white: #ffffff;
+      --off-white: #f7f9fc;
+      --gray-light: #eef1f6;
+      --gray: #8a96a8;
+      --text: #1a2740;
+      --text-soft: #4a5568;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Manrope', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      background: var(--navy);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .logo-badge {
+      width: 40px; height: 40px;
+      background: var(--teal);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: var(--white);
+      font-weight: 700;
+    }
+    .logo-text { color: var(--white); font-size: 14px; line-height: 1.3; }
+    .logo-text strong { display: block; font-size: 16px; font-weight: 700; }
+
+    .header-cta {
+      background: var(--teal);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .header-cta:hover { background: var(--teal-dark); }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 50%, #0e2040 100%);
+      padding: 60px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -150px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(26,188,176,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(26,188,176,0.15);
+      border: 1px solid rgba(26,188,176,0.3);
+      border-radius: 100px;
+      padding: 6px 14px;
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 42px);
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .hero h1 em { font-style: normal; color: var(--teal); }
+    .hero-sub {
+      color: rgba(255,255,255,0.7);
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    /* ─── QUIZ CARD ─── */
+    .quiz-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px 24px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+    }
+    .quiz-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .quiz-title { font-size: 15px; font-weight: 700; color: var(--text); }
+    .quiz-steps {
+      display: flex; gap: 6px;
+    }
+    .quiz-step {
+      width: 24px; height: 4px;
+      border-radius: 2px;
+      background: var(--gray-light);
+      transition: background 0.3s;
+    }
+    .quiz-step.active { background: var(--teal); }
+    .quiz-step.done { background: var(--teal-dark); }
+
+    .quiz-question { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 14px; }
+    .quiz-options { display: flex; flex-direction: column; gap: 8px; }
+    .quiz-option {
+      display: flex; align-items: center; gap: 10px;
+      padding: 11px 14px;
+      border: 1.5px solid var(--gray-light);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 14px;
+      color: var(--text);
+      user-select: none;
+    }
+    .quiz-option:hover { border-color: var(--teal); background: rgba(26,188,176,0.05); }
+    .quiz-option.selected { border-color: var(--teal); background: rgba(26,188,176,0.08); font-weight: 600; }
+    .quiz-option .opt-icon { font-size: 18px; flex-shrink: 0; }
+
+    .quiz-nav {
+      display: flex; gap: 10px; margin-top: 18px;
+    }
+    .btn-quiz-back {
+      flex: 0 0 auto;
+      background: var(--gray-light);
+      border: none; border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 14px; font-weight: 600;
+      cursor: pointer; color: var(--text-soft);
+      transition: background 0.2s;
+    }
+    .btn-quiz-back:hover { background: #dde3ed; }
+    .btn-quiz-next {
+      flex: 1;
+      background: var(--teal);
+      border: none; border-radius: 10px;
+      padding: 12px 20px;
+      font-size: 15px; font-weight: 700;
+      cursor: pointer; color: var(--white);
+      transition: background 0.2s;
+    }
+    .btn-quiz-next:hover { background: var(--teal-dark); }
+    .btn-quiz-next:disabled { background: #a0b4c0; cursor: not-allowed; }
+
+    .quiz-contact { display: flex; flex-direction: column; gap: 12px; }
+    .quiz-contact input, .quiz-contact select {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1.5px solid var(--gray-light);
+      border-radius: 10px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .quiz-contact input:focus, .quiz-contact select:focus { border-color: var(--teal); }
+    .quiz-contact input::placeholder { color: var(--gray); }
+    .quiz-privacy { font-size: 11px; color: var(--gray); text-align: center; }
+
+    .quiz-success {
+      text-align: center;
+      padding: 10px 0;
+    }
+    .quiz-success .success-icon {
+      width: 56px; height: 56px;
+      background: rgba(26,188,176,0.12);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 16px;
+    }
+    .quiz-success h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .quiz-success p { font-size: 14px; color: var(--text-soft); line-height: 1.5; }
+
+    /* ─── TRUST STRIP ─── */
+    .trust-strip {
+      background: var(--navy);
+      padding: 20px 24px;
+    }
+    .trust-inner {
+      max-width: 900px; margin: 0 auto;
+      display: flex; flex-wrap: wrap; gap: 24px; justify-content: center;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 10px;
+      color: rgba(255,255,255,0.8);
+      font-size: 13px;
+    }
+    .trust-item .t-icon {
+      width: 32px; height: 32px;
+      background: rgba(26,188,176,0.15);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .trust-item strong { color: var(--white); display: block; font-size: 14px; }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 60px 24px; }
+    .section-inner { max-width: 900px; margin: 0 auto; }
+    .section-label {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--teal);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 4vw, 34px);
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .section-sub {
+      font-size: 15px; color: var(--text-soft);
+      line-height: 1.6; max-width: 580px;
+      margin-bottom: 36px;
+    }
+
+    /* ─── WHY ONCLINIC ─── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .why-card {
+      background: var(--off-white);
+      border-radius: 14px;
+      padding: 22px 20px;
+      border: 1.5px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .why-card:hover { border-color: var(--teal); }
+    .why-icon {
+      width: 44px; height: 44px;
+      background: rgba(26,188,176,0.12);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+    .why-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .why-card p { font-size: 13px; color: var(--text-soft); line-height: 1.5; }
+
+    /* ─── CASES ─── */
+    .cases-section { background: var(--off-white); }
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .case-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-decoration: none;
+      color: var(--text);
+      border: 1.5px solid var(--gray-light);
+      transition: all 0.25s;
+      display: flex; flex-direction: column;
+    }
+    .case-card:hover {
+      border-color: var(--teal);
+      box-shadow: 0 8px 24px rgba(26,188,176,0.12);
+      transform: translateY(-2px);
+    }
+    .case-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(26,188,176,0.08);
+      color: var(--teal-dark);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 100px;
+      margin-bottom: 12px; width: fit-content;
+    }
+    .case-card h3 {
+      font-size: 17px; font-weight: 700;
+      margin-bottom: 8px; line-height: 1.3;
+    }
+    .case-card p { font-size: 13px; color: var(--text-soft); line-height: 1.5; flex: 1; }
+    .case-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 16px; padding-top: 16px;
+      border-top: 1px solid var(--gray-light);
+    }
+    .case-price { font-size: 13px; font-weight: 700; color: var(--text); }
+    .case-price span { color: var(--gray); font-weight: 400; }
+    .case-arrow {
+      width: 30px; height: 30px;
+      background: var(--navy);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white); font-size: 14px;
+      transition: background 0.2s;
+    }
+    .case-card:hover .case-arrow { background: var(--teal); }
+    .case-doctors { font-size: 11px; color: var(--gray); margin-top: 6px; }
+
+    /* ─── SURGEONS ─── */
+    .surgeons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .surgeon-card {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 28px 24px;
+      color: var(--white);
+      text-decoration: none;
+      display: block;
+      border: 1.5px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .surgeon-card:hover { border-color: var(--teal); }
+    .surgeon-avatar {
+      width: 64px; height: 64px;
+      background: var(--navy-light);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      margin-bottom: 16px;
+      border: 2px solid rgba(26,188,176,0.3);
+    }
+    .surgeon-specialty {
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--teal); margin-bottom: 6px;
+    }
+    .surgeon-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; margin-bottom: 10px;
+    }
+    .surgeon-card p { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.5; }
+    .surgeon-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    .surgeon-tag {
+      background: rgba(255,255,255,0.08);
+      border-radius: 100px;
+      padding: 4px 10px;
+      font-size: 11px; color: rgba(255,255,255,0.7);
+    }
+    .surgeon-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 16px;
+      font-size: 13px; font-weight: 600;
+      color: var(--teal);
+      text-decoration: none;
+    }
+
+    /* ─── CTA BLOCK ─── */
+    .cta-block {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border-radius: 20px;
+      padding: 48px 32px;
+      text-align: center;
+      color: var(--white);
+    }
+    .cta-block h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 4vw, 30px);
+      margin-bottom: 12px;
+    }
+    .cta-block p { font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 28px; }
+    .btn-cta {
+      display: inline-block;
+      background: var(--teal);
+      color: var(--white);
+      border: none;
+      border-radius: 12px;
+      padding: 16px 36px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 16px; font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-cta:hover { background: var(--teal-dark); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    footer p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.6;
+    }
+    footer a { color: rgba(255,255,255,0.5); }
+
+    @media (max-width: 600px) {
+      .hero { padding: 40px 16px 60px; }
+      section { padding: 40px 16px; }
+      .trust-inner { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="/" class="logo">
+    <div class="logo-badge">ОН</div>
+    <div class="logo-text">
+      <strong>ОН Клінік Дніпро</strong>
+      check-up.in.ua
+    </div>
+  </a>
+  <a href="#quiz" class="header-cta">Записатись</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span>🏥</span> Власний оперблок · Дніпро
+    </div>
+    <h1>Видалення <em>гриж</em>, новоутворень та шкірних дефектів</h1>
+    <p class="hero-sub">
+      Хірург і пластичний хірург в одній команді — хірургічний результат і естетика рубця.
+      Від первинної консультації до виписки в одній клініці.
+    </p>
+
+    <!-- QUIZ -->
+    <div class="quiz-card" id="quiz">
+      <div class="quiz-header">
+        <span class="quiz-title">Підберемо хірурга для вас</span>
+        <div class="quiz-steps">
+          <div class="quiz-step active" id="qs1"></div>
+          <div class="quiz-step" id="qs2"></div>
+          <div class="quiz-step" id="qs3"></div>
+        </div>
+      </div>
+
+      <!-- Step 1 -->
+      <div id="step1">
+        <p class="quiz-question">Що вас турбує?</p>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="selectOption(this,'concern','hernia')">
+            <span class="opt-icon">🫁</span> Грижа (випинання в паху або пупку)
+          </div>
+          <div class="quiz-option" onclick="selectOption(this,'concern','gynecomastia')">
+            <span class="opt-icon">👨</span> Збільшення грудей у чоловіків (гінекомастія)
+          </div>
+          <div class="quiz-option" onclick="selectOption(this,'concern','lipoma')">
+            <span class="opt-icon">🔴</span> Шишка або ущільнення під шкірою (ліпома, атерома)
+          </div>
+          <div class="quiz-option" onclick="selectOption(this,'concern','pilonidal')">
+            <span class="opt-icon">🦴</span> Кіста куприка (біль, виділення)
+          </div>
+          <div class="quiz-option" onclick="selectOption(this,'concern','scars')">
+            <span class="opt-icon">✂️</span> Рубець або косметичний дефект шкіри
+          </div>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz-next" id="nextBtn1" onclick="goStep(2)" disabled>Далі →</button>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div id="step2" style="display:none">
+        <p class="quiz-question">Як давно помітили проблему?</p>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="selectOption(this,'duration','recent')">
+            <span class="opt-icon">🕐</span> Нещодавно (до 6 місяців)
+          </div>
+          <div class="quiz-option" onclick="selectOption(this,'duration','long')">
+            <span class="opt-icon">📅</span> Давно (більше 6 місяців)
+          </div>
+          <div class="quiz-option" onclick="selectOption(this,'duration','acute')">
+            <span class="opt-icon">⚡</span> Болить зараз / гострий стан
+          </div>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz-back" onclick="goStep(1)">← Назад</button>
+          <button class="btn-quiz-next" id="nextBtn2" onclick="goStep(3)" disabled>Далі →</button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div id="step3" style="display:none">
+        <p class="quiz-question">Залиште номер — ми зателефонуємо</p>
+        <div class="quiz-contact">
+          <input type="text" id="contactName" placeholder="Ваше ім'я" />
+          <input type="tel" id="contactPhone" placeholder="+380 __ ___ ____" />
+          <select id="contactTime">
+            <option value="" disabled selected>Зручний час дзвінка</option>
+            <option value="9-12">9:00 – 12:00</option>
+            <option value="12-15">12:00 – 15:00</option>
+            <option value="15-18">15:00 – 18:00</option>
+            <option value="18-20">18:00 – 20:00</option>
+          </select>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz-back" onclick="goStep(2)">← Назад</button>
+          <button class="btn-quiz-next" onclick="submitQuiz()">Записатись на консультацію</button>
+        </div>
+        <p class="quiz-privacy" style="margin-top:10px">
+          Натискаючи кнопку, ви погоджуєтесь з обробкою персональних даних
+        </p>
+      </div>
+
+      <!-- Success -->
+      <div id="stepSuccess" style="display:none">
+        <div class="quiz-success">
+          <div class="success-icon">✅</div>
+          <h3>Дякуємо! Ваш запит прийнято</h3>
+          <p>Координатор клініки зв'яжеться з вами протягом 30 хвилин у робочий час.
+          Разом підберемо зручний час для консультації хірурга.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="t-icon">🏥</div>
+      <div><strong>Власний оперблок</strong>без черг і оренди</div>
+    </div>
+    <div class="trust-item">
+      <div class="t-icon">👨‍⚕️</div>
+      <div><strong>2 хірурги в команді</strong>загальний + пластичний</div>
+    </div>
+    <div class="trust-item">
+      <div class="t-icon">🌙</div>
+      <div><strong>Від 1 доби</strong>госпіталізація</div>
+    </div>
+    <div class="trust-item">
+      <div class="t-icon">💊</div>
+      <div><strong>Повне ведення</strong>від аналізів до виписки</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY -->
+<section>
+  <div class="section-inner">
+    <p class="section-label">Чому OnClinic</p>
+    <h2 class="section-title">Власний оперблок і команда двох хірургів</h2>
+    <p class="section-sub">Не орендоване приміщення, а власна операційна. Загальний хірург і пластичний хірург планують операцію разом.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🔬</div>
+        <h3>Точна діагностика перед операцією</h3>
+        <p>Повний пакет передопераційних аналізів та консультація терапевта в клініці. Нікуди їхати не треба.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">✂️</div>
+        <h3>Мінімальний рубець</h3>
+        <p>Пластичний хірург визначає лінію розрізу. Шов накладається технікою, яка мінімізує утворення видимого рубця.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🛏️</div>
+        <h3>Стаціонар від 1 доби</h3>
+        <p>Після операції — власний стаціонар під спостереженням персоналу. Виписка з чіткими рекомендаціями.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📋</div>
+        <h3>Ви знаєте ціну до операції</h3>
+        <p>Вартість операції, аналізів і стаціонару узгоджується заздалегідь. Без прихованих доплат під час лікування.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section class="cases-section">
+  <div class="section-inner">
+    <p class="section-label">Кейси та операції</p>
+    <h2 class="section-title">Оберіть свій запит</h2>
+    <p class="section-sub">Кожна сторінка — це маршрут: діагноз, метод, ціна, лікарі та запис на консультацію.</p>
+    <div class="cases-grid">
+
+      <a href="hryzha.html" class="case-card">
+        <div class="case-tag">🫁 Грижа</div>
+        <h3>Видалення пупкової або пахової грижі</h3>
+        <p>Відкритий метод з сіткою або без. Контроль болю, мінімальний час відновлення.</p>
+        <p class="case-doctors">Портняга Є.М. · Романчук М.І.</p>
+        <div class="case-footer">
+          <div class="case-price">від 17 000 грн <span>+ аналізи</span></div>
+          <div class="case-arrow">→</div>
+        </div>
+      </a>
+
+      <a href="ginekomastiya.html" class="case-card">
+        <div class="case-tag">👨 Гінекомастія</div>
+        <h3>Видалення збільшених грудей у чоловіків</h3>
+        <p>Два методи: відкрите видалення або мінімальний розріз по ареолі. Естетичний результат.</p>
+        <p class="case-doctors">Портняга Є.М. · Романчук М.І.</p>
+        <div class="case-footer">
+          <div class="case-price">від 15 500 грн <span>+ аналізи</span></div>
+          <div class="case-arrow">→</div>
+        </div>
+      </a>
+
+      <a href="lipoma.html" class="case-card">
+        <div class="case-tag">🔴 Ліпома / Атерома</div>
+        <h3>Видалення підшкірних новоутворень</h3>
+        <p>Ліпоми, атероми від 2 см. Місцева анестезія, амбулаторно або 1 день стаціонар.</p>
+        <p class="case-doctors">Портняга Є.М. · Шимитило О.І.</p>
+        <div class="case-footer">
+          <div class="case-price">від 10 000 грн</div>
+          <div class="case-arrow">→</div>
+        </div>
+      </a>
+
+      <a href="pilonidalna-kista.html" class="case-card">
+        <div class="case-tag">🦴 Кіста куприка</div>
+        <h3>Видалення пілонідальної кісти</h3>
+        <p>Відкритий метод. Усунення причини рецидивів, коректне загоєння, без перев'язок вдома тижнями.</p>
+        <p class="case-doctors">Портняга Є.М. · Романчук М.І.</p>
+        <div class="case-footer">
+          <div class="case-price">від 28 000 грн <span>+ аналізи</span></div>
+          <div class="case-arrow">→</div>
+        </div>
+      </a>
+
+      <a href="korekciya-rubciv.html" class="case-card">
+        <div class="case-tag">✂️ Рубці</div>
+        <h3>Хірургічна корекція рубців</h3>
+        <p>Рубці до 5 і до 10 см. Пластичний хірург — від планування до накладання косметичного шва.</p>
+        <p class="case-doctors">Романчук М.І. · Портняга Є.М.</p>
+        <div class="case-footer">
+          <div class="case-price">від 11 000 грн</div>
+          <div class="case-arrow">→</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- SURGEONS -->
+<section>
+  <div class="section-inner">
+    <p class="section-label">Хірурги</p>
+    <h2 class="section-title">Хто проводить операції</h2>
+    <p class="section-sub">Загальний і пластичний хірург — разом планують і проводять операції у власному оперблоці.</p>
+    <div class="surgeons-grid">
+
+      <a href="likar-portnyaga.html" class="surgeon-card">
+        <div class="surgeon-avatar">👨‍⚕️</div>
+        <p class="surgeon-specialty">Загальна хірургія</p>
+        <h3>Портняга Євген Михайлович</h3>
+        <p>Загальний і абдомінальний хірург. Грижі, видалення новоутворень, пілонідальні кісти, гінекомастія.</p>
+        <div class="surgeon-tags">
+          <span class="surgeon-tag">Грижі</span>
+          <span class="surgeon-tag">Новоутворення</span>
+          <span class="surgeon-tag">Стаціонар</span>
+        </div>
+        <span class="surgeon-link">Детальніше →</span>
+      </a>
+
+      <a href="likar-romanchuk.html" class="surgeon-card">
+        <div class="surgeon-avatar">👨‍⚕️</div>
+        <p class="surgeon-specialty">Пластична хірургія</p>
+        <h3>Романчук Михайло Іванович</h3>
+        <p>Пластичний і реконструктивний хірург. Естетичні результати, мінімальні рубці, корекція дефектів.</p>
+        <div class="surgeon-tags">
+          <span class="surgeon-tag">Пластика</span>
+          <span class="surgeon-tag">Рубці</span>
+          <span class="surgeon-tag">Гінекомастія</span>
+        </div>
+        <span class="surgeon-link">Детальніше →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding: 0 24px 60px;">
+  <div class="section-inner">
+    <div class="cta-block">
+      <h2>Не знаєте, з чого почати?</h2>
+      <p>Запишіться на первинну консультацію хірурга — безпосередньо обговоримо ваш запит і підберемо метод лікування.</p>
+      <a href="#quiz" class="btn-cta">Записатись на консультацію</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">ОН Клінік Дніпро</p>
+  <p>Хірургія · Власний оперблок · Дніпро<br/>
+  <a href="https://check-up.in.ua">check-up.in.ua</a></p>
+</footer>
+
+<script>
+  const answers = {};
+
+  function selectOption(el, key, value) {
+    const parent = el.parentElement;
+    parent.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    answers[key] = value;
+
+    // Enable next button
+    if (key === 'concern') document.getElementById('nextBtn1').disabled = false;
+    if (key === 'duration') document.getElementById('nextBtn2').disabled = false;
+  }
+
+  function goStep(n) {
+    [1,2,3].forEach(i => {
+      document.getElementById('step'+i).style.display = (i===n) ? 'block' : 'none';
+    });
+    // Update progress dots
+    document.getElementById('qs1').className = 'quiz-step' + (n >= 1 ? ' active' : '');
+    document.getElementById('qs2').className = 'quiz-step' + (n >= 2 ? ' active' : '') + (n > 2 ? ' done' : '');
+    document.getElementById('qs3').className = 'quiz-step' + (n >= 3 ? ' active' : '');
+  }
+
+  function submitQuiz() {
+    const name = document.getElementById('contactName').value.trim();
+    const phone = document.getElementById('contactPhone').value.trim();
+    if (!phone) { alert('Будь ласка, вкажіть номер телефону'); return; }
+    // In real implementation: send to webhook/CRM
+    console.log('Lead:', { ...answers, name, phone, time: document.getElementById('contactTime').value });
+    [1,2,3].forEach(i => document.getElementById('step'+i).style.display = 'none');
+    document.getElementById('stepSuccess').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
