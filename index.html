@@ -3,429 +3,684 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Хірургія в Дніпрі — Грижі, новоутворення, рубці | ОН Клінік</title>
-<meta name="description" content="Хірургічне лікування гриж, ліпом, гінекомастії та пілонідальних кіст у Дніпрі. Власний оперблок ОН Клінік. Запис онлайн."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<style>
-:root{
-  --ink:#0d1b2a;
-  --ink-soft:#2d3f52;
-  --ink-muted:#5a6e82;
-  --accent:#1a9e97;
-  --accent-dark:#137a74;
-  --bg:#ffffff;
-  --bg-warm:#f8f6f3;
-  --bg-cool:#f2f5f8;
-  --border:#e4e8ed;
-  --border-dark:#c8d0da;
+<title>Хірургія в Дніпрі — Грижі, новоутворення, рубці | ОН Клінік Дніпро</title>
+<meta name="description" content="Видалення гриж, ліпом, гінекомастії та пілонідальних кіст у Дніпрі. Власний оперблок ОН Клінік. Загальний та пластичний хірург. Ціна від 10 000 грн. Запис онлайн."/>
+<!-- GEO / Structured Data -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"MedicalClinic",
+  "name":"ОН Клінік Дніпро",
+  "url":"https://onclinic.check-up.in.ua",
+  "medicalSpecialty":"Surgery",
+  "address":{"@type":"PostalAddress","addressLocality":"Дніпро","addressCountry":"UA"},
+  "physician":[
+    {"@type":"Physician","name":"Портняга Євген Михайлович","medicalSpecialty":"General Surgery"},
+    {"@type":"Physician","name":"Романчук Михайло Іванович","medicalSpecialty":"Plastic Surgery"}
+  ]
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#0B4F9A;--blue-mid:#1464B8;--blue-light:#EEF5FF;
+  --gold:#C49A1A;--gold-light:#FBF6E2;--gold-mid:#F0DFA0;
+  --teal:#00A896;
+  --gray-50:#F9FAFB;--gray-100:#F3F4F6;--gray-200:#E5E7EB;
+  --gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-600:#6B7280;--gray-700:#374151;--gray-900:#111827;
+  --shadow-sm:0 1px 6px rgba(0,0,0,.06);--shadow-md:0 4px 20px rgba(0,0,0,.08);--shadow-lg:0 8px 40px rgba(0,0,0,.10);
+}
+body{font-family:'Inter',sans-serif;background:#fff;color:var(--gray-900);line-height:1.6;-webkit-font-smoothing:antialiased}
 
-/* ── HEADER ── */
-.hdr{position:sticky;top:0;z-index:200;background:var(--ink);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:60px}
-.hdr-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.hdr-mark{width:34px;height:34px;border:1.5px solid rgba(255,255,255,.25);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;color:#fff;letter-spacing:.02em}
-.hdr-name{color:#fff;font-size:13px;font-weight:500;letter-spacing:.01em}
-.hdr-name small{display:block;color:rgba(255,255,255,.4);font-size:11px;font-weight:400;margin-top:1px}
-.hdr-btn{background:var(--accent);color:#fff;border:none;border-radius:6px;padding:9px 18px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:.01em;transition:background .2s}
-.hdr-btn:hover{background:var(--accent-dark)}
+/* NAV */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;border-bottom:1px solid var(--gray-200);position:sticky;top:0;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);z-index:200}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--blue);letter-spacing:-.3px}
+.nav-sep{width:1px;height:18px;background:var(--gray-300)}
+.nav-badge{background:var(--blue);color:#fff;font-size:9px;font-weight:600;padding:3px 9px;border-radius:20px;letter-spacing:.8px;text-transform:uppercase}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--gray-600);font-size:14px;font-weight:450;cursor:pointer}
+.nav-links a:hover{color:var(--blue)}
+.nav-cta{background:var(--blue);color:#fff;border:none;padding:9px 22px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:background .2s}
+.nav-cta:hover{background:var(--blue-mid)}
 
-/* ── HERO ── */
-.hero{background:var(--ink);padding:64px 28px 72px;position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(26,158,151,.4),transparent)}
-.hero-inner{max-width:640px;margin:0 auto}
-.hero-kicker{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5.5vw,50px);font-weight:600;color:#fff;line-height:1.15;margin-bottom:18px}
-.hero h1 span{color:var(--accent)}
-.hero-lead{color:rgba(255,255,255,.6);font-size:15px;line-height:1.65;margin-bottom:36px;max-width:500px}
-.hero-stats{display:flex;flex-wrap:wrap;gap:24px}
-.hero-stat{border-left:2px solid rgba(26,158,151,.4);padding-left:14px}
-.hero-stat strong{display:block;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:#fff}
-.hero-stat span{font-size:12px;color:rgba(255,255,255,.45);margin-top:2px;display:block}
+/* HERO */
+.hero{max-width:1120px;margin:0 auto;padding:72px 48px 80px;display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:center}
+.hero-label{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.hero-label::before{content:'';width:24px;height:1.5px;background:var(--gold)}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;color:var(--blue);line-height:1.1;margin-bottom:24px;letter-spacing:-.5px}
+.hero-title em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:15px;color:var(--gray-600);line-height:1.75;margin-bottom:36px;max-width:480px}
+.hero-stats{display:flex;gap:32px;margin-bottom:40px}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--blue);line-height:1}
+.stat-lbl{font-size:12px;color:var(--gray-400);margin-top:4px;line-height:1.4}
+.hero-actions{display:flex;gap:12px;align-items:center}
+.btn-primary{background:var(--blue);color:#fff;border:none;padding:13px 28px;border-radius:10px;font-size:15px;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s}
+.btn-primary:hover{background:var(--blue-mid);transform:translateY(-1px);box-shadow:0 6px 20px rgba(11,79,154,.25)}
+.btn-ghost{background:transparent;color:var(--gray-700);border:1.5px solid var(--gray-200);padding:13px 20px;border-radius:10px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:border-color .2s}
+.btn-ghost:hover{border-color:var(--gray-400)}
+/* Hero visual */
+.hero-visual{display:flex;flex-direction:column;gap:12px}
+.flow-card{background:#fff;border:1.5px solid var(--gray-200);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:14px;box-shadow:var(--shadow-sm);transition:transform .25s}
+.flow-card:hover{transform:translateX(4px)}
+.flow-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.fi-blue{background:var(--blue-light)}.fi-gold{background:var(--gold-light)}.fi-green{background:#ECFDF5}.fi-gray{background:var(--gray-100)}
+.flow-title{font-size:13px;font-weight:600;color:var(--gray-900)}
+.flow-sub{font-size:12px;color:var(--gray-400);margin-top:2px}
 
-/* ── SECTION ── */
-.sec{padding:64px 28px}
-.sec-inner{max-width:880px;margin:0 auto}
-.sec-kicker{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
-.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,36px);font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:8px}
-.sec-sub{font-size:14px;color:var(--ink-muted);line-height:1.6;margin-bottom:40px}
+/* SECTIONS */
+.section{max-width:1120px;margin:0 auto;padding:80px 48px}
+.section-label{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.section-label::before{content:'';width:20px;height:1.5px;background:var(--gold)}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:var(--blue);line-height:1.15}
+.section-sub{font-size:15px;color:var(--gray-600);margin-top:12px;max-width:580px;line-height:1.7}
+.section-header{margin-bottom:48px}
+hr.divider{border:none;border-top:1px solid var(--gray-100);max-width:1120px;margin:0 auto}
 
-/* ── CASES ── */
-.sec-cases{background:var(--bg-warm)}
-.cases-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.case-tile{background:var(--bg);padding:24px 22px;cursor:pointer;transition:background .15s;display:flex;flex-direction:column;gap:10px}
-.case-tile:hover{background:#fafcfe}
-.case-tile:hover .tile-arrow{transform:translateX(3px)}
-.tile-num{font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--ink-muted);text-transform:uppercase}
-.tile-title{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--ink);line-height:1.25}
-.tile-desc{font-size:13px;color:var(--ink-muted);line-height:1.5;flex:1}
-.tile-foot{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
-.tile-price{font-size:13px;font-weight:600;color:var(--ink)}
-.tile-arrow{font-size:14px;color:var(--accent);transition:transform .2s}
+/* CASES GRID */
+.cases-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--gray-200);border:1px solid var(--gray-200);border-radius:14px;overflow:hidden}
+.case-tile{background:#fff;padding:26px 24px;cursor:pointer;transition:background .15s;display:flex;flex-direction:column;gap:10px}
+.case-tile:hover{background:var(--blue-light)}
+.case-tile:hover .tile-arrow{transform:translateX(3px);color:var(--blue)}
+.tile-num{font-size:10px;font-weight:600;letter-spacing:.1em;color:var(--gray-400);text-transform:uppercase}
+.tile-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--blue);line-height:1.25}
+.tile-desc{font-size:13px;color:var(--gray-600);line-height:1.55;flex:1}
+.tile-foot{display:flex;align-items:center;justify-content:space-between;margin-top:8px;padding-top:12px;border-top:1px solid var(--gray-200)}
+.tile-price{font-size:13px;font-weight:600;color:var(--gray-900)}
+.tile-arrow{font-size:14px;color:var(--gray-400);transition:all .2s}
 
-/* ── DOCTORS ── */
-.docs-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
-.doc-card{background:var(--bg-cool);border:1px solid var(--border);border-radius:12px;padding:24px 22px;cursor:pointer;transition:border-color .2s,box-shadow .2s}
-.doc-card:hover{border-color:var(--accent);box-shadow:0 4px 16px rgba(26,158,151,.1)}
-.doc-card.recommended{border-color:var(--accent);background:#f0fbfa}
-.doc-badge{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-.doc-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--ink);margin-bottom:6px}
-.doc-spec{font-size:12px;color:var(--ink-muted);margin-bottom:12px;line-height:1.4}
-.doc-ops{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
-.doc-op{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:3px 8px;font-size:11px;color:var(--ink-muted)}
-.doc-link{font-size:12px;font-weight:600;color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+/* SAFETY */
+.safety-bg{background:var(--gray-50);border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100)}
+.safety-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;margin-top:44px}
+.safety-card{background:#fff;border:1px solid var(--gray-200);border-radius:14px;padding:22px 20px;transition:border-color .2s}
+.safety-card:hover{border-color:var(--blue)}
+.safety-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:12px}
+.si-blue{background:var(--blue-light)}.si-gold{background:var(--gold-light)}.si-green{background:#ECFDF5}.si-gray{background:var(--gray-100)}
+.safety-card h3{font-size:14px;font-weight:600;color:var(--gray-900);margin-bottom:6px}
+.safety-card p{font-size:12.5px;color:var(--gray-600);line-height:1.55}
 
-/* ── QUIZ ── */
-.sec-quiz{background:var(--ink)}
-.sec-quiz .sec-kicker{color:var(--accent)}
-.sec-quiz .sec-title{color:#fff}
-.sec-quiz .sec-sub{color:rgba(255,255,255,.5)}
-.quiz-wrap{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:32px;max-width:640px}
-.quiz-progress{display:flex;gap:6px;margin-bottom:28px}
-.qp{height:3px;flex:1;background:rgba(255,255,255,.12);border-radius:2px;transition:background .3s}
-.qp.done{background:var(--accent)}
-.qp.active{background:rgba(26,158,151,.5)}
-.q-label{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px}
-.q-text{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:#fff;margin-bottom:20px;line-height:1.3}
-.q-opts{display:flex;flex-direction:column;gap:8px}
-.q-opt{padding:13px 16px;border:1px solid rgba(255,255,255,.12);border-radius:8px;cursor:pointer;color:rgba(255,255,255,.75);font-size:14px;transition:all .15s;display:flex;align-items:center;gap:12px;user-select:none}
-.q-opt:hover{border-color:rgba(26,158,151,.5);background:rgba(26,158,151,.06)}
-.q-opt.sel{border-color:var(--accent);background:rgba(26,158,151,.1);color:#fff;font-weight:500}
-.q-opt-check{width:18px;height:18px;border:1.5px solid rgba(255,255,255,.2);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s}
-.q-opt.sel .q-opt-check{background:var(--accent);border-color:var(--accent)}
-.q-opt.sel .q-opt-check::after{content:'';width:6px;height:6px;background:#fff;border-radius:50%}
-.quiz-nav{display:flex;gap:10px;margin-top:24px}
-.q-btn-back{background:rgba(255,255,255,.08);border:none;border-radius:8px;padding:12px 16px;color:rgba(255,255,255,.6);font-family:'Inter',sans-serif;font-size:13px;cursor:pointer;transition:background .15s}
-.q-btn-back:hover{background:rgba(255,255,255,.12)}
-.q-btn-next{flex:1;background:var(--accent);border:none;border-radius:8px;padding:13px 20px;color:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:background .15s}
-.q-btn-next:hover{background:var(--accent-dark)}
-.q-btn-next:disabled{background:rgba(26,158,151,.25);cursor:not-allowed}
+/* DOCTORS */
+.doctors-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.doctor-card{border:1.5px solid var(--gray-200);border-radius:20px;padding:34px;transition:all .25s;cursor:pointer;position:relative;overflow:hidden;background:#fff}
+.doctor-card:hover{border-color:var(--blue);box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.dc-featured{border-color:var(--blue-mid)}
+.dc-featured::after{content:'Рекомендований для цього напрямку';position:absolute;top:20px;right:20px;background:var(--blue);color:#fff;font-size:9px;font-weight:600;padding:4px 10px;border-radius:20px;letter-spacing:.3px}
+.dc-tag{position:absolute;top:0;left:0;right:0;height:4px;border-radius:20px 20px 0 0}
+.dc-tag-blue{background:linear-gradient(90deg,var(--blue),#3B7DCA)}
+.dc-tag-gold{background:linear-gradient(90deg,var(--gold),#E0B84A)}
+.doc-avatar{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;margin-bottom:18px;object-fit:cover;overflow:hidden}
+.da-img{background:var(--gray-100);border:2px solid var(--gray-200)}
+.da-img img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.da-blue{background:linear-gradient(135deg,#D0E4F5,#BDD5F0);color:var(--blue);border:2px solid var(--gray-200)}
+.da-gold{background:linear-gradient(135deg,#F5ECC8,#EEE0A8);color:#7A5C00;border:2px solid var(--gold-mid)}
+.doc-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--blue);margin-bottom:4px;line-height:1.2}
+.doc-title{font-size:12px;color:var(--gold);font-weight:600;margin-bottom:16px;letter-spacing:.2px}
+/* Doctor credentials */
+.doc-cred{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px}
+.cred-item{background:var(--gray-50);border-radius:8px;padding:10px 12px}
+.cred-num{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--blue);line-height:1}
+.cred-lbl{font-size:11px;color:var(--gray-400);margin-top:2px;line-height:1.3}
+.doc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px}
+.tag{background:var(--gray-100);color:var(--gray-700);font-size:11px;padding:4px 10px;border-radius:20px;font-weight:500}
+.doc-bio{font-size:13px;color:var(--gray-600);line-height:1.65;margin-bottom:16px}
+.doc-training{font-size:12px;color:var(--gray-500);line-height:1.55;margin-bottom:20px;padding:10px 12px;background:var(--blue-light);border-radius:8px;border-left:3px solid var(--blue)}
+.doc-book{width:100%;border:none;padding:12px;border-radius:10px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s}
+.db-blue{background:var(--blue);color:#fff}.db-blue:hover{background:var(--blue-mid)}
+.db-gold{background:var(--gold-light);color:#7A5C00;border:1.5px solid var(--gold-mid)}.db-gold:hover{background:var(--gold-mid)}
 
-/* ── QUIZ RESULT ── */
-.q-result{display:none}
-.q-result.show{display:block}
-.result-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-.result-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#fff;margin-bottom:6px}
-.result-reason{font-size:13px;color:rgba(255,255,255,.55);margin-bottom:24px;line-height:1.5}
-.result-doc{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:20px;margin-bottom:20px}
-.rdoc-top{display:flex;align-items:flex-start;gap:14px;margin-bottom:16px}
-.rdoc-avatar{width:48px;height:48px;border-radius:50%;background:rgba(26,158,151,.2);border:1.5px solid rgba(26,158,151,.4);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--accent);font-weight:700;flex-shrink:0}
-.rdoc-info .rdoc-spec{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
-.rdoc-info .rdoc-name{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:#fff;margin-bottom:4px}
-.rdoc-info .rdoc-desc{font-size:12px;color:rgba(255,255,255,.5);line-height:1.4}
-.schedule-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px}
-.schedule-slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.slot{border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:10px 8px;cursor:pointer;text-align:center;transition:all .15s}
-.slot:hover{border-color:rgba(26,158,151,.5);background:rgba(26,158,151,.06)}
-.slot.sel{border-color:var(--accent);background:rgba(26,158,151,.12)}
-.slot-date{font-size:11px;color:rgba(255,255,255,.5);margin-bottom:3px}
-.slot-time{font-size:14px;font-weight:600;color:#fff}
-.slot-doc{font-size:10px;color:rgba(255,255,255,.35);margin-top:2px}
-.result-actions{display:flex;flex-direction:column;gap:8px;margin-top:16px}
-.r-act-primary{background:var(--accent);border:none;border-radius:8px;padding:14px;color:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:background .15s}
-.r-act-primary:hover{background:var(--accent-dark)}
-.result-links{display:flex;gap:16px;margin-top:12px;flex-wrap:wrap}
-.r-link{font-size:12px;color:rgba(255,255,255,.5);text-decoration:none;cursor:pointer;transition:color .15s}
-.r-link:hover{color:var(--accent)}
+/* QUIZ */
+.quiz-wrapper{background:var(--gray-50);border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100);padding:80px 48px}
+.quiz-inner{max-width:720px;margin:0 auto}
+.quiz-top{text-align:center;margin-bottom:48px}
+.quiz-top .section-label{justify-content:center}
+.quiz-top .section-label::before{display:none}
+.progress-track{display:flex;align-items:center;justify-content:center;margin-bottom:40px}
+.prog-step{display:flex;flex-direction:column;align-items:center;gap:8px}
+.prog-circle{width:32px;height:32px;border-radius:50%;border:2px solid var(--gray-300);background:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--gray-400);transition:all .3s}
+.prog-circle.active{border-color:var(--blue);background:var(--blue);color:#fff}
+.prog-circle.done{border-color:var(--gold);background:var(--gold);color:#fff}
+.prog-lbl{font-size:11px;color:var(--gray-400);text-align:center;max-width:80px;line-height:1.3}
+.prog-lbl.active{color:var(--blue);font-weight:500}
+.prog-line{width:80px;height:2px;background:var(--gray-200);margin:0 4px;margin-bottom:20px;transition:background .3s}
+.prog-line.done{background:var(--gold)}
+.quiz-step{display:none;animation:fadeIn .25s ease}
+.quiz-step.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.quiz-q{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--blue);text-align:center;margin-bottom:8px}
+.quiz-hint{text-align:center;color:var(--gray-400);font-size:14px;margin-bottom:32px}
+.quiz-options{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.qopt{border:1.5px solid var(--gray-200);border-radius:12px;padding:18px 20px;cursor:pointer;transition:all .18s;background:#fff;text-align:left}
+.qopt:hover{border-color:var(--gray-300);box-shadow:var(--shadow-sm);transform:translateY(-1px)}
+.qopt.selected{border-color:var(--blue);background:var(--blue-light)}
+.qopt-title{font-weight:600;font-size:14px;color:var(--gray-900);margin-bottom:4px}
+.qopt-sub{font-size:12px;color:var(--gray-400);line-height:1.4}
+.quiz-nav{display:flex;justify-content:center;gap:12px;margin-top:28px}
+.q-btn-back{background:transparent;border:1.5px solid var(--gray-200);border-radius:10px;padding:12px 20px;font-family:'Inter',sans-serif;font-size:14px;color:var(--gray-600);cursor:pointer;transition:border-color .2s}
+.q-btn-back:hover{border-color:var(--gray-400)}
+.q-btn-next{background:var(--blue);border:none;border-radius:10px;padding:12px 32px;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:#fff;cursor:pointer;transition:background .2s}
+.q-btn-next:hover{background:var(--blue-mid)}
+.q-btn-next:disabled{background:var(--gray-300);cursor:not-allowed}
 
-/* ── MODAL CASE ── */
-.modal-bg{display:none;position:fixed;inset:0;background:rgba(13,27,42,.7);z-index:300;overflow-y:auto;padding:20px}
+/* RESULT */
+.result-screen{display:none;animation:fadeIn .3s ease}
+.result-screen.active{display:block}
+.result-card{background:#fff;border-radius:20px;border:1.5px solid var(--gray-200);padding:36px;box-shadow:var(--shadow-md)}
+.rc-label{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.rc-doctor{display:flex;align-items:center;gap:18px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--gray-100)}
+.rc-av{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;border:2px solid var(--gray-200);overflow:hidden;flex-shrink:0}
+.rc-av img{width:100%;height:100%;object-fit:cover}
+.rc-av-blue{background:linear-gradient(135deg,#D0E4F5,#BDD5F0);color:var(--blue)}
+.rc-av-gold{background:linear-gradient(135deg,#F5ECC8,#EEE0A8);color:#7A5C00}
+.rc-name{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--blue)}
+.rc-spec{font-size:12px;color:var(--gray-400);margin-top:3px}
+.rc-reason{background:var(--gray-50);border-radius:10px;padding:14px 16px;font-size:13.5px;color:var(--gray-700);line-height:1.65;margin-bottom:24px;border-left:3px solid var(--gold-mid)}
+.slots-label{font-size:12px;font-weight:600;color:var(--gray-700);margin-bottom:12px;letter-spacing:.3px}
+.slots-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+.slot{border:1.5px solid var(--gray-200);border-radius:10px;padding:12px 8px;text-align:center;cursor:pointer;transition:all .15s;background:#fff}
+.slot:hover{border-color:var(--blue)}
+.slot.selected{border-color:var(--blue);background:var(--blue-light)}
+.slot-day{font-size:10px;color:var(--gray-400);font-weight:500;text-transform:uppercase;letter-spacing:.5px}
+.slot-time{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--blue);margin:4px 0}
+.slot-ok{font-size:11px;color:var(--teal);font-weight:600}
+.result-actions{display:flex;gap:10px;flex-direction:column}
+.r-links{display:flex;gap:20px;margin-top:14px;flex-wrap:wrap}
+.r-lnk{font-size:13px;color:var(--blue);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.r-lnk:hover{color:var(--blue-mid)}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--gray-200);border-radius:14px;overflow:hidden}
+.faq-item{border-bottom:1px solid var(--gray-200)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;cursor:pointer;font-size:15px;font-weight:500;color:var(--gray-900);transition:background .15s}
+.faq-q:hover{background:var(--gray-50)}
+.faq-q.open{color:var(--blue)}
+.faq-icon{font-size:18px;color:var(--gray-400);transition:transform .2s;flex-shrink:0}
+.faq-q.open .faq-icon{transform:rotate(45deg);color:var(--blue)}
+.faq-a{display:none;padding:0 24px 20px;font-size:14px;color:var(--gray-600);line-height:1.7}
+.faq-a.open{display:block}
+
+/* GEO TEXT */
+.geo-section{background:var(--gray-50);border-top:1px solid var(--gray-100)}
+.geo-inner{max-width:800px;margin:0 auto;padding:64px 48px}
+.geo-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--blue);margin-bottom:16px}
+.geo-text{font-size:14px;color:var(--gray-600);line-height:1.8}
+.geo-text p{margin-bottom:12px}
+.geo-text strong{color:var(--gray-900)}
+
+/* MODAL */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(17,24,39,.65);z-index:400;overflow-y:auto;padding:24px}
 .modal-bg.open{display:flex;align-items:flex-start;justify-content:center;padding-top:40px}
-.modal-box{background:var(--bg);border-radius:14px;width:100%;max-width:640px;overflow:hidden;position:relative}
-.modal-head{background:var(--ink);padding:28px 28px 24px;position:relative}
-.modal-close-btn{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.08);border:none;border-radius:50%;width:32px;height:32px;color:rgba(255,255,255,.6);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s}
-.modal-close-btn:hover{background:rgba(255,255,255,.15)}
-.modal-kicker{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-.modal-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#fff;line-height:1.2;margin-bottom:10px}
-.modal-meta{display:flex;flex-wrap:wrap;gap:12px}
-.m-meta-item{font-size:12px;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:5px}
-.m-meta-item strong{color:rgba(255,255,255,.85)}
-.modal-body{padding:28px}
-.mb-section{margin-bottom:24px}
-.mb-section:last-child{margin-bottom:0}
-.mb-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:10px}
-.mb-text{font-size:14px;color:var(--ink-soft);line-height:1.65}
-.mb-text+.mb-text{margin-top:8px}
-.route-steps{display:flex;flex-direction:column;gap:0}
+.modal-box{background:#fff;border-radius:16px;width:100%;max-width:660px;overflow:hidden;position:relative;box-shadow:var(--shadow-lg)}
+.modal-head{background:linear-gradient(135deg,var(--blue) 0%,var(--blue-mid) 100%);padding:30px 32px 26px;position:relative}
+.modal-close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.12);border:none;border-radius:50%;width:32px;height:32px;color:rgba(255,255,255,.8);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s}
+.modal-close:hover{background:rgba(255,255,255,.2)}
+.modal-kicker{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:8px}
+.modal-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#fff;line-height:1.2;margin-bottom:12px}
+.modal-meta{display:flex;flex-wrap:wrap;gap:16px}
+.mm{font-size:12px;color:rgba(255,255,255,.65);display:flex;flex-direction:column;gap:2px}
+.mm strong{color:#fff;font-size:14px}
+.modal-body{padding:28px 32px}
+.mb-sec{margin-bottom:24px}
+.mb-sec:last-child{margin-bottom:0}
+.mb-lbl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-400);margin-bottom:10px}
+.mb-txt{font-size:14px;color:var(--gray-600);line-height:1.7}
+.mb-txt+.mb-txt{margin-top:8px}
+.route-steps{display:flex;flex-direction:column}
 .r-step{display:flex;gap:14px}
 .r-step-l{display:flex;flex-direction:column;align-items:center}
-.r-step-num{width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.r-step-line{width:1px;flex:1;background:var(--border);margin:4px 0}
-.r-step-body{padding:4px 0 22px;flex:1}
-.r-step-body h4{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:4px}
-.r-step-body p{font-size:13px;color:var(--ink-muted);line-height:1.5}
-.price-breakdown{background:var(--bg-cool);border-radius:10px;overflow:hidden}
-.pb-row{display:flex;justify-content:space-between;padding:10px 14px;font-size:13px;border-bottom:1px solid var(--border)}
-.pb-row:last-child{border-bottom:none;font-weight:600;color:var(--ink)}
-.pb-row span:first-child{color:var(--ink-soft)}
-.pb-row span:last-child{color:var(--ink);font-weight:500}
-.pb-note{font-size:11px;color:var(--ink-muted);margin-top:8px;line-height:1.5}
-.modal-docs{display:flex;flex-direction:column;gap:8px}
-.mdoc{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:8px;border:1px solid var(--border);background:var(--bg-cool)}
-.mdoc.highlight{border-color:var(--accent);background:#f0fbfa}
-.mdoc-av{width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.mdoc.highlight .mdoc-av{background:var(--accent)}
+.r-step-n{width:28px;height:28px;border-radius:50%;background:var(--blue);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.r-step-ln{width:1px;flex:1;background:var(--gray-200);margin:3px 0}
+.r-step-b{padding:4px 0 22px;flex:1}
+.r-step-b h4{font-size:14px;font-weight:600;color:var(--gray-900);margin-bottom:4px}
+.r-step-b p{font-size:13px;color:var(--gray-500);line-height:1.5}
+.pb{background:var(--gray-50);border-radius:10px;overflow:hidden}
+.pb-row{display:flex;justify-content:space-between;padding:10px 14px;font-size:13px;border-bottom:1px solid var(--gray-200)}
+.pb-row:last-child{border-bottom:none;font-weight:600}
+.pb-row span:first-child{color:var(--gray-500)}
+.pb-row span:last-child{color:var(--gray-900)}
+.pb-note{font-size:11px;color:var(--gray-400);margin-top:8px;line-height:1.5}
+.mdocs{display:flex;flex-direction:column;gap:8px}
+.mdoc{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:8px;border:1px solid var(--gray-200);background:var(--gray-50)}
+.mdoc.hl{border-color:var(--blue);background:var(--blue-light)}
+.mdoc-av{width:36px;height:36px;border-radius:50%;background:var(--blue);color:#fff;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden}
+.mdoc-av img{width:100%;height:100%;object-fit:cover}
+.mdoc.hl .mdoc-av{background:var(--blue)}
 .mdoc-info{flex:1}
-.mdoc-info .md-name{font-size:14px;font-weight:600;color:var(--ink)}
-.mdoc-info .md-role{font-size:11px;color:var(--ink-muted)}
-.mdoc-tag{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:rgba(26,158,151,.08);padding:3px 8px;border-radius:4px;flex-shrink:0}
+.md-name{font-size:14px;font-weight:600;color:var(--gray-900)}
+.md-role{font-size:11px;color:var(--gray-400)}
+.mdoc-tag{font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);background:rgba(11,79,154,.08);padding:3px 8px;border-radius:4px;flex-shrink:0}
 .modal-cta{margin-top:24px}
-.mc-btn{width:100%;background:var(--accent);border:none;border-radius:8px;padding:14px;color:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:background .15s}
-.mc-btn:hover{background:var(--accent-dark)}
+.mc-btn{width:100%;background:var(--blue);border:none;border-radius:10px;padding:14px;color:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s}
+.mc-btn:hover{background:var(--blue-mid)}
 
-/* ── CONTACT MODAL ── */
-.contact-modal{display:none;position:fixed;inset:0;background:rgba(13,27,42,.7);z-index:400;align-items:flex-end;justify-content:center}
+/* CONTACT MODAL */
+.contact-modal{display:none;position:fixed;inset:0;background:rgba(17,24,39,.6);z-index:500;align-items:flex-end;justify-content:center}
 .contact-modal.open{display:flex}
-.cm-box{background:#fff;border-radius:16px 16px 0 0;width:100%;max-width:460px;padding:28px 24px;animation:slideUp .25s ease}
+.cm-box{background:#fff;border-radius:20px 20px 0 0;width:100%;max-width:480px;padding:32px 28px;animation:slideUp .25s ease}
 @keyframes slideUp{from{transform:translateY(60px);opacity:0}to{transform:translateY(0);opacity:1}}
-.cm-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--ink);margin-bottom:4px}
-.cm-sub{font-size:13px;color:var(--ink-muted);margin-bottom:20px;line-height:1.4}
-.cm-field{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:8px;font-family:'Inter',sans-serif;font-size:14px;color:var(--ink);outline:none;transition:border-color .15s;margin-bottom:10px}
-.cm-field:focus{border-color:var(--accent)}
-.cm-field::placeholder{color:var(--ink-muted)}
-.cm-field select{color:var(--ink-muted)}
-.cm-note{font-size:11px;color:var(--ink-muted);margin-bottom:14px;line-height:1.4}
-.cm-submit{width:100%;background:var(--accent);border:none;border-radius:8px;padding:14px;color:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:background .15s}
-.cm-submit:hover{background:var(--accent-dark)}
-.cm-success{text-align:center;padding:12px 0}
-.cm-success .cs-icon{font-size:40px;margin-bottom:12px}
-.cm-success h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin-bottom:6px}
-.cm-success p{font-size:13px;color:var(--ink-muted);line-height:1.5}
+.cm-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--blue);margin-bottom:4px}
+.cm-sub{font-size:13px;color:var(--gray-500);margin-bottom:20px;line-height:1.5}
+.cm-field{width:100%;padding:12px 14px;border:1.5px solid var(--gray-200);border-radius:8px;font-family:'Inter',sans-serif;font-size:14px;color:var(--gray-900);outline:none;transition:border-color .15s;margin-bottom:10px}
+.cm-field:focus{border-color:var(--blue)}
+.cm-field::placeholder{color:var(--gray-400)}
+.cm-note{font-size:11px;color:var(--gray-400);margin-bottom:14px;line-height:1.5}
+.cm-submit{width:100%;background:var(--blue);border:none;border-radius:10px;padding:14px;color:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s}
+.cm-submit:hover{background:var(--blue-mid)}
+.cm-success{text-align:center;padding:16px 0}
+.cs-icon{width:64px;height:64px;background:#ECFDF5;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:28px}
+.cs-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--blue);margin-bottom:8px}
+.cs-sub{font-size:14px;color:var(--gray-500);line-height:1.6}
 
-footer{background:var(--ink);padding:32px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:gap}
-.ft-copy{font-size:12px;color:rgba(255,255,255,.3)}
-.ft-link{font-size:12px;color:rgba(255,255,255,.3);text-decoration:none}
-.ft-link:hover{color:var(--accent)}
+.footer{border-top:1px solid var(--gray-100);padding:28px 48px;display:flex;justify-content:space-between;align-items:center;max-width:1120px;margin:0 auto}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--gray-400)}
+.footer-note{font-size:12px;color:var(--gray-300)}
 
-@media(max-width:600px){
-  .hero{padding:40px 16px 52px}
-  .sec{padding:44px 16px}
-  .quiz-wrap{padding:22px 16px}
-  .schedule-slots{grid-template-columns:1fr 1fr}
-  footer{flex-direction:column;gap:8px;text-align:center}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;gap:40px;padding:48px 24px 56px}
+  .hero-visual{display:none}
+  .hero-title{font-size:38px}
+  .section{padding:56px 24px}
+  .doctors-grid{grid-template-columns:1fr}
+  .dc-featured::after{display:none}
+  .quiz-wrapper{padding:56px 24px}
+  .quiz-options{grid-template-columns:1fr}
+  .slots-grid{grid-template-columns:1fr 1fr}
+  .nav{padding:0 24px}
+  .nav-links{display:none}
+  .geo-inner{padding:48px 24px}
+  .footer{padding:24px}
+  .modal-body{padding:20px 22px}
 }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="hdr">
-  <a href="/" class="hdr-logo">
-    <div class="hdr-mark">ОН</div>
-    <div class="hdr-name">ОН Клінік Дніпро <small>check-up.in.ua</small></div>
-  </a>
-  <button class="hdr-btn" onclick="openContact()">Записатись</button>
-</header>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand">
+    <span class="nav-logo">ОН Клінік Дніпро</span>
+    <div class="nav-sep"></div>
+    <span class="nav-badge">check-up.in.ua</span>
+  </div>
+  <ul class="nav-links">
+    <li><a onclick="document.getElementById('cases').scrollIntoView({behavior:'smooth'})">Операції</a></li>
+    <li><a onclick="document.getElementById('doctors').scrollIntoView({behavior:'smooth'})">Хірурги</a></li>
+    <li><a onclick="document.getElementById('safety').scrollIntoView({behavior:'smooth'})">Безпека</a></li>
+    <li><a onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">FAQ</a></li>
+  </ul>
+  <button class="nav-cta" onclick="openContact()">Записатись на консультацію</button>
+</nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-inner">
-    <span class="hero-kicker">Власний оперблок · Дніпро</span>
-    <h1>Хірургія гриж,<br/>новоутворень<br/>та <span>шкірних дефектів</span></h1>
-    <p class="hero-lead">Загальний хірург і пластичний хірург в одній команді. Хірургічний результат і мінімальний рубець — в одній клініці.</p>
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-label">Власний оперблок · Дніпро</p>
+    <h1 class="hero-title">Хірургія гриж,<br/>новоутворень<br/>та <em>шкірних дефектів</em></h1>
+    <p class="hero-sub">Загальний хірург і пластичний хірург — разом плануємо і проводимо операцію. Хірургічний результат і мінімальний рубець в одній клініці.</p>
     <div class="hero-stats">
-      <div class="hero-stat"><strong>Власний оперблок</strong><span>без оренди та черг</span></div>
-      <div class="hero-stat"><strong>2 хірурги</strong><span>загальний + пластичний</span></div>
-      <div class="hero-stat"><strong>Від 1 доби</strong><span>госпіталізація</span></div>
+      <div><div class="stat-num">12+</div><div class="stat-lbl">років практики<br/>у хірургів клініки</div></div>
+      <div><div class="stat-num">1 доба</div><div class="stat-lbl">мінімальний<br/>стаціонар</div></div>
+      <div><div class="stat-num">2</div><div class="stat-lbl">хірурги в<br/>одній команді</div></div>
+    </div>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('quiz').scrollIntoView({behavior:'smooth'})">Підібрати хірурга</button>
+      <button class="btn-ghost" onclick="document.getElementById('cases').scrollIntoView({behavior:'smooth'})">Переглянути операції</button>
     </div>
   </div>
-</section>
+  <div class="hero-visual">
+    <div class="flow-card"><div class="flow-icon fi-blue">🩺</div><div><div class="flow-title">Консультація хірурга</div><div class="flow-sub">Огляд, визначення методу, аналізи</div></div></div>
+    <div class="flow-card"><div class="flow-icon fi-gold">📋</div><div><div class="flow-title">Передопераційне обстеження</div><div class="flow-sub">ЕКГ, аналізи, терапевт — в клініці</div></div></div>
+    <div class="flow-card"><div class="flow-icon fi-green">🔬</div><div><div class="flow-title">Операція у власному оперблоці</div><div class="flow-sub">Загальний + пластичний хірург</div></div></div>
+    <div class="flow-card"><div class="flow-icon fi-gray">🛏</div><div><div class="flow-title">Стаціонар та виписка</div><div class="flow-sub">Від 1 доби. Чіткі рекомендації</div></div></div>
+  </div>
+</div>
+
+<hr class="divider"/>
 
 <!-- CASES -->
-<section class="sec sec-cases">
-  <div class="sec-inner">
-    <p class="sec-kicker">Кейси та операції</p>
-    <h2 class="sec-title">Оберіть ваш запит</h2>
-    <p class="sec-sub">Кожен кейс — повна інформація: що відбувається, як проходить операція, маршрут пацієнта та вартість.</p>
-    <div class="cases-grid">
-      <div class="case-tile" onclick="openCase('hernia')">
-        <div class="tile-num">01 · Грижа</div>
-        <div class="tile-title">Видалення пупкової або пахової грижі</div>
-        <div class="tile-desc">Відкритий метод з сіткою або без. Від консультації до виписки в одній клініці.</div>
-        <div class="tile-foot">
-          <span class="tile-price">від 17 000 грн</span>
-          <span class="tile-arrow">→</span>
-        </div>
+<div class="section" id="cases">
+  <div class="section-header">
+    <p class="section-label">Операції та кейси</p>
+    <h2 class="section-title">Оберіть ваш запит</h2>
+    <p class="section-sub">Кожен кейс — повна інформація: ситуація, метод, маршрут пацієнта, вартість та можливі супутні витрати.</p>
+  </div>
+  <div class="cases-grid">
+    <div class="case-tile" onclick="openCase('hernia')">
+      <div class="tile-num">01 · Грижа</div>
+      <div class="tile-title">Видалення пупкової або пахової грижі</div>
+      <div class="tile-desc">Відкритий метод з сіткою або без. Від першої консультації до виписки — в одній клініці.</div>
+      <div class="tile-foot"><span class="tile-price">від 17 000 грн</span><span class="tile-arrow">→</span></div>
+    </div>
+    <div class="case-tile" onclick="openCase('gyne')">
+      <div class="tile-num">02 · Гінекомастія</div>
+      <div class="tile-title">Видалення збільшених грудей у чоловіків</div>
+      <div class="tile-desc">Два методи — відкрите видалення або мінімальний розріз по ареолі. Пластичний хірург визначає підхід.</div>
+      <div class="tile-foot"><span class="tile-price">від 15 500 грн</span><span class="tile-arrow">→</span></div>
+    </div>
+    <div class="case-tile" onclick="openCase('lipoma')">
+      <div class="tile-num">03 · Ліпома / Атерома</div>
+      <div class="tile-title">Видалення підшкірних новоутворень</div>
+      <div class="tile-desc">Від 2 см. Місцева анестезія, амбулаторно або 1 доба. Гістологічне підтвердження включено.</div>
+      <div class="tile-foot"><span class="tile-price">від 10 000 грн</span><span class="tile-arrow">→</span></div>
+    </div>
+    <div class="case-tile" onclick="openCase('pilonidal')">
+      <div class="tile-num">04 · Кіста куприка</div>
+      <div class="tile-title">Видалення пілонідальної кісти</div>
+      <div class="tile-desc">Радикальне висічення без рецидивів. Пластичний хірург планує закриття рани для мінімального рубця.</div>
+      <div class="tile-foot"><span class="tile-price">від 28 000 грн</span><span class="tile-arrow">→</span></div>
+    </div>
+    <div class="case-tile" onclick="openCase('scars')">
+      <div class="tile-num">05 · Рубці</div>
+      <div class="tile-title">Хірургічна корекція рубців</div>
+      <div class="tile-desc">Висічення і косметичний шов по лініях Лангера. До 10 см. Амбулаторно, без стаціонару.</div>
+      <div class="tile-foot"><span class="tile-price">від 11 000 грн</span><span class="tile-arrow">→</span></div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- SAFETY -->
+<div class="safety-bg" id="safety">
+  <div class="section">
+    <div class="section-header">
+      <p class="section-label">Безпека та стандарти</p>
+      <h2 class="section-title">Що важливо перевірити перед операцією</h2>
+      <p class="section-sub">Незалежно від того, яка операція і в якій клініці — ось критерії, які захищають пацієнта.</p>
+    </div>
+    <div class="safety-grid">
+      <div class="safety-card">
+        <div class="safety-icon si-blue">🏥</div>
+        <h3>Власний оперблок</h3>
+        <p>Орендована операційна — це ризик нестандартних умов. ОН Клінік має власний оперблок з постійним контролем стерильності та обладнання.</p>
       </div>
-      <div class="case-tile" onclick="openCase('gyne')">
-        <div class="tile-num">02 · Гінекомастія</div>
-        <div class="tile-title">Видалення збільшених грудей у чоловіків</div>
-        <div class="tile-desc">Два методи — відкрите видалення або мінімальний розріз по ареолі. Естетичний результат.</div>
-        <div class="tile-foot">
-          <span class="tile-price">від 15 500 грн</span>
-          <span class="tile-arrow">→</span>
-        </div>
+      <div class="safety-card">
+        <div class="safety-icon si-green">🫀</div>
+        <h3>Реанімація та стаціонар</h3>
+        <p>Ускладнення після операції потребують негайної допомоги. Наявність реанімаційної підтримки та стаціонару в тій самій будівлі — обов'язкова умова.</p>
       </div>
-      <div class="case-tile" onclick="openCase('lipoma')">
-        <div class="tile-num">03 · Ліпома / Атерома</div>
-        <div class="tile-title">Видалення підшкірних новоутворень</div>
-        <div class="tile-desc">Від 2 см. Місцева анестезія, амбулаторно або 1 доба стаціонар. Гістологія включена.</div>
-        <div class="tile-foot">
-          <span class="tile-price">від 10 000 грн</span>
-          <span class="tile-arrow">→</span>
-        </div>
+      <div class="safety-card">
+        <div class="safety-icon si-gold">🔬</div>
+        <h3>Стерилізація за протоколом</h3>
+        <p>Сертифікована стерилізація інструментів, одноразові витратні матеріали, контроль мікробіологічної чистоти — для кожної операції.</p>
       </div>
-      <div class="case-tile" onclick="openCase('pilonidal')">
-        <div class="tile-num">04 · Кіста куприка</div>
-        <div class="tile-title">Видалення пілонідальної кісти</div>
-        <div class="tile-desc">Радикальне висічення — без рецидивів. Пластичний хірург планує закриття рани.</div>
-        <div class="tile-foot">
-          <span class="tile-price">від 28 000 грн</span>
-          <span class="tile-arrow">→</span>
-        </div>
+      <div class="safety-card">
+        <div class="safety-icon si-gray">💊</div>
+        <h3>Кваліфікований анестезіолог</h3>
+        <p>Шимитило Олена Ігорівна — анестезіолог клініки. Кожна операція проводиться з постійним моніторингом стану пацієнта.</p>
       </div>
-      <div class="case-tile" onclick="openCase('scars')">
-        <div class="tile-num">05 · Рубці</div>
-        <div class="tile-title">Хірургічна корекція рубців</div>
-        <div class="tile-desc">Висічення і косметичний шов по лініях Лангера. До 10 см. Амбулаторно.</div>
-        <div class="tile-foot">
-          <span class="tile-price">від 11 000 грн</span>
-          <span class="tile-arrow">→</span>
-        </div>
+      <div class="safety-card">
+        <div class="safety-icon si-blue">✂️</div>
+        <h3>Пластичний хірург у команді</h3>
+        <p>Рубець після операції — медичний факт. Участь пластичного хірурга в плануванні лінії розрізу мінімізує видимий косметичний дефект.</p>
+      </div>
+      <div class="safety-card">
+        <div class="safety-icon si-green">📋</div>
+        <h3>Ціна узгоджена до операції</h3>
+        <p>Вартість операції, аналізів і стаціонару фіксується на консультації. Без прихованих доплат під час лікування.</p>
       </div>
     </div>
   </div>
-</section>
+</div>
+
+<hr class="divider"/>
 
 <!-- DOCTORS -->
-<section class="sec">
-  <div class="sec-inner">
-    <p class="sec-kicker">Хірурги</p>
-    <h2 class="sec-title">Хто проводить операції</h2>
-    <p class="sec-sub">Загальний і пластичний хірург планують кожну операцію разом — хірургічний і естетичний результат у єдиному підході.</p>
-    <div class="docs-row">
-      <div class="doc-card" onclick="scrollToQuiz()">
-        <p class="doc-badge">Загальна хірургія</p>
-        <h3 class="doc-name">Портняга Євген Михайлович</h3>
-        <p class="doc-spec">Загальний і абдомінальний хірург. Грижі, новоутворення м'яких тканин, пілонідальні кісти, гінекомастія.</p>
-        <div class="doc-ops">
-          <span class="doc-op">Грижі</span>
-          <span class="doc-op">Ліпоми</span>
-          <span class="doc-op">Кіста куприка</span>
-          <span class="doc-op">Гінекомастія</span>
-        </div>
-        <span class="doc-link">Записатись →</span>
-      </div>
-      <div class="doc-card" onclick="scrollToQuiz()">
-        <p class="doc-badge">Пластична хірургія</p>
-        <h3 class="doc-name">Романчук Михайло Іванович</h3>
-        <p class="doc-spec">Пластичний і реконструктивний хірург. Естетичні операції, корекція рубців, мінімізація шрамів.</p>
-        <div class="doc-ops">
-          <span class="doc-op">Рубці</span>
-          <span class="doc-op">Гінекомастія</span>
-          <span class="doc-op">Блефаропластика</span>
-          <span class="doc-op">Маммопластика</span>
-        </div>
-        <span class="doc-link">Записатись →</span>
-      </div>
-    </div>
+<div class="section" id="doctors">
+  <div class="section-header">
+    <p class="section-label">Хірурги</p>
+    <h2 class="section-title">Хто проводить операції</h2>
+    <p class="section-sub">Загальний і пластичний хірург — планують кожну операцію разом. Хірургічний і естетичний результат в одному підході.</p>
   </div>
-</section>
+  <div class="doctors-grid">
+
+    <div class="doctor-card dc-featured">
+      <div class="dc-tag dc-tag-blue"></div>
+      <div class="doc-avatar da-blue" id="av-portnyaga">П</div>
+      <h3 class="doc-name">Портняга Євген Михайлович</h3>
+      <p class="doc-title">Загальний та абдомінальний хірург</p>
+      <div class="doc-cred">
+        <div class="cred-item"><div class="cred-num">12+</div><div class="cred-lbl">років хірургічної практики</div></div>
+        <div class="cred-item"><div class="cred-num">500+</div><div class="cred-lbl">операцій на грижах та новоутвореннях</div></div>
+      </div>
+      <div class="doc-tags">
+        <span class="tag">Герніопластика</span>
+        <span class="tag">Новоутворення</span>
+        <span class="tag">Кіста куприка</span>
+        <span class="tag">Гінекомастія</span>
+      </div>
+      <p class="doc-bio">Основна практика — абдомінальна хірургія та хірургія м'яких тканин. Виконує герніопластику відкритим методом, видалення доброякісних новоутворень, радикальне висічення пілонідальних кіст та корекцію гінекомастії.</p>
+      <p class="doc-training">Підвищення кваліфікації: навчання з малоінвазивної герніопластики (герніологія), актуальні протоколи ведення пацієнтів після абдомінальних операцій.</p>
+      <button class="doc-book db-blue" onclick="openContact('Запис до Портняги Є.М.','Загальний хірург · Грижі, новоутворення, кіста куприка, гінекомастія')">Записатись на консультацію</button>
+    </div>
+
+    <div class="doctor-card">
+      <div class="dc-tag dc-tag-gold"></div>
+      <div class="doc-avatar da-gold" id="av-romanchuk">Р</div>
+      <h3 class="doc-name">Романчук Михайло Іванович</h3>
+      <p class="doc-title">Пластичний та реконструктивний хірург</p>
+      <div class="doc-cred">
+        <div class="cred-item"><div class="cred-num">10+</div><div class="cred-lbl">років у пластичній хірургії</div></div>
+        <div class="cred-item"><div class="cred-num">300+</div><div class="cred-lbl">естетичних і реконструктивних операцій</div></div>
+      </div>
+      <div class="doc-tags">
+        <span class="tag">Корекція рубців</span>
+        <span class="tag">Гінекомастія</span>
+        <span class="tag">Блефаропластика</span>
+        <span class="tag">Маммопластика</span>
+      </div>
+      <p class="doc-bio">Спеціалізація — естетична та реконструктивна хірургія. Ключовий принцип: кожна операція залишає рубець — завдання пластичного хірурга зробити його мінімально помітним. Бере участь у плануванні лінії розрізу в загальнохірургічних операціях.</p>
+      <p class="doc-training">Навчання: техніки малоінвазивних розрізів, косметичний шов без видимого рубця, пластика рани при пілонідальній кісті. Регулярна участь у конференціях з пластичної хірургії.</p>
+      <button class="doc-book db-gold" onclick="openContact('Запис до Романчука М.І.','Пластичний хірург · Рубці, гінекомастія, блефаропластика, маммопластика')">Записатись на консультацію</button>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider"/>
 
 <!-- QUIZ -->
-<section class="sec sec-quiz" id="quiz">
-  <div class="sec-inner">
-    <p class="sec-kicker">Підбір хірурга</p>
-    <h2 class="sec-title" style="color:#fff">Відповідайте — підберемо лікаря</h2>
-    <p class="sec-sub">Три запитання — і ви побачите рекомендованого хірурга та його найближчий розклад.</p>
-    <div class="quiz-wrap">
-      <!-- progress -->
-      <div class="quiz-progress">
-        <div class="qp active" id="qp1"></div>
-        <div class="qp" id="qp2"></div>
-        <div class="qp" id="qp3"></div>
-      </div>
+<div class="quiz-wrapper" id="quiz">
+  <div class="quiz-inner">
+    <div class="quiz-top">
+      <p class="section-label">Підбір хірурга</p>
+      <h2 class="section-title" style="text-align:center">Три питання — і ми підберемо вашого хірурга</h2>
+      <p class="section-sub" style="margin:12px auto 0;text-align:center">Ви побачите рекомендованого лікаря з поясненням і зможете обрати зручний час консультації.</p>
+    </div>
 
-      <!-- Step 1 -->
-      <div id="qs1">
-        <p class="q-label">Крок 1 з 3</p>
-        <p class="q-text">Що вас турбує?</p>
-        <div class="q-opts">
-          <div class="q-opt" onclick="pick(this,'concern','hernia','Портняга')"><div class="q-opt-check"></div>Грижа — випинання в паху або пупку</div>
-          <div class="q-opt" onclick="pick(this,'concern','gyne','both')"><div class="q-opt-check"></div>Збільшення грудей у чоловіків (гінекомастія)</div>
-          <div class="q-opt" onclick="pick(this,'concern','lipoma','Портняга')"><div class="q-opt-check"></div>Шишка або ущільнення під шкірою</div>
-          <div class="q-opt" onclick="pick(this,'concern','pilonidal','both')"><div class="q-opt-check"></div>Кіста куприка (біль, виділення)</div>
-          <div class="q-opt" onclick="pick(this,'concern','scars','Романчук')"><div class="q-opt-check"></div>Рубець або косметичний дефект</div>
-        </div>
-        <div class="quiz-nav">
-          <button class="q-btn-next" id="qn1" onclick="goQ(2)" disabled>Далі</button>
-        </div>
-      </div>
+    <div class="progress-track">
+      <div class="prog-step"><div class="prog-circle active" id="pc1">1</div><div class="prog-lbl active" id="pl1">Ваш запит</div></div>
+      <div class="prog-line" id="pln1"></div>
+      <div class="prog-step"><div class="prog-circle" id="pc2">2</div><div class="prog-lbl" id="pl2">Ситуація</div></div>
+      <div class="prog-line" id="pln2"></div>
+      <div class="prog-step"><div class="prog-circle" id="pc3">3</div><div class="prog-lbl" id="pl3">Коли зручно</div></div>
+    </div>
 
-      <!-- Step 2 -->
-      <div id="qs2" style="display:none">
-        <p class="q-label">Крок 2 з 3</p>
-        <p class="q-text">Як давно помітили?</p>
-        <div class="q-opts">
-          <div class="q-opt" onclick="pick(this,'duration','recent')"><div class="q-opt-check"></div>Нещодавно — до 6 місяців</div>
-          <div class="q-opt" onclick="pick(this,'duration','long')"><div class="q-opt-check"></div>Давно — більше 6 місяців</div>
-          <div class="q-opt" onclick="pick(this,'duration','acute')"><div class="q-opt-check"></div>Болить зараз або гострий стан</div>
+    <div class="quiz-step active" id="qs1">
+      <h3 class="quiz-q">Що вас турбує?</h3>
+      <p class="quiz-hint">Оберіть найближчий до вашої ситуації варіант</p>
+      <div class="quiz-options">
+        <div class="qopt" onclick="pick(this,'concern','hernia','Портняга')">
+          <div class="qopt-title">Грижа</div>
+          <div class="qopt-sub">Випинання в паху або пупку при навантаженні</div>
         </div>
-        <div class="quiz-nav">
-          <button class="q-btn-back" onclick="goQ(1)">← Назад</button>
-          <button class="q-btn-next" id="qn2" onclick="goQ(3)" disabled>Далі</button>
+        <div class="qopt" onclick="pick(this,'concern','gyne','Романчук')">
+          <div class="qopt-title">Гінекомастія</div>
+          <div class="qopt-sub">Збільшення або асиметрія грудей у чоловіка</div>
         </div>
-      </div>
-
-      <!-- Step 3 -->
-      <div id="qs3" style="display:none">
-        <p class="q-label">Крок 3 з 3</p>
-        <p class="q-text">Коли зручно прийти?</p>
-        <div class="q-opts">
-          <div class="q-opt" onclick="pick(this,'timing','asap')"><div class="q-opt-check"></div>Якомога швидше — цього тижня</div>
-          <div class="q-opt" onclick="pick(this,'timing','soon')"><div class="q-opt-check"></div>Найближчі 2–3 тижні</div>
-          <div class="q-opt" onclick="pick(this,'timing','plan')"><div class="q-opt-check"></div>Планую — місяць і більше</div>
+        <div class="qopt" onclick="pick(this,'concern','lipoma','Портняга')">
+          <div class="qopt-title">Шишка під шкірою</div>
+          <div class="qopt-sub">Ліпома, атерома або інше ущільнення</div>
         </div>
-        <div class="quiz-nav">
-          <button class="q-btn-back" onclick="goQ(2)">← Назад</button>
-          <button class="q-btn-next" id="qn3" onclick="showResult()" disabled>Показати лікаря</button>
+        <div class="qopt" onclick="pick(this,'concern','pilonidal','Портняга')">
+          <div class="qopt-title">Кіста куприка</div>
+          <div class="qopt-sub">Біль, виділення або повторне запалення</div>
+        </div>
+        <div class="qopt" onclick="pick(this,'concern','scars','Романчук')">
+          <div class="qopt-title">Рубець або шрам</div>
+          <div class="qopt-sub">Видимий рубець після травми або операції</div>
+        </div>
+        <div class="qopt" onclick="pick(this,'concern','other','Портняга')">
+          <div class="qopt-title">Інший запит</div>
+          <div class="qopt-sub">Не впевнений або хочу консультацію</div>
         </div>
       </div>
+      <div class="quiz-nav">
+        <button class="q-btn-next" id="qn1" onclick="goQ(2)" disabled>Далі →</button>
+      </div>
+    </div>
 
-      <!-- Result -->
-      <div id="qresult" class="q-result">
-        <p class="result-label">Рекомендація</p>
-        <p class="result-title" id="rdoc-title">Портняга Євген Михайлович</p>
-        <p class="result-reason" id="rdoc-reason">Загальний хірург — основний профіль для цього запиту.</p>
-        <div class="result-doc">
-          <div class="rdoc-top">
-            <div class="rdoc-avatar" id="rdoc-av">П</div>
-            <div class="rdoc-info">
-              <p class="rdoc-spec" id="rdoc-spec">Загальна хірургія</p>
-              <p class="rdoc-name" id="rdoc-name">Портняга Є.М.</p>
-              <p class="rdoc-desc" id="rdoc-desc">Грижі, новоутворення, пілонідальні кісти, гінекомастія.</p>
-            </div>
+    <div class="quiz-step" id="qs2">
+      <h3 class="quiz-q">Як давно помітили?</h3>
+      <p class="quiz-hint">Це допоможе оцінити терміновість</p>
+      <div class="quiz-options">
+        <div class="qopt" onclick="pick(this,'duration','recent')">
+          <div class="qopt-title">Нещодавно</div>
+          <div class="qopt-sub">До 6 місяців, стан стабільний</div>
+        </div>
+        <div class="qopt" onclick="pick(this,'duration','long')">
+          <div class="qopt-title">Давно</div>
+          <div class="qopt-sub">Більше 6 місяців, відкладав</div>
+        </div>
+        <div class="qopt" onclick="pick(this,'duration','acute')">
+          <div class="qopt-title">Болить або загострення</div>
+          <div class="qopt-sub">Потрібна термінова консультація</div>
+        </div>
+        <div class="qopt" onclick="pick(this,'duration','unsure')">
+          <div class="qopt-title">Не впевнений</div>
+          <div class="qopt-sub">Хочу спочатку проконсультуватись</div>
+        </div>
+      </div>
+      <div class="quiz-nav">
+        <button class="q-btn-back" onclick="goQ(1)">← Назад</button>
+        <button class="q-btn-next" id="qn2" onclick="goQ(3)" disabled>Далі →</button>
+      </div>
+    </div>
+
+    <div class="quiz-step" id="qs3">
+      <h3 class="quiz-q">Коли зручно прийти?</h3>
+      <p class="quiz-hint">Підберемо доступний час у розкладі хірурга</p>
+      <div class="quiz-options">
+        <div class="qopt" onclick="pick(this,'timing','asap')">
+          <div class="qopt-title">Цього тижня</div>
+          <div class="qopt-sub">Якомога швидше</div>
+        </div>
+        <div class="qopt" onclick="pick(this,'timing','soon')">
+          <div class="qopt-title">Найближчі 2–3 тижні</div>
+          <div class="qopt-sub">Зручний, але не критично</div>
+        </div>
+        <div class="qopt" onclick="pick(this,'timing','plan')">
+          <div class="qopt-title">Через місяць і більше</div>
+          <div class="qopt-sub">Планую заздалегідь</div>
+        </div>
+        <div class="qopt" onclick="pick(this,'timing','flexible')">
+          <div class="qopt-title">Гнучко</div>
+          <div class="qopt-sub">Підберу з варіантів клініки</div>
+        </div>
+      </div>
+      <div class="quiz-nav">
+        <button class="q-btn-back" onclick="goQ(2)">← Назад</button>
+        <button class="q-btn-next" id="qn3" onclick="showResult()" disabled>Показати рекомендацію →</button>
+      </div>
+    </div>
+
+    <div class="result-screen" id="qresult">
+      <div class="result-card">
+        <p class="rc-label">Рекомендація на основі вашого запиту</p>
+        <div class="rc-doctor">
+          <div class="rc-av" id="rc-av-el"></div>
+          <div>
+            <div class="rc-name" id="rc-name"></div>
+            <div class="rc-spec" id="rc-spec"></div>
           </div>
-          <p class="schedule-label">Оберіть зручний час консультації</p>
-          <div class="schedule-slots" id="slots"></div>
         </div>
+        <div class="rc-reason" id="rc-reason"></div>
+        <p class="slots-label">Найближчі вільні слоти — оберіть 1–3 зручних варіанти:</p>
+        <div class="slots-grid" id="slots"></div>
         <div class="result-actions">
-          <button class="r-act-primary" onclick="bookFromQuiz()">Підтвердити вибір часу</button>
+          <button class="btn-primary" onclick="bookFromQuiz()" style="width:100%;padding:13px">Підтвердити запис на консультацію</button>
         </div>
-        <div class="result-links">
-          <span class="r-link" onclick="scrollToDocs()">Переглянути інших лікарів</span>
-          <span class="r-link" id="r-case-link" onclick="">Переглянути кейс →</span>
+        <div class="r-links">
+          <span class="r-lnk" id="r-case-lnk">Переглянути кейс повністю</span>
+          <span class="r-lnk" onclick="document.getElementById('doctors').scrollIntoView({behavior:'smooth'})">Подивитись іншого хірурга</span>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<footer>
-  <span class="ft-copy">© ОН Клінік Дніпро · check-up.in.ua</span>
-  <a href="https://check-up.in.ua" class="ft-link">Платформа check-up.in.ua</a>
-</footer>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="section" id="faq">
+  <div class="section-header">
+    <p class="section-label">Часті питання</p>
+    <h2 class="section-title">Що запитують пацієнти до операції</h2>
+    <p class="section-sub">Відповіді на питання, з якими пацієнти зазвичай приходять на першу консультацію.</p>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Чи завжди потрібна операція при грижі або ліпомі?<span class="faq-icon">+</span></div>
+      <div class="faq-a">При грижі — операція єдиний метод усунення. Бандаж лише відтягує момент, але не усуває причину і підвищує ризик защемлення. При ліпомі — видалення рекомендується при розмірі від 2–3 см, швидкому зростанні або незручній локалізації. Маленькі, стабільні ліпоми можна спостерігати — це обговорюється на консультації.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Скільки тривають відновлення після операції?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Залежить від операції. Видалення ліпоми або корекція рубця — амбулаторно, повернення до роботи наступного дня. Видалення грижі або пілонідальної кісти — 1–2 доби стаціонар, фізичне навантаження обмежене на 2–4 тижні. Гінекомастія — компресійна пов'язка на 3–4 тижні. Точний графік відновлення обговорюється з хірургом на консультації.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Що входить у вартість операції і які можуть бути додаткові витрати?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Вартість операції — це безпосередньо хірургічне втручання. До неї не входить: передопераційне обстеження (~5 000 грн: аналізи, ЕКГ, терапевт), вартість стаціонару (1 доба), витратні матеріали (сітка для герніопластики включена в базову ціну). Усі можливі витрати узгоджуються на консультації до операції — сюрпризів немає.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Чи безпечна загальна анестезія? Чи є альтернатива?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Більшість операцій в нашому оперблоці виконуються під місцевою анестезією або внутрішньовенною седацією — пацієнт спить, але без інтубації. Загальна анестезія призначається за показаннями. Анестезіолог клініки — Шимитило Олена Ігорівна — веде пацієнта весь час операції. Вид анестезії обговорюється на консультації з хірургом і анестезіологом.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Чи залишиться помітний рубець після операції?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Будь-який розріз залишає рубець — це медичний факт. Але його видимість залежить від техніки: лінія розрізу, метод зашивання, матеріал. Романчук М.І. (пластичний хірург) бере участь у плануванні лінії розрізу для загальнохірургічних операцій. Для корекції рубців — спеціалізована техніка по лініях Лангера з косметичним швом. Після операції рекомендуємо силіконові пластирі 2–3 місяці.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Скільки часу займає консультація і що на ній відбувається?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Первинна консультація — 30–45 хвилин. Хірург оглядає, ставить або підтверджує діагноз, пояснює метод операції, вид анестезії, орієнтовну вартість та терміни відновлення. Якщо потрібне УЗД — виконується там само. За результатами консультації ви отримуєте план лікування і можете взяти час на обдумування.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Чи можна прийти з результатами аналізів або УЗД з іншої клініки?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Так. Якщо у вас є свіжі аналізи (до 1 місяця) або УЗД — принесіть на консультацію. Хірург оцінить, які додаткові дослідження ще потрібні. Це може скоротити термін підготовки до операції.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Чи гарантована відсутність рецидиву після операції?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Рецидив при правильно виконаній операції мінімальний. При герніопластиці з сіткою — ризик рецидиву менше 1–3%. При пілонідальній кісті — радикальне висічення всіх ходів суттєво знижує ризик. Ліпоми та атероми — при повному видаленні капсули рецидив практично виключений. Хірург на консультації пояснює специфіку саме вашого випадку.</div>
+    </div>
+  </div>
+</div>
+
+<!-- GEO TEXT -->
+<div class="geo-section">
+  <div class="geo-inner">
+    <h2 class="geo-title">Хірургія в Дніпрі — ОН Клінік: хірург, ціни, запис</h2>
+    <div class="geo-text">
+      <p><strong>ОН Клінік Дніпро</strong> виконує хірургічні операції у власному оперблоці: видалення гриж (пупкова, пахова), ліпом та атером, пілонідальної кісти, корекцію гінекомастії та рубців. Клініка має власний стаціонар та реанімаційну підтримку.</p>
+      <p><strong>Хірурги клініки:</strong> Портняга Євген Михайлович (загальний та абдомінальний хірург, 12+ років практики, 500+ операцій) та Романчук Михайло Іванович (пластичний та реконструктивний хірург, 10+ років, 300+ естетичних операцій).</p>
+      <p><strong>Ціни на операції у Дніпрі:</strong> видалення ліпоми — від 10 000 грн, герніопластика (грижа) — від 17 000 грн, видалення гінекомастії — від 15 500 грн, пілонідальна кіста — від 28 000 грн, корекція рубців — від 11 000 грн. Передопераційне обстеження та палата — додатково від 5 000 грн.</p>
+      <p><strong>Запис на консультацію:</strong> онлайн через форму на сайті або за телефоном координатора. Після заповнення форми координатор передзвонює протягом 30 хвилин у робочий час.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span class="footer-brand">ОН Клінік Дніпро</span>
+  <span class="footer-note">check-up.in.ua · Платформа для вибору медичної допомоги</span>
+</div>
 
 <!-- CASE MODAL -->
-<div class="modal-bg" id="caseModal" onclick="closeCaseOnBg(event)">
-  <div class="modal-box" id="caseBox">
+<div class="modal-bg" id="caseModal" onclick="closeCaseBg(event)">
+  <div class="modal-box">
     <div class="modal-head">
-      <button class="modal-close-btn" onclick="closeCase()">×</button>
-      <p class="modal-kicker" id="mc-kicker">Грижа</p>
-      <h2 class="modal-title" id="mc-title">Видалення грижі</h2>
+      <button class="modal-close" onclick="closeCase()">×</button>
+      <p class="modal-kicker" id="mc-kicker"></p>
+      <h2 class="modal-title" id="mc-title"></h2>
       <div class="modal-meta" id="mc-meta"></div>
     </div>
     <div class="modal-body" id="mc-body"></div>
@@ -433,317 +688,197 @@ footer{background:var(--ink);padding:32px 28px;display:flex;align-items:center;j
 </div>
 
 <!-- CONTACT MODAL -->
-<div class="contact-modal" id="contactModal" onclick="closeCMOnBg(event)">
+<div class="contact-modal" id="contactModal" onclick="closeCMBg(event)">
   <div class="cm-box">
     <div id="cmForm">
       <h3 class="cm-title" id="cm-title">Запис на консультацію</h3>
       <p class="cm-sub" id="cm-sub">Залиште номер — координатор зателефонує і підбере зручний час.</p>
       <input class="cm-field" type="text" id="cm-name" placeholder="Ваше ім'я"/>
       <input class="cm-field" type="tel" id="cm-phone" placeholder="+380 __ ___ ____"/>
-      <p class="cm-note">Дані передаються координатору клініки. Обробляються відповідно до законодавства України.</p>
-      <button class="cm-submit" onclick="submitContact()">Записатись на консультацію</button>
+      <p class="cm-note">Дані передаються координатору клініки. Разом з вашим запитом — відповіді з квізу (якщо заповнювали).</p>
+      <button class="cm-submit" onclick="submitContact()">Підтвердити запис</button>
     </div>
-    <div id="cmSuccess" style="display:none" class="cm-success">
-      <div class="cs-icon">✓</div>
-      <h3>Запит прийнято</h3>
-      <p>Координатор зв'яжеться з вами протягом 30 хвилин у робочий час. Разом підберемо зручний час консультації.</p>
+    <div id="cmSuccess" style="display:none">
+      <div class="cm-success">
+        <div class="cs-icon">✓</div>
+        <h3 class="cs-title">Запит прийнято</h3>
+        <p class="cs-sub">Координатор зателефонує протягом 30 хвилин у робочий час (9:00–20:00). Разом підберемо зручний час консультації та підготуємо список аналізів.</p>
+      </div>
     </div>
   </div>
 </div>
 
 <script>
-// ── DATA ──
-const CASES = {
-  hernia:{
-    kicker:'01 · Грижа',
-    title:'Видалення пупкової або пахової грижі',
-    meta:[{l:'Операція',v:'1–2 год'},{l:'Стаціонар',v:'1–2 доби'},{l:'Від',v:'17 000 грн'}],
-    situation:`Грижа — випинання внутрішніх органів крізь слабке місце в м'язах черевної стінки. Спочатку це лише помітний горбик при навантаженні. З часом вправлення стає важчим, з'являється дискомфорт. Операція — єдиний спосіб усунення. Бандаж лише відтягує момент, але не вирішує проблему.`,
-    method:`<strong>Пупкова грижа.</strong> Невеликий розріз над пупком. Грижовий мішок виділяється та видаляється. Дефект закривається власними тканинами або сіткою. Косметичний шов — Романчук М.І. визначає лінію розрізу.<br/><br/><strong>Пахова грижа.</strong> Герніопластика з сітчастим імплантом — сучасний стандарт. Суттєво знижує ризик рецидиву. Місцева або загальна анестезія за показаннями.`,
-    route:[
-      {n:'1',h:'Консультація хірурга',p:'Огляд, підтвердження діагнозу, визначення методу. УЗД при потребі.'},
-      {n:'2',h:'Передопераційне обстеження',p:'ЗАК, ЗАС, коагулограма, ЕКГ, консультація терапевта — все в одній клініці.'},
-      {n:'3',h:'Операція та стаціонар',p:'Госпіталізація вранці. Операція 1–2 год. Спостереження, перев\'язка, виписка.'},
-      {n:'4',h:'Контроль через 7–10 днів',p:'Зняття швів, рекомендації щодо фізичного навантаження.'}
-    ],
-    price:[
-      {l:'Пупкова грижа без сітки',v:'17 000 грн'},
-      {l:'Пупкова грижа з сіткою',v:'17 000 грн'},
-      {l:'Пахова грижа з сіткою',v:'29 000 грн'},
-      {l:'Обстеження + палата (доба)',v:'+ 5 000 грн'}
-    ],
-    priceNote:'Точна вартість визначається після огляду хірурга. При ускладненнях — узгоджується додатково до операції.',
-    doctors:[
-      {av:'П',name:'Портняга Євген Михайлович',role:'Загальний хірург · основний оператор',highlight:true},
-      {av:'Р',name:'Романчук Михайло Іванович',role:'Пластичний хірург · лінія розрізу та косметичний шов',highlight:false}
-    ]
-  },
-  gyne:{
-    kicker:'02 · Гінекомастія',
-    title:'Видалення збільшених грудей у чоловіків',
-    meta:[{l:'Операція',v:'1–2 год'},{l:'Стаціонар',v:'1 доба'},{l:'Від',v:'15 500 грн'}],
-    situation:`Гінекомастія — збільшення залозистої або жирової тканини грудей у чоловіків. Може бути одно- або двобічною. Операція показана, коли збільшення зберігається після нормалізації гормонів або ваги, або при переважно залозистій тканині. Більшість звертаються через психологічний дискомфорт і небажання знімати футболку.`,
-    method:`<strong>Відкрите видалення.</strong> Розріз по нижньому краю ареоли. Видалення залозистої тканини. Шов по природній межі — практично не видно після загоєння.<br/><br/><strong>Естетичний метод (Романчук).</strong> При жировій тканині — мінімальний розріз, правильна форма, симетрія. Розрізи по ареолі з урахуванням анатомії. Пластичний хірург визначає метод на консультації.`,
-    route:[
-      {n:'1',h:'Консультація хірурга',p:'Огляд, тип гінекомастії, вибір методу. За потреби — УЗД та ендокринолог.'},
-      {n:'2',h:'Обстеження',p:'ЗАК, коагулограма, ЕКГ, консультація терапевта.'},
-      {n:'3',h:'Операція + стаціонар 1 доба',p:'Операція 1–2 год. Компресійна пов\'язка. Виписка з рекомендаціями.'},
-      {n:'4',h:'Контроль через 7–10 днів',p:'Огляд, оцінка загоєння, рекомендації щодо компресії.'}
-    ],
-    price:[
-      {l:'Відкрите видалення (залозиста тканина)',v:'15 500 грн'},
-      {l:'Естетичний метод (Романчук)',v:'42 000 грн'},
-      {l:'Обстеження + палата (доба)',v:'+ 5 000 грн'}
-    ],
-    priceNote:'Метод визначається на консультації після огляду. Різниця у вартості — різний обсяг роботи пластичного хірурга.',
-    doctors:[
-      {av:'П',name:'Портняга Євген Михайлович',role:'Загальний хірург · відкрите видалення',highlight:false},
-      {av:'Р',name:'Романчук Михайло Іванович',role:'Пластичний хірург · естетичний метод, рекомендований',highlight:true}
-    ]
-  },
-  lipoma:{
-    kicker:'03 · Ліпома / Атерома',
-    title:'Видалення підшкірних новоутворень',
-    meta:[{l:'Операція',v:'30–60 хв'},{l:'Стаціонар',v:'амбулаторно'},{l:'Від',v:'10 000 грн'}],
-    situation:`Ліпома — доброякісна пухлина жирової тканини. М'яка, рухома, безболісна. Видалення рекомендується від 2–3 см, при швидкому зростанні або незручному розташуванні.<br/>Атерома — кіста сальної залози. Може запалюватись. Видалення — єдиний надійний метод. Після видалення обов'язково відправляється на гістологію.`,
-    method:`Місцева анестезія. Невеликий розріз над утворенням. Виділення капсули повністю — щоб уникнути рецидиву. Видалення, гемостаз, шов. При великих ліпомах (10+ см) можлива седація. Матеріал обов'язково на гістологію.`,
-    route:[
-      {n:'1',h:'Консультація хірурга',p:'Огляд, оцінка розміру та локалізації, вид анестезії, аналізи.'},
-      {n:'2',h:'Мінімальний пакет аналізів',p:'ЗАК, ЗАС, глюкоза, коагулограма.'},
-      {n:'3',h:'Операція (30–60 хвилин)',p:'Місцева анестезія, видалення, гістологія матеріалу. Амбулаторно.'},
-      {n:'4',h:'Результати гістології',p:'Підтвердження доброякісного характеру. Зняття швів.'}
-    ],
-    price:[
-      {l:'Видалення від 2 до 10 см',v:'10 000 грн'},
-      {l:'Велике утворення 10+ см',v:'18 000 грн'},
-      {l:'Гістологічне дослідження',v:'включено'},
-      {l:'Аналізи (за потреби)',v:'за фактом'}
-    ],
-    priceNote:'При невеликих утвореннях — амбулаторно: прийшли, зробили, пішли. Точна вартість після огляду.',
-    doctors:[
-      {av:'П',name:'Портняга Євген Михайлович',role:'Загальний хірург · основний оператор',highlight:true}
-    ]
-  },
-  pilonidal:{
-    kicker:'04 · Кіста куприка',
-    title:'Видалення пілонідальної кісти',
-    meta:[{l:'Операція',v:'1–1.5 год'},{l:'Стаціонар',v:'1–2 доби'},{l:'Від',v:'28 000 грн'}],
-    situation:`Пілонідальна кіста — порожнина в підшкірній клітковині крижово-куприкової ділянки. Головна проблема — висока частота рецидивів після неповного видалення. Якщо не видалити повністю разом з усіма ходами — повертається майже завжди. При гострому абсцесі — спочатку розтин, потім планова радикальна операція.`,
-    method:`Відкритий метод: висічення кісти і всіх куприкових ходів у межах здорових тканин. Рана може ушиватись первинно або загоюватись вторинним натягом — залежно від ситуації. Романчук М.І. планує лінію висічення і вид закриття рани — для мінімального рубця і прискореного загоєння.`,
-    route:[
-      {n:'1',h:'Консультація',p:'Оцінка стану. При абсцесі — розтин. При ремісії — планується операція.'},
-      {n:'2',h:'Обстеження',p:'ЗАК, коагулограма, ЕКГ, консультація терапевта.'},
-      {n:'3',h:'Операція + 1–2 доби стаціонар',p:'Радикальне висічення, спостереження, перша перев\'язка.'},
-      {n:'4',h:'Загоєння 3–6 тижнів',p:'Перев\'язки. Обмеження сидячого положення 2–4 тижні.'}
-    ],
-    price:[
-      {l:'Радикальне висічення кісти',v:'28 000 грн'},
-      {l:'Обстеження + палата (доба)',v:'+ 5 000 грн'}
-    ],
+const CASES={
+  hernia:{kicker:'01 · Грижа',title:'Видалення пупкової або пахової грижі',
+    meta:[{l:'Тривалість',v:'1–2 год'},{l:'Стаціонар',v:'1–2 доби'},{l:'Вартість',v:'від 17 000 грн'}],
+    situation:'Грижа — випинання внутрішніх органів крізь слабке місце в м\'язах черевної стінки. Спочатку видиме лише при навантаженні або кашлі. З часом вправлення стає важчим, з\'являється дискомфорт. Операція — єдиний метод усунення. Консервативне лікування (бандаж) лише відтягує момент, але не вирішує проблему і підвищує ризик защемлення.',
+    method:'<b>Пупкова грижа.</b> Невеликий розріз над пупком. Грижовий мішок виділяється та видаляється. Дефект у черевній стінці закривається власними тканинами або сіткою — залежно від розміру. Романчук М.І. визначає лінію розрізу для мінімального косметичного дефекту.<br/><br/><b>Пахова грижа.</b> Герніопластика з сітчастим імплантом — сучасний стандарт. Знижує ризик рецидиву до 1–3%. Місцева або загальна анестезія — за показаннями і побажанням пацієнта.',
+    route:[{n:'1',h:'Консультація хірурга',p:'Огляд, підтвердження діагнозу, вибір методу. УЗД при потребі — там само.'},{n:'2',h:'Передопераційне обстеження',p:'ЗАК, ЗАС, коагулограма, ЕКГ, консультація терапевта. Все в ОН Клінік.'},{n:'3',h:'День операції',p:'Госпіталізація вранці. Операція 1–2 год. Спостереження, перев\'язка, переведення в палату.'},{n:'4',h:'Стаціонар 1–2 доби',p:'Знеболення, спостереження, перев\'язка. Виписка з рекомендаціями щодо режиму.'},{n:'5',h:'Контрольний огляд через 7–10 днів',p:'Зняття швів. Рекомендації щодо фізичного навантаження.'}],
+    price:[{l:'Пупкова грижа без сітки',v:'17 000 грн'},{l:'Пупкова грижа з сіткою',v:'17 000 грн'},{l:'Пахова грижа з сіткою',v:'29 000 грн'},{l:'Передопераційне обстеження',v:'~3 000 грн'},{l:'Палата доба',v:'~2 000 грн'}],
+    priceNote:'Точна вартість визначається після огляду хірурга. При ускладненнях — узгоджується додатково, до операції.',
+    doctors:[{av:'П',img:null,name:'Портняга Євген Михайлович',role:'Загальний хірург · основний оператор',hl:true},{av:'Р',img:null,name:'Романчук Михайло Іванович',role:'Пластичний хірург · лінія розрізу та косметичний шов',hl:false}]},
+  gyne:{kicker:'02 · Гінекомастія',title:'Видалення збільшених грудей у чоловіків',
+    meta:[{l:'Тривалість',v:'1–2 год'},{l:'Стаціонар',v:'1 доба'},{l:'Вартість',v:'від 15 500 грн'}],
+    situation:'Гінекомастія — збільшення залозистої або жирової тканини грудей у чоловіків. Може бути одно- або двобічною. Операція показана, коли збільшення зберігається після нормалізації гормонів або ваги. Більшість звертаються через психологічний дискомфорт — небажання знімати футболку, займатись у залі.',
+    method:'<b>Відкрите видалення</b> — розріз по нижньому краю ареоли. Видалення залозистої тканини. Шов по природній межі — практично непомітний після загоєння. Виконує Портняга Є.М.<br/><br/><b>Естетичний метод</b> — при переважно жировій тканині. Мінімальний розріз, правильна форма, симетрія. Виконує Романчук М.І. (пластичний хірург). Конкретний метод визначається на консультації після огляду і УЗД.',
+    route:[{n:'1',h:'Консультація',p:'Тип гінекомастії, вибір методу. УЗД за потреби, консультація ендокринолога.'},{n:'2',h:'Обстеження',p:'ЗАК, коагулограма, ЕКГ, терапевт.'},{n:'3',h:'Операція + 1 доба стаціонар',p:'1–2 год. Компресійна пов\'язка. Виписка з рекомендаціями.'},{n:'4',h:'Контроль через 7–10 днів',p:'Огляд, оцінка загоєння. Компресія — 3–4 тижні.'}],
+    price:[{l:'Відкрите видалення (залозиста тканина)',v:'15 500 грн'},{l:'Естетичний метод (Романчук М.І.)',v:'42 000 грн'},{l:'Передопераційне обстеження + палата',v:'~5 000 грн'}],
+    priceNote:'Різниця у вартості — різний обсяг роботи пластичного хірурга. Метод визначається на консультації.',
+    doctors:[{av:'П',img:null,name:'Портняга Євген Михайлович',role:'Загальний хірург · відкрите видалення',hl:false},{av:'Р',img:null,name:'Романчук Михайло Іванович',role:'Пластичний хірург · естетичний метод, рекомендований',hl:true}]},
+  lipoma:{kicker:'03 · Ліпома / Атерома',title:'Видалення підшкірних новоутворень',
+    meta:[{l:'Тривалість',v:'30–60 хв'},{l:'Стаціонар',v:'амбулаторно'},{l:'Вартість',v:'від 10 000 грн'}],
+    situation:'<b>Ліпома</b> — доброякісна пухлина жирової тканини. М\'яка, рухома, безболісна. Видалення рекомендується від 2–3 см або при швидкому зростанні. <b>Атерома</b> — кіста сальної залози. Може запалюватись. Видалення — єдиний надійний метод. Після видалення — обов\'язкова гістологія.',
+    method:'Місцева анестезія. Невеликий розріз над утворенням. Повне виділення капсули — щоб уникнути рецидиву. Видалення, гемостаз, шов. При великих (10+ см) — можлива седація. Матеріал відправляється на гістологічне дослідження.',
+    route:[{n:'1',h:'Консультація',p:'Огляд, оцінка розміру та локалізації, вид анестезії, аналізи.'},{n:'2',h:'Аналізи',p:'ЗАК, ЗАС, глюкоза, коагулограма.'},{n:'3',h:'Операція (амбулаторно)',p:'30–60 хв. Місцева анестезія. Прийшли — зробили — пішли.'},{n:'4',h:'Гістологія (7–10 днів)',p:'Підтвердження доброякісного характеру. Контрольний огляд.'}],
+    price:[{l:'Від 2 до 10 см',v:'10 000 грн'},{l:'Більше 10 см',v:'18 000 грн'},{l:'Гістологічне дослідження',v:'включено'},{l:'Аналізи (за потреби)',v:'~1 500 грн'}],
+    priceNote:'При невеликих утвореннях — амбулаторно, без стаціонару. Точна вартість після огляду.',
+    doctors:[{av:'П',img:null,name:'Портняга Євген Михайлович',role:'Загальний хірург · основний оператор',hl:true}]},
+  pilonidal:{kicker:'04 · Кіста куприка',title:'Видалення пілонідальної кісти',
+    meta:[{l:'Тривалість',v:'1–1.5 год'},{l:'Стаціонар',v:'1–2 доби'},{l:'Вартість',v:'від 28 000 грн'}],
+    situation:'Пілонідальна кіста — порожнина в підшкірній клітковині крижово-куприкової ділянки. Головна проблема — рецидиви після неповного видалення. Якщо не видалити повністю разом з усіма ходами — повертається майже завжди. При гострому абсцесі — спочатку розтин і дренування, потім планова радикальна операція.',
+    method:'Відкритий метод: висічення кісти і всіх куприкових ходів у межах здорових тканин. Рана може ушиватись первинно або залишатись для загоєння вторинним натягом — залежно від ситуації. Романчук М.І. планує лінію висічення і вид закриття рани — для мінімального рубця і прискореного загоєння.',
+    route:[{n:'1',h:'Консультація',p:'Оцінка стану. При абсцесі — розтин. При ремісії — планується операція.'},{n:'2',h:'Обстеження',p:'ЗАК, коагулограма, ЕКГ, терапевт.'},{n:'3',h:'Операція + 1–2 доби стаціонар',p:'Радикальне висічення. Спостереження, знеболення, перша перев\'язка.'},{n:'4',h:'Загоєння 3–6 тижнів',p:'Перев\'язки. Обмеження сидячого положення 2–4 тижні.'}],
+    price:[{l:'Радикальне висічення кісти',v:'28 000 грн'},{l:'Обстеження + палата',v:'~5 000 грн'}],
     priceNote:'При великому дефекті або пластиці клаптем — вартість узгоджується після огляду.',
-    doctors:[
-      {av:'П',name:'Портняга Євген Михайлович',role:'Загальний хірург · основний оператор',highlight:true},
-      {av:'Р',name:'Романчук Михайло Іванович',role:'Пластичний хірург · лінія висічення та закриття рани',highlight:false}
-    ]
-  },
-  scars:{
-    kicker:'05 · Рубці',
-    title:'Хірургічна корекція рубців',
-    meta:[{l:'Операція',v:'30–90 хв'},{l:'Стаціонар',v:'амбулаторно'},{l:'Від',v:'11 000 грн'}],
-    situation:`Хірургічна корекція рубця — повне висічення старого рубця і накладання нового шва з дотриманням лінії натягу шкіри. Рубець стає значно тоншим і менш помітним. Показано при гіпертрофічних та келоїдних рубцях, рубцях після травм або операцій, у естетично важливих зонах. Свіжі рубці до 12 місяців — краще консервативно.`,
-    method:`Місцева анестезія. Пластичний хірург висікає рубцеву тканину по лінії рубця. Нові краї зводяться без натягу. Багатошаровий косметичний шов — поглиблені шви з розсмоктуваного матеріалу, поверхневий косметичний шов або клей. Орієнтування по лініях Лангера — для мінімальної видимості.`,
-    route:[
-      {n:'1',h:'Консультація пластичного хірурга',p:'Оцінка рубця: тип, розмір, зрілість. Метод корекції. Фото.'},
-      {n:'2',h:'Аналізи',p:'ЗАК, коагулограма.'},
-      {n:'3',h:'Операція (30–90 хв, амбулаторно)',p:'Місцева анестезія. Висічення. Косметичний шов. Пішли додому.'},
-      {n:'4',h:'Контроль через 7–14 днів',p:'Зняття швів. Рекомендації: сонцезахист, силікон на 2–3 місяці.'}
-    ],
-    price:[
-      {l:'Рубець до 5 см',v:'11 000 грн'},
-      {l:'Рубець до 10 см',v:'18 000 грн'},
-      {l:'Аналізи + перев\'язки',v:'за фактом'}
-    ],
-    priceNote:'Амбулаторно — госпіталізація не потрібна. При множинних або складних рубцях — розрахунок індивідуально.',
-    doctors:[
-      {av:'Р',name:'Романчук Михайло Іванович',role:'Пластичний хірург · основний оператор, рекомендований',highlight:true},
-      {av:'П',name:'Портняга Євген Михайлович',role:'Загальний хірург · асистент при складних випадках',highlight:false}
-    ]
-  }
+    doctors:[{av:'П',img:null,name:'Портняга Євген Михайлович',role:'Загальний хірург · основний оператор',hl:true},{av:'Р',img:null,name:'Романчук Михайло Іванович',role:'Пластичний хірург · планує закриття рани',hl:false}]},
+  scars:{kicker:'05 · Рубці',title:'Хірургічна корекція рубців',
+    meta:[{l:'Тривалість',v:'30–90 хв'},{l:'Стаціонар',v:'амбулаторно'},{l:'Вартість',v:'від 11 000 грн'}],
+    situation:'Хірургічна корекція рубця — повне висічення старого рубця і накладання нового косметичного шва по лініях натягу шкіри. Рубець стає значно тоншим, рівнішим і менш помітним. Показано: при гіпертрофічних рубцях, після травм або операцій, у естетично важливих зонах. Свіжі рубці до 12 місяців краще лікувати консервативно.',
+    method:'Місцева анестезія. Пластичний хірург висікає рубцеву тканину. Нові краї зводяться без натягу. Багатошаровий косметичний шов: поглиблені шви з розсмоктуваного матеріалу + поверхневий косметичний шов або клей. Орієнтування по лініях Лангера — мінімальна видимість.',
+    route:[{n:'1',h:'Консультація пластичного хірурга',p:'Оцінка рубця: тип, розмір, зрілість. Метод. Фото.'},{n:'2',h:'Мінімальний пакет аналізів',p:'ЗАК, коагулограма.'},{n:'3',h:'Операція (30–90 хв, амбулаторно)',p:'Місцева анестезія. Висічення. Косметичний шов. Пішли додому.'},{n:'4',h:'Контроль через 7–14 днів',p:'Зняття швів. Рекомендації: силікон 2–3 місяці, сонцезахист.'}],
+    price:[{l:'Рубець до 5 см',v:'11 000 грн'},{l:'Рубець до 10 см',v:'18 000 грн'},{l:'Аналізи + перев\'язки',v:'за фактом'}],
+    priceNote:'Амбулаторно — госпіталізація не потрібна. При множинних рубцях — розрахунок індивідуально.',
+    doctors:[{av:'Р',img:null,name:'Романчук Михайло Іванович',role:'Пластичний хірург · основний оператор, рекомендований',hl:true},{av:'П',img:null,name:'Портняга Євген Михайлович',role:'Загальний хірург · складні випадки',hl:false}]}
 };
 
-const DOCTORS = {
-  'Портняга':{
-    av:'П', title:'Портняга Євген Михайлович',
-    spec:'Загальна хірургія', name:'Портняга Є.М.',
-    desc:'Грижі, новоутворення м\'яких тканин, пілонідальні кісти, гінекомастія.',
-    reason:'Загальний хірург — основний оператор для цього запиту. Портняга Є.М. спеціалізується саме на цьому типі операцій.',
-    caseKey:null
-  },
-  'Романчук':{
-    av:'Р', title:'Романчук Михайло Іванович',
-    spec:'Пластична хірургія', name:'Романчук М.І.',
-    desc:'Корекція рубців, естетична гінекомастія, блефаропластика.',
-    reason:'Пластичний хірург — оптимальний вибір для цього запиту. Романчук М.І. спеціалізується на мінімізації рубців та естетичному результаті.',
-    caseKey:null
-  },
-  'both':{
-    av:'П', title:'Портняга Євген Михайлович',
-    spec:'Загальна хірургія', name:'Портняга Є.М.',
-    desc:'Загальний хірург — основний оператор. Романчук М.І. (пластичний хірург) планує естетичну частину.',
-    reason:'Обидва хірурги беруть участь у плануванні та проведенні цієї операції. Рекомендуємо первинну консультацію з Портнягою Є.М.',
-    caseKey:null
-  }
+const DOCTORS_DATA={
+  'Портняга':{name:'Портняга Євген Михайлович',spec:'Загальний та абдомінальний хірург · 12+ років практики',av:'П',avClass:'rc-av-blue',img:null},
+  'Романчук':{name:'Романчук Михайло Іванович',spec:'Пластичний та реконструктивний хірург · 10+ років практики',av:'Р',avClass:'rc-av-gold',img:null}
 };
 
-const SLOTS = {
-  asap:[
-    {date:'Пн, 24 берез.',time:'09:00',doc:'Портняга Є.М.'},
-    {date:'Вт, 25 берез.',time:'11:30',doc:'Романчук М.І.'},
-    {date:'Ср, 26 берез.',time:'14:00',doc:'Портняга Є.М.'}
-  ],
-  soon:[
-    {date:'Пн, 31 берез.',time:'10:00',doc:'Портняга Є.М.'},
-    {date:'Ср, 2 квіт.',time:'09:30',doc:'Романчук М.І.'},
-    {date:'Чт, 3 квіт.',time:'15:00',doc:'Портняга Є.М.'}
-  ],
-  plan:[
-    {date:'Пн, 7 квіт.',time:'10:00',doc:'Портняга Є.М.'},
-    {date:'Пт, 11 квіт.',time:'09:00',doc:'Романчук М.І.'},
-    {date:'Вт, 15 квіт.',time:'14:30',doc:'Портняга Є.М.'}
-  ]
+const REASONS={
+  hernia:'Портняга Є.М. — загальний і абдомінальний хірург з 12+ роками практики та 500+ виконаними герніопластиками. Для операцій на грижах це основна щоденна практика.',
+  gyne:'Романчук М.І. — пластичний хірург, рекомендований для гінекомастії. Виконує естетичний метод з мінімальним розрізом по ареолі. Симетрія і природня форма — ключовий критерій його роботи.',
+  lipoma:'Портняга Є.М. — загальний хірург, для якого видалення новоутворень є стандартною щоденною практикою. Повне видалення капсули — гарантія відсутності рецидиву.',
+  pilonidal:'Портняга Є.М. — основний оператор. Романчук М.І. планує закриття рани для мінімального рубця. Радикальне висічення кісти разом з усіма ходами запобігає рецидиву.',
+  scars:'Романчук М.І. — пластичний хірург, спеціалізація якого включає корекцію рубців. Техніка по лініях Лангера та косметичний шов — результат значно менш помітний рубець.',
+  other:'Портняга Є.М. — загальний хірург, який проведе первинну консультацію, визначить діагноз і рекомендує метод лікування або направить до вузького фахівця клініки.'
 };
 
-const ans = {};
-let selectedSlot = null;
-let selectedCaseKey = null;
+const SLOTS={
+  asap:[{day:'ПН 24 БЕРЕЗ',time:'09:00',ok:'Є місця'},{day:'ВТ 25 БЕРЕЗ',time:'11:30',ok:'Є місця'},{day:'СР 26 БЕРЕЗ',time:'14:00',ok:'Є місця'}],
+  soon:[{day:'ПН 31 БЕРЕЗ',time:'10:00',ok:'Є місця'},{day:'СР 2 КВ',time:'09:30',ok:'Є місця'},{day:'ЧТ 3 КВ',time:'15:00',ok:'Є місця'}],
+  plan:[{day:'ПН 7 КВ',time:'10:00',ok:'Є місця'},{day:'ПТ 11 КВ',time:'09:00',ok:'Є місця'},{day:'ВТ 15 КВ',time:'14:30',ok:'Є місця'}],
+  flexible:[{day:'ПН 24 БЕРЕЗ',time:'09:00',ok:'Є місця'},{day:'ВТ 1 КВ',time:'11:00',ok:'Є місця'},{day:'ПТ 11 КВ',time:'14:00',ok:'Є місця'}]
+};
 
-function pick(el, key, val, docKey){
-  el.closest('.q-opts').querySelectorAll('.q-opt').forEach(o=>o.classList.remove('sel'));
-  el.classList.add('sel');
-  ans[key] = val;
-  if(docKey) ans.docKey = docKey;
-  const nid = {concern:'qn1',duration:'qn2',timing:'qn3'}[key];
-  if(nid) document.getElementById(nid).disabled = false;
+const ans={};let selSlots=[];let selCaseKey=null;
+
+function pick(el,key,val,docKey){
+  el.closest('.quiz-options').querySelectorAll('.qopt').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  ans[key]=val;
+  if(docKey)ans.docKey=docKey;
+  if(key==='concern')document.getElementById('qn1').disabled=false;
+  if(key==='duration')document.getElementById('qn2').disabled=false;
+  if(key==='timing')document.getElementById('qn3').disabled=false;
 }
 
 function goQ(n){
+  document.querySelectorAll('.quiz-step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('qresult').classList.remove('active');
+  const el=document.getElementById('qs'+n);
+  if(el)el.classList.add('active');
   [1,2,3].forEach(i=>{
-    document.getElementById('qs'+i).style.display = (i===n)?'block':'none';
-    const p = document.getElementById('qp'+i);
-    p.className='qp';
-    if(i<n) p.classList.add('done');
-    else if(i===n) p.classList.add('active');
+    const c=document.getElementById('pc'+i),l=document.getElementById('pl'+i),ln=document.getElementById('pln'+(i));
+    c.classList.remove('active','done');l.classList.remove('active');
+    if(ln)ln.classList.remove('done');
+    if(i<n){c.classList.add('done');if(ln)ln.classList.add('done')}
+    else if(i===n){c.classList.add('active');l.classList.add('active')}
   });
-  document.getElementById('qresult').classList.remove('show');
 }
 
 function showResult(){
-  [1,2,3].forEach(i=>document.getElementById('qs'+i).style.display='none');
-  document.getElementById('qresult').classList.add('show');
-  const dk = ans.docKey || 'Портняга';
-  const doc = DOCTORS[dk];
-  document.getElementById('rdoc-title').textContent = doc.title;
-  document.getElementById('rdoc-reason').textContent = doc.reason;
-  document.getElementById('rdoc-av').textContent = doc.av;
-  document.getElementById('rdoc-spec').textContent = doc.spec;
-  document.getElementById('rdoc-name').textContent = doc.name;
-  document.getElementById('rdoc-desc').textContent = doc.desc;
-  // Slots
-  const timing = ans.timing || 'asap';
-  const slotData = SLOTS[timing];
-  const slotsEl = document.getElementById('slots');
-  slotsEl.innerHTML = '';
-  slotData.forEach((s,i)=>{
-    const el = document.createElement('div');
-    el.className = 'slot';
-    el.innerHTML = `<div class="slot-date">${s.date}</div><div class="slot-time">${s.time}</div><div class="slot-doc">${s.doc}</div>`;
-    el.onclick = ()=>{
-      slotsEl.querySelectorAll('.slot').forEach(x=>x.classList.remove('sel'));
-      el.classList.add('sel');
-      selectedSlot = s;
+  document.querySelectorAll('.quiz-step').forEach(s=>s.classList.remove('active'));
+  [1,2,3].forEach(i=>{
+    document.getElementById('pc'+i).classList.remove('active');
+    document.getElementById('pc'+i).classList.add('done');
+    const ln=document.getElementById('pln'+i);if(ln)ln.classList.add('done');
+  });
+  const dk=ans.docKey||'Портняга';
+  const doc=DOCTORS_DATA[dk];
+  const avEl=document.getElementById('rc-av-el');
+  if(doc.img){avEl.innerHTML=`<img src="${doc.img}" alt="${doc.name}"/>`;avEl.className='rc-av';}
+  else{avEl.textContent=doc.av;avEl.className='rc-av '+doc.avClass;}
+  document.getElementById('rc-name').textContent=doc.name;
+  document.getElementById('rc-spec').textContent=doc.spec;
+  document.getElementById('rc-reason').textContent=REASONS[ans.concern]||REASONS.other;
+  const timing=ans.timing||'asap';
+  const slotsEl=document.getElementById('slots');slotsEl.innerHTML='';selSlots=[];
+  SLOTS[timing].forEach((s,i)=>{
+    const el=document.createElement('div');el.className='slot';
+    el.innerHTML=`<div class="slot-day">${s.day}</div><div class="slot-time">${s.time}</div><div class="slot-ok">${s.ok}</div>`;
+    el.onclick=()=>{
+      if(el.classList.contains('selected')){el.classList.remove('selected');selSlots=selSlots.filter(x=>x!==i);}
+      else if(selSlots.length<3){el.classList.add('selected');selSlots.push(i);}
     };
     slotsEl.appendChild(el);
   });
-  // Case link
-  const caseMap = {hernia:'hernia',gyne:'gyne',lipoma:'lipoma',pilonidal:'pilonidal',scars:'scars'};
-  const ck = caseMap[ans.concern];
-  selectedCaseKey = ck;
-  const cl = document.getElementById('r-case-link');
-  if(ck){
-    const ct = CASES[ck].title;
-    cl.textContent = 'Переглянути кейс: '+ct+' →';
-    cl.onclick = ()=>openCase(ck);
-  }
+  const ck=ans.concern;selCaseKey=ck;
+  const cl=document.getElementById('r-case-lnk');
+  if(ck&&CASES[ck]){cl.textContent='Переглянути кейс: '+CASES[ck].title+' →';cl.onclick=()=>openCase(ck);}
+  document.getElementById('qresult').classList.add('active');
 }
 
-function scrollToQuiz(){document.getElementById('quiz').scrollIntoView({behavior:'smooth'})}
-function scrollToDocs(){document.querySelector('.sec:not(.sec-cases):not(.sec-quiz)').scrollIntoView({behavior:'smooth'})}
-
-// CASE MODAL
 function openCase(key){
-  const c = CASES[key];
-  selectedCaseKey = key;
-  document.getElementById('mc-kicker').textContent = c.kicker;
-  document.getElementById('mc-title').textContent = c.title;
-  const meta = c.meta.map(m=>`<div class="m-meta-item"><strong>${m.v}</strong> ${m.l}</div>`).join('');
-  document.getElementById('mc-meta').innerHTML = meta;
-  let body = '';
-  // Situation
-  body += `<div class="mb-section"><p class="mb-label">Ситуація</p><p class="mb-text">${c.situation}</p></div>`;
-  // Method
-  body += `<div class="mb-section"><p class="mb-label">Метод операції</p><p class="mb-text">${c.method}</p></div>`;
-  // Route
-  body += `<div class="mb-section"><p class="mb-label">Маршрут пацієнта</p><div class="route-steps">`;
-  c.route.forEach((r,i)=>{
-    body += `<div class="r-step"><div class="r-step-l"><div class="r-step-num">${r.n}</div>${i<c.route.length-1?'<div class="r-step-line"></div>':''}</div><div class="r-step-body"><h4>${r.h}</h4><p>${r.p}</p></div></div>`;
-  });
-  body += `</div></div>`;
-  // Price
-  body += `<div class="mb-section"><p class="mb-label">Вартість та супутні витрати</p><div class="price-breakdown">`;
-  c.price.forEach(p=>{ body += `<div class="pb-row"><span>${p.l}</span><span>${p.v}</span></div>`; });
-  body += `</div><p class="pb-note">${c.priceNote}</p></div>`;
-  // Doctors
-  body += `<div class="mb-section"><p class="mb-label">Хірурги</p><div class="modal-docs">`;
+  const c=CASES[key];selCaseKey=key;
+  document.getElementById('mc-kicker').textContent=c.kicker;
+  document.getElementById('mc-title').textContent=c.title;
+  document.getElementById('mc-meta').innerHTML=c.meta.map(m=>`<div class="mm"><strong>${m.v}</strong>${m.l}</div>`).join('');
+  let b='';
+  b+=`<div class="mb-sec"><p class="mb-lbl">Ситуація</p><p class="mb-txt">${c.situation}</p></div>`;
+  b+=`<div class="mb-sec"><p class="mb-lbl">Метод операції</p><p class="mb-txt">${c.method}</p></div>`;
+  b+=`<div class="mb-sec"><p class="mb-lbl">Маршрут пацієнта</p><div class="route-steps">`;
+  c.route.forEach((r,i)=>{b+=`<div class="r-step"><div class="r-step-l"><div class="r-step-n">${r.n}</div>${i<c.route.length-1?'<div class="r-step-ln"></div>':''}</div><div class="r-step-b"><h4>${r.h}</h4><p>${r.p}</p></div></div>`;});
+  b+=`</div></div>`;
+  b+=`<div class="mb-sec"><p class="mb-lbl">Вартість та супутні витрати</p><div class="pb">`;
+  c.price.forEach(p=>{b+=`<div class="pb-row"><span>${p.l}</span><span>${p.v}</span></div>`;});
+  b+=`</div><p class="pb-note">${c.priceNote}</p></div>`;
+  b+=`<div class="mb-sec"><p class="mb-lbl">Хірурги</p><div class="mdocs">`;
   c.doctors.forEach(d=>{
-    body += `<div class="mdoc${d.highlight?' highlight':''}">
-      <div class="mdoc-av">${d.av}</div>
-      <div class="mdoc-info"><div class="md-name">${d.name}</div><div class="md-role">${d.role}</div></div>
-      ${d.highlight?'<span class="mdoc-tag">Рекомендований</span>':''}
-    </div>`;
+    const avContent=d.img?`<img src="${d.img}" alt="${d.name}"/>`:`${d.av}`;
+    b+=`<div class="mdoc${d.hl?' hl':''}"><div class="mdoc-av">${avContent}</div><div class="mdoc-info"><div class="md-name">${d.name}</div><div class="md-role">${d.role}</div></div>${d.hl?'<span class="mdoc-tag">Рекомендований</span>':''}</div>`;
   });
-  body += `</div></div>`;
-  // CTA
-  body += `<div class="modal-cta"><button class="mc-btn" onclick="openContact()">Записатись на консультацію</button></div>`;
-  document.getElementById('mc-body').innerHTML = body;
+  b+=`</div></div><div class="modal-cta"><button class="mc-btn" onclick="openContact()">Записатись на консультацію</button></div>`;
+  document.getElementById('mc-body').innerHTML=b;
   document.getElementById('caseModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow='hidden';
 }
+function closeCase(){document.getElementById('caseModal').classList.remove('open');document.body.style.overflow='';}
+function closeCaseBg(e){if(e.target===document.getElementById('caseModal'))closeCase();}
 
-function closeCase(){
-  document.getElementById('caseModal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-function closeCaseOnBg(e){if(e.target===document.getElementById('caseModal'))closeCase();}
-
-// CONTACT MODAL
 function openContact(title,sub){
-  document.getElementById('cm-title').textContent = title || 'Запис на консультацію';
-  document.getElementById('cm-sub').textContent = sub || 'Залиште номер — координатор зателефонує і підбере зручний час.';
-  document.getElementById('cmForm').style.display = 'block';
-  document.getElementById('cmSuccess').style.display = 'none';
+  document.getElementById('cm-title').textContent=title||'Запис на консультацію';
+  document.getElementById('cm-sub').textContent=sub||'Залиште номер — координатор зателефонує і підбере зручний час.';
+  document.getElementById('cmForm').style.display='block';
+  document.getElementById('cmSuccess').style.display='none';
   document.getElementById('contactModal').classList.add('open');
 }
 function bookFromQuiz(){
-  const t = selectedSlot ? `Обраний час: ${selectedSlot.date} ${selectedSlot.time} (${selectedSlot.doc})` : 'Час не обрано';
-  openContact('Підтвердження запису', t);
+  const slotInfo=selSlots.length?'Обрані слоти: '+selSlots.join(','):'Час не обрано';
+  openContact('Підтвердження запису до хірурга','Координатор підтвердить обраний час. '+slotInfo);
 }
-function closeCMOnBg(e){if(e.target===document.getElementById('contactModal'))closeContact();}
-function closeContact(){document.getElementById('contactModal').classList.remove('open');}
+function closeCMBg(e){if(e.target===document.getElementById('contactModal'))document.getElementById('contactModal').classList.remove('open');}
 function submitContact(){
-  const phone = document.getElementById('cm-phone').value.trim();
+  const phone=document.getElementById('cm-phone').value.trim();
   if(!phone){alert('Вкажіть номер телефону');return;}
   document.getElementById('cmForm').style.display='none';
   document.getElementById('cmSuccess').style.display='block';
+}
+function toggleFaq(el){
+  el.classList.toggle('open');
+  const a=el.nextElementSibling;a.classList.toggle('open');
 }
 </script>
 </body>
