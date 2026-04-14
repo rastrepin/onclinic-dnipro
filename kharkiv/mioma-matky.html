@@ -175,7 +175,8 @@ h2.sec-title{font-family:'Onest',sans-serif;font-size:32px;font-weight:600;color
 /* Doctor rows in result */
 .qr-doctors{display:flex;flex-direction:column;gap:12px}
 .qr-doc{border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;align-items:center;gap:14px}
-.qrd-av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--blue-deep),#073878);color:#fff;font-family:'Onest',sans-serif;font-size:18px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.qrd-av img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.qrd-av{width:44px;height:44px;border-radius:50%;background:var(--blue-deep);overflow:hidden;flex-shrink:0}
 .qrd-info{flex:1}
 .qrd-name{font-size:14px;font-weight:700;color:var(--text)}
 .qrd-role{font-size:12px;color:var(--muted);margin-top:1px}
@@ -192,7 +193,8 @@ h2.sec-title{font-family:'Onest',sans-serif;font-size:32px;font-weight:600;color
 .doc-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:box-shadow .2s}
 .doc-card:hover{box-shadow:0 8px 32px rgba(11,79,154,.12)}
 .dc-head{background:linear-gradient(135deg,var(--blue-deep) 0%,#073878 100%);padding:20px;display:flex;align-items:center;gap:14px}
-.dc-avatar{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-family:'Onest',sans-serif;font-size:20px;font-weight:600;color:#fff;flex-shrink:0}
+.dc-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.dc-avatar{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.2);overflow:hidden;flex-shrink:0}
 .dc-head h3{font-size:15px;font-weight:700;color:#fff;margin-bottom:2px}
 .dc-head p{font-size:12px;color:rgba(255,255,255,.65)}
 .dc-body{padding:18px}
@@ -538,7 +540,7 @@ footer a{color:var(--muted);text-decoration:none}
   <div class="doctors-grid">
     <div class="doc-card">
       <div class="dc-head">
-        <div class="dc-avatar">А</div>
+        <img class="dc-avatar" src="../assets/doctors/afanasiev-card.webp" alt="Афанасьєв І.В." loading="lazy">
         <div><h3>Афанасьєв Ігор Володимирович</h3><p>Акушер-гінеколог · Оперуючий гінеколог</p></div>
       </div>
       <div class="dc-body">
@@ -553,7 +555,7 @@ footer a{color:var(--muted);text-decoration:none}
     </div>
     <div class="doc-card">
       <div class="dc-head">
-        <div class="dc-avatar">С</div>
+        <img class="dc-avatar" src="../assets/doctors/striukov-card.webp" alt="Стрюков Д.В." loading="lazy">
         <div><h3>Стрюков Дмитро Владиславович</h3><p>Акушер-гінеколог · Оперуючий гінеколог</p></div>
       </div>
       <div class="dc-body">
@@ -772,12 +774,12 @@ async function showResult(){
   /* Doctors */
   html+=`<div class="qr-doctors">
     <div class="qr-doc">
-      <div class="qrd-av">А</div>
+      <img class="qrd-av" src="../assets/doctors/afanasiev-card.webp" alt="Афанасьєв І.В." loading="lazy">
       <div class="qrd-info"><div class="qrd-name">Афанасьєв Ігор Володимирович</div><div class="qrd-role">33 р. досвіду · к.м.н.</div></div>
       <button class="qrd-cta" onclick="openModal('Афанасьєв І.В.')">Записатись</button>
     </div>
     <div class="qr-doc">
-      <div class="qrd-av">С</div>
+      <img class="qrd-av" src="../assets/doctors/striukov-card.webp" alt="Стрюков Д.В." loading="lazy">
       <div class="qrd-info"><div class="qrd-name">Стрюков Дмитро Владиславович</div><div class="qrd-role">24 р. досвіду · к.м.н. · 700 грн</div></div>
       <button class="qrd-cta" onclick="openModal('Стрюков Д.В.')">Записатись</button>
     </div>

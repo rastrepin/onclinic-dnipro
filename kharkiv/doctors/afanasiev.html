@@ -80,8 +80,8 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 /* HERO */
 .hero{background:linear-gradient(135deg,#0B4F9A 0%,#0a3d7a 60%,#07295c 100%);color:#fff;padding:48px 24px 40px}
 .hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:start}
-.hero-photo-placeholder{width:160px;height:200px;border-radius:var(--radius);background:rgba(255,255,255,.1);border:2px dashed rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;flex-direction:column;gap:8px;color:rgba(255,255,255,.6);font-size:13px;text-align:center;padding:12px}
-.hero-photo-placeholder svg{opacity:.5}
+.hero-photo{width:160px;height:200px;border-radius:var(--radius);overflow:hidden;flex-shrink:0;border:3px solid rgba(255,255,255,.25)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
 .hero-specialty{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:10px}
 .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,40px);font-weight:600;color:#fff;line-height:1.15;margin-bottom:8px}
 .hero-title{font-size:14px;color:rgba(255,255,255,.75);margin-bottom:24px;line-height:1.5}
@@ -95,7 +95,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 .btn-gold:hover{background:var(--gold2)}
 .btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35);padding:13px 24px;border-radius:8px;font-family:'Onest',sans-serif;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block;transition:border-color .15s}
 .btn-outline:hover{border-color:rgba(255,255,255,.7)}
-@media(max-width:600px){.hero-inner{grid-template-columns:1fr;gap:20px}.hero-photo-placeholder{width:100%;height:140px}}
+@media(max-width:600px){.hero-inner{grid-template-columns:1fr;gap:20px}.hero-photo{width:100%;height:160px}}
 
 /* CONTEXT BLOCK */
 .context-block{background:var(--white);border-bottom:3px solid var(--blue-deep);padding:32px 24px}
@@ -191,7 +191,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 <!-- NAV -->
 <nav>
   <a href="/kharkiv" class="nav-logo">
-    <div class="logo-mark">ОН</div>
+    <img src="../../assets/logo/logo-mark.png" alt="ОН Клінік" style="width:34px;height:34px;border-radius:8px;object-fit:contain;background:#fff;padding:2px">
     <div><div class="logo-text">ОН Клінік Харків</div><div class="logo-sub">check-up.in.ua</div></div>
   </a>
   <ul class="nav-links">
@@ -216,10 +216,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-photo-placeholder">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="white"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
-      <span>Фото надасть клініка</span>
-    </div>
+    <div class="hero-photo"><img src="../../assets/doctors/afanasiev-hero.webp" alt="Афанасьєв Ігор Володимирович" loading="eager"></div>
     <div>
       <div class="hero-specialty">Акушер-гінеколог · Оперуючий гінеколог</div>
       <h1>Афанасьєв Ігор Володимирович</h1>
