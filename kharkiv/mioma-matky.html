@@ -805,14 +805,20 @@ async function fetchAndRenderCriteria(){
     let rows=[];
     if(!SUPABASE_URL.includes('YOUR_PROJECT')){
       const ids=qState.criteria.map(c=>`"${c}"`).join(',');
-      const url=`${SUPABASE_URL}/rest/v1/provider_criteria_data?entity_slug=in.("afanasiev","onclinic-kharkiv")&criteria_id=in.(${ids})&select=criteria_id,entity_slug,display_text,icon`;
+      const caseSlug=qState.location==='submucous'?'polip-endometriia-gisteroskopia':'mioma-laparoskopichna-miomektomiia';
+      const url=`${SUPABASE_URL}/rest/v1/provider_criteria_data?entity_slug=in.("afanasiev","onclinic-kharkiv")&criteria_id=in.(${ids})&or=(case_slug.eq.${caseSlug},case_slug.is.null)&select=criteria_id,entity_slug,case_slug,display_text,icon`;
       const r=await fetch(url,{headers:{'apikey':SUPABASE_ANON_KEY,'Authorization':`Bearer ${SUPABASE_ANON_KEY}`}});
       if(r.ok) rows=await r.json();
     }
-    /* merge: prefer onclinic-kharkiv row over afanasiev for same criteria_id */
+    /* merge priority: case-specific > null case_slug; onclinic-kharkiv > afanasiev */
     const map={};
     rows.forEach(row=>{
-      if(!map[row.criteria_id]||row.entity_slug==='onclinic-kharkiv') map[row.criteria_id]=row;
+      const existing=map[row.criteria_id];
+      if(!existing){map[row.criteria_id]=row;return;}
+      const betterEntity=row.entity_slug==='onclinic-kharkiv'&&existing.entity_slug!=='onclinic-kharkiv';
+      const sameEntity=row.entity_slug===existing.entity_slug;
+      const moreSpecific=row.case_slug&&!existing.case_slug;
+      if(betterEntity||(sameEntity&&moreSpecific)) map[row.criteria_id]=row;
     });
     if(loadingEl){
       let inner='';
@@ -909,7 +915,7 @@ async function submitLead(e){
               source_lead_table:'onclinic_leads',
               selected_criteria:qState.criteria,
               source:'quiz',
-              quiz_config_id:'mioma-matky-v2',
+              quiz_config_id:'3c70c538-e681-4f83-9fe0-b050b8ccf921',
               page_url:window.location.href
             })
           });
