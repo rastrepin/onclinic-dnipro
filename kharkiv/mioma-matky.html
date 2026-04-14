@@ -144,6 +144,22 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:6
 .q-btn-next:hover{background:var(--blue-mid)}
 .q-btn-next:disabled{background:var(--border);cursor:not-allowed}
 /* RESULT */
+/* CRITERIA PILLS (step 4) */
+.crit-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 8px}
+.crit-pill{background:var(--bg);border:1.5px solid var(--border);border-radius:8px;padding:12px 14px;text-align:center;font-size:14px;font-weight:500;cursor:pointer;transition:all .15s;color:var(--text);font-family:'Onest',sans-serif;line-height:1.35}
+.crit-pill:hover:not(.inactive){border-color:var(--blue-mid)}
+.crit-pill.selected{border-color:var(--blue-deep);background:var(--blue-light);color:var(--blue-deep);font-weight:600}
+.crit-pill.inactive{opacity:.35;cursor:not-allowed;pointer-events:none}
+.crit-count{font-size:12px;color:var(--muted);text-align:center;margin-top:6px;min-height:18px;transition:color .2s}
+.crit-count.active{color:var(--blue-deep);font-weight:600}
+/* PRIORITIES BLOCK in result */
+.qr-priorities{background:var(--gold-bg);border:1px solid #f0dfa0;border-radius:var(--radius);padding:16px 20px;margin-bottom:16px}
+.qrp-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.qrp-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;font-size:14px;color:var(--text);line-height:1.55}
+.qrp-item:last-child{margin-bottom:0}
+.qrp-icon{font-size:17px;flex-shrink:0;margin-top:1px}
+.qrp-loading{font-size:13px;color:var(--muted);font-style:italic;text-align:center;padding:8px 0}
+
 .quiz-result{display:none;animation:fadeQ .3s ease}
 .quiz-result.active{display:block}
 .qr-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;text-align:center}
@@ -394,7 +410,7 @@ footer a{color:var(--muted);text-decoration:none}
     <div class="quiz-top">
       <p class="sec-label" style="text-align:center">Підібрати метод</p>
       <h2>Дізнайтесь, який метод вам підходить</h2>
-      <p>3 питання — безкоштовна орієнтація</p>
+      <p>4 питання — безкоштовна орієнтація</p>
     </div>
 
     <div class="quiz-progress">
@@ -403,11 +419,13 @@ footer a{color:var(--muted);text-decoration:none}
       <div class="qp-step"><div class="qp-circle" id="qpc2">2</div><div class="qp-label" id="qpl2">Розмір</div></div>
       <div class="qp-line" id="qpln2"></div>
       <div class="qp-step"><div class="qp-circle" id="qpc3">3</div><div class="qp-label" id="qpl3">Вагітність</div></div>
+      <div class="qp-line" id="qpln3"></div>
+      <div class="qp-step"><div class="qp-circle" id="qpc4">4</div><div class="qp-label" id="qpl4">Пріоритети</div></div>
     </div>
 
     <!-- STEP 1 -->
     <div class="quiz-step active" id="qs1">
-      <div class="quiz-step-label">Крок 1 з 3</div>
+      <div class="quiz-step-label">Крок 1 з 4</div>
       <div class="quiz-q">Де розташований вузол за результатами УЗД?</div>
       <div class="quiz-hint">Оберіть відповідь</div>
       <div class="quiz-opts">
@@ -435,7 +453,7 @@ footer a{color:var(--muted);text-decoration:none}
 
     <!-- STEP 2 -->
     <div class="quiz-step" id="qs2">
-      <div class="quiz-step-label">Крок 2 з 3</div>
+      <div class="quiz-step-label">Крок 2 з 4</div>
       <div class="quiz-q">Який розмір найбільшого вузла за даними УЗД?</div>
       <div class="quiz-hint">Оберіть відповідь</div>
       <div class="quiz-opts">
@@ -460,7 +478,7 @@ footer a{color:var(--muted);text-decoration:none}
 
     <!-- STEP 3 -->
     <div class="quiz-step" id="qs3">
-      <div class="quiz-step-label">Крок 3 з 3</div>
+      <div class="quiz-step-label">Крок 3 з 4</div>
       <div class="quiz-q">Які у вас плани щодо вагітності?</div>
       <div class="quiz-hint">Обидва методи зберігають матку</div>
       <div class="quiz-opts">
@@ -479,7 +497,29 @@ footer a{color:var(--muted);text-decoration:none}
       </div>
       <div class="quiz-nav">
         <button class="q-btn-back" onclick="goStep(2)">← Назад</button>
-        <button class="q-btn-next" id="qbn3" onclick="showResult()" disabled>Показати рекомендацію →</button>
+        <button class="q-btn-next" id="qbn3" onclick="goStep(4)" disabled>Далі →</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: CRITERIA (optional, multi_max3) -->
+    <div class="quiz-step" id="qs4">
+      <div class="quiz-step-label">Крок 4 з 4</div>
+      <div class="quiz-q">Що для вас найважливіше?</div>
+      <div class="quiz-hint">Оберіть до 3 пунктів — ми врахуємо їх у рекомендації</div>
+      <div class="crit-grid">
+        <button class="crit-pill" onclick="toggleCrit(this,'experience')">Досвід лікаря саме з моєю проблемою</button>
+        <button class="crit-pill" onclick="toggleCrit(this,'explanation')">Зрозуміле пояснення на кожному кроці</button>
+        <button class="crit-pill" onclick="toggleCrit(this,'price')">Знати ціну наперед</button>
+        <button class="crit-pill" onclick="toggleCrit(this,'speed')">Без черг та очікування</button>
+        <button class="crit-pill" onclick="toggleCrit(this,'reviews')">Відгуки від людей з такою ж ситуацією</button>
+        <button class="crit-pill" onclick="toggleCrit(this,'result')">Чіткий план дій після операції</button>
+        <button class="crit-pill" onclick="toggleCrit(this,'comfort')">Комфортна обстановка</button>
+        <button class="crit-pill" onclick="toggleCrit(this,'location')">Зручно дістатися</button>
+      </div>
+      <div class="crit-count" id="crit-count"></div>
+      <div class="quiz-nav">
+        <button class="q-btn-back" onclick="goStep(3)">← Назад</button>
+        <button class="q-btn-next" onclick="showResult()">Показати рекомендацію →</button>
       </div>
     </div>
 
@@ -628,16 +668,17 @@ footer a{color:var(--muted);text-decoration:none}
 const SUPABASE_URL='https://YOUR_PROJECT.supabase.co';
 const SUPABASE_ANON_KEY='YOUR_ANON_KEY';
 
-const qState={location:null,size:null,pregnancy:null};
+/* ─── STATE ─── */
+const qState={location:null,size:null,pregnancy:null,criteria:[]};
 let preferredDoctor='';
 
+/* ─── STEP NAVIGATION ─── */
 function pickQ(el,key,val){
   const parent=el.closest('.quiz-opts');
   parent.querySelectorAll('.q-opt').forEach(o=>o.classList.remove('selected'));
   el.classList.add('selected');
   qState[key]=val;
-  const step=el.closest('.quiz-step');
-  const nextBtn=step.querySelector('.q-btn-next');
+  const nextBtn=el.closest('.quiz-step').querySelector('.q-btn-next');
   if(nextBtn) nextBtn.disabled=false;
 }
 
@@ -645,42 +686,70 @@ function goStep(n){
   document.querySelectorAll('.quiz-step').forEach(s=>s.classList.remove('active'));
   const step=document.getElementById('qs'+n);
   if(step) step.classList.add('active');
-  // Progress circles
-  for(let i=1;i<=3;i++){
+  for(let i=1;i<=4;i++){
     const c=document.getElementById('qpc'+i);
     const l=document.getElementById('qpl'+i);
-    if(i<n){c.className='qp-circle done';l.className='qp-label'}
-    else if(i===n){c.className='qp-circle active';l.className='qp-label active'}
-    else{c.className='qp-circle';l.className='qp-label'}
-    if(i<3){const ln=document.getElementById('qpln'+i);ln.className=i<n?'qp-line done':'qp-line'}
+    if(!c)continue;
+    if(i<n){c.className='qp-circle done';l.className='qp-label';}
+    else if(i===n){c.className='qp-circle active';l.className='qp-label active';}
+    else{c.className='qp-circle';l.className='qp-label';}
+    if(i<4){const ln=document.getElementById('qpln'+i);if(ln)ln.className=i<n?'qp-line done':'qp-line';}
   }
 }
 
-function showResult(){
+/* ─── CRITERIA MULTI-SELECT (step 4, max 3) ─── */
+function toggleCrit(el,criteriaId){
+  if(el.classList.contains('inactive'))return;
+  if(el.classList.contains('selected')){
+    el.classList.remove('selected');
+    qState.criteria=qState.criteria.filter(c=>c!==criteriaId);
+  } else {
+    if(qState.criteria.length>=3)return;
+    el.classList.add('selected');
+    qState.criteria.push(criteriaId);
+  }
+  const maxReached=qState.criteria.length>=3;
+  document.querySelectorAll('.crit-pill').forEach(p=>{
+    if(!p.classList.contains('selected')) p.classList.toggle('inactive',maxReached);
+  });
+  const cc=document.getElementById('crit-count');
+  if(cc){
+    if(qState.criteria.length===0){cc.textContent='';cc.className='crit-count';}
+    else{cc.textContent=`Обрано: ${qState.criteria.length} з 3`;cc.className='crit-count active';}
+  }
+}
+
+/* ─── RESULT ─── */
+async function showResult(){
   document.querySelectorAll('.quiz-step').forEach(s=>s.classList.remove('active'));
-  // Determine recommendation
+
+  const loc=qState.location, sz=qState.size;
   let method=null,link=null,title=null,subtitle=null,note=null;
-  const loc=qState.location;
-  const sz=qState.size;
+
   if(loc==='submucous'){
-    method='hysteroscopy';title='Вам підходить гістероскопічне видалення';
+    method='hysteroscopy';
+    title='Вам підходить гістероскопічне видалення';
     subtitle='Субмукозний вузол розташований в порожнині матки — його видаляють гістероскопічно без розрізів, виписка за 1 день.';
     link='/kharkiv/polip-endometriia-gisteroskopia';
   } else if(loc==='intramural'||loc==='subserous'){
-    method='laparoscopy';title='Вам підходить лапароскопічна міомектомія';
+    method='laparoscopy';
+    title='Вам підходить лапароскопічна міомектомія';
     subtitle='Вузол в стінці або зовні матки видаляється лапароскопічно через три мікророзрізи. Матка зберігається.';
     link='/kharkiv/mioma-laparoskopichna-miomektomiia';
-    if(sz==='large') note='При великих вузлах лікар може розглянути гістеректомію — визначить після огляду';
+    if(sz==='large') note='При великих вузлах лікар може розглянути гістеректомію — визначить після огляду.';
   } else {
-    method='consult';title='Потрібна консультація та УЗД';
+    method='consult';
+    title='Потрібна консультація та УЗД';
     subtitle='Щоб визначити метод лікування, лікар має оцінити розташування та розмір вузлів. Запишіться на консультацію — все з\'ясуємо за один візит.';
   }
+
   const res=document.getElementById('qresult');
   let html='<div class="qr-label">Рекомендація на основі ваших відповідей</div>';
+
   if(method==='consult'){
     html+=`<div class="qr-consult"><h3>${title}</h3><p>${subtitle}</p></div>`;
   } else {
-    let facts=method==='laparoscopy'
+    const facts=method==='laparoscopy'
       ?[{n:'3',l:'Мікророзрізи'},{n:'2–3 дні',l:'Стаціонар'},{n:'від 26 690',l:'Вартість, грн'}]
       :[{n:'0',l:'Розрізів'},{n:'1 день',l:'Стаціонар'},{n:'від 13 395',l:'Вартість, грн'}];
     html+=`<div class="qr-card">
@@ -691,6 +760,16 @@ function showResult(){
       ${note?`<div class="callout callout-warn" style="margin-top:0;margin-bottom:14px;font-size:13px">${note}</div>`:''}
     </div>`;
   }
+
+  /* Criteria block placeholder — fill async */
+  if(qState.criteria.length>0){
+    html+=`<div class="qr-priorities" id="qr-priorities-block">
+      <div class="qrp-title">За вашими пріоритетами:</div>
+      <div class="qrp-loading" id="qrp-loading">Завантажуємо…</div>
+    </div>`;
+  }
+
+  /* Doctors */
   html+=`<div class="qr-doctors">
     <div class="qr-doc">
       <div class="qrd-av">А</div>
@@ -704,18 +783,57 @@ function showResult(){
     </div>
   </div>
   <div class="qr-note">Остаточне рішення про метод лікування приймає лікар після консультації та УЗД</div>`;
+
   res.innerHTML=html;
   res.classList.add('active');
-  // Update progress
-  for(let i=1;i<=3;i++){
-    document.getElementById('qpc'+i).className='qp-circle done';
-    if(i<3)document.getElementById('qpln'+i).className='qp-line done';
+
+  /* Mark all 4 progress circles done */
+  for(let i=1;i<=4;i++){
+    const c=document.getElementById('qpc'+i);
+    if(c) c.className='qp-circle done';
+    if(i<4){const ln=document.getElementById('qpln'+i);if(ln)ln.className='qp-line done';}
+  }
+
+  /* Async: fetch criteria data and fill block */
+  if(qState.criteria.length>0) fetchAndRenderCriteria();
+}
+
+async function fetchAndRenderCriteria(){
+  const block=document.getElementById('qrp-priorities-block');
+  const loadingEl=document.getElementById('qrp-loading');
+  try{
+    let rows=[];
+    if(!SUPABASE_URL.includes('YOUR_PROJECT')){
+      const ids=qState.criteria.map(c=>`"${c}"`).join(',');
+      const url=`${SUPABASE_URL}/rest/v1/provider_criteria_data?entity_slug=in.("afanasiev","onclinic-kharkiv")&criteria_id=in.(${ids})&select=criteria_id,entity_slug,display_text,icon`;
+      const r=await fetch(url,{headers:{'apikey':SUPABASE_ANON_KEY,'Authorization':`Bearer ${SUPABASE_ANON_KEY}`}});
+      if(r.ok) rows=await r.json();
+    }
+    /* merge: prefer onclinic-kharkiv row over afanasiev for same criteria_id */
+    const map={};
+    rows.forEach(row=>{
+      if(!map[row.criteria_id]||row.entity_slug==='onclinic-kharkiv') map[row.criteria_id]=row;
+    });
+    if(loadingEl){
+      let inner='';
+      qState.criteria.forEach(cId=>{
+        const row=map[cId];
+        if(row){
+          inner+=`<div class="qrp-item"><span class="qrp-icon">${row.icon||'✓'}</span><span>${row.display_text}</span></div>`;
+        }
+      });
+      loadingEl.outerHTML=inner||'';
+    }
+  }catch(e){
+    console.warn('Criteria fetch failed',e);
+    if(loadingEl) loadingEl.outerHTML='';
   }
 }
 
+/* ─── MODAL ─── */
 function openModal(doctor=''){
   preferredDoctor=doctor;
-  if(doctor){document.getElementById('modal-sub-text').textContent=`ОН Клінік Харків · До ${doctor}`;}
+  if(doctor) document.getElementById('modal-sub-text').textContent=`ОН Клінік Харків · До ${doctor}`;
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow='hidden';
 }
@@ -734,28 +852,74 @@ function checkConsent(){
   document.getElementById('submit-btn').disabled=!document.getElementById('consent-check').checked;
 }
 
+/* ─── FORM SUBMIT: two INSERTs ─── */
 async function submitLead(e){
   e.preventDefault();
-  if(document.querySelector('[name="website"]').value)return;
+  if(document.querySelector('[name="website"]').value) return;
   const form=e.target;
   const btn=document.getElementById('submit-btn');
-  btn.disabled=true;btn.textContent='Відправляємо...';
+  btn.disabled=true; btn.textContent='Відправляємо...';
+
+  const recommendedMethod=qState.location==='submucous'?'hysteroscopy':qState.location?'laparoscopy':null;
+
   const payload={
-    name:form.name.value,phone:form.phone.value,
+    name:form.name.value.trim(),
+    phone:form.phone.value.trim(),
     contact_method:form.contact_method.value,
     preferred_doctor:preferredDoctor||null,
     quiz_answers:{location:qState.location,size:qState.size,pregnancy_plans:qState.pregnancy},
-    recommended_method:qState.location==='submucous'?'hysteroscopy':qState.location?'laparoscopy':null,
-    page_url:window.location.href,consent_given:true
+    selected_criteria:qState.criteria.length>0?qState.criteria:null,
+    recommended_method:recommendedMethod,
+    page_url:window.location.href,
+    consent_given:true
   };
+
   try{
-    const res=await fetch(`${SUPABASE_URL}/rest/v1/onclinic_leads`,{
-      method:'POST',
-      headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON_KEY,'Authorization':`Bearer ${SUPABASE_ANON_KEY}`,'Prefer':'return=minimal'},
-      body:JSON.stringify(payload)
-    });
-    if(res.ok||res.status===201){showSuccess();}else throw new Error();
-  }catch{showSuccess();console.warn('Supabase not configured');}
+    if(SUPABASE_URL.includes('YOUR_PROJECT')){
+      console.warn('Supabase not configured — skipping request');
+    } else {
+      /* INSERT onclinic_leads → get back id */
+      const leadsRes=await fetch(`${SUPABASE_URL}/rest/v1/onclinic_leads`,{
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json',
+          'apikey':SUPABASE_ANON_KEY,
+          'Authorization':`Bearer ${SUPABASE_ANON_KEY}`,
+          'Prefer':'return=representation'
+        },
+        body:JSON.stringify(payload)
+      });
+
+      if(leadsRes.ok||leadsRes.status===201){
+        const leadData=await leadsRes.json();
+        const leadId=Array.isArray(leadData)?leadData[0]?.id:leadData?.id;
+
+        /* INSERT patient_criteria (only if criteria selected) */
+        if(leadId && qState.criteria.length>0){
+          await fetch(`${SUPABASE_URL}/rest/v1/patient_criteria`,{
+            method:'POST',
+            headers:{
+              'Content-Type':'application/json',
+              'apikey':SUPABASE_ANON_KEY,
+              'Authorization':`Bearer ${SUPABASE_ANON_KEY}`,
+              'Prefer':'return=minimal'
+            },
+            body:JSON.stringify({
+              source_lead_id:leadId,
+              source_lead_table:'onclinic_leads',
+              selected_criteria:qState.criteria,
+              source:'quiz',
+              quiz_config_id:'mioma-matky-v2',
+              page_url:window.location.href
+            })
+          });
+        }
+      }
+    }
+  }catch(err){
+    console.warn('Supabase error:',err);
+  }
+  showSuccess();
 }
 
 function showSuccess(){
@@ -764,7 +928,7 @@ function showSuccess(){
 }
 
 function toggleFaq(el){
-  const a=el.nextElementSibling;const isOpen=el.classList.contains('open');
+  const a=el.nextElementSibling; const isOpen=el.classList.contains('open');
   document.querySelectorAll('.faq-q.open').forEach(q=>{q.classList.remove('open');q.nextElementSibling.classList.remove('open');});
   if(!isOpen){el.classList.add('open');a.classList.add('open');}
 }
