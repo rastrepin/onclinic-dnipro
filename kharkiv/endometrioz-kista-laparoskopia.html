@@ -536,58 +536,38 @@ footer a{color:var(--gray-400);text-decoration:none}
     </section>
 
     <!-- ХІРУРГИ -->
-    <section id="doctors">
-      <p class="section-label">Хірурги</p>
-      <h2 class="section-title">Хто виконує операцію</h2>
-      <div class="doctors-grid">
-        <div class="doc-card">
-          <div class="dc-head">
-            <img class="dc-avatar" src="../assets/doctors/afanasiev-card.webp" alt="Афанасьєв І.В." loading="lazy">
-            <div class="dc-head-text">
-              <h3>Афанасьєв Ігор Володимирович</h3>
-              <p>Акушер-гінеколог · Оперуючий гінеколог</p>
-            </div>
-          </div>
-          <div class="dc-body">
-            <div class="dc-stats">
-              <div class="dc-stat"><div class="dc-stat-num">33</div><div class="dc-stat-lbl">роки клінічного досвіду</div></div>
-              <div class="dc-stat"><div class="dc-stat-num">к.м.н.</div><div class="dc-stat-lbl">вища категорія</div></div>
-            </div>
-            <div class="dc-tags">
-              <span class="tag">Лапароскопія</span>
-              <span class="tag">Ендометріоз</span>
-              <span class="tag">Кісти яєчників</span>
-            </div>
-            <div class="dc-recommended">~500+ лапароскопій на придатках [ГІПОТЕТИЧНО — підтвердити у клініки]</div>
-            <button class="doc-book db-blue" onclick="openModal('Афанасьєв І.В.')">Записатися до Афанасьєва І.В.</button>
-            <a href="/kharkiv/doctors/afanasiev?case=endometrioz-kista-laparoskopia" class="dc-profile-link">Профіль лікаря →</a>
-          </div>
-        </div>
-        <div class="doc-card">
-          <div class="dc-head">
-            <img class="dc-avatar" src="../assets/doctors/striukov-card.webp" alt="Стрюков Д.В." loading="lazy">
-            <div class="dc-head-text">
-              <h3>Стрюков Дмитро Владиславович</h3>
-              <p>Акушер-гінеколог · Оперуючий гінеколог</p>
-            </div>
-          </div>
-          <div class="dc-body">
-            <div class="dc-stats">
-              <div class="dc-stat"><div class="dc-stat-num">24</div><div class="dc-stat-lbl">роки клінічного досвіду</div></div>
-              <div class="dc-stat"><div class="dc-stat-num">к.м.н.</div><div class="dc-stat-lbl">вища категорія</div></div>
-            </div>
-            <div class="dc-tags">
-              <span class="tag">Лапароскопія</span>
-              <span class="tag">Малоінвазивна хірургія</span>
-              <span class="tag">Ендометріоз</span>
-            </div>
-            <div class="dc-recommended">~300+ лапароскопій на придатках [ГІПОТЕТИЧНО — підтвердити у клініки]</div>
-            <button class="doc-book db-blue" onclick="openModal('Стрюков Д.В.')">Записатися до Стрюкова Д.В.</button>
-            <a href="/kharkiv/doctors/striukov?case=endometrioz-kista-laparoskopia" class="dc-profile-link">Профіль лікаря · Консультація 700 грн →</a>
-          </div>
-        </div>
+    <div class="section" id="doctors">
+  <p class="section-label">Хірурги</p>
+  <h2 class="section-title">Хто виконує операції</h2>
+  <div class="doctors-grid">
+    <div class="doc-card">
+      <div class="dc-tag-strip dc-strip-blue"></div>
+      <div class="doc-avatar"><img src="../assets/doctors/afanasiev-card.webp" alt="Афанасьєв Ігор Володимирович" loading="lazy"></div>
+      <div class="doc-name">Афанасьєв Ігор Володимирович</div>
+      <div class="doc-title">Акушер-гінеколог·Оперуючий гінеколог</div>
+      <div class="doc-cred">
+        <div class="cred-item"><div class="cred-num">33</div><div class="cred-lbl">роки досвіду</div></div>
+        <div class="cred-item"><div class="cred-num">к.м.н.</div><div class="cred-lbl">вища категорія</div></div>
       </div>
-    </section>
+      <div class="doc-tags"><span class="tag">Лапароскопія</span><span class="tag">Ендометріоз</span><span class="tag">Кісти</span><span class="tag">Безпліддя</span></div>
+      <button class="doc-book db-blue" onclick="openModal('Афанасьєв І.В.')">Записатися до Афанасьєва І.В.</button>
+      <a href="/kharkiv/doctors/afanasiev?case=endometrioz-kista-laparoskopia" class="dc-profile-link">Профіль лікаря →</a>
+    </div>
+    <div class="doc-card">
+      <div class="dc-tag-strip dc-strip-gold"></div>
+      <div class="doc-avatar"><img src="../assets/doctors/striukov-card.webp" alt="Стрюков Дмитро Владиславович" loading="lazy"></div>
+      <div class="doc-name">Стрюков Дмитро Владиславович</div>
+      <div class="doc-title">Акушер-гінеколог·Оперуючий гінеколог</div>
+      <div class="doc-cred">
+        <div class="cred-item"><div class="cred-num">24</div><div class="cred-lbl">роки досвіду</div></div>
+        <div class="cred-item"><div class="cred-num">700 грн</div><div class="cred-lbl">консультація</div></div>
+      </div>
+      <div class="doc-tags"><span class="tag">Лапароскопія</span><span class="tag">Ендометріоз</span><span class="tag">Кісти</span><span class="tag">Безпліддя</span></div>
+      <button class="doc-book db-blue" onclick="openModal('Стрюков Д.В.')">Записатися до Стрюкова Д.В.</button>
+      <a href="/kharkiv/doctors/striukov?case=endometrioz-kista-laparoskopia" class="dc-profile-link">Профіль лікаря →</a>
+    </div>
+  </div>
+</div>
 
     <!-- ВІДНОВЛЕННЯ -->
     <section>
