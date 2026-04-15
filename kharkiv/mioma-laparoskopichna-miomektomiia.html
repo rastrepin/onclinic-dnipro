@@ -567,6 +567,34 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:6
 
   .alt-grid{grid-template-columns:1fr}
 
+.hero-section{background:linear-gradient(135deg,#0B4F9A 0%,#0a3d7a 60%,#07295c 100%)}
+.hero-title-line1{font-family:'Onest',sans-serif;font-weight:700;color:#fff;text-transform:uppercase;font-size:clamp(28px,5vw,48px);display:block;line-height:1.1}
+.hero h1 em{font-family:'Cormorant Garamond',serif;font-style:italic;color:#e8b820;font-size:clamp(32px,5.5vw,54px)}
+.hero-label{color:rgba(255,255,255,0.6)!important}
+.hero-label::before{background:var(--gold)!important}
+.hero-sub{color:rgba(255,255,255,0.75)!important}
+.hero-stats .stat-num{color:#fff!important}
+.hero-stats .stat-lbl{color:rgba(255,255,255,0.6)!important}
+.hero .btn-ghost{color:rgba(255,255,255,0.9);border-color:rgba(255,255,255,0.4)}
+.hero .btn-ghost:hover{background:rgba(255,255,255,0.1);color:#fff}
+.sbar-num{font-family:'Onest',sans-serif!important;font-weight:800;color:var(--blue)}
+.sbar-lbl{font-family:'Onest',sans-serif}
+.cred-num{font-family:'Onest',sans-serif!important;font-weight:700}
+.data-pending{text-decoration:line-through;color:var(--gray-400);font-style:normal}
+.section{padding-top:96px!important;padding-bottom:96px!important}
+.hero{padding-bottom:80px}
+
+.hero-roadmap{display:flex;flex-direction:column;gap:28px}
+.roadmap-step{display:flex;gap:20px}
+.roadmap-marker{display:flex;flex-direction:column;align-items:center}
+.roadmap-dot{width:28px;height:28px;background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.roadmap-line{width:2px;height:28px;background:rgba(255,255,255,0.2);margin:8px 0}
+.roadmap-content{flex:1;padding-top:2px}
+.roadmap-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}
+.roadmap-sub{font-size:13px;color:rgba(255,255,255,0.75);line-height:1.4}
+
+.price-cta{width:100%;background:var(--gold-light,#fffbeb);color:#7A5C00;border:1.5px solid #C49A1A;border-radius:10px;font-weight:500;padding:12px 24px;font-family:'Onest',sans-serif;cursor:pointer;font-size:15px;transition:all .2s}
+.price-cta:hover{background:#C49A1A;color:#fff}
 </style>
 </head>
 <body>
@@ -582,10 +610,11 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:6
 </nav>
 
 <!-- HERO -->
+<div class="hero-section">
 <div class="hero">
   <div>
     <div class="hero-label">Оперативна гінекологія · ОН Клінік Харків</div>
-    <h1>ЛАПАРОСКОПІЧНА<br><em>міомектомія</em></h1>
+    <h1><span class="hero-title-line1">ЛАПАРОСКОПІЧНА</span><br><em>міомектомія</em></h1>
     <p class="hero-sub">Видалення вузлів міоми через три мікророзрізи — без відкритої операції, без великих шрамів. Матка зберігається. Вагітність після операції можлива.</p>
     <div class="hero-stats">
       <div><div class="stat-num">3</div><div class="stat-lbl">мікророзрізи<br>по 0,5–1 см</div></div>
@@ -597,11 +626,48 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:6
       <a class="btn-ghost" href="#price">Вартість операції →</a>
     </div>
   </div>
-  <div class="hero-visual">
-    <div class="flow-card">
-      <div class="flow-icon fi-gold"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C49A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-      <div><div class="flow-title">Консультація гінеколога</div><div class="flow-sub">УЗД, аналізи, призначення дати</div></div>
+  <div class="hero-roadmap">
+  <div class="roadmap-step">
+    <div class="roadmap-marker">
+      <div class="roadmap-dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg></div>
+      <div class="roadmap-line"></div>
     </div>
+    <div class="roadmap-content">
+      <div class="roadmap-title">Консультація гінеколога</div>
+      <div class="roadmap-sub">УЗД, аналізи, призначення дати</div>
+    </div>
+  </div>
+  <div class="roadmap-step">
+    <div class="roadmap-marker">
+      <div class="roadmap-dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg></div>
+      <div class="roadmap-line"></div>
+    </div>
+    <div class="roadmap-content">
+      <div class="roadmap-title">Підготовка до операції</div>
+      <div class="roadmap-sub">Обстеження, пам'ятка, госпіталізація</div>
+    </div>
+  </div>
+  <div class="roadmap-step">
+    <div class="roadmap-marker">
+      <div class="roadmap-dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+      <div class="roadmap-line"></div>
+    </div>
+    <div class="roadmap-content">
+      <div class="roadmap-title">Операція — 40–90 хв</div>
+      <div class="roadmap-sub">Три мікророзрізи, Karl Storz HD</div>
+    </div>
+  </div>
+  <div class="roadmap-step">
+    <div class="roadmap-marker">
+      <div class="roadmap-dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg></div>
+    </div>
+    <div class="roadmap-content">
+      <div class="roadmap-title">Стаціонар 2–3 дні</div>
+      <div class="roadmap-sub">Виписка, контрольний огляд</div>
+    </div>
+  </div>
+</div>
+</div>
     <div class="flow-card">
       <div class="flow-icon fi-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B4F9A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
       <div><div class="flow-title">Підготовка до операції</div><div class="flow-sub">Обстеження, пам’ятка, госпіталізація</div></div>
@@ -694,7 +760,7 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:6
             <h4>Передопераційна підготовка</h4>
             <p>Аналізи крові (загальний, біохімічний, коагулограма, група та резус, ВІЛ/гепатит Б/сифіліс), мазок на флору, ПАП-тест, ЕКГ, УЗД органів малого таза.</p>
             <div class="r-step-meta">Тривалість: 1–3 дні</div>
-            <div class="r-step-note">[УТОЧНИТИ У КЛІНІКИ: чи можна здати аналізи в ОН Клінік, вартість пакету]</div>
+            <div class="r-step-note"><span class="data-pending">≈ 2 000 грн</span></div>
           </div>
         </div>
         <div class="r-step">
@@ -718,7 +784,7 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:6
           <div class="r-step-body">
             <h4>Контроль та відновлення</h4>
             <p>Контрольний огляд та УЗД через 2 тижні. Звичайна активність — через 2–3 тижні. Планування вагітності — не раніше ніж через 6–12 місяців.</p>
-            <div class="r-step-note">[УТОЧНИТИ У КЛІНІКИ: чи входить контрольний огляд у вартість]</div>
+            <div class="r-step-note"><span class="data-pending">включено</span></div>
           </div>
         </div>
       </div>
@@ -906,7 +972,7 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:6
       <h2>ПЕРШИЙ КРОК —<br/><em>консультація гінеколога</em></h2>
       <p>Лікар оцінить розташування та розмір вузлів за УЗД і визначить чи підходить лапароскопія. Консультація займає 40–60 хвилин.</p>
       <button class="btn-primary" onclick="openModal()">Записатися онлайн</button>
-      <div style="margin-top:12px;font-size:13px;color:var(--gray-400)">[УТОЧНИТИ У КЛІНІКИ: телефон]</div>
+      <div style="margin-top:12px;font-size:13px;color:var(--gray-400)"><span class="data-pending">+38 (057) 000-00-00</span></div>
     </div>
 
     <!-- E-E-A-T -->
@@ -940,8 +1006,8 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:6
         <div class="price-divider"></div>
         <div class="pi-label">Не входить</div>
         <ul class="pi-list excludes">
-          <li>Передопераційні аналізи [УТОЧНИТИ вартість у клініки]</li>
-          <li>Гістологічне дослідження [УТОЧНИТИ вартість]</li>
+          <li>Передопераційні аналізи <span class="data-pending">≈ 2 000 грн</span></li>
+          <li>Гістологічне дослідження <span class="data-pending">≈ 500 грн</span></li>
           <li>Консультації суміжних спеціалістів (за потреби)</li>
         </ul>
         <div style="font-size:11px;color:var(--gray-500);margin-top:10px;line-height:1.5">Точна вартість залежить від кількості та розміру вузлів — визначається після консультації.</div>
@@ -969,7 +1035,7 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:6
       Харківської, Сумської та Полтавської областей.
       ОН Клінік Харків Левада, вул. Молочна, 48, м. Левада.
       Пн–Пт 8:00–18:00, Сб 8:00–17:00, Нд 8:30–14:00.
-      Тел.: [УТОЧНИТИ У КЛІНІКИ].
+      Тел.: <span class="data-pending">≈ 2 000 грн</span>.
     </p>
   </div>
 </section>

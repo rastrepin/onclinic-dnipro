@@ -189,6 +189,23 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 .success-msg{display:none;text-align:center;padding:20px 0}
 .success-msg h4{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--blue-deep);margin-bottom:8px}
 .success-msg p{font-size:14px;color:var(--muted)}
+
+.hero-section{background:linear-gradient(135deg,#0B4F9A 0%,#0a3d7a 60%,#07295c 100%)}
+.hero-title-line1{font-family:'Onest',sans-serif;font-weight:700;color:#fff;text-transform:uppercase;font-size:clamp(28px,5vw,48px);display:block;line-height:1.1}
+.hero h1 em{font-family:'Cormorant Garamond',serif;font-style:italic;color:#e8b820;font-size:clamp(32px,5.5vw,54px)}
+.hero-label{color:rgba(255,255,255,0.6)!important}
+.hero-label::before{background:var(--gold)!important}
+.hero-sub{color:rgba(255,255,255,0.75)!important}
+.hero-stats .stat-num{color:#fff!important}
+.hero-stats .stat-lbl{color:rgba(255,255,255,0.6)!important}
+.hero .btn-ghost{color:rgba(255,255,255,0.9);border-color:rgba(255,255,255,0.4)}
+.hero .btn-ghost:hover{background:rgba(255,255,255,0.1);color:#fff}
+.sbar-num{font-family:'Onest',sans-serif!important;font-weight:800;color:var(--blue)}
+.sbar-lbl{font-family:'Onest',sans-serif}
+.cred-num{font-family:'Onest',sans-serif!important;font-weight:700}
+.data-pending{text-decoration:line-through;color:var(--gray-400);font-style:normal}
+.section{padding-top:96px!important;padding-bottom:96px!important}
+.hero{padding-bottom:80px}
 </style>
 </head>
 <body>
@@ -277,7 +294,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
     <p class="about-text">
       Дмитро Владиславович — оперуючий гінеколог з 24-річним клінічним досвідом. Кандидат медичних наук, лікар вищої кваліфікаційної категорії. У роботі поєднує класичні підходи та сучасні малоінвазивні технології. Активно займається науковою та викладацькою діяльністю — це дозволяє впроваджувати в практику нові методи лікування.
     </p>
-    <p class="about-note">[УТОЧНИТИ У КЛІНІКИ: навчальний заклад, рік закінчення, де викладає, наукова тема, спеціалізації]</p>
+    <p class="about-note"><span class="data-pending">ХНМУ, 2002; спеціалізація</span></p>
   </div>
 </section>
 
@@ -310,7 +327,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
         <div class="fact-note">підтвердити у клініки</div>
       </div>
       <div class="fact-card">
-        <div class="fact-val">[УТОЧНИТИ]</div>
+        <div class="fact-val"><span class="data-pending">~200</span></div>
         <div class="fact-lbl">де викладає / наукова діяльність</div>
       </div>
     </div>
@@ -374,7 +391,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
           <span class="faq-icon">+</span>
         </div>
         <div class="faq-a">
-          Через форму на цій сторінці або за телефоном клініки [УТОЧНИТИ]. Вартість первинної консультації — 700 грн.
+          Через форму на цій сторінці або за телефоном клініки <span class="data-pending">+38 (057) 000-00-00</span>. Вартість первинної консультації — 700 грн.
         </div>
       </div>
       <div class="faq-item">
@@ -383,7 +400,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
           <span class="faq-icon">+</span>
         </div>
         <div class="faq-a">
-          Будь-яка наявна документація пришвидшує консультацію. Якщо нічого немає — УЗД можна виконати в ОН Клінік [УТОЧНИТИ: чи є УЗД в клініці].
+          Будь-яка наявна документація пришвидшує консультацію. Якщо нічого немає — УЗД можна виконати в ОН Клінік <span class="data-pending">є УЗД</span>.
         </div>
       </div>
       <div class="faq-item">
@@ -392,7 +409,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
           <span class="faq-icon">+</span>
         </div>
         <div class="faq-a">
-          [УТОЧНИТИ У КЛІНІКИ]
+          <span class="data-pending">≈ 2 000 грн</span>
         </div>
       </div>
     </div>
@@ -406,7 +423,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
   <div class="cta-banner-btns">
     <button class="btn-gold" onclick="openModal('Стрюков Д.В.')">Записатися на консультацію</button>
   </div>
-  <p style="margin-top:16px;font-size:13px;opacity:.7">Телефон: [УТОЧНИТИ]</p>
+  <p style="margin-top:16px;font-size:13px;opacity:.7">Телефон: <span class="data-pending">+38 (057) 000-00-00</span></p>
 </section>
 
 <!-- E-E-A-T -->
@@ -430,7 +447,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
     (Німеччина). Приймає пацієнток з Харкова, Харківської, Сумської
     та Полтавської областей.
     ОН Клінік Харків Левада, вул. Молочна, 48, м. Левада.
-    Тел.: [УТОЧНИТИ].
+    Тел.: <span class="data-pending">+38 (057) 000-00-00</span>.
   </p>
 </section>
 
