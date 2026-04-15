@@ -230,6 +230,57 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 /* === STEP BODY === */
 .step-body { max-width: 640px; }
 .step-body p { margin-bottom: 6px; }
+
+/* ── Sprint UX — Global overrides ── */
+/* Trust bar */
+.trust-bar { background: var(--blue, #0B4F9A) !important; padding: 16px 48px !important; border-bottom: 1px solid rgba(255,255,255,.15) !important; }
+.trust-inner { justify-content: center !important; gap: 0 !important; }
+.trust-item { flex-direction: column !important; padding: 10px 32px !important; border-right: 1px solid rgba(255,255,255,.2) !important; }
+.trust-item:last-child { border-right: none !important; }
+.trust-item::before { display: none !important; }
+.trust-fact { font-size: 14px !important; font-weight: 700 !important; color: #fff !important; }
+.trust-lbl { font-size: 12px !important; color: rgba(255,255,255,.65) !important; margin-top: 2px !important; font-size: 12px !important; }
+
+/* Buttons */
+.btn-primary { background: var(--gold, #C49A1A) !important; color: #fff !important; border-radius: 8px !important; border: none !important; }
+.btn-primary:hover { background: #b88a16 !important; transform: translateY(-1px) !important; box-shadow: 0 6px 20px rgba(196,154,26,.3) !important; }
+.btn-ghost { background: transparent !important; color: var(--blue, #0B4F9A) !important; border: 2px solid var(--blue, #0B4F9A) !important; border-radius: 8px !important; }
+.btn-ghost:hover { background: var(--blue-light, #EEF5FF) !important; border-color: var(--blue, #0B4F9A) !important; }
+/* Keep hero buttons on white/transparent */
+.hero .btn-primary, .hero-section .btn-primary { background: #fff !important; color: var(--blue, #0B4F9A) !important; }
+.hero .btn-primary:hover, .hero-section .btn-primary:hover { background: #e8f0fb !important; box-shadow: none !important; }
+.hero .btn-ghost, .hero-section .btn-ghost { background: transparent !important; color: #fff !important; border: 1.5px solid rgba(255,255,255,.4) !important; }
+.hero .btn-ghost:hover, .hero-section .btn-ghost:hover { border-color: rgba(255,255,255,.8) !important; background: transparent !important; }
+.btn-gold { background: var(--gold, #C49A1A) !important; color: #fff !important; border: 2px solid var(--gold, #C49A1A) !important; border-radius: 8px !important; }
+.btn-gold:hover { background: #b88a16 !important; border-color: #b88a16 !important; }
+
+/* Section надзаголовки — ем-тире замість золотої риски */
+.section-label { text-transform: none !important; letter-spacing: 0 !important; font-size: 13px !important; color: var(--gray-500, #6B7280) !important; }
+.section-label::before { content: '——' !important; background: none !important; width: auto !important; height: auto !important; color: var(--gold, #C49A1A) !important; margin-right: 6px !important; }
+.sec-label { text-transform: none !important; letter-spacing: 0 !important; font-size: 13px !important; }
+
+/* E-E-A-T structured block */
+.eeat-block { background: #fff; border: 1px solid var(--border, #e2e8f0); border-radius: 12px; padding: 16px 20px; margin: 24px auto; max-width: 1120px; }
+.eeat-row { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid #f3f4f6; font-size: 13px; }
+.eeat-row:last-child { border-bottom: none; padding-bottom: 0; }
+.eeat-icon { color: var(--gold, #C49A1A); flex-shrink: 0; margin-top: 1px; }
+.eeat-label { font-weight: 600; color: var(--gray-900, #111827); margin-right: 6px; min-width: 90px; }
+.eeat-value { color: var(--gray-500, #6B7280); line-height: 1.55; }
+
+/* Mobile padding */
+@media(max-width:768px) { .section, section { padding: 64px 20px !important; } .trust-bar { padding: 12px 20px !important; } .trust-item { padding: 8px 16px !important; } }
+h2 { margin-bottom: 20px; }
+/* Breadcrumb */
+.breadcrumb-nav-top { font-size: 12px; color: var(--gray-500, #6B7280); padding: 10px 48px; background: #fff; border-bottom: 1px solid var(--gray-200, #E5E7EB); }
+.breadcrumb-nav-top a { color: var(--gray-500, #6B7280); text-decoration: none; }
+.breadcrumb-nav-top a:hover { color: var(--blue, #0B4F9A); }
+.breadcrumb-nav-top span { margin: 0 6px; }
+@media(max-width:768px) { .breadcrumb-nav-top { padding: 10px 20px; } }
+
+/* Doctor profile padding overrides */
+.section { padding: 96px 24px !important; }
+@media(max-width:768px) { .section { padding: 64px 20px !important; } }
+
 </style>
 </head>
 <body>
@@ -267,7 +318,11 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
       <div class="hero-specialty">Акушер-гінеколог · Оперуючий гінеколог</div>
       <h1>Стрюков Дмитро Владиславович</h1>
       <div class="hero-title">Оперуючий гінеколог · Вища кваліфікаційна категорія · К.м.н.</div>
-      <div class="price-badge">Консультація — 700 грн</div>          <div class="hero-stat-lbl">клінічного досвіду</div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-val">24</div>
+          <div class="hero-stat-lbl">роки досвіду</div>
+        </div>
         </div>
         <div class="hero-stat">
           <div class="hero-stat-val">К.м.н.</div>
@@ -281,7 +336,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
       <div class="hero-tags">
         <span class="hero-tag">Лапароскопія</span>
         <span class="hero-tag">Гістероскопія</span>
-        <span class="hero-tag">Малоінвазивна хірургія</span>
+        <span class="hero-tag">Ендоскопічна хірургія</span>
         <span class="hero-tag">Ендометріоз</span>
         <span class="hero-tag">Міома матки</span>
       </div>
@@ -331,7 +386,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
       </div>
       <div class="fact-card">
         <div class="fact-val">Вища</div>
-        <div class="fact-lbl">кваліфікаційна категорія</div>
+        <div class="fact-lbl">категорія</div>
       </div>
       <div class="fact-card">
         <div class="fact-val">К.м.н.</div>
@@ -346,10 +401,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
         <div class="fact-lbl">операцій</div>
         <div class="fact-note">підтвердити у клініки</div>
       </div>
-      <div class="fact-card">
-        <div class="fact-val"><span class="data-pending">~200</span></div>
-        <div class="fact-lbl">де викладає / наукова діяльність</div>
-      </div>
+
     </div>
   </div>
 </section>
@@ -411,7 +463,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
           <span class="faq-icon">+</span>
         </div>
         <div class="faq-a">
-          Через форму на цій сторінці або за телефоном клініки <span class="data-pending">+38 (057) 000-00-00</span>. Вартість первинної консультації — 700 грн.
+          Через форму на цій сторінці або за телефоном клініки 0 800 21 86 16. Вартість первинної консультації — 700 грн.
         </div>
       </div>
       <div class="faq-item">
@@ -429,7 +481,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
           <span class="faq-icon">+</span>
         </div>
         <div class="faq-a">
-          <span class="data-pending">≈ 2 000 грн</span>
+          Так, направлення не обов'язкове. Запис за телефоном 0 800 21 86 16 або через форму на сайті.
         </div>
       </div>
     </div>
@@ -443,14 +495,30 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
   <div class="cta-banner-btns">
     <button class="btn-gold" onclick="openModal('Стрюков Д.В.')">Записатися на консультацію</button>
   </div>
-  <p style="margin-top:16px;font-size:13px;opacity:.7">Телефон: <span class="data-pending">+38 (057) 000-00-00</span></p>
+  <p style="margin-top:16px;font-size:13px;opacity:.7">Телефон: 0 800 21 86 16</p>
 </section>
 
 <!-- E-E-A-T -->
-<div class="eeat">
-  <div class="eeat-inner">
-    <span>Автор профілю: <b>Ігор Растрепін, засновник check-up.in.ua</b></span>
-    <span>Профіль оновлено: <b>квітень 2026</b></span>
+<div class="eeat-block">
+  <div class="eeat-row">
+    <span class="eeat-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></span>
+    <span class="eeat-label">Автор:</span>
+    <span class="eeat-value">Ігор Растрепін, засновник check-up.in.ua</span>
+  </div>
+  <div class="eeat-row">
+    <span class="eeat-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg></span>
+    <span class="eeat-label">Рецензент:</span>
+    <span class="eeat-value">Стрюков Дмитро Владиславович, оперуючий гінеколог, к.м.н., вища категорія, 24 роки досвіду</span>
+  </div>
+  <div class="eeat-row">
+    <span class="eeat-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+    <span class="eeat-label">Оновлено:</span>
+    <span class="eeat-value">квітень 2026</span>
+  </div>
+  <div class="eeat-row">
+    <span class="eeat-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
+    <span class="eeat-label">Джерела:</span>
+    <span class="eeat-value">Mayo Clinic Family Health Book, 5th Edition · Стандарти медичної допомоги: Лейоміома матки, МОЗ України, 2023</span>
   </div>
 </div>
 
@@ -467,7 +535,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
     (Німеччина). Приймає пацієнток з Харкова, Харківської, Сумської
     та Полтавської областей.
     ОН Клінік Харків Левада, вул. Молочна, 48, м. Левада.
-    Тел.: <span class="data-pending">+38 (057) 000-00-00</span>.
+    Тел.: 0 800 21 86 16.
   </p>
 </section>
 
