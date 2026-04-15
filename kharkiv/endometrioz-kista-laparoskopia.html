@@ -610,6 +610,34 @@ h2.sec-title{font-family:'Onest',sans-serif;font-size:30px;font-weight:600;color
 
 .price-cta{width:100%;background:var(--gold-light,#fffbeb);color:#7A5C00;border:1.5px solid #C49A1A;border-radius:10px;font-weight:500;padding:12px 24px;font-family:'Onest',sans-serif;cursor:pointer;font-size:15px;transition:all .2s}
 .price-cta:hover{background:#C49A1A;color:#fff}
+/* === FONT OVERRIDES === */
+.hero h1 em, .hero-title em { font-family: 'Cormorant Garamond', serif; font-style: italic; }
+.fact-value, .fact-val, .stat-num, .sbar-num, .cred-num, .doc-name,
+.section-title, .hero-stats { font-family: 'Onest', sans-serif; }
+/* === HERO BUTTONS === */
+.hero .btn-primary, .hero-section .btn-primary {
+  background: white; color: var(--blue);
+  border: none; border-radius: 10px;
+  font-weight: 600; padding: 13px 28px;
+}
+.hero .btn-primary:hover, .hero-section .btn-primary:hover { background: #e8f0fb; }
+.hero .btn-ghost, .hero-section .btn-ghost {
+  background: transparent; color: white;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  border-radius: 10px; padding: 13px 20px;
+}
+.hero .btn-ghost:hover, .hero-section .btn-ghost:hover { border-color: rgba(255,255,255,0.8); }
+/* === BREADCRUMB === */
+.breadcrumb { justify-content: flex-start !important; text-align: left !important; }
+/* === SECTION SPACING === */
+.section, section { padding: 96px 48px !important; }
+/* === STEP BODY === */
+.step-body { max-width: 640px; }
+.step-body p { margin-bottom: 6px; }
+/* === EQUIPMENT === */
+.equipment-grid, .equip-grid { grid-template-columns: repeat(2, 1fr) !important; max-width: 860px !important; }
+/* === PRICE SIDEBAR === */
+.price-sidebar { max-width: 380px !important; width: 100% !important; }
 </style>
 </head>
 <body>
@@ -630,10 +658,7 @@ h2.sec-title{font-family:'Onest',sans-serif;font-size:30px;font-weight:600;color
   <div>
     <div class="hero-label">Оперативна гінекологія · ОН Клінік Харків</div>
     <h1><span class="hero-title-line1">ЛАПАРОСКОПІЯ</span><em>при ендометріозі та кісті яєчника</em></h1>
-    <p class="hero-sub">Три мікророзрізи замість великого розрізу. Хірург видаляє кісту або вогнища ендометріозу і одночасно підтверджує діагноз — за 1–2 дні стаціонару.</p>
-    <div class="hero-stats">
-      <div><div class="stat-num">3</div><div class="stat-lbl">мікророзрізи<br>по 0,5–1 см</div></div>
-      <div><div class="stat-num">1–2</div><div class="stat-lbl">дні<br>стаціонару</div></div>
+    <p class="hero-sub">Три мікророзрізи замість великого розрізу. Хірург видаляє кісту або вогнища ендометріозу і одночасно підтверджує діагноз — за 1–2 дні стаціонару.</p>      <div><div class="stat-num">1–2</div><div class="stat-lbl">дні<br>стаціонару</div></div>
       <div><div class="stat-num">Karl Storz</div><div class="stat-lbl">обладнання<br>Full HD</div></div>
     </div>
     <div class="hero-actions">
@@ -696,9 +721,9 @@ h2.sec-title{font-family:'Onest',sans-serif;font-size:30px;font-weight:600;color
 
 <div class="trust-bar">
   <div class="trust-inner">
-    <div class="trust-item">Афанасьєв І.В. — к.м.н., вища категорія, 33 роки досвіду</div>
-    <div class="trust-item">Стрюков Д.В. — вища категорія, 24 роки досвіду</div>
-    <div class="trust-item">Karl Storz Full HD — точна візуалізація для збереження яєчника</div>
+    <div class="trust-item">Два хірурги к.м.н. — вища кваліфікаційна категорія</div>
+    <div class="trust-item">Karl Storz (Німеччина) — обладнання класу A для лапароскопії</div>
+    <div class="trust-item">Стаціонар під наглядом лікаря після кожної операції</div>
   </div>
 </div>
 
@@ -751,7 +776,9 @@ h2.sec-title{font-family:'Onest',sans-serif;font-size:30px;font-weight:600;color
           <div class="r-step-l"><div class="r-step-num">1</div><div class="r-step-line"></div></div>
           <div class="r-step-body">
             <h4>Консультація гінеколога</h4>
-            <p>Лікар оцінює УЗД, клінічну картину, анамнез. Визначає тип кісти, ступінь ендометріозу, необхідність операції. Якщо є підозра на ендометріоз без кісти — лапароскопія є і діагностичним, і лікувальним методом одночасно.</p>
+            <p>Лікар оцінює УЗД, клінічну картину, анамнез.</p>
+            <p>Визначає тип кісти, ступінь ендометріозу, необхідність операції.</p>
+            <p>Якщо є підозра на ендометріоз без кісти — лапароскопія є і діагностичним, і лікувальним методом одночасно.</p>
             <div class="r-step-meta">Тривалість: 40–60 хвилин</div>
           </div>
         </div>
@@ -768,7 +795,10 @@ h2.sec-title{font-family:'Onest',sans-serif;font-size:30px;font-weight:600;color
           <div class="r-step-l"><div class="r-step-num">3</div><div class="r-step-line"></div></div>
           <div class="r-step-body">
             <h4>День операції</h4>
-            <p>Загальна анестезія — пацієнтка спить і нічого не відчуває. Три проколи по 0,5–1 см. Хірург вводить лапароскоп Karl Storz з камерою Full HD — оглядає порожнину малого таза, виявляє та видаляє кісту яєчника, вогнища ендометріозу, розсікає злуки. Яєчник зберігається.</p>
+            <p>Загальна анестезія — пацієнтка спить і нічого не відчуває.</p>
+            <p>Три проколи по 0,5–1 см.</p>
+            <p>Хірург вводить лапароскоп Karl Storz з камерою Full HD — оглядає порожнину малого таза, виявляє та видаляє кісту яєчника, вогнища ендометріозу, розсікає злуки.</p>
+            <p>Яєчник зберігається.</p>
             <div class="r-step-meta">Тривалість: 40–90 хвилин залежно від обсягу</div>
           </div>
         </div>
@@ -784,7 +814,9 @@ h2.sec-title{font-family:'Onest',sans-serif;font-size:30px;font-weight:600;color
           <div class="r-step-l"><div class="r-step-num">5</div></div>
           <div class="r-step-body">
             <h4>Відновлення та контроль</h4>
-            <p>Контрольний огляд через 2 тижні. Лікар може призначити гормональну терапію для профілактики рецидиву ендометріозу. Планування вагітності — за рекомендацією лікаря (зазвичай через 1–3 місяці після операції).</p>
+            <p>Контрольний огляд через 2 тижні.</p>
+            <p>Лікар може призначити гормональну терапію для профілактики рецидиву ендометріозу.</p>
+            <p>Планування вагітності — за рекомендацією лікаря (зазвичай через 1–3 місяці після операції).</p>
             <div class="r-step-note"><span class="data-pending">включено</span></div>
           </div>
         </div>
@@ -810,7 +842,8 @@ h2.sec-title{font-family:'Onest',sans-serif;font-size:30px;font-weight:600;color
     <section>
       <p class="section-label">Обладнання</p>
       <h2 class="section-title">Технічне забезпечення операцій</h2>
-      <div class="equip-grid">
+      <p class="equip-intro" style="font-size:15px;color:var(--gray-600);margin-bottom:24px;max-width:760px;line-height:1.7">ОН Клінік використовує обладнання Karl Storz (Німеччина) — стандарт університетських клінік Європи. Точна візуалізація Full HD дозволяє хірургу мінімізувати травму тканин при видаленні вузлів.</p>
+<div class="equip-grid">
         <div class="equip-card">
           <h4>Karl Storz IMAGE1 S H3-Z</h4>
           <p>Камера Full HD для точної візуалізації операційного поля. Монітор 27" Full HD — точне збереження тканини яєчника.</p>
@@ -854,27 +887,29 @@ h2.sec-title{font-family:'Onest',sans-serif;font-size:30px;font-weight:600;color
   <h2 class="section-title">Хто виконує операції</h2>
   <div class="doctors-grid">
     <div class="doc-card">
-      <div class="dc-tag-strip dc-strip-blue"></div>
+      <div class="dc-tag-strip dc-strip-blue" style="background: var(--blue)"></div>
       <div class="doc-avatar"><img src="../assets/doctors/afanasiev-card.webp" alt="Афанасьєв Ігор Володимирович" loading="lazy"></div>
       <div class="doc-name">Афанасьєв Ігор Володимирович</div>
       <div class="doc-title">Акушер-гінеколог·Оперуючий гінеколог</div>
       <div class="doc-cred">
         <div class="cred-item"><div class="cred-num">33</div><div class="cred-lbl">роки досвіду</div></div>
         <div class="cred-item"><div class="cred-num">к.м.н.</div><div class="cred-lbl">вища категорія</div></div>
-      </div>
+        <div class="cred-item"><div class="cred-num">вища категорія</div><div class="cred-lbl">категорія</div></div>
+        <div class="cred-item"><div class="cred-num"><span class="data-pending">700 грн</span></div><div class="cred-lbl">консультація</div></div></div>
       <div class="doc-tags"><span class="tag">Лапароскопія</span><span class="tag">Ендометріоз</span><span class="tag">Кісти</span><span class="tag">Безпліддя</span></div>
       <button class="doc-book db-blue" onclick="openModal('Афанасьєв І.В.')">Записатися до Афанасьєва І.В.</button>
       <a href="/kharkiv/doctors/afanasiev?case=endometrioz-kista-laparoskopia" class="dc-profile-link">Профіль лікаря →</a>
     </div>
     <div class="doc-card">
-      <div class="dc-tag-strip dc-strip-gold"></div>
+      <div class="dc-tag-strip dc-strip-blue" style="background: var(--blue)"></div>
       <div class="doc-avatar"><img src="../assets/doctors/striukov-card.webp" alt="Стрюков Дмитро Владиславович" loading="lazy"></div>
       <div class="doc-name">Стрюков Дмитро Владиславович</div>
       <div class="doc-title">Акушер-гінеколог·Оперуючий гінеколог</div>
       <div class="doc-cred">
         <div class="cred-item"><div class="cred-num">24</div><div class="cred-lbl">роки досвіду</div></div>
-        <div class="cred-item"><div class="cred-num">700 грн</div><div class="cred-lbl">консультація</div></div>
-      </div>
+        <div class="cred-item"><div class="cred-num">к.м.н.</div><div class="cred-lbl">вища категорія</div></div>
+        <div class="cred-item"><div class="cred-num">вища категорія</div><div class="cred-lbl">категорія</div></div>
+        <div class="cred-item"><div class="cred-num">700 грн</div><div class="cred-lbl">консультація</div></div></div>
       <div class="doc-tags"><span class="tag">Лапароскопія</span><span class="tag">Ендометріоз</span><span class="tag">Кісти</span><span class="tag">Безпліддя</span></div>
       <button class="doc-book db-blue" onclick="openModal('Стрюков Д.В.')">Записатися до Стрюкова Д.В.</button>
       <a href="/kharkiv/doctors/striukov?case=endometrioz-kista-laparoskopia" class="dc-profile-link">Профіль лікаря →</a>

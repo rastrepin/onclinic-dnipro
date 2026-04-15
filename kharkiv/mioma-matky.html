@@ -330,6 +330,30 @@ footer a{color:var(--gray-400);text-decoration:none}
 .roadmap-content{flex:1;padding-top:2px}
 .roadmap-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}
 .roadmap-sub{font-size:13px;color:rgba(255,255,255,0.75);line-height:1.4}
+/* === FONT OVERRIDES === */
+.hero h1 em, .hero-title em { font-family: 'Cormorant Garamond', serif; font-style: italic; }
+.fact-value, .fact-val, .stat-num, .sbar-num, .cred-num, .doc-name,
+.section-title, .hero-stats { font-family: 'Onest', sans-serif; }
+/* === HERO BUTTONS === */
+.hero .btn-primary, .hero-section .btn-primary {
+  background: white; color: var(--blue);
+  border: none; border-radius: 10px;
+  font-weight: 600; padding: 13px 28px;
+}
+.hero .btn-primary:hover, .hero-section .btn-primary:hover { background: #e8f0fb; }
+.hero .btn-ghost, .hero-section .btn-ghost {
+  background: transparent; color: white;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  border-radius: 10px; padding: 13px 20px;
+}
+.hero .btn-ghost:hover, .hero-section .btn-ghost:hover { border-color: rgba(255,255,255,0.8); }
+/* === BREADCRUMB === */
+.breadcrumb { justify-content: flex-start !important; text-align: left !important; }
+/* === SECTION SPACING === */
+.section, section { padding: 96px 48px !important; }
+/* === STEP BODY === */
+.step-body { max-width: 640px; }
+.step-body p { margin-bottom: 6px; }
 </style>
 </head>
 <body>
@@ -350,10 +374,7 @@ footer a{color:var(--gray-400);text-decoration:none}
   <div>
     <div class="hero-label">Оперативна гінекологія · ОН Клінік Харків</div>
     <h1><span class="hero-title-line1">МІОМА МАТКИ —</span><em>два шляхи лікування</em></h1>
-    <p class="hero-sub">Міома — доброякісна пухлина, але вона впливає на якість життя. Правильний метод лікування залежить від розміру, розташування вузлів та ваших планів щодо вагітності.</p>
-    <div class="hero-stats">
-      <div><div class="stat-num">33</div><div class="stat-lbl">роки досвіду<br>провідного хірурга</div></div>
-      <div><div class="stat-num">к.м.н.</div><div class="stat-lbl">наукова<br>кваліфікація</div></div>
+    <p class="hero-sub">Міома — доброякісна пухлина, але вона впливає на якість життя. Правильний метод лікування залежить від розміру, розташування вузлів та ваших планів щодо вагітності.</p>      <div><div class="stat-num">к.м.н.</div><div class="stat-lbl">наукова<br>кваліфікація</div></div>
       <div><div class="stat-num">2</div><div class="stat-lbl">оперуючі<br>гінекологи</div></div>
     </div>
     <div class="hero-actions">
@@ -416,9 +437,9 @@ footer a{color:var(--gray-400);text-decoration:none}
 
 <div class="trust-bar">
   <div class="trust-inner">
-    <div class="trust-item">Афанасьєв І.В. — к.м.н., вища категорія, 33 роки досвіду</div>
-    <div class="trust-item">Стрюков Д.В. — вища категорія, 24 роки досвіду</div>
-    <div class="trust-item">Обладнання Karl Storz Full HD (Німеччина)</div>
+    <div class="trust-item">Два хірурги к.м.н. — вища кваліфікаційна категорія</div>
+    <div class="trust-item">Karl Storz (Німеччина) — обладнання класу A для лапароскопії</div>
+    <div class="trust-item">Стаціонар під наглядом лікаря після кожної операції</div>
   </div>
 </div>
 

@@ -201,6 +201,30 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 .data-pending{text-decoration:line-through;color:var(--gray-400);font-style:normal}
 .section{padding-top:96px!important;padding-bottom:96px!important}
 .hero{padding-bottom:80px}
+/* === FONT OVERRIDES === */
+.hero h1 em, .hero-title em { font-family: 'Cormorant Garamond', serif; font-style: italic; }
+.fact-value, .fact-val, .stat-num, .sbar-num, .cred-num, .doc-name,
+.section-title, .hero-stats { font-family: 'Onest', sans-serif; }
+/* === HERO BUTTONS === */
+.hero .btn-primary, .hero-section .btn-primary {
+  background: white; color: var(--blue);
+  border: none; border-radius: 10px;
+  font-weight: 600; padding: 13px 28px;
+}
+.hero .btn-primary:hover, .hero-section .btn-primary:hover { background: #e8f0fb; }
+.hero .btn-ghost, .hero-section .btn-ghost {
+  background: transparent; color: white;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  border-radius: 10px; padding: 13px 20px;
+}
+.hero .btn-ghost:hover, .hero-section .btn-ghost:hover { border-color: rgba(255,255,255,0.8); }
+/* === BREADCRUMB === */
+.breadcrumb { justify-content: flex-start !important; text-align: left !important; }
+/* === SECTION SPACING === */
+.section, section { padding: 96px 48px !important; }
+/* === STEP BODY === */
+.step-body { max-width: 640px; }
+.step-body p { margin-bottom: 6px; }
 </style>
 </head>
 <body>
@@ -237,11 +261,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
     <div>
       <div class="hero-specialty">Акушер-гінеколог · Оперуючий гінеколог</div>
       <h1>Афанасьєв Ігор Володимирович</h1>
-      <div class="hero-title">Оперуючий гінеколог · Вища кваліфікаційна категорія · К.м.н.</div>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="hero-stat-val">33 р.</div>
-          <div class="hero-stat-lbl">клінічного досвіду</div>
+      <div class="hero-title">Оперуючий гінеколог · Вища кваліфікаційна категорія · К.м.н.</div>          <div class="hero-stat-lbl">клінічного досвіду</div>
         </div>
         <div class="hero-stat">
           <div class="hero-stat-val">К.м.н.</div>

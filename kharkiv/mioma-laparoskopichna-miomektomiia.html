@@ -595,6 +595,34 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:6
 
 .price-cta{width:100%;background:var(--gold-light,#fffbeb);color:#7A5C00;border:1.5px solid #C49A1A;border-radius:10px;font-weight:500;padding:12px 24px;font-family:'Onest',sans-serif;cursor:pointer;font-size:15px;transition:all .2s}
 .price-cta:hover{background:#C49A1A;color:#fff}
+/* === FONT OVERRIDES === */
+.hero h1 em, .hero-title em { font-family: 'Cormorant Garamond', serif; font-style: italic; }
+.fact-value, .fact-val, .stat-num, .sbar-num, .cred-num, .doc-name,
+.section-title, .hero-stats { font-family: 'Onest', sans-serif; }
+/* === HERO BUTTONS === */
+.hero .btn-primary, .hero-section .btn-primary {
+  background: white; color: var(--blue);
+  border: none; border-radius: 10px;
+  font-weight: 600; padding: 13px 28px;
+}
+.hero .btn-primary:hover, .hero-section .btn-primary:hover { background: #e8f0fb; }
+.hero .btn-ghost, .hero-section .btn-ghost {
+  background: transparent; color: white;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  border-radius: 10px; padding: 13px 20px;
+}
+.hero .btn-ghost:hover, .hero-section .btn-ghost:hover { border-color: rgba(255,255,255,0.8); }
+/* === BREADCRUMB === */
+.breadcrumb { justify-content: flex-start !important; text-align: left !important; }
+/* === SECTION SPACING === */
+.section, section { padding: 96px 48px !important; }
+/* === STEP BODY === */
+.step-body { max-width: 640px; }
+.step-body p { margin-bottom: 6px; }
+/* === EQUIPMENT === */
+.equipment-grid, .equip-grid { grid-template-columns: repeat(2, 1fr) !important; max-width: 860px !important; }
+/* === PRICE SIDEBAR === */
+.price-sidebar { max-width: 380px !important; width: 100% !important; }
 </style>
 </head>
 <body>
@@ -615,10 +643,7 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:6
   <div>
     <div class="hero-label">Оперативна гінекологія · ОН Клінік Харків</div>
     <h1><span class="hero-title-line1">ЛАПАРОСКОПІЧНА</span><em>міомектомія</em></h1>
-    <p class="hero-sub">Видалення вузлів міоми через три мікророзрізи — без відкритої операції, без великих шрамів. Матка зберігається. Вагітність після операції можлива.</p>
-    <div class="hero-stats">
-      <div><div class="stat-num">3</div><div class="stat-lbl">мікророзрізи<br>по 0,5–1 см</div></div>
-      <div><div class="stat-num">2–3</div><div class="stat-lbl">дні<br>стаціонару</div></div>
+    <p class="hero-sub">Видалення вузлів міоми через три мікророзрізи — без відкритої операції, без великих шрамів. Матка зберігається. Вагітність після операції можлива.</p>      <div><div class="stat-num">2–3</div><div class="stat-lbl">дні<br>стаціонару</div></div>
       <div><div class="stat-num">Karl Storz</div><div class="stat-lbl">обладнання<br>Full HD</div></div>
     </div>
     <div class="hero-actions">
@@ -681,9 +706,9 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:6
 
 <div class="trust-bar">
   <div class="trust-inner">
-    <div class="trust-item">Афанасьєв І.В. — к.м.н., вища категорія, 33 роки досвіду</div>
-    <div class="trust-item">Стрюков Д.В. — вища категорія, 24 роки досвіду</div>
-    <div class="trust-item">Лапароскопічна стійка Karl Storz Full HD</div>
+    <div class="trust-item">Два хірурги к.м.н. — вища кваліфікаційна категорія</div>
+    <div class="trust-item">Karl Storz (Німеччина) — обладнання класу A для лапароскопії</div>
+    <div class="trust-item">Стаціонар під наглядом лікаря після кожної операції</div>
   </div>
 </div>
 
@@ -737,7 +762,9 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:6
           <div class="r-step-l"><div class="r-step-num">1</div><div class="r-step-line"></div></div>
           <div class="r-step-body">
             <h4>Консультація гінеколога</h4>
-            <p>Лікар оцінює результати УЗД, визначає розташування, розмір і кількість вузлів. За необхідності — направлення на МРТ для точного планування. Видає перелік аналізів.</p>
+            <p>Лікар оцінює результати УЗД, визначає розташування, розмір і кількість вузлів.</p>
+            <p>За необхідності — направлення на МРТ для точного планування.</p>
+            <p>Видає перелік аналізів.</p>
             <div class="r-step-meta">Тривалість: 40–60 хвилин</div>
           </div>
         </div>
@@ -754,7 +781,11 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:6
           <div class="r-step-l"><div class="r-step-num">3</div><div class="r-step-line"></div></div>
           <div class="r-step-body">
             <h4>День операції</h4>
-            <p>Госпіталізація вранці. Загальна анестезія — пацієнтка спить і нічого не відчуває. Три проколи по 0,5–1 см на животі. Хірург вводить лапароскоп Karl Storz з камерою Full HD та інструменти, відсікає вузли від стінки матки і ушиває дефект ендоскопічним швом. Матка зберігається повністю.</p>
+            <p>Госпіталізація вранці.</p>
+            <p>Загальна анестезія — пацієнтка спить і нічого не відчуває.</p>
+            <p>Три проколи по 0,5–1 см на животі.</p>
+            <p>Хірург вводить лапароскоп Karl Storz з камерою Full HD та інструменти, відсікає вузли від стінки матки і ушиває дефект ендоскопічним швом.</p>
+            <p>Матка зберігається повністю.</p>
             <div class="r-step-meta">Тривалість: 60–120 хвилин залежно від кількості вузлів</div>
           </div>
         </div>
@@ -762,7 +793,10 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:6
           <div class="r-step-l"><div class="r-step-num">4</div><div class="r-step-line"></div></div>
           <div class="r-step-body">
             <h4>Стаціонар</h4>
-            <p>Перший день — відпочинок у палаті під наглядом лікаря, знеболення за потреби. Другий день — пацієнтка встає і ходить. Виписка на 2–3 день з рекомендаціями. Шви розсмоктуються самостійно, знімати не потрібно.</p>
+            <p>Перший день — відпочинок у палаті під наглядом лікаря, знеболення за потреби.</p>
+            <p>Другий день — пацієнтка встає і ходить.</p>
+            <p>Виписка на 2–3 день з рекомендаціями.</p>
+            <p>Шви розсмоктуються самостійно, знімати не потрібно.</p>
             <div class="r-step-meta">Тривалість: 2–3 доби</div>
           </div>
         </div>
@@ -770,7 +804,9 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:6
           <div class="r-step-l"><div class="r-step-num">5</div></div>
           <div class="r-step-body">
             <h4>Контроль та відновлення</h4>
-            <p>Контрольний огляд та УЗД через 2 тижні. Звичайна активність — через 2–3 тижні. Планування вагітності — не раніше ніж через 6–12 місяців.</p>
+            <p>Контрольний огляд та УЗД через 2 тижні.</p>
+            <p>Звичайна активність — через 2–3 тижні.</p>
+            <p>Планування вагітності — не раніше ніж через 6–12 місяців.</p>
             <div class="r-step-note"><span class="data-pending">включено</span></div>
           </div>
         </div>
@@ -796,7 +832,8 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:6
     <section>
       <p class="section-label">Обладнання</p>
       <h2 class="section-title">Технічне забезпечення операцій</h2>
-      <div class="equip-grid">
+      <p class="equip-intro" style="font-size:15px;color:var(--gray-600);margin-bottom:24px;max-width:760px;line-height:1.7">ОН Клінік використовує обладнання Karl Storz (Німеччина) — стандарт університетських клінік Європи. Точна візуалізація Full HD дозволяє хірургу мінімізувати травму тканин при видаленні вузлів.</p>
+<div class="equip-grid">
         <div class="equip-card">
           <h4>Karl Storz IMAGE1 S H3-Z</h4>
           <p>Камера Full HD для точної візуалізації операційного поля. Монітор 27" Full HD.</p>
@@ -822,27 +859,29 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:6
   <h2 class="section-title">Хто виконує операції</h2>
   <div class="doctors-grid">
     <div class="doc-card">
-      <div class="dc-tag-strip dc-strip-blue"></div>
+      <div class="dc-tag-strip dc-strip-blue" style="background: var(--blue)"></div>
       <div class="doc-avatar"><img src="../assets/doctors/afanasiev-card.webp" alt="Афанасьєв Ігор Володимирович" loading="lazy"></div>
       <div class="doc-name">Афанасьєв Ігор Володимирович</div>
       <div class="doc-title">Акушер-гінеколог·Оперуючий гінеколог</div>
       <div class="doc-cred">
         <div class="cred-item"><div class="cred-num">33</div><div class="cred-lbl">роки досвіду</div></div>
         <div class="cred-item"><div class="cred-num">к.м.н.</div><div class="cred-lbl">вища категорія</div></div>
-      </div>
+        <div class="cred-item"><div class="cred-num">вища категорія</div><div class="cred-lbl">категорія</div></div>
+        <div class="cred-item"><div class="cred-num"><span class="data-pending">700 грн</span></div><div class="cred-lbl">консультація</div></div></div>
       <div class="doc-tags"><span class="tag">Лапароскопія</span><span class="tag">Гістероскопія</span><span class="tag">Міома</span><span class="tag">Поліп</span></div>
       <button class="doc-book db-blue" onclick="openModal('Афанасьєв І.В.')">Записатися до Афанасьєва І.В.</button>
       <a href="/kharkiv/doctors/afanasiev?case=mioma-laparoskopichna-miomektomiia" class="dc-profile-link">Профіль лікаря →</a>
     </div>
     <div class="doc-card">
-      <div class="dc-tag-strip dc-strip-gold"></div>
+      <div class="dc-tag-strip dc-strip-blue" style="background: var(--blue)"></div>
       <div class="doc-avatar"><img src="../assets/doctors/striukov-card.webp" alt="Стрюков Дмитро Владиславович" loading="lazy"></div>
       <div class="doc-name">Стрюков Дмитро Владиславович</div>
       <div class="doc-title">Акушер-гінеколог·Оперуючий гінеколог</div>
       <div class="doc-cred">
         <div class="cred-item"><div class="cred-num">24</div><div class="cred-lbl">роки досвіду</div></div>
-        <div class="cred-item"><div class="cred-num">700 грн</div><div class="cred-lbl">консультація</div></div>
-      </div>
+        <div class="cred-item"><div class="cred-num">к.м.н.</div><div class="cred-lbl">вища категорія</div></div>
+        <div class="cred-item"><div class="cred-num">вища категорія</div><div class="cred-lbl">категорія</div></div>
+        <div class="cred-item"><div class="cred-num">700 грн</div><div class="cred-lbl">консультація</div></div></div>
       <div class="doc-tags"><span class="tag">Лапароскопія</span><span class="tag">Гістероскопія</span><span class="tag">Міома</span><span class="tag">Поліп</span></div>
       <button class="doc-book db-blue" onclick="openModal('Стрюков Д.В.')">Записатися до Стрюкова Д.В.</button>
       <a href="/kharkiv/doctors/striukov?case=mioma-laparoskopichna-miomektomiia" class="dc-profile-link">Профіль лікаря →</a>
