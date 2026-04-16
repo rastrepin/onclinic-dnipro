@@ -276,6 +276,139 @@ h2 { margin-bottom: 20px; }
 .section { padding: 96px 24px !important; }
 @media(max-width:768px) { .section { padding: 64px 20px !important; } }
 
+
+/* ===== SPRINT UX ===== */
+
+/* #1  H2: Onest, margin 30px, max-width 720px */
+h2.section-title, h2.sec-title, .section-title {
+  font-family: 'Onest', sans-serif !important;
+  font-size: clamp(20px, 2.2vw, 28px) !important;
+  margin-bottom: 30px !important;
+  max-width: 720px;
+  line-height: 1.2 !important;
+}
+
+/* #2/#3  Doctor H1 і sec-title: Onest */
+.hero h1, section.hero h1 {
+  font-family: 'Onest', sans-serif !important;
+}
+.sec-title {
+  font-family: 'Onest', sans-serif !important;
+  font-size: clamp(20px, 2.2vw, 28px) !important;
+  margin-bottom: 30px !important;
+}
+
+/* #4  sec-label: em-dash */
+.sec-label, .section-label {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  color: var(--gold, #C49A1A) !important;
+  margin-bottom: 10px !important;
+  display: block !important;
+}
+.sec-label::before, .section-label::before {
+  content: "\2014\2014\A0";
+}
+
+/* #9  dc-tag-strip: gold */
+.dc-tag-strip, .dc-strip-blue, .dc-strip-gold {
+  background: var(--gold, #C49A1A) !important;
+}
+
+/* #10  doc-book: gold outline */
+.doc-book, button.doc-book {
+  background: transparent !important;
+  border: 2px solid var(--gold, #C49A1A) !important;
+  color: var(--gold, #C49A1A) !important;
+}
+.doc-book:hover, button.doc-book:hover {
+  background: var(--gold, #C49A1A) !important;
+  color: #fff !important;
+}
+
+/* #7/#8  ind-grid: 2 колонки + border-top кольори */
+.ind-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 16px !important;
+}
+.ind-card {
+  border: 1px solid var(--gray-200, #e5e7eb) !important;
+  border-top: 3px solid #22c55e !important;
+}
+.ind-card:last-child {
+  border-top-color: #e53e3e !important;
+}
+
+/* #11  alt-grid: 2 колонки */
+.alt-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 16px !important;
+}
+
+/* #6  breadcrumbs: повна ширина */
+.breadcrumb-nav-top {
+  width: 100% !important;
+  display: block !important;
+  box-sizing: border-box !important;
+}
+.breadcrumb {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+.breadcrumb-inner {
+  max-width: none !important;
+  padding-left: 48px !important;
+  padding-right: 48px !important;
+}
+
+/* #16  btn-outline у cta-text: gold */
+.cta-text .btn-outline,
+#appointment .btn-outline {
+  border: 2px solid var(--gold, #C49A1A) !important;
+  color: var(--gold, #C49A1A) !important;
+  background: transparent !important;
+  padding: 10px 24px !important;
+  border-radius: 8px !important;
+}
+.cta-text .btn-outline:hover,
+#appointment .btn-outline:hover {
+  background: var(--gold, #C49A1A) !important;
+  color: #fff !important;
+}
+
+/* #15/#19  quiz-q і quiz h2: Onest */
+.quiz-q,
+.quiz-top h2,
+.quiz-inner h2,
+#quiz h2 {
+  font-family: 'Onest', sans-serif !important;
+  font-size: clamp(18px, 2vw, 26px) !important;
+}
+
+/* #18  sym-title: стиль як h4 на mioma-matky */
+.sym-head .sym-title {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: var(--gray-900, #111827) !important;
+  line-height: 1.35 !important;
+  margin-bottom: 4px !important;
+}
+
+@media (max-width: 768px) {
+  .ind-grid, .alt-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .breadcrumb-inner {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* ===== END SPRINT UX ===== */
 </style>
 </head>
 <body data-case-slug="">
@@ -385,10 +518,6 @@ h2 { margin-bottom: 20px; }
       <div class="fact-card">
         <div class="fact-val">К.м.н.</div>
         <div class="fact-lbl">кандидат медичних наук</div>
-      </div>
-      <div class="fact-card">
-        <div class="fact-val">500 грн</div>
-        <div class="fact-lbl">консультація</div>
       </div>
       <div class="fact-card">
         <div class="fact-val"><span class="data-pending">~2000+</span></div>
