@@ -687,7 +687,7 @@ h2 { margin-bottom: 20px; }
 
 </style>
 </head>
-<body>
+<body data-case-slug="endometrioz-kista-laparoskopia">
 
 <nav class="nav">
   <a class="nav-brand" href="/kharkiv">
@@ -839,10 +839,9 @@ h2 { margin-bottom: 20px; }
           <div class="r-step-l"><div class="r-step-num">3</div><div class="r-step-line"></div></div>
           <div class="r-step-body">
             <h4>День операції</h4>
+            <p>Госпіталізація вранці. Підготовка у палаті, розмова з анестезіологом.</p>
             <p>Загальна анестезія — пацієнтка спить і нічого не відчуває.</p>
-            <p>Три проколи по 0,5–1 см.</p>
-            <p>Хірург вводить лапароскоп Karl Storz з камерою Full HD — оглядає порожнину малого таза, виявляє та видаляє кісту яєчника, вогнища ендометріозу, розсікає злуки.</p>
-            <p>Яєчник зберігається.</p>
+            <p>Після операції — відпочинок у палаті під наглядом лікаря.</p>
             <div class="r-step-meta">Тривалість: 40–90 хвилин залежно від обсягу</div>
           </div>
         </div>
@@ -942,7 +941,7 @@ h2 { margin-bottom: 20px; }
         <div class="cred-item"><div class="cred-num">Вища</div><div class="cred-lbl">категорія</div></div>
         <div class="cred-item"><div class="cred-num">500 грн</div><div class="cred-lbl">консультація</div></div></div>
       <div class="doc-tags"><span class="tag">Лапароскопія</span><span class="tag">Ендометріоз</span><span class="tag">Кісти</span><span class="tag">Безпліддя</span></div>
-      <button class="doc-book db-blue" onclick="openModal('Афанасьєв І.В.')">Записатися до Афанасьєва І.В.</button>
+      <button class="doc-book db-blue" onclick="openModal('afanasiev')">Записатися до Афанасьєва І.В.</button>
       <a href="/kharkiv/doctors/afanasiev?case=endometrioz-kista-laparoskopia" class="dc-profile-link">Профіль лікаря →</a>
     </div>
     <div class="doc-card">
@@ -957,7 +956,7 @@ h2 { margin-bottom: 20px; }
         <div class="cred-item"><div class="cred-num">Вища</div><div class="cred-lbl">категорія</div></div>
         <div class="cred-item"><div class="cred-num">700 грн</div><div class="cred-lbl">консультація</div></div></div>
       <div class="doc-tags"><span class="tag">Лапароскопія</span><span class="tag">Ендометріоз</span><span class="tag">Кісти</span><span class="tag">Безпліддя</span></div>
-      <button class="doc-book db-blue" onclick="openModal('Стрюков Д.В.')">Записатися до Стрюкова Д.В.</button>
+      <button class="doc-book db-blue" onclick="openModal('striukov')">Записатися до Стрюкова Д.В.</button>
       <a href="/kharkiv/doctors/striukov?case=endometrioz-kista-laparoskopia" class="dc-profile-link">Профіль лікаря →</a>
     </div>
   </div>
@@ -1065,7 +1064,7 @@ h2 { margin-bottom: 20px; }
     <div class="cta-banner" id="appointment">
       <h2>ПЕРШИЙ КРОК —<br/><em>консультація гінеколога</em></h2>
       <p>Лікар оцінить УЗД та клінічну картину і визначить чи потрібна операція і в який термін. Консультація займає 40–60 хвилин.</p>
-      <button class="btn-primary" onclick="openModal()">Записатися онлайн →</button>
+      <div class="cta-text" style="margin-top:20px;font-size:15px;color:inherit;line-height:1.6">Залишились питання? <a href="tel:0800218616" style="color:inherit;font-weight:600">Зателефонуйте: 0 800 21 86 16</a> — або залиште заявку, ми передзвонимо.<br/><button class="btn-outline" onclick="openModal()" style="margin-top:12px">Залишити заявку</button></div>
     </div>
 
     <!-- E-E-A-T -->
@@ -1100,9 +1099,15 @@ h2 { margin-bottom: 20px; }
       <div class="price-label">Вартість операції</div>
       <div class="price-amount">від 21 745 грн</div>
       <div class="price-note">Точна ціна — після консультації та УЗД</div>
-      <button class="price-cta" onclick="openModal()">Записатись →</button>
+      <button class="price-cta" onclick="openModal()">Записатися на консультацію</button>
+      <div style="padding:12px 0 14px;border-bottom:1px solid var(--gray-100)">
+        <div class="pi-label" style="margin-bottom:6px">Починається з консультації</div>
+        <div style="font-size:13px;color:var(--gray-700);line-height:1.7">
+          Афанасьєв І.В. — 500 грн<br/>Стрюков Д.В. — 700 грн
+        </div>
+      </div>
       <div class="price-includes">
-        <div class="pi-label">Включено</div>
+        <div class="pi-label">Входить у вартість операції</div>
         <ul class="pi-list">
           <li>Консультація гінеколога-хірурга</li>
           <li>Операція (лапароскопія на придатках)</li>
@@ -1111,18 +1116,12 @@ h2 { margin-bottom: 20px; }
           <li>Контрольний огляд</li>
         </ul>
         <hr class="price-divider"/>
-        <div class="pi-label">Не включено</div>
+        <div class="pi-label">Не входить</div>
         <ul class="pi-list excludes">
           <li>Передопераційні аналізи <span class="data-pending">≈ 500 грн</span></li>
           <li>Гістологічне дослідження <span class="data-pending">≈ 500 грн</span></li>
         </ul>
       </div>
-    </div>
-
-    <div class="price-card">
-      <div class="price-label">Консультація</div>
-      <div style="font-size:13px;color:var(--gray-500);line-height:1.6;margin-bottom:14px">Стрюков Д.В. — 700 грн<br/>Афанасьєв І.В. — уточнити</div>
-      <button class="price-cta" onclick="openModal()">Записатись →</button>
     </div>
   </div>
 
@@ -1158,10 +1157,15 @@ h2 { margin-bottom: 20px; }
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal()">✕</button>
     <div id="modal-form-wrap">
-      <div class="modal-title">Записатися на консультацію</div>
+      <div class="modal-title" id="modal-title">Записатися на консультацію</div>
       <div class="modal-sub" id="modal-sub-text">ОН Клінік Харків · Лапароскопія при ендометріозі</div>
       <form onsubmit="submitLead(event)">
         <input type="text" name="website" class="form-honey" tabindex="-1" autocomplete="off"/>
+        <input type="hidden" name="case_slug" value=""/>
+        <input type="hidden" name="preferred_doctor" value=""/>
+        <input type="hidden" name="source_page" value=""/>
+        <input type="hidden" name="quiz_answers" value=""/>
+        <input type="hidden" name="selected_criteria" value=""/>
         <div class="form-field">
           <label>Ваше ім'я</label>
           <input type="text" name="name" placeholder="Олена" required/>
@@ -1205,9 +1209,27 @@ const SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYm
 
 let preferredDoctor='';
 
-function openModal(doctor=''){
-  preferredDoctor=doctor;
-  if(doctor) document.getElementById('modal-sub-text').textContent=`ОН Клінік Харків · До ${doctor}`;
+function openModal(doctorSlug){
+  const caseSlug = document.body.dataset.caseSlug ||
+                   new URLSearchParams(window.location.search).get('case') || '';
+  const preferredDoctor = doctorSlug || '';
+  const titles = {
+    'mioma-laparoskopichna-miomektomiia': 'Запис · Лапароскопічна міомектомія',
+    'endometrioz-kista-laparoskopia':     'Запис · Лапароскопія при ендометріозі',
+    'polip-endometriia-gisteroskopia':    'Запис · Гістероскопія',
+    '': 'Записатися на консультацію'
+  };
+  const titleEl = document.getElementById('modal-title');
+  if(titleEl) titleEl.textContent = titles[caseSlug] || titles[''];
+  const form = document.getElementById('lead-form');
+  if(form){
+    const cs = form.querySelector('[name=case_slug]');
+    const pd = form.querySelector('[name=preferred_doctor]');
+    const sp = form.querySelector('[name=source_page]');
+    if(cs) cs.value = caseSlug;
+    if(pd) pd.value = preferredDoctor;
+    if(sp) sp.value = window.location.pathname;
+  }
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow='hidden';
 }
@@ -1252,17 +1274,20 @@ async function submitLead(e){
   const btn=document.getElementById('submit-btn');
   btn.disabled=true; btn.textContent='Відправляємо...';
 
+  const caseSlug     = (form.querySelector('[name=case_slug]')?.value)     || null;
+  const preferredDoc = (form.querySelector('[name=preferred_doctor]')?.value) || null;
+  const sourcePage   = (form.querySelector('[name=source_page]')?.value)   || window.location.pathname;
+
   const payload={
-    name:form.name.value.trim(),
-    phone:form.phone.value.trim(),
+    name:          form.name.value.trim(),
+    phone:         form.phone.value.trim(),
     contact_method:form.contact_method.value,
-    preferred_doctor:preferredDoctor||null,
-    case_slug:'endometrioz-kista-laparoskopia',
-    quiz_answers:{},
-    recommended_method:'endometrioz-kista-laparoskopia',
-    source_page:'/kharkiv/endometrioz-kista-laparoskopia',
-    page_url:window.location.href,
-    consent_given:true
+    case_slug:     caseSlug,
+    preferred_doctor: preferredDoc,
+    source_page:   sourcePage,
+    quiz_answers:  null,
+    selected_criteria: null,
+    consent_given: true
   };
 
   try{

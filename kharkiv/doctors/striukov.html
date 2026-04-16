@@ -283,7 +283,7 @@ h2 { margin-bottom: 20px; }
 
 </style>
 </head>
-<body>
+<body data-case-slug="">
 
 <!-- NAV -->
 <nav>
@@ -296,7 +296,7 @@ h2 { margin-bottom: 20px; }
     <li><a href="/kharkiv/doctors/striukov">Лікарі</a></li>
     <li><a href="/kharkiv#contact">Контакти</a></li>
   </ul>
-  <button class="nav-cta" onclick="openModal('Стрюков Д.В.')">Записатися</button>
+  <button class="nav-cta" onclick="openModal('striukov')">Записатися</button>
 </nav>
 
 <!-- BREADCRUMB -->
@@ -341,7 +341,7 @@ h2 { margin-bottom: 20px; }
         <span class="hero-tag">Міома матки</span>
       </div>
       <div class="hero-ctas">
-        <button class="btn-gold" onclick="openModal('Стрюков Д.В.')">Записатися до Стрюкова Д.В.</button>
+        <button class="btn-gold" onclick="openModal('striukov')">Записатися до Стрюкова Д.В.</button>
         <a href="/kharkiv" class="btn-outline">Всі операції</a>
       </div>
     </div>
@@ -493,7 +493,7 @@ h2 { margin-bottom: 20px; }
   <h2>Записатися до Стрюкова Д.В.</h2>
   <p>Консультація оперуючого гінеколога в ОН Клінік Харків, вул. Молочна, 48. Вартість консультації — 700 грн.</p>
   <div class="cta-banner-btns">
-    <button class="btn-gold" onclick="openModal('Стрюков Д.В.')">Записатися на консультацію</button>
+    <button class="btn-gold" onclick="openModal('striukov')">Записатися на консультацію</button>
   </div>
   <p style="margin-top:16px;font-size:13px;opacity:.7">Телефон: 0 800 21 86 16</p>
 </section>
@@ -564,6 +564,9 @@ h2 { margin-bottom: 20px; }
           </div>
         </div>
         <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="case_slug" value=""/>
+        <input type="hidden" name="preferred_doctor" value=""/>
+        <input type="hidden" name="source_page" value=""/>
         <div class="consent-row">
           <input type="checkbox" id="consent" required>
           <label for="consent">Я даю згоду на обробку персональних даних</label>
@@ -630,9 +633,25 @@ initCaseContext();
 
 // Modal
 let currentDoctor = 'Стрюков Д.В.';
-function openModal(doctor) {
-  currentDoctor = doctor || 'Стрюков Д.В.';
-  document.getElementById('modal-doctor-name').textContent = 'До ' + currentDoctor + ', ОН Клінік Харків';
+function openModal(doctorSlug) {
+  const caseSlug = document.body.dataset.caseSlug ||
+                   new URLSearchParams(window.location.search).get('case') || '';
+  const doctorNames = {'afanasiev':'Афанасьєв І.В.','striukov':'Стрюков Д.В.','':(currentDoctor||'')};
+  const slug = doctorSlug || 'striukov';
+  const doctorName = doctorNames[slug] || slug;
+
+  // fill hidden fields
+  const form = document.getElementById('lead-form');
+  if(form){
+    const cs = form.querySelector('[name=case_slug]');
+    const pd = form.querySelector('[name=preferred_doctor]');
+    const sp = form.querySelector('[name=source_page]');
+    if(cs) cs.value = caseSlug;
+    if(pd) pd.value = slug;
+    if(sp) sp.value = window.location.pathname;
+  }
+
+  document.getElementById('modal-doctor-name').textContent = 'До ' + doctorName + ', ОН Клінік Харків';
   document.getElementById('modal-overlay').classList.add('active');
   document.body.style.overflow = 'hidden';
 }
@@ -652,8 +671,8 @@ function toggleFaq(el) {
 }
 
 // Supabase
-const SUPABASE_URL = 'https://YOUR_PROJECT.supabase.co';
-const SUPABASE_ANON_KEY = 'YOUR_ANON_KEY';
+const SUPABASE_URL = 'https://apuivrfokciooovrpmgj.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFwdWl2cmZva2Npb29vdnJwbWdqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2NTQ1MzAsImV4cCI6MjA5MDIzMDUzMH0.iOEmFU4w-Obl4IZGwqQcRsY0-_zO9pa68Q9ycJkhfOU';
 
 async function submitLead(e) {
   e.preventDefault();
@@ -668,14 +687,19 @@ async function submitLead(e) {
 
   if (honeypot) { showSuccess(); return; }
 
+  const caseSlug     = (form.querySelector('[name=case_slug]')?.value)     || null;
+  const preferredDoc = (form.querySelector('[name=preferred_doctor]')?.value) || null;
+  const sourcePage   = (form.querySelector('[name=source_page]')?.value)   || window.location.pathname;
+
   const payload = {
     name,
     phone,
     contact_method: contactMethod,
-    preferred_doctor: currentDoctor,
-    quiz_answers: null,
-    recommended_method: null,
-    page_url: window.location.href,
+    case_slug:     caseSlug,
+    preferred_doctor: preferredDoc,
+    source_page:   sourcePage,
+    quiz_answers:  null,
+    selected_criteria: null,
     consent_given: true
   };
 

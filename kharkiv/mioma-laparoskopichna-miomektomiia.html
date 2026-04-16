@@ -681,7 +681,7 @@ h2 { margin-bottom: 20px; }
 
 </style>
 </head>
-<body>
+<body data-case-slug="mioma-laparoskopichna-miomektomiia">
 
 <nav class="nav">
   <a class="nav-brand" href="/kharkiv">
@@ -834,11 +834,9 @@ h2 { margin-bottom: 20px; }
           <div class="r-step-l"><div class="r-step-num">3</div><div class="r-step-line"></div></div>
           <div class="r-step-body">
             <h4>День операції</h4>
-            <p>Госпіталізація вранці.</p>
+            <p>Госпіталізація вранці. Підготовка у палаті, розмова з анестезіологом.</p>
             <p>Загальна анестезія — пацієнтка спить і нічого не відчуває.</p>
-            <p>Три проколи по 0,5–1 см на животі.</p>
-            <p>Хірург вводить лапароскоп Karl Storz з камерою Full HD та інструменти, відсікає вузли від стінки матки і ушиває дефект ендоскопічним швом.</p>
-            <p>Матка зберігається повністю.</p>
+            <p>Після операції — відпочинок у палаті під наглядом лікаря.</p>
             <div class="r-step-meta">Тривалість: 60–120 хвилин залежно від кількості вузлів</div>
           </div>
         </div>
@@ -923,7 +921,7 @@ h2 { margin-bottom: 20px; }
         <div class="cred-item"><div class="cred-num">Вища</div><div class="cred-lbl">категорія</div></div>
         <div class="cred-item"><div class="cred-num">500 грн</div><div class="cred-lbl">консультація</div></div></div>
       <div class="doc-tags"><span class="tag">Лапароскопія</span><span class="tag">Гістероскопія</span><span class="tag">Міома</span><span class="tag">Поліп</span></div>
-      <button class="doc-book db-blue" onclick="openModal('Афанасьєв І.В.')">Записатися до Афанасьєва І.В.</button>
+      <button class="doc-book db-blue" onclick="openModal('afanasiev')">Записатися до Афанасьєва І.В.</button>
       <a href="/kharkiv/doctors/afanasiev?case=mioma-laparoskopichna-miomektomiia" class="dc-profile-link">Профіль лікаря →</a>
     </div>
     <div class="doc-card">
@@ -938,7 +936,7 @@ h2 { margin-bottom: 20px; }
         <div class="cred-item"><div class="cred-num">Вища</div><div class="cred-lbl">категорія</div></div>
         <div class="cred-item"><div class="cred-num">700 грн</div><div class="cred-lbl">консультація</div></div></div>
       <div class="doc-tags"><span class="tag">Лапароскопія</span><span class="tag">Гістероскопія</span><span class="tag">Міома</span><span class="tag">Поліп</span></div>
-      <button class="doc-book db-blue" onclick="openModal('Стрюков Д.В.')">Записатися до Стрюкова Д.В.</button>
+      <button class="doc-book db-blue" onclick="openModal('striukov')">Записатися до Стрюкова Д.В.</button>
       <a href="/kharkiv/doctors/striukov?case=mioma-laparoskopichna-miomektomiia" class="dc-profile-link">Профіль лікаря →</a>
     </div>
   </div>
@@ -1052,8 +1050,7 @@ h2 { margin-bottom: 20px; }
     <div class="cta-banner" id="appointment">
       <h2>ПЕРШИЙ КРОК —<br/><em>консультація гінеколога</em></h2>
       <p>Лікар оцінить розташування та розмір вузлів за УЗД і визначить чи підходить лапароскопія. Консультація займає 40–60 хвилин.</p>
-      <button class="btn-primary" onclick="openModal()">Записатися онлайн</button>
-      <div style="margin-top:12px;font-size:13px;color:var(--gray-400)">0 800 21 86 16</div>
+<div class="cta-text" style="margin-top:20px;font-size:15px;color:inherit;line-height:1.6">Залишились питання? <a href="tel:0800218616" style="color:inherit;font-weight:600">Зателефонуйте: 0 800 21 86 16</a> — або залиште заявку, ми передзвонимо.<br/><button class="btn-outline" onclick="openModal()" style="margin-top:12px">Залишити заявку</button></div>
     </div>
 
     <!-- E-E-A-T -->
@@ -1088,9 +1085,15 @@ h2 { margin-bottom: 20px; }
       <div class="price-label">Вартість операції</div>
       <div class="price-amount">від 26 690 грн</div>
       <div class="price-note">Точна ціна — після консультації та УЗД</div>
-      <button class="price-cta" onclick="openModal()">Записатись на консультацію</button>
+      <button class="price-cta" onclick="openModal()">Записатися на консультацію</button>
+      <div style="padding:12px 0 14px;border-bottom:1px solid var(--gray-100)">
+        <div class="pi-label" style="margin-bottom:6px">Починається з консультації</div>
+        <div style="font-size:13px;color:var(--gray-700);line-height:1.7">
+          Афанасьєв І.В. — 500 грн<br/>Стрюков Д.В. — 700 грн
+        </div>
+      </div>
       <div class="price-includes">
-        <div class="pi-label">Входить у вартість</div>
+        <div class="pi-label">Входить у вартість операції</div>
         <ul class="pi-list">
           <li>Консультація гінеколога-хірурга</li>
           <li>Операція (лапароскопічна міомектомія)</li>
@@ -1145,10 +1148,15 @@ h2 { margin-bottom: 20px; }
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal()">✕</button>
     <div id="modal-form-wrap">
-      <div class="modal-title">Запис на консультацію</div>
+      <div class="modal-title" id="modal-title">Запис на консультацію</div>
       <p class="modal-sub">ОН Клінік Харків · Лапароскопічна міомектомія</p>
       <form id="lead-form" onsubmit="submitLead(event)">
         <div class="form-honey"><input type="text" name="website" autocomplete="off"/></div>
+        <input type="hidden" name="case_slug" value=""/>
+        <input type="hidden" name="preferred_doctor" value=""/>
+        <input type="hidden" name="source_page" value=""/>
+        <input type="hidden" name="quiz_answers" value=""/>
+        <input type="hidden" name="selected_criteria" value=""/>
         <div class="form-field">
           <label>Ваше ім'я</label>
           <input type="text" name="name" required placeholder="Як до вас звертатись"/>
@@ -1184,14 +1192,33 @@ h2 { margin-bottom: 20px; }
 <script>
 // ─── SUPABASE CONFIG ────────────────────────────────────────────────────────
 // TODO: замінити на реальні дані після підключення Supabase
-const SUPABASE_URL = 'https://YOUR_PROJECT.supabase.co';
-const SUPABASE_ANON_KEY = 'YOUR_ANON_KEY';
+const SUPABASE_URL = 'https://apuivrfokciooovrpmgj.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFwdWl2cmZva2Npb29vdnJwbWdqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2NTQ1MzAsImV4cCI6MjA5MDIzMDUzMH0.iOEmFU4w-Obl4IZGwqQcRsY0-_zO9pa68Q9ycJkhfOU';
 // ────────────────────────────────────────────────────────────────────────────
 
 let preferredDoctor = '';
 
-function openModal(doctor=''){
-  preferredDoctor = doctor;
+function openModal(doctorSlug){
+  const caseSlug = document.body.dataset.caseSlug ||
+                   new URLSearchParams(window.location.search).get('case') || '';
+  const preferredDoctor = doctorSlug || '';
+  const titles = {
+    'mioma-laparoskopichna-miomektomiia': 'Запис · Лапароскопічна міомектомія',
+    'endometrioz-kista-laparoskopia':     'Запис · Лапароскопія при ендометріозі',
+    'polip-endometriia-gisteroskopia':    'Запис · Гістероскопія',
+    '': 'Записатися на консультацію'
+  };
+  const titleEl = document.getElementById('modal-title');
+  if(titleEl) titleEl.textContent = titles[caseSlug] || titles[''];
+  const form = document.getElementById('lead-form');
+  if(form){
+    const cs = form.querySelector('[name=case_slug]');
+    const pd = form.querySelector('[name=preferred_doctor]');
+    const sp = form.querySelector('[name=source_page]');
+    if(cs) cs.value = caseSlug;
+    if(pd) pd.value = preferredDoctor;
+    if(sp) sp.value = window.location.pathname;
+  }
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow='hidden';
 }
@@ -1222,14 +1249,19 @@ async function submitLead(e){
   btn.disabled=true;
   btn.textContent='Відправляємо...';
 
+  const caseSlug     = (form.querySelector('[name=case_slug]')?.value)     || null;
+  const preferredDoc = (form.querySelector('[name=preferred_doctor]')?.value) || null;
+  const sourcePage   = (form.querySelector('[name=source_page]')?.value)   || window.location.pathname;
+
   const payload={
-    name: form.name.value,
-    phone: form.phone.value,
-    contact_method: form.contact_method.value,
-    preferred_doctor: preferredDoctor||null,
-    quiz_answers: null,
-    recommended_method: 'laparoskopichna-miomektomiia',
-    page_url: window.location.href,
+    name:          form.name.value.trim(),
+    phone:         form.phone.value.trim(),
+    contact_method:form.contact_method.value,
+    case_slug:     caseSlug,
+    preferred_doctor: preferredDoc,
+    source_page:   sourcePage,
+    quiz_answers:  null,
+    selected_criteria: null,
     consent_given: true
   };
 
