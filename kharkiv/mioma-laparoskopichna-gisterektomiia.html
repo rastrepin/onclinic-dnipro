@@ -438,8 +438,8 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:6
 
 /* ── Sprint UX — Global overrides ── */
 .trust-bar { background: var(--blue, #0B4F9A) !important; padding: 16px 48px !important; border-bottom: 1px solid rgba(255,255,255,.15) !important; }
-.trust-inner { justify-content: center !important; gap: 0 !important; }
-.trust-item { flex-direction: column !important; padding: 10px 32px !important; border-right: 1px solid rgba(255,255,255,.2) !important; }
+.trust-inner { justify-content: center !important; gap: 0 !important; flex-wrap: nowrap !important; }
+.trust-item { flex-direction: column !important; padding: 10px 24px !important; border-right: 1px solid rgba(255,255,255,.2) !important; flex: 1 1 0 !important; max-width: 320px !important; min-width: 0 !important; }
 .trust-item:last-child { border-right: none !important; }
 .trust-item::before { display: none !important; }
 .trust-fact { font-size: 14px !important; font-weight: 700 !important; color: #fff !important; }
