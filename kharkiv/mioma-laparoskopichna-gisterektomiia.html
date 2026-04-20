@@ -484,6 +484,8 @@ h2 { margin-bottom: 20px; }
 
 
 
+
+
 /* ===== SPRINT UX ===== */
 
 /* #1  H2: Onest, margin 30px, max-width 720px */
@@ -605,7 +607,26 @@ h2.section-title, h2.sec-title, .section-title {
   margin-bottom: 4px !important;
 }
 
+/* MOBILE OVERFLOW FIX: CSS Grid min-content inflation prevention */
+/* 1fr track в CSS Grid розтягується до min-content дочірнього елемента без min-width:0 */
+.content-area, .main-wrap > * {
+  min-width: 0;
+}
+
 @media (max-width: 768px) {
+  /* Загальний захист від горизонтального переповнення */
+  body {
+    overflow-x: hidden !important;
+  }
+  .main-wrap {
+    overflow-x: hidden !important;
+  }
+
+  /* doctors-grid: 2→1 колонка */
+  .doctors-grid {
+    grid-template-columns: 1fr !important;
+  }
+
   .ind-grid, .alt-grid {
     grid-template-columns: 1fr !important;
   }
@@ -624,6 +645,7 @@ h2.section-title, h2.sec-title, .section-title {
     scroll-snap-type: x mandatory !important;
     -webkit-overflow-scrolling: touch !important;
     grid-template-columns: unset !important;
+    max-width: none !important;
   }
   .equip-grid .equip-card, .equip-card {
     min-width: 220px !important;
