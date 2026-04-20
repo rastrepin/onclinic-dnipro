@@ -488,6 +488,136 @@ h2 { margin-bottom: 20px; }
 
 
 
+
+/* ===== REDESIGN V2 ===== */
+
+/* HERO RIGHT BLOCK */
+.hero-right-block {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255,255,255,0.09);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.hero-surgeons { padding: 22px 24px; border-bottom: 1px solid rgba(255,255,255,0.15); }
+.hero-metrics  { padding: 22px 24px; }
+.hb-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: block;
+}
+.hs-item { display: flex; align-items: center; gap: 14px; padding: 9px 0; }
+.hs-item + .hs-item { border-top: 1px solid rgba(255,255,255,0.1); }
+.hs-avatar {
+  width: 56px; height: 56px; border-radius: 50%; overflow: hidden;
+  flex-shrink: 0; border: 2px solid rgba(255,255,255,0.3);
+}
+.hs-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.hs-name { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 3px; line-height: 1.2; }
+.hs-cred { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.4; }
+.hm-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 0; font-size: 14px;
+}
+.hm-row + .hm-row { border-top: 1px solid rgba(255,255,255,0.08); }
+.hm-label { color: rgba(255,255,255,0.65); }
+.hm-val { color: #fff; font-weight: 700; }
+
+/* MAIN WRAP — single column (sidebar removed) */
+.main-wrap { display: block !important; max-width: 1120px !important; }
+.price-sidebar { display: none !important; }
+
+/* METHOD EXPAND */
+.method-content { position: relative; overflow: hidden; }
+.method-content[data-collapsed="true"] { max-height: 400px; }
+.method-content[data-collapsed="true"]::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 110px; background: linear-gradient(transparent, #fff);
+  pointer-events: none;
+}
+.method-content[data-collapsed="false"] { max-height: 9999px; }
+.method-content[data-collapsed="false"]::after { display: none; }
+.method-photo-placeholder {
+  width: 100%; max-width: 480px; aspect-ratio: 16/10;
+  background: var(--gray-50); border: 1px dashed var(--gray-300);
+  border-radius: 12px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  color: var(--gray-400); font-size: 14px; margin-top: 24px;
+}
+.method-photo-placeholder small { font-size: 12px; margin-top: 4px; opacity: 0.7; }
+.method-equip-section { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--gray-200); }
+.method-equip-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--gray-500); margin-bottom: 16px; display: block;
+}
+.method-toggle {
+  display: inline-block; margin-top: 20px;
+  background: transparent; border: 1.5px solid var(--gray-200);
+  border-radius: 8px; padding: 12px 22px;
+  font-family: 'Onest', sans-serif; font-size: 14px; font-weight: 500;
+  color: var(--gray-700); cursor: pointer; transition: border-color .15s, color .15s;
+}
+.method-toggle:hover { border-color: var(--blue); color: var(--blue); }
+
+/* PRICE SECTION (horizontal) */
+.price-section {
+  background: #fff; border: 1px solid var(--gray-200);
+  border-radius: 16px; padding: 40px; margin-bottom: 44px;
+}
+.price-section > .section-label { margin-bottom: 8px; }
+.price-section > .section-title { margin-bottom: 4px !important; }
+.price-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 48px; align-items: start; margin-top: 28px;
+}
+.price-section .price-amount {
+  font-size: 36px; font-weight: 800; color: var(--blue);
+  margin-bottom: 6px; line-height: 1;
+}
+.price-section .price-note {
+  font-size: 14px; color: var(--gray-500); margin-bottom: 20px; line-height: 1.5;
+}
+.price-section .price-cta {
+  width: 100%; display: block; text-align: center;
+  padding: 14px 20px; font-size: 15px; border-radius: 10px; margin-bottom: 20px;
+  cursor: pointer; border: none; font-family: 'Onest', sans-serif; font-weight: 600;
+}
+.price-section .price-variants {
+  margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--gray-100);
+}
+.price-variants-label {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .08em; color: var(--gray-400); margin-bottom: 10px; display: block;
+}
+.price-section .price-variants ul { list-style: none; padding: 0; margin: 0; }
+.price-section .price-variants li {
+  display: flex; justify-content: space-between; gap: 12px;
+  padding: 8px 0; font-size: 14px; border-bottom: 1px solid var(--gray-100);
+}
+.price-section .price-variants li:last-child { border-bottom: none; }
+.price-section .price-variants li span:first-child { color: var(--gray-600); }
+.price-section .price-variants li span:last-child { font-weight: 700; color: var(--blue); white-space: nowrap; }
+.price-includes h3, .price-excludes h3 {
+  font-size: 11px; text-transform: uppercase; letter-spacing: .05em;
+  color: var(--gray-400); margin: 0 0 12px; font-weight: 700;
+}
+.price-excludes { margin-top: 24px; }
+.price-doctors-row {
+  margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--gray-200);
+  font-size: 14px; color: var(--gray-500); text-align: center;
+}
+
+@media (max-width: 960px) {
+  .hero-right-block { display: none; }
+  .hero { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 768px) {
+  .price-section { padding: 24px; margin-bottom: 32px; }
+  .price-grid { grid-template-columns: 1fr; gap: 24px; }
+  .price-section .price-amount { font-size: 28px; }
+}
+/* ===== END REDESIGN V2 ===== */
+
 /* ===== SPRINT UX ===== */
 
 /* #1  H2: Onest, margin 30px, max-width 720px */
@@ -736,53 +866,35 @@ h2.section-title, h2.sec-title, .section-title {
       <a class="btn-ghost" href="#price">Вартість операції →</a>
     </div>
   </div>
-  <div class="hero-roadmap">
-  <div class="roadmap-step">
-    <div class="roadmap-marker">
-      <div class="roadmap-dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg></div>
-      <div class="roadmap-line"></div>
+    <div class="hero-right-block">
+  <div class="hero-surgeons">
+    <span class="hb-label">Хірурги</span>
+    <div class="hs-item">
+      <div class="hs-avatar"><img src="../assets/doctors/afanasiev-card.webp" alt="Афанасьєв І.В." loading="eager"></div>
+      <div>
+        <div class="hs-name">Афанасьєв І.В.</div>
+        <div class="hs-cred">к.м.н., вища категорія, 34 роки досвіду</div>
+      </div>
     </div>
-    <div class="roadmap-content">
-      <div class="roadmap-title">Консультація гінеколога</div>
-      <div class="roadmap-sub">Оцінка показань за УЗД</div>
-    </div>
-  </div>
-  <div class="roadmap-step">
-    <div class="roadmap-marker">
-      <div class="roadmap-dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg></div>
-      <div class="roadmap-line"></div>
-    </div>
-    <div class="roadmap-content">
-      <div class="roadmap-title">Передопераційна підготовка</div>
-      <div class="roadmap-sub">Аналізи, ЕКГ, кольпоскопія</div>
+    <div class="hs-item">
+      <div class="hs-avatar"><img src="../assets/doctors/striukov-card.webp" alt="Стрюков Д.В." loading="eager"></div>
+      <div>
+        <div class="hs-name">Стрюков Д.В.</div>
+        <div class="hs-cred">к.м.н., вища категорія, 24 роки досвіду</div>
+      </div>
     </div>
   </div>
-  <div class="roadmap-step">
-    <div class="roadmap-marker">
-      <div class="roadmap-dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-      <div class="roadmap-line"></div>
-    </div>
-    <div class="roadmap-content">
-      <div class="roadmap-title">Операція — 90–180 хв</div>
-      <div class="roadmap-sub">Три мікропроколи, Karl Storz HD</div>
-    </div>
+  <div class="hero-metrics">
+    <span class="hb-label">Ключові показники</span>
+    <div class="hm-row"><span class="hm-label">Стаціонар</span><span class="hm-val">2–3 дні</span></div>
+    <div class="hm-row"><span class="hm-label">До роботи</span><span class="hm-val">3–4 тижні</span></div>
+    <div class="hm-row"><span class="hm-label">Тривалість операції</span><span class="hm-val">90–180 хв</span></div>
   </div>
-  <div class="roadmap-step">
-    <div class="roadmap-marker">
-      <div class="roadmap-dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg></div>
-    </div>
-    <div class="roadmap-content">
-      <div class="roadmap-title">Стаціонар 2–3 дні</div>
-      <div class="roadmap-sub">Виписка, контрольний огляд</div>
-    </div>
-  </div>
+</div>
 </div>
 </div>
 </div>
 
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div class="sbar-item"><div class="sbar-num">3</div><div class="sbar-lbl">Мікропроколи<br>по 0,5–1 см</div></div>
     <div class="sbar-item"><div class="sbar-num">2–3</div><div class="sbar-lbl">Дні<br>стаціонару</div></div>
     <div class="sbar-item"><div class="sbar-num">3–4</div><div class="sbar-lbl">Тижні<br>до роботи</div></div>
     <div class="sbar-item"><div class="sbar-num">Karl Storz</div><div class="sbar-lbl">Обладнання<br>Full HD</div></div>
@@ -791,9 +903,9 @@ h2.section-title, h2.sec-title, .section-title {
 
 <div class="trust-bar">
   <div class="trust-inner">
-    <div class="trust-item"><div class="trust-fact">Афанасьєв І.В. — к.м.н.</div><div class="trust-lbl">вища категорія, 34 роки досвіду</div></div>
-    <div class="trust-item"><div class="trust-fact">Стрюков Д.В. — к.м.н.</div><div class="trust-lbl">вища категорія, 24 роки досвіду</div></div>
-    <div class="trust-item"><div class="trust-fact">Karl Storz Full HD</div><div class="trust-lbl">система гармонік Ethicon</div></div>
+    <div class="trust-item"><div class="trust-fact">Стаціонар з цілодобовим наглядом лікаря</div><div class="trust-lbl">після операції</div></div>
+    <div class="trust-item"><div class="trust-fact">Karl Storz Full HD + система гармонік Ethicon</div><div class="trust-lbl">обладнання операційної</div></div>
+    <div class="trust-item"><div class="trust-fact">Гістологія та контрольний огляд включені у вартість</div><div class="trust-lbl">без прихованих доплат</div></div>
   </div>
 </div>
 
@@ -888,51 +1000,98 @@ h2.section-title, h2.sec-title, .section-title {
       </div>
     </section>
 
-    <!-- МЕТОД -->
-    <section>
+    <!-- МЕТОД + ОБЛАДНАННЯ (merged, expand, SEO-safe: всі тексти завжди в DOM) -->
+    <section id="method">
       <p class="section-label">Метод детально</p>
-      <h2 class="section-title">Як виконується операція</h2>
-      <div class="prose">
-        <p>Лапароскопічна гістеректомія — видалення матки через три мікропроколи на передній стінці живота діаметром 0,5–1 см. Через них вводяться лапароскоп Karl Storz IMAGE1 S з камерою Full HD та хірургічні інструменти. Хірург бачить операційне поле на моніторі 27" Full HD у реальному часі.</p>
-        <p>Матка відсікається від зв'язок і судин з використанням системи гармонік (Harmonic Scalpel — ультразвуковий скальпель Ethicon) та біполярної коагуляції AUTOCON III 400. Це забезпечує мінімальну крововтрату та точний контроль над судинами.</p>
-        <p>Видалена матка витягується через піхву або через лапароскопічну систему морцеляції Lapomed LPM-0750 — мікропроколи при цьому не розширюються. Куксу піхви ушивають ендоскопічним швом. При екстирпації з придатками — одночасно видаляються маткові труби та/або яєчники. Видалені тканини направляються на патогістологічне дослідження.</p>
+      <h2 class="section-title">Як ми проводимо операцію в ОН Клінік Левада</h2>
+      <div class="method-content" data-collapsed="true">
+        <!-- PREVIEW — завжди видимо -->
+        <div class="method-preview">
+          <div class="prose">
+            <p>Лапароскопічна гістеректомія — видалення матки через три мікропроколи на передній стінці живота діаметром 0,5–1 см. Через них вводяться лапароскоп Karl Storz IMAGE1 S з камерою Full HD та хірургічні інструменти. Хірург бачить операційне поле на моніторі 27" Full HD у реальному часі.</p>
+            <p>Матка відсікається від зв'язок і судин з використанням системи гармонік (Harmonic Scalpel — ультразвуковий скальпель Ethicon) та біполярної коагуляції AUTOCON III 400. Це забезпечує мінімальну крововтрату та точний контроль над судинами.</p>
+            <p style="font-size:14px;color:var(--gray-500);margin-top:8px"><strong style="color:var(--gray-700)">Обладнання:</strong> Karl Storz IMAGE1 S Full HD, система гармонік Ethicon, морцелятор Lapomed LPM-0750, наркозний апарат Drager Primus.</p>
+          </div>
+          <div class="method-photo-placeholder">
+            <span>Фото операційної ОН Клінік Левада</span>
+            <small>Очікуємо фото від клініки</small>
+          </div>
+        </div>
+        <!-- FULL — завжди в DOM для SEO, ховається через max-height -->
+        <div class="method-full">
+          <div class="prose" style="margin-top:20px">
+            <p>Видалена матка витягується через піхву або через лапароскопічну систему морцеляції Lapomed LPM-0750 — мікропроколи при цьому не розширюються. Куксу піхви ушивають ендоскопічним швом. При екстирпації з придатками — одночасно видаляються маткові труби та/або яєчники. Видалені тканини направляються на патогістологічне дослідження.</p>
+          </div>
+          <div class="callout callout-info" style="margin-top:16px">
+            <strong>Тривалість та анестезія</strong>
+            Операція займає 90–180 хвилин залежно від розміру матки, спайкового процесу та обсягу операції. Анестезія: загальна внутрішньовенна з ШВЛ (апарат Drager Primus).
+          </div>
+          <div class="method-equip-section">
+            <span class="method-equip-label">Обладнання операційної</span>
+            <div class="equip-grid">
+              <div class="equip-card">
+                <h4>Лапароскопічна стійка Karl Storz (Німеччина)</h4>
+                <p>Камера IMAGE1 S H3-Z · Блок IMAGE1 SCONNECT · Монітор 27" Full HD (×2) · AUTOCON III 400 — система ВЧ-хірургії · Power LED 175 SCB · ENDOFLATOR 40 SCB · ENDOMAT SELECT UP 210 · Набір інструментарію Karl Storz</p>
+              </div>
+              <div class="equip-card">
+                <h4>Harmonic Scalpel (Ethicon G11)</h4>
+                <p>Ультразвуковий скальпель для безкровного відсікання тканин та гемостазу при роботі зі зв'язковим апаратом матки.</p>
+              </div>
+              <div class="equip-card">
+                <h4>Ендоскопічна система морцеляції Lapomed LPM-0750</h4>
+                <p>Для витягнення видаленої матки через мікропроколи 0,5–1 см без розширення хірургічного доступу.</p>
+              </div>
+              <div class="equip-card">
+                <h4>Анестезіологічне обладнання</h4>
+                <p>Naркозно-дихальний апарат Drager Primus з ШВЛ · Star 8000E — монітор пацієнта · Maquet Alphastar — операційний стіл</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="callout callout-info">
-        <strong>Тривалість та анестезія</strong>
-        Операція займає 90–180 хвилин залежно від розміру матки, спайкового процесу та обсягу операції. Анестезія: загальна внутрішньовенна з ШВЛ (апарат Drager Primus).
-      </div>
+      <button class="method-toggle" aria-expanded="false" onclick="toggleMethod(this)">Показати деталі методу та обладнання ↓</button>
     </section>
 
-    <!-- ОБЛАДНАННЯ -->
-    <section>
-      <p class="section-label">Обладнання</p>
-      <h2 class="section-title">Технічне забезпечення операцій</h2>
-      <p style="font-size:15px;color:var(--gray-600);margin-bottom:24px;max-width:760px;line-height:1.7">ОН Клінік використовує обладнання Karl Storz (Німеччина) — стандарт університетських клінік Європи. Система гармонік Ethicon забезпечує мінімальну крovovтрату при роботі зі зв'язковим апаратом матки.</p>
-      <div class="equip-grid">
-        <div class="equip-card">
-          <h4>Karl Storz IMAGE1 S H3-Z</h4>
-          <p>Камера Full HD, блок IMAGE1 SCONNECT, монітор 27" Full HD (×2) — точна візуалізація для хірурга та асистента.</p>
+
+    <!-- ЦІНА (горизонтальний layout) -->
+    <section class="price-section" id="price">
+      <p class="section-label">Вартість операції</p>
+      <h2 class="section-title">Ціна лапароскопічної гістеректомії</h2>
+      <div class="price-grid">
+        <div class="price-left">
+          <div class="price-amount">від 28 895 грн</div>
+          <div class="price-note">Точна ціна — після консультації та УЗД</div>
+          <button class="price-cta btn-primary" onclick="openModal('mioma-laparoskopichna-gisterektomiia')">Записатися на консультацію →</button>
+          <div class="price-variants">
+            <span class="price-variants-label">Варіанти операції</span>
+            <ul>
+              <li><span>Без придатків</span><span>28 895 грн</span></li>
+              <li><span>З придатками</span><span>28 930 грн</span></li>
+            </ul>
+          </div>
         </div>
-        <div class="equip-card">
-          <h4>Harmonic Scalpel (Ethicon G11)</h4>
-          <p>Ультразвуковий скальпель для безкровного відсікання тканин. Критично при роботі зі зв'язковим апаратом матки.</p>
+        <div class="price-right">
+          <div class="price-includes">
+            <h3>Входить у вартість</h3>
+            <ul class="pi-list">
+              <li>Консультація хірурга перед операцією</li>
+              <li>Операція (лапароскопічна гістеректомія)</li>
+              <li>Загальна анестезія з ШВЛ</li>
+              <li>2–3 дні стаціонару з цілодобовим наглядом</li>
+              <li>Контрольний огляд після виписки</li>
+            </ul>
+          </div>
+          <div class="price-excludes">
+            <h3>Оплачується окремо</h3>
+            <ul class="pi-list excludes">
+              <li>Передопераційні аналізи <span class="data-pending">(≈ 2 000 грн)</span></li>
+              <li>Патогістологічне дослідження <span class="data-pending">(≈ 500 грн)</span></li>
+            </ul>
+          </div>
         </div>
-        <div class="equip-card">
-          <h4>AUTOCON III 400 (Karl Storz)</h4>
-          <p>Система ВЧ-хірургії, моно- та біполярний режими. Точний контроль гемостазу при роботі на судинах.</p>
-        </div>
-        <div class="equip-card">
-          <h4>Lapomed LPM-0750 — морцелятор</h4>
-          <p>Ендоскопічна система для витягнення видаленої матки через мікропроколи без розширення доступу.</p>
-        </div>
-        <div class="equip-card">
-          <h4>Drager Primus</h4>
-          <p>Наркозно-дихальний апарат з ШВЛ. Моніторинг і підтримка загальної анестезії протягом усієї операції.</p>
-        </div>
-        <div class="equip-card">
-          <h4>Star 8000E + Maquet Alphastar</h4>
-          <p>Монітор пацієнта для контролю життєвих показників та операційний стіл з повним діапазоном положень.</p>
-        </div>
+      </div>
+      <div class="price-doctors-row">
+        Консультація гінеколога: <strong>Афанасьєв І.В.</strong> — 500 грн &nbsp;·&nbsp; <strong>Стрюков Д.В.</strong> — 700 грн
       </div>
     </section>
 
@@ -1124,51 +1283,6 @@ h2.section-title, h2.sec-title, .section-title {
 
   </div><!-- /content-area -->
 
-  <!-- PRICE SIDEBAR -->
-  <aside class="price-sidebar" id="price">
-    <div class="price-card">
-      <div class="price-label">Вартість операції</div>
-      <div class="price-amount">від 28 895 грн</div>
-      <div class="price-note">Точна ціна визначається обсягом операції — з придатками чи без</div>
-      <div class="price-variants">
-        <div class="price-variant-row">
-          <span class="price-variant-name">Екстирпація матки без придатків</span>
-          <span class="price-variant-val">28 895 грн</span>
-        </div>
-        <div class="price-variant-row">
-          <span class="price-variant-name">Екстирпація матки з придатками</span>
-          <span class="price-variant-val">28 930 грн</span>
-        </div>
-      </div>
-      <button class="price-cta" onclick="openModal()">Записатися на консультацію</button>
-      <div style="padding:12px 0 14px;border-bottom:1px solid var(--gray-100)">
-        <div class="pi-label" style="margin-bottom:6px">Починається з консультації</div>
-        <div style="font-size:13px;color:var(--gray-700);line-height:1.7">
-          Афанасьєв І.В. — 500 грн<br/>Стрюков Д.В. — 700 грн
-        </div>
-      </div>
-      <div class="price-includes">
-        <div class="pi-label">Входить у вартість операції</div>
-        <ul class="pi-list">
-          <li>Консультація гінеколога-хірурга</li>
-          <li>Операція (лапароскопічна гістеректомія)</li>
-          <li>Загальна анестезія та робота анестезіолога</li>
-          <li>2–3 дні стаціонару</li>
-          <li>Контрольний огляд</li>
-        </ul>
-        <div class="price-divider"></div>
-        <div class="pi-label">Не входить</div>
-        <ul class="pi-list excludes">
-          <li>Передопераційні аналізи (<span class="data-pending">≈ 2 000 грн</span>)</li>
-          <li>Патогістологічне дослідження (<span class="data-pending">≈ 500 грн</span>)</li>
-          <li>Кольпоскопія, якщо не виконана раніше</li>
-          <li>Консультації суміжних спеціалістів (за потреби)</li>
-        </ul>
-        <div style="font-size:11px;color:var(--gray-500);margin-top:10px;line-height:1.5">Остаточний обсяг операції (з придатками чи без) визначається лікарем після консультації та обстеження.</div>
-      </div>
-    </div>
-  </aside>
-
 </div><!-- /main-wrap -->
 
 <!-- GEO BLOCK (static HTML) -->
@@ -1347,6 +1461,17 @@ async function submitLead(e){
     document.getElementById('form-success').style.display='block';
     console.warn('Supabase not configured yet:', err);
   }
+}
+
+
+function toggleMethod(btn) {
+  const content = btn.previousElementSibling;
+  const isCollapsed = content.dataset.collapsed === 'true';
+  content.dataset.collapsed = isCollapsed ? 'false' : 'true';
+  btn.setAttribute('aria-expanded', String(isCollapsed));
+  btn.textContent = isCollapsed
+    ? 'Згорнути ↑'
+    : 'Показати деталі методу та обладнання ↓';
 }
 
 function toggleFaq(el){
