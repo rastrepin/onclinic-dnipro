@@ -482,6 +482,8 @@ h2 { margin-bottom: 20px; }
 .ind-card ul li::before { content: '' !important; }
 .ind-item-check::before { display: inline-block; content: ''; width: 16px; height: 16px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2322c55e' stroke-width='2.5'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; flex-shrink: 0; margin-top: 3px; }
 
+
+
 /* ===== SPRINT UX ===== */
 
 /* #1  H2: Onest, margin 30px, max-width 720px */
@@ -522,11 +524,11 @@ h2.section-title, h2.sec-title, .section-title {
   background: var(--gold, #C49A1A) !important;
 }
 
-/* #10  doc-book: gold outline */
+/* #10  doc-book: primary CTA style (filled gold-light, dark text, gold border) */
 .doc-book, button.doc-book {
-  background: transparent !important;
-  border: 2px solid var(--gold, #C49A1A) !important;
-  color: var(--gold, #C49A1A) !important;
+  background: var(--gold-light, #fffbeb) !important;
+  border: 1.5px solid var(--gold, #C49A1A) !important;
+  color: #7A5C00 !important;
 }
 .doc-book:hover, button.doc-book:hover {
   background: var(--gold, #C49A1A) !important;
@@ -610,6 +612,40 @@ h2.section-title, h2.sec-title, .section-title {
   .breadcrumb-inner {
     padding-left: 20px !important;
     padding-right: 20px !important;
+  }
+
+  /* equip-grid: горизонтальний скрол на мобільному */
+  .equip-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    gap: 12px !important;
+    padding-bottom: 10px !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    grid-template-columns: unset !important;
+  }
+  .equip-grid .equip-card, .equip-card {
+    min-width: 220px !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: start !important;
+  }
+
+  /* timeline: горизонтальний скрол на мобільному */
+  .timeline {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    gap: 12px !important;
+    padding-bottom: 10px !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .tl-item {
+    min-width: 200px !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: start !important;
+    padding-bottom: 0 !important;
   }
 }
 
