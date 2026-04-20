@@ -281,6 +281,8 @@ h2 { margin-bottom: 20px; }
 
 
 
+
+
 /* ===== SPRINT UX ===== */
 
 /* #1  H2: Onest, margin 30px, max-width 720px */
@@ -437,13 +439,17 @@ h2.section-title, h2.sec-title, .section-title {
     overflow-x: auto !important;
     gap: 12px !important;
     padding-bottom: 10px !important;
+    padding-right: 24px !important;
     scroll-snap-type: x mandatory !important;
     -webkit-overflow-scrolling: touch !important;
     grid-template-columns: unset !important;
     max-width: none !important;
+    scrollbar-width: none !important;
   }
+  .equip-grid::-webkit-scrollbar { display: none !important; }
   .equip-grid .equip-card, .equip-card {
-    min-width: 220px !important;
+    min-width: 75vw !important;
+    max-width: 75vw !important;
     flex-shrink: 0 !important;
     scroll-snap-align: start !important;
   }
@@ -455,14 +461,38 @@ h2.section-title, h2.sec-title, .section-title {
     overflow-x: auto !important;
     gap: 12px !important;
     padding-bottom: 10px !important;
+    padding-right: 24px !important;
     scroll-snap-type: x mandatory !important;
     -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
   }
+  .timeline::-webkit-scrollbar { display: none !important; }
   .tl-item {
-    min-width: 200px !important;
+    min-width: 75vw !important;
+    max-width: 75vw !important;
     flex-shrink: 0 !important;
     scroll-snap-align: start !important;
     padding-bottom: 0 !important;
+  }
+
+  /* scroll dots */
+  .scroll-dots {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    margin-top: 14px !important;
+  }
+  .scroll-dot {
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 50% !important;
+    background: var(--gray-300, #d1d5db) !important;
+    transition: background 0.25s, transform 0.25s !important;
+    flex-shrink: 0 !important;
+  }
+  .scroll-dot.active {
+    background: var(--blue, #0B4F9A) !important;
+    transform: scale(1.4) !important;
   }
 }
 
@@ -918,5 +948,49 @@ function showSuccess() {
   document.getElementById('success-msg').style.display = 'block';
 }
 </script>
+
+<!-- ===== SPRINT UX JS ===== -->
+<script>
+(function () {
+  function initScrollDots(container, itemSel) {
+    var items = container.querySelectorAll(itemSel);
+    if (items.length < 2) return;
+
+    var wrap = document.createElement('div');
+    wrap.className = 'scroll-dots';
+    for (var i = 0; i < items.length; i++) {
+      var d = document.createElement('span');
+      d.className = 'scroll-dot' + (i === 0 ? ' active' : '');
+      wrap.appendChild(d);
+    }
+    container.parentNode.insertBefore(wrap, container.nextSibling);
+
+    var dots = wrap.querySelectorAll('.scroll-dot');
+    container.addEventListener('scroll', function () {
+      var cardW = items[0].getBoundingClientRect().width + 12; // gap
+      var idx = Math.round(container.scrollLeft / cardW);
+      idx = Math.max(0, Math.min(idx, items.length - 1));
+      dots.forEach(function (dot, i) { dot.classList.toggle('active', i === idx); });
+    }, { passive: true });
+  }
+
+  function init() {
+    if (window.innerWidth > 768) return;
+    document.querySelectorAll('.equip-grid').forEach(function (el) {
+      initScrollDots(el, '.equip-card');
+    });
+    document.querySelectorAll('.timeline').forEach(function (el) {
+      initScrollDots(el, '.tl-item');
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+<!-- ===== END SPRINT UX JS ===== -->
 </body>
 </html>
