@@ -673,6 +673,36 @@ h2.section-title, h2.sec-title, .section-title {
 }
 /* ===== END HERO QUIZ CARD ===== */
 
+/* ── Quiz Result & Doctor Selection screens ─────────────────── */
+.hq-result-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 10px; }
+.hq-result-heading { font-size: 17px; font-weight: 700; color: var(--blue, #0B4F9A); line-height: 1.3; margin-bottom: 4px; }
+.hq-result-price { font-size: 13px; color: var(--gray-500, #6B7280); margin-bottom: 12px; }
+.hq-result-note { font-size: 13px; color: var(--gray-600, #4B5563); line-height: 1.55; margin-bottom: 14px; padding: 10px 13px; background: var(--gray-50, #F9FAFB); border-radius: 8px; border-left: 3px solid var(--gray-200, #E5E7EB); }
+.hq-result-multi { list-style: none; padding: 0; margin: 0 0 12px; }
+.hq-result-multi li { padding: 9px 12px; border: 1px solid var(--gray-200, #E5E7EB); border-radius: 8px; margin-bottom: 6px; }
+.hq-result-multi li strong { display: block; font-size: 13px; color: var(--blue, #0B4F9A); font-weight: 600; margin-bottom: 2px; }
+.hq-result-multi li span { font-size: 12px; color: var(--gray-500, #6B7280); }
+.hq-btn-primary { width: 100%; background: var(--blue, #0B4F9A); color: #fff; border: none; border-radius: 10px; padding: 13px 16px; font-family: 'Onest',sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; margin-bottom: 8px; display: block; text-align: center; box-sizing: border-box; }
+.hq-btn-primary:hover { background: #1565C0; }
+.hq-btn-ghost { width: 100%; background: transparent; color: var(--blue, #0B4F9A); border: 1.5px solid var(--blue, #0B4F9A); border-radius: 10px; padding: 12px 16px; font-family: 'Onest',sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; margin-bottom: 6px; display: block; text-align: center; box-sizing: border-box; }
+.hq-btn-ghost:hover { background: #EBF2FF; }
+.hq-result-back { background: none; border: none; color: var(--gray-400, #9CA3AF); font-size: 13px; cursor: pointer; padding: 4px 0; font-family: 'Onest',sans-serif; display: block; margin-top: 2px; }
+.hq-result-back:hover { color: var(--gray-700, #374151); }
+.hq-doc-card { display: flex; align-items: center; gap: 12px; background: var(--gray-50, #F9FAFB); border: 1.5px solid var(--gray-200, #E5E7EB); border-radius: 12px; padding: 13px; cursor: pointer; margin-bottom: 9px; width: 100%; text-align: left; font-family: 'Onest',sans-serif; box-sizing: border-box; }
+.hq-doc-card:hover { border-color: var(--blue, #0B4F9A); background: #EBF2FF; }
+.hq-doc-av { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.hq-doc-info { flex: 1; min-width: 0; }
+.hq-doc-name { font-size: 13px; font-weight: 600; color: var(--gray-900, #111827); margin-bottom: 2px; line-height: 1.25; }
+.hq-doc-meta { font-size: 11px; color: var(--gray-500, #6B7280); margin-bottom: 2px; }
+.hq-doc-price { font-size: 12px; font-weight: 600; color: var(--blue, #0B4F9A); margin-top: 2px; }
+.hq-doc-arr { color: var(--gray-300, #D1D5DB); font-size: 18px; flex-shrink: 0; }
+.hq-doctors-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 5px; }
+.hq-doctors-title { font-size: 15px; font-weight: 700; color: var(--gray-900, #111827); margin-bottom: 4px; }
+.hq-doctors-sub { font-size: 12px; color: var(--gray-500, #6B7280); line-height: 1.5; margin-bottom: 14px; }
+.hq-step-body { overflow-y: auto; max-height: 440px; }
+@media(max-width:767px) { .hq-step-body { max-height: 70vh; } }
+
+
 </style>
 </head>
 <body data-case-slug="">
@@ -737,6 +767,8 @@ h2.section-title, h2.sec-title, .section-title {
         </div>
       </div>
     </div>
+      <div class="hq-step-body" id="hqs-result"></div>
+      <div class="hq-step-body" id="hqs-doctors"></div>
     <div class="hq-footer">Після 3 питань — дізнаєтесь підходящий метод та орієнтовну вартість</div>
   </div>
 </div>
@@ -942,22 +974,133 @@ h2.section-title, h2.sec-title, .section-title {
 <script>
 /* ─── HERO QUIZ: Ендометріоз ─── */
 var hqState = {reason: null, cyst_size: null, pregnancy: null};
+var hqResult = null;
+
+var HQ_DOCTORS = {
+  afanasiev: {
+    fullName: 'Афанасьєв Ігор Володимирович',
+    role: 'Оперуючий гінеколог · к.м.н.',
+    experience: '34 роки досвіду',
+    spec: 'Ендоскопія з 2006',
+    price: 500,
+    photo: '/assets/doctors/afanasiev-card.webp'
+  },
+  striukov: {
+    fullName: 'Стрюков Дмитро Владиславович',
+    role: 'Оперуючий гінеколог · к.м.н.',
+    experience: '24 роки досвіду',
+    spec: 'Ендоскопія з 2016, асистент кафедри ХНМУ',
+    price: 700,
+    photo: '/assets/doctors/striukov-card.webp'
+  }
+};
 
 function hqPick(step, key, val) {
   hqState[key] = val;
   if (step < 3) {
     hqGoStep(step + 1);
   } else {
-    var prefilledCase = 'endometrioz-kista-laparoskopia';
-    if (hqState.cyst_size === 'no_cyst' && hqState.reason !== 'infertility') {
-      prefilledCase = null;
-    }
-    openBookingModal({
-      prefilledCase: prefilledCase,
-      quiz_answers: {reason: hqState.reason, cyst_size: hqState.cyst_size, pregnancy: hqState.pregnancy},
-      sourceCTA: 'quiz_result'
-    });
+    hqResult = hqComputeResult();
+    hqShowResult();
   }
+}
+
+function hqComputeResult() {
+  var reason = hqState.reason, sz = hqState.cyst_size, preg = hqState.pregnancy;
+  if (reason === 'pain_unconfirmed' || reason === 'chronic_pain') {
+    return { type: 'no_recommendation', prefilledCase: null, methods: [] };
+  }
+  if (reason === 'infertility') {
+    return { type: 'single', prefilledCase: 'endometrioz-kista-laparoskopia',
+      methods: [{ name: 'Лапароскопія при ендометріозі (діагностична + лікувальна)', price: 'від 21 745 грн' }] };
+  }
+  if (reason === 'cyst_confirmed') {
+    if (sz === 'no_cyst') {
+      return { type: 'no_recommendation', prefilledCase: null, methods: [] };
+    }
+    if (sz === 'small' && preg === 'no') {
+      return { type: 'observation', prefilledCase: null, methods: [] };
+    }
+    return { type: 'single', prefilledCase: 'endometrioz-kista-laparoskopia',
+      methods: [{ name: 'Лапароскопія при ендометріозі та кісті яєчника', price: 'від 21 745 грн' }] };
+  }
+  return { type: 'no_recommendation', prefilledCase: null, methods: [] };
+}
+
+function hqQuizAnswers() {
+  return {
+    q1_reason: hqState.reason,
+    q2_cyst_size: hqState.cyst_size,
+    q3_pregnancy: hqState.pregnancy,
+    recommendation: hqResult ? hqResult.prefilledCase : null,
+    recommendation_type: hqResult ? hqResult.type : 'no_recommendation'
+  };
+}
+
+function hqShowResult() {
+  var r = hqResult;
+  var html = '<div class="hq-result-eyebrow">РЕЗУЛЬТАТ</div>';
+  if (r.type === 'single') {
+    html += '<div class="hq-result-heading">' + r.methods[0].name + '</div>';
+    html += '<div class="hq-result-price">' + r.methods[0].price + '</div>';
+    html += '<div class="hq-result-note">Остаточне рішення прийме лікар на консультації після огляду та оцінки результатів УЗД.</div>';
+  } else if (r.type === 'observation') {
+    html += '<div class="hq-result-heading">Імовірно достатньо спостереження</div>';
+    html += '<div class="hq-result-note">Кіста до 3 см без планів на вагітність часто спостерігається динамічно: УЗД раз на 3–6 місяців. Якщо хочете переконатись — запишіться на консультацію, лікар перегляне ваше УЗД та дасть рекомендації.</div>';
+    html += '<div style="font-size:13px;color:var(--gray-500,#6B7280);margin-bottom:14px">Консультація: 500–700 грн</div>';
+  } else {
+    html += '<div class="hq-result-heading">Потрібна очна консультація з УЗД</div>';
+    html += '<div class="hq-result-note">Без УЗД неможливо визначити метод лікування. На консультації лікар огляне вас, зробить УЗД, визначить тип і особливості новоутворення та запропонує план дій.</div>';
+    html += '<div style="font-size:13px;color:var(--gray-500,#6B7280);margin-bottom:14px">Консультація: 500–700 грн</div>';
+  }
+  html += '<button class="hq-btn-primary" onclick="hqShowDoctors()">Обрати хірурга для консультації →</button>';
+  html += '<button class="hq-btn-ghost" onclick="hqOpenModal(null)">Довіряю клініці — оберіть лікаря</button>';
+  html += '<button class="hq-result-back" onclick="hqGoStep(3)">← Назад до питань</button>';
+  var el = document.getElementById('hqs-result');
+  el.innerHTML = html;
+  hqSwitchScreen('hqs-result', 'РЕЗУЛЬТАТ');
+}
+
+function hqShowDoctors() {
+  var html = '<button class="hq-result-back" onclick="hqShowResult()" style="margin-bottom:12px">← Назад до результату</button>';
+  html += '<div class="hq-doctors-eyebrow">ХІРУРГИ ОН КЛІНІК ЛЕВАДА</div>';
+  html += '<div class="hq-doctors-title">Оберіть хірурга для консультації</div>';
+  html += '<div class="hq-doctors-sub">Обидва хірурги спеціалізуються на лапароскопії та гістероскопії у гінекології.</div>';
+  ['afanasiev', 'striukov'].forEach(function(key) {
+    var d = HQ_DOCTORS[key];
+    html += '<button class="hq-doc-card" onclick="hqOpenModal(\'' + key + '\')">';
+    html += '<img class="hq-doc-av" src="' + d.photo + '" alt="' + d.fullName + '" loading="lazy">';
+    html += '<div class="hq-doc-info">';
+    html += '<div class="hq-doc-name">' + d.fullName + '</div>';
+    html += '<div class="hq-doc-meta">' + d.role + ' · ' + d.experience + '</div>';
+    html += '<div class="hq-doc-meta">' + d.spec + '</div>';
+    html += '<div class="hq-doc-price">Консультація ' + d.price + ' грн</div>';
+    html += '</div><span class="hq-doc-arr">→</span></button>';
+  });
+  html += '<button class="hq-btn-ghost" style="margin-top:6px" onclick="hqOpenModal(null)">Довіряю клініці — оберіть лікаря</button>';
+  var el = document.getElementById('hqs-doctors');
+  el.innerHTML = html;
+  hqSwitchScreen('hqs-doctors', 'ВИБІР ЛІКАРЯ');
+}
+
+function hqOpenModal(doctorKey) {
+  openBookingModal({
+    prefilledCase: hqResult ? hqResult.prefilledCase : null,
+    prefilledDoctor: doctorKey || null,
+    sourceCTA: 'quiz_result',
+    quizAnswers: hqQuizAnswers(),
+    quizContext: { type: hqResult ? hqResult.type : 'no_recommendation', methods: hqResult ? hqResult.methods : [] }
+  });
+}
+
+function hqSwitchScreen(screenId, label) {
+  document.querySelectorAll('.hq-step-body').forEach(function(s) { s.classList.remove('active'); });
+  var el = document.getElementById(screenId);
+  if (el) el.classList.add('active');
+  var lbl = document.getElementById('hq-step-label');
+  if (lbl) lbl.textContent = label;
+  var footer = document.querySelector('.hq-footer');
+  if (footer) footer.style.display = 'none';
 }
 
 function hqGoStep(n) {
@@ -966,6 +1109,8 @@ function hqGoStep(n) {
   if (el) el.classList.add('active');
   var lbl = document.getElementById('hq-step-label');
   if (lbl) lbl.textContent = 'КРОК ' + n + ' З 3';
+  var footer = document.querySelector('.hq-footer');
+  if (footer) footer.style.display = '';
 }
 
 function toggleFaq(el) {

@@ -135,7 +135,27 @@ function buildTelegramMessage(record, leadId, fullUrl) {
     lines.push('Джерело: прямий перехід');
   }
 
-  // Timestamp (Europe/Kyiv)
+
+  // Quiz answers block
+  if (record.quiz_answers && typeof record.quiz_answers === 'object') {
+    const qa = record.quiz_answers;
+    lines.push('');
+    lines.push('Відповіді квіза:');
+    if (qa.q1_location) lines.push('  • Розташування: ' + qa.q1_location);
+    if (qa.q1_reason)   lines.push('  • Причина звернення: ' + qa.q1_reason);
+    if (qa.q2_size)     lines.push('  • Розмір вузла: ' + qa.q2_size);
+    if (qa.q2_cyst_size)lines.push('  • Розмір кісти: ' + qa.q2_cyst_size);
+    if (qa.q3_pregnancy)lines.push('  • Вагітність: ' + qa.q3_pregnancy);
+    if (qa.recommendation_type) lines.push('  • Тип рекомендації: ' + qa.recommendation_type);
+    if (qa.recommendation) {
+      const rec = SERVICE_MAP[qa.recommendation];
+      lines.push('  • Рекомендація: ' + (rec ? rec.searchName : qa.recommendation));
+    } else {
+      lines.push('  • Рекомендація: консультація / спостереження');
+    }
+  }
+
+    // Timestamp (Europe/Kyiv)
   const now = new Date();
   const kyivTime = now.toLocaleString('uk-UA', {
     timeZone: 'Europe/Kyiv',

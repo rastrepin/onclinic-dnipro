@@ -170,6 +170,65 @@
     document.head.appendChild(st);
   }
 
+
+  function buildQuizSummaryCardHTML(caseSlug, doctorSlug, quizContext) {
+    var type = quizContext.type; // 'single'|'multiple'|'observation'|'no_recommendation'
+    var methods = quizContext.methods || [];
+    var html = '<div class="bm-sc">';
+
+    // Header kicker
+    if (type === 'no_recommendation' || type === 'observation') {
+      html += '<div class="bm-sc-kick">Ви записуєтесь на консультацію з УЗД</div>';
+    } else if (doctorSlug) {
+      html += '<div class="bm-sc-kick">Ви записуєтесь на консультацію гінеколога-хірурга</div>';
+    } else {
+      html += '<div class="bm-sc-kick">Ви записуєтесь на консультацію гінеколога</div>';
+    }
+
+    // Doctor block
+    if (doctorSlug && DOCTOR_INFO[doctorSlug]) {
+      var doc = DOCTOR_INFO[doctorSlug];
+      html += '<div class="bm-sc-doc">';
+      html += '<img class="bm-sc-av" src="' + doc.avatar + '" alt="' + escHtml(doc.name) + '" loading="lazy">';
+      html += '<div><div class="bm-sc-dname">' + escHtml(doc.name) + '</div>';
+      html += '<div class="bm-sc-dprice">' + escHtml(doc.role) + '</div>';
+      html += '<div class="bm-sc-dprice">Консультація ' + escHtml(doc.price) + '</div></div>';
+      html += '</div>';
+    } else if (!doctorSlug && (type === 'single' || type === 'multiple')) {
+      html += '<div style="font-size:12px;color:#6b7280;margin:8px 0 4px">Клініка запропонує лікаря з наявних:</div>';
+      html += '<div style="font-size:13px;color:#374151;margin-bottom:2px">Афанасьєв І.В. — 500 грн</div>';
+      html += '<div style="font-size:13px;color:#374151">Стрюков Д.В. — 700 грн</div>';
+    }
+
+    // Recommendation block
+    if (type === 'single' && methods.length > 0) {
+      html += '<div style="margin-top:12px;padding-top:12px;border-top:1px solid #e5e7eb">';
+      html += '<div class="bm-sc-offlabel">За вашими відповідями лікар імовірно запропонує:</div>';
+      html += '<div class="bm-sc-name">' + escHtml(methods[0].name) + '</div>';
+      html += '<div class="bm-sc-price">' + escHtml(methods[0].price) + '</div>';
+      html += '</div>';
+    } else if (type === 'multiple' && methods.length > 1) {
+      html += '<div style="margin-top:12px;padding-top:12px;border-top:1px solid #e5e7eb">';
+      html += '<div class="bm-sc-offlabel">За вашими відповідями можливі варіанти:</div>';
+      methods.forEach(function(m) {
+        html += '<div style="font-size:13px;color:#374151;margin-top:4px">• ' + escHtml(m.name) + ' — ' + escHtml(m.price) + '</div>';
+      });
+      html += '</div>';
+    } else if (type === 'no_recommendation') {
+      html += '<div style="margin-top:10px;font-size:13px;color:#6b7280">На консультації лікар огляне вас, зробить УЗД, визначить тип та особливості новоутворення і запропонує план дій.</div>';
+    } else if (type === 'observation') {
+      html += '<div style="margin-top:10px;font-size:13px;color:#6b7280">Кіста може спостерігатись динамічно. На консультації лікар підтвердить або скоригує тактику ведення.</div>';
+    }
+
+    // Disclaimer for surgical recommendations
+    if (type === 'single' || type === 'multiple') {
+      html += '<div style="font-size:11px;color:#9ca3af;margin-top:10px;font-style:italic">Остаточне рішення приймається лікарем після огляду та оцінки УЗД.</div>';
+    }
+
+    html += '</div>';
+    return html;
+  }
+
   function buildSummaryCardHTML(prefilledCase, prefilledDoctor) {
     if (!prefilledCase && !prefilledDoctor) return '';
 
@@ -580,7 +639,11 @@
 
     // Summary card
     var summaryEl = document.getElementById('bm-summary');
-    summaryEl.innerHTML = buildSummaryCardHTML(caseSlug, doctorSlug);
+    if (opts.sourceCTA === 'quiz_result' && opts.quizContext) {
+      summaryEl.innerHTML = buildQuizSummaryCardHTML(caseSlug, doctorSlug, opts.quizContext);
+    } else {
+      summaryEl.innerHTML = buildSummaryCardHTML(caseSlug, doctorSlug);
+    }
 
     // Open
     document.getElementById('bm-overlay').classList.add('open');
