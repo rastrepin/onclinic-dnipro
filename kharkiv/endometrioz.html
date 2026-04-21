@@ -644,6 +644,40 @@ h2.section-title, h2.sec-title, .section-title {
   .form-field input,.form-field select{font-size:16px!important}
 }
 
+
+/* ===== HERO QUIZ CARD (hubs-redesign-v1) ===== */
+.hero.hero-v2 { grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; padding-top: 64px; }
+.hero-methods-link { display: inline-flex; align-items: center; gap: 4px; font-size: 14px; color: rgba(255,255,255,.75); text-decoration: none; margin-top: 24px; transition: color .15s; }
+.hero-methods-link:hover { color: #fff; }
+.hq-card { background: #fff; border-radius: 18px; padding: 28px; box-shadow: 0 8px 40px rgba(0,0,0,.18); }
+.hq-eyebrow { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.hq-step-label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gray-500); }
+.hq-time { font-size: 11px; color: var(--gray-400); font-weight: 500; }
+.hq-step-body { display: none; }
+.hq-step-body.active { display: block; }
+.hq-question { font-size: 17px; font-weight: 700; color: var(--gray-900); margin-bottom: 14px; line-height: 1.3; font-family: 'Onest', sans-serif; }
+.hq-back { background: none; border: none; font-size: 13px; color: var(--gray-400); cursor: pointer; padding: 0; margin-bottom: 10px; font-family: 'Onest', sans-serif; display: flex; align-items: center; gap: 4px; transition: color .15s; }
+.hq-back:hover { color: var(--gray-600); }
+.hq-opts { display: flex; flex-direction: column; gap: 8px; }
+.hq-opt { background: var(--gray-50); border: 1.5px solid var(--gray-200); border-radius: 10px; padding: 11px 14px; cursor: pointer; text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 8px; transition: all .15s; font-family: 'Onest', sans-serif; min-height: 56px; width: 100%; }
+.hq-opt:hover { background: var(--blue-light); border-color: var(--blue); }
+.hq-opt-text { font-size: 13px; color: var(--gray-900); line-height: 1.4; flex: 1; }
+.hq-opt-text strong { font-weight: 600; font-size: 13px; display: block; }
+.hq-opt-text small { font-size: 11px; color: var(--gray-400); display: block; margin-top: 2px; }
+.hq-arrow { font-size: 15px; color: var(--gray-400); flex-shrink: 0; transition: color .15s; }
+.hq-opt:hover .hq-arrow { color: var(--blue); }
+.hq-footer { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--gray-100); font-size: 12px; color: var(--gray-400); text-align: center; line-height: 1.5; }
+@media (max-width: 767px) {
+  .hero.hero-v2 { grid-template-columns: 1fr !important; gap: 24px !important; padding: 48px 20px !important; }
+  .hero-text { order: 1; }
+  .hq-card { order: 2; }
+  .hq-opt { min-height: 56px; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero.hero-v2 { grid-template-columns: 1fr 1fr; gap: 32px; padding: 56px 32px; }
+}
+/* ===== END HERO QUIZ CARD ===== */
+
 </style>
 </head>
 <body data-case-slug="">
@@ -653,7 +687,7 @@ h2.section-title, h2.sec-title, .section-title {
     <img class="nav-logo-img" src="../assets/logo/logo-horizontal.png" alt="ОН Клінік">
   </a>
   <ul class="nav-links">
-    <li><a href="#quiz">Підібрати тактику</a></li><li><a href="#methods">Методи</a></li><li><a href="#doctors">Лікарі</a></li><li><a href="#faq">FAQ</a></li>
+    <li><a href="#methods">Методи</a></li><li><a href="#doctors">Лікарі</a></li><li><a href="#faq">FAQ</a></li>
   </ul>
   <button class="nav-cta" onclick="openBookingModal({sourceCTA:'header'})">Записатись</button>
 </nav>
@@ -667,77 +701,51 @@ h2.section-title, h2.sec-title, .section-title {
   <span>›</span>
   Ендометріоз та кіста яєчника
 </nav>
-<div class="hero">
-  <div>
+<div class="hero hero-v2">
+  <div class="hero-text">
     <div class="hero-label">Оперативна гінекологія · ОН Клінік Харків</div>
     <h1><span class="hero-title-line1">ЕНДОМЕТРІОЗ</span><em>та кіста яєчника</em></h1>
     <p class="hero-sub">Ендометріоз викликає біль і заважає завагітніти. Кіста яєчника може бути його проявом. Лапароскопія вирішує обидві проблеми одночасно — через три мікророзрізи, без відкритої операції.</p>
-    <div class="hero-actions">
-      <button class="btn-primary" onclick="document.getElementById('quiz').scrollIntoView({behavior:'smooth'})">Підібрати тактику лікування →</button>
-      <a class="btn-ghost" href="#methods">Детальніше про операцію →</a>
-    </div>
+    <a class="hero-methods-link" href="#methods">Детальніше про методи ↓</a>
   </div>
-  <div class="hero-roadmap">
-  <div class="roadmap-step">
-    <div class="roadmap-marker">
-      <div class="roadmap-dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg></div>
-      <div class="roadmap-line"></div>
+  <div class="hq-card">
+    <div class="hq-eyebrow">
+      <span class="hq-step-label" id="hq-step-label">КРОК 1 З 3</span>
+      <span class="hq-time">30 сек</span>
     </div>
-    <div class="roadmap-content">
-      <div class="roadmap-title">Підбір тактики та лікаря</div>
-      <div class="roadmap-sub">5 кроків → операція чи спостереження</div>
+    <div class="hq-steps">
+      <div class="hq-step-body active" id="hqs1">
+        <div class="hq-question">Чому звертаєтесь?</div>
+        <div class="hq-opts">
+          <button class="hq-opt" onclick="hqPick(1,'reason','cyst_confirmed')"><span class="hq-opt-text"><strong>УЗД виявило кісту — діагноз підтверджений</strong></span><span class="hq-arrow">→</span></button>
+          <button class="hq-opt" onclick="hqPick(1,'reason','pain_unconfirmed')"><span class="hq-opt-text"><strong>Сильний біль під час місячних — діагноз не підтверджено</strong></span><span class="hq-arrow">→</span></button>
+          <button class="hq-opt" onclick="hqPick(1,'reason','infertility')"><span class="hq-opt-text"><strong>Проблеми з вагітністю — лікар запідозрив ендометріоз</strong></span><span class="hq-arrow">→</span></button>
+          <button class="hq-opt" onclick="hqPick(1,'reason','chronic_pain')"><span class="hq-opt-text"><strong>Хронічний тазовий біль — без чіткого діагнозу</strong></span><span class="hq-arrow">→</span></button>
+        </div>
+      </div>
+      <div class="hq-step-body" id="hqs2">
+        <button class="hq-back" onclick="hqGoStep(1)">← Назад</button>
+        <div class="hq-question">Який розмір кісти за даними УЗД?</div>
+        <div class="hq-opts">
+          <button class="hq-opt" onclick="hqPick(2,'cyst_size','small')"><span class="hq-opt-text"><strong>До 3 см</strong></span><span class="hq-arrow">→</span></button>
+          <button class="hq-opt" onclick="hqPick(2,'cyst_size','medium')"><span class="hq-opt-text"><strong>3–5 см</strong></span><span class="hq-arrow">→</span></button>
+          <button class="hq-opt" onclick="hqPick(2,'cyst_size','large')"><span class="hq-opt-text"><strong>Більше 5 см</strong></span><span class="hq-arrow">→</span></button>
+          <button class="hq-opt" onclick="hqPick(2,'cyst_size','no_cyst')"><span class="hq-opt-text"><strong>Кісти немає або не знаю</strong></span><span class="hq-arrow">→</span></button>
+        </div>
+      </div>
+      <div class="hq-step-body" id="hqs3">
+        <button class="hq-back" onclick="hqGoStep(2)">← Назад</button>
+        <div class="hq-question">Чи плануєте вагітність?</div>
+        <div class="hq-opts">
+          <button class="hq-opt" onclick="hqPick(3,'pregnancy','yes')"><span class="hq-opt-text"><strong>Так, найближчі 1–2 роки</strong></span><span class="hq-arrow">→</span></button>
+          <button class="hq-opt" onclick="hqPick(3,'pregnancy','no')"><span class="hq-opt-text"><strong>Ні</strong></span><span class="hq-arrow">→</span></button>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="roadmap-step">
-    <div class="roadmap-marker">
-      <div class="roadmap-dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg></div>
-      <div class="roadmap-line"></div>
-    </div>
-    <div class="roadmap-content">
-      <div class="roadmap-title">Консультація + УЗД</div>
-      <div class="roadmap-sub">Підтвердження або постановка діагнозу</div>
-    </div>
-  </div>
-  <div class="roadmap-step">
-    <div class="roadmap-marker">
-      <div class="roadmap-dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-      <div class="roadmap-line"></div>
-    </div>
-    <div class="roadmap-content">
-      <div class="roadmap-title">Лапароскопія або спостереження</div>
-      <div class="roadmap-sub">Залежно від розміру кісти та симптомів</div>
-    </div>
-  </div>
-  <div class="roadmap-step">
-    <div class="roadmap-marker">
-      <div class="roadmap-dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg></div>
-    </div>
-    <div class="roadmap-content">
-      <div class="roadmap-title">Контроль і планування</div>
-      <div class="roadmap-sub">УЗД раз на 3 місяці або підготовка</div>
-    </div>
+    <div class="hq-footer">Після 3 питань — дізнаєтесь підходящий метод та орієнтовну вартість</div>
   </div>
 </div>
 </div>
-</div>
-
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div class="sbar-item"><div class="sbar-num">3</div><div class="sbar-lbl">Мікророзрізи<br>по 0,5–1 см</div></div>
-    <div class="sbar-item"><div class="sbar-num">1–2</div><div class="sbar-lbl">Дні<br>стаціонару</div></div>
-    <div class="sbar-item"><div class="sbar-num">3–7</div><div class="sbar-lbl">Днів<br>до роботи</div></div>
-    <div class="sbar-item"><div class="sbar-num">Загальна</div><div class="sbar-lbl">Анестезія</div></div>
-  </div>
-</div>
-
-<div class="trust-bar">
-  <div class="trust-inner">
-    <div class="trust-item"><div class="trust-fact">Два хірурги к.м.н.</div><div class="trust-lbl">вища категорія</div></div>
-    <div class="trust-item"><div class="trust-fact">Karl Storz кл. A</div><div class="trust-lbl">обладнання (Німеччина)</div></div>
-    <div class="trust-item"><div class="trust-fact">Стаціонар під наглядом</div><div class="trust-lbl">після кожної операції</div></div>
-  </div>
-</div>
-
 <!-- DEFINITION -->
 <div style="background:#fff;border-bottom:1px solid var(--gray-200)">
   <div class="section">
@@ -830,16 +838,6 @@ h2.section-title, h2.sec-title, .section-title {
     </div>
   </div>
 </div>
-
-<!-- QUIZ -->
-<div class="quiz-wrapper" id="quiz">
-  <div class="quiz-inner">
-    <div class="quiz-top">
-      <p class="section-label" style="text-align:center">Підібрати тактику</p>
-      <h2>Дізнайтесь, яка тактика підходить вам</h2>
-      <p>4 питання — орієнтація без зобов'язань</p>
-    </div>
-
     <div class="quiz-progress">
       <div class="qp-step"><div class="qp-circle active" id="qpc1">1</div><div class="qp-label active" id="qpl1">Симптом</div></div>
       <div class="qp-line" id="qpln1"></div>
@@ -979,7 +977,7 @@ h2.section-title, h2.sec-title, .section-title {
       <div class="doc-title">Акушер-гінеколог·Оперуючий гінеколог</div>
       <div class="doc-cred">
         
-        <div class="cred-item"><div class="cred-num">33</div><div class="cred-lbl">роки досвіду</div></div>
+        <div class="cred-item"><div class="cred-num">34</div><div class="cred-lbl">роки досвіду</div></div>
         <div class="cred-item"><div class="cred-num">к.м.н.</div><div class="cred-lbl">ступінь</div></div>
         <div class="cred-item"><div class="cred-num">Вища</div><div class="cred-lbl">категорія</div></div>
         <div class="cred-item"><div class="cred-num">500 грн</div><div class="cred-lbl">консультація</div></div>
@@ -1064,7 +1062,7 @@ h2.section-title, h2.sec-title, .section-title {
     видалення кіст яєчників. Вартість лапароскопії на придатках —
     від 21 745 грн, включає операцію, загальну анестезію та стаціонар.
     Операції виконують Афанасьєв Ігор Володимирович (оперуючий
-    гінеколог, к.м.н., вища категорія, 33 роки досвіду) та
+    гінеколог, к.м.н., вища категорія, 34 роки досвіду) та
     Стрюков Дмитро Владиславович (оперуючий гінеколог, к.м.н.,
     вища категорія, 24 роки досвіду). Обладнання Karl Storz
     (Німеччина). Пацієнтки приїжджають з Харківської, Сумської
@@ -1080,205 +1078,44 @@ h2.section-title, h2.sec-title, .section-title {
 </footer>
 
 <script>
-const QUIZ_CONFIG_ID='8511b49b-8d10-45a3-8351-5fc6bd5b2e62';
+/* ─── HERO QUIZ: Ендометріоз ─── */
+var hqState = {reason: null, cyst_size: null, pregnancy: null};
 
-/* ─── STATE ─── */
-const qState={symptom:null,diagnosed:null,cyst_size:null,pregnancy:null,criteria:[]};
-function goStep(n){
-  document.querySelectorAll('.quiz-step').forEach(s=>s.classList.remove('active'));
-  const step=document.getElementById('qs'+n);
-  if(step) step.classList.add('active');
-  for(let i=1;i<=5;i++){
-    const c=document.getElementById('qpc'+i);
-    const l=document.getElementById('qpl'+i);
-    if(!c) continue;
-    if(i<n){c.className='qp-circle done';l.className='qp-label';}
-    else if(i===n){c.className='qp-circle active';l.className='qp-label active';}
-    else{c.className='qp-circle';l.className='qp-label';}
-    if(i<5){const ln=document.getElementById('qpln'+i);if(ln) ln.className=i<n?'qp-line done':'qp-line';}
-  }
-}
-
-/* ─── CONDITIONAL STEP 3 ─── */
-function afterStep2(){
-  const showStep3 = qState.symptom==='cyst' || qState.diagnosed==='yes';
-  if(showStep3){
-    goStep(3);
+function hqPick(step, key, val) {
+  hqState[key] = val;
+  if (step < 3) {
+    hqGoStep(step + 1);
   } else {
-    qState.cyst_size='none';
-    goStep(4);
-  }
-}
-
-function backFromStep4(){
-  const wasSkipped = !(qState.symptom==='cyst' || qState.diagnosed==='yes');
-  goStep(wasSkipped ? 2 : 3);
-}
-
-/* ─── CRITERIA MULTI-SELECT (step 5, max 3) ─── */
-function toggleCrit(el,criteriaId){
-  if(el.classList.contains('inactive')) return;
-  if(el.classList.contains('selected')){
-    el.classList.remove('selected');
-    qState.criteria=qState.criteria.filter(c=>c!==criteriaId);
-  } else {
-    if(qState.criteria.length>=3) return;
-    el.classList.add('selected');
-    qState.criteria.push(criteriaId);
-  }
-  const maxReached=qState.criteria.length>=3;
-  document.querySelectorAll('.crit-pill').forEach(p=>{
-    if(!p.classList.contains('selected')) p.classList.toggle('inactive',maxReached);
-  });
-  const cc=document.getElementById('crit-count');
-  if(cc){
-    if(qState.criteria.length===0){cc.textContent='';cc.className='crit-count';}
-    else{cc.textContent=`Обрано: ${qState.criteria.length} з 3`;cc.className='crit-count active';}
-  }
-}
-
-/* ─── RESULT LOGIC ─── */
-function calcResult(){
-  const {symptom,diagnosed,cyst_size,pregnancy}=qState;
-
-  if(symptom==='infertility')
-    return{type:'laparoscopy',text:'Лапароскопія — діагностика і лікування одночасно. Усуває механічні перешкоди для вагітності.'};
-
-  if(cyst_size==='medium'||cyst_size==='large')
-    return{type:'laparoscopy',text:'Кіста від 3 см самостійно не зникає і знижує оваріальний резерв. Лапароскопія — метод вибору.'};
-
-  if((symptom==='pain'||symptom==='chronic_pain')&&diagnosed==='yes')
-    return{type:'laparoscopy',text:'При підтвердженому ендометріозі з болем — лапароскопія ефективніша за гормональну терапію.'};
-
-  if(cyst_size==='small'&&symptom==='cyst'&&pregnancy==='no')
-    return{type:'observation',text:'Кіста до 3 см може спостерігатись без операції — УЗД раз на 3 місяці.',note:'Якщо кіста росте або з\'являться симптоми — тактика зміниться.'};
-
-  return{type:'consultation',text:'Щоб визначити метод лікування, лікар має оцінити клінічну картину та УЗД. Записатися на консультацію — все з\'ясуємо за один візит.'};
-}
-
-/* ─── SHOW RESULT ─── */
-async function showResult(){
-  document.querySelectorAll('.quiz-step').forEach(s=>s.classList.remove('active'));
-
-  const {type,text,note}=calcResult();
-  const res=document.getElementById('qresult');
-  let html='<div class="qr-label">Рекомендація на основі ваших відповідей</div>';
-
-  if(type==='laparoscopy'){
-    html+=`<div class="qr-card">
-      <div class="qr-title">Вам підходить лапароскопія</div>
-      <div class="qr-subtitle">${text}</div>
-      <div class="qr-facts">
-        <div class="qrf"><div class="qrf-num">3</div><div class="qrf-lbl">Мікророзрізи</div></div>
-        <div class="qrf"><div class="qrf-num">1–2 дні</div><div class="qrf-lbl">Стаціонар</div></div>
-        <div class="qrf"><div class="qrf-num">від 21 745</div><div class="qrf-lbl">Вартість, грн</div></div>
-      </div>
-      <a class="qr-link" href="/kharkiv/endometrioz-kista-laparoskopia">Детальніше про операцію →</a>
-    </div>`;
-  } else if(type==='observation'){
-    html+=`<div class="qr-observation">
-      <h3>Можливе динамічне спостереження</h3>
-      <p>Кіста до 3 см без симптомів може не потребувати операції.</p>
-      <p>${text}</p>
-      ${note?`<p style="font-size:13px;color:var(--gold);font-style:italic">${note}</p>`:''}
-    </div>`;
-  } else {
-    html+=`<div class="qr-consult">
-      <h3>Потрібна консультація та УЗД</h3>
-      <p>${text}</p>
-    </div>`;
-  }
-
-  /* Criteria block */
-  if(qState.criteria.length>0){
-    html+=`<div class="qr-priorities" id="qr-priorities-block">
-      <div class="qrp-title">За вашими пріоритетами:</div>
-      <div class="qrp-loading" id="qrp-loading">Завантажуємо…</div>
-    </div>`;
-  }
-
-  /* Doctors */
-  html+=`<div class="qr-doctors">
-    <div class="qr-doc">
-      <img class="qrd-av" src="../assets/doctors/afanasiev-card.webp" alt="Афанасьєв І.В." loading="lazy">
-      <div class="qrd-info"><div class="qrd-name">Афанасьєв Ігор Володимирович</div><div class="qrd-role">33 р. досвіду · к.м.н.</div></div>
-      <button class="qrd-cta" onclick="openBookingModal({prefilledDoctor:'afanasiev',sourceCTA:'quiz_result'})">Записатись</button>
-    </div>
-    <div class="qr-doc">
-      <img class="qrd-av" src="../assets/doctors/striukov-card.webp" alt="Стрюков Д.В." loading="lazy">
-      <div class="qrd-info"><div class="qrd-name">Стрюков Дмитро Владиславович</div><div class="qrd-role">24 р. досвіду · к.м.н. · 700 грн</div></div>
-      <button class="qrd-cta" onclick="openBookingModal({prefilledDoctor:'striukov',sourceCTA:'quiz_result'})">Записатись</button>
-    </div>
-  </div>
-  <div class="qr-note">Остаточне рішення — після консультації та УЗД</div>`;
-
-  res.innerHTML=html;
-  res.classList.add('active');
-
-  /* Mark all 5 progress circles done */
-  for(let i=1;i<=5;i++){
-    const c=document.getElementById('qpc'+i);
-    if(c) c.className='qp-circle done';
-    if(i<5){const ln=document.getElementById('qpln'+i);if(ln) ln.className='qp-line done';}
-  }
-
-  if(qState.criteria.length>0) fetchAndRenderCriteria();
-}
-
-/* ─── FETCH CRITERIA DATA ─── */
-async function fetchAndRenderCriteria(){
-  try{
-    let rows=[];
-    const ids=qState.criteria.map(c=>`"${c}"`).join(',');
-    const url=`${SUPABASE_URL}/rest/v1/provider_criteria_data?entity_slug=in.("afanasiev","onclinic-kharkiv")&criteria_id=in.(${ids})&or=(case_slug.eq.endometrioz-kista-laparoskopia,case_slug.is.null)&select=criteria_id,entity_slug,case_slug,display_text,icon`;
-    const r=await fetch(url,{headers:{'apikey':SUPABASE_ANON_KEY,'Authorization':`Bearer ${SUPABASE_ANON_KEY}`}});
-    if(r.ok) rows=await r.json();
-
-    const map={};
-    rows.forEach(row=>{
-      const existing=map[row.criteria_id];
-      if(!existing){map[row.criteria_id]=row;return;}
-      const betterEntity=row.entity_slug==='onclinic-kharkiv'&&existing.entity_slug!=='onclinic-kharkiv';
-      const sameEntity=row.entity_slug===existing.entity_slug;
-      const moreSpecific=row.case_slug&&!existing.case_slug;
-      if(betterEntity||(sameEntity&&moreSpecific)) map[row.criteria_id]=row;
-    });
-
-    const loadingEl=document.getElementById('qrp-loading');
-    if(loadingEl){
-      let inner='';
-      qState.criteria.forEach(cId=>{
-        const row=map[cId];
-        if(row) inner+=`<div class="qrp-item"><span>${row.icon||'✓'}</span><span>${row.display_text}</span></div>`;
-      });
-      loadingEl.outerHTML=inner||'';
+    var prefilledCase = 'endometrioz-kista-laparoskopia';
+    if (hqState.cyst_size === 'no_cyst' && hqState.reason !== 'infertility') {
+      prefilledCase = null;
     }
-  }catch(e){
-    console.warn('Criteria fetch failed',e);
-    const loadingEl=document.getElementById('qrp-loading');
-    if(loadingEl) loadingEl.outerHTML='';
+    openBookingModal({
+      prefilledCase: prefilledCase,
+      quiz_answers: {reason: hqState.reason, cyst_size: hqState.cyst_size, pregnancy: hqState.pregnancy},
+      sourceCTA: 'quiz_result'
+    });
   }
 }
 
-/* ─── MODAL ─── */
-document.getElementById('modal').addEventListener('click',function(e){if(e.target===this) closeModal();});
+function hqGoStep(n) {
+  document.querySelectorAll('.hq-step-body').forEach(function(s) { s.classList.remove('active'); });
+  var el = document.getElementById('hqs' + n);
+  if (el) el.classList.add('active');
+  var lbl = document.getElementById('hq-step-label');
+  if (lbl) lbl.textContent = 'КРОК ' + n + ' З 3';
+}
 
-function toggleFaq(el){
-  const isOpen=el.classList.contains('open');
-  document.querySelectorAll('.faq-q.open').forEach(q=>{
+function toggleFaq(el) {
+  var isOpen = el.classList.contains('open');
+  document.querySelectorAll('.faq-q.open').forEach(function(q) {
     q.classList.remove('open');
     q.nextElementSibling.classList.remove('open');
   });
-  if(!isOpen){
+  if (!isOpen) {
     el.classList.add('open');
     el.nextElementSibling.classList.add('open');
   }
-}
-
-/* ─── FORM SUBMIT: two INSERTs ─── */
-function showSuccess(){
-  document.getElementById('modal-form-wrap').style.display='none';
-  document.getElementById('form-success').style.display='block';
 }
 </script>
 
