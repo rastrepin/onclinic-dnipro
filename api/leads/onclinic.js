@@ -285,11 +285,11 @@ module.exports = async function handler(req, res) {
     return res.status(500).json({ error: 'Сталася помилка. Спробуйте ще раз або зателефонуйте.' });
   }
 
-  // ── Respond immediately ────────────────────────────────────────────────────
-  res.status(200).json({ ok: true, leadId });
-
-  // ── Telegram fire-and-forget ───────────────────────────────────────────────
-  sendTelegram(record, leadId, fullUrl, SUPABASE_URL, SERVICE_KEY).catch(err =>
+  // ── Telegram (sequential, with timeout — Vercel freezes after res.json) ───
+  await sendTelegram(record, leadId, fullUrl, SUPABASE_URL, SERVICE_KEY).catch(err =>
     console.error('[onclinic-leads] Telegram error:', err)
   );
+
+  // ── Respond ────────────────────────────────────────────────────────────────
+  res.status(200).json({ ok: true, leadId });
 };
