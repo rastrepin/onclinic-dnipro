@@ -631,6 +631,19 @@ h2.section-title, h2.sec-title, .section-title {
 }
 
 /* ===== END SPRINT UX ===== */
+
+/* ===== BOOKING MODAL V2 ===== */
+/* These styles are loaded here as a fallback; primary styles injected by booking.js */
+.bm-bg,.modal-bg{display:none;position:fixed;inset:0;background:rgba(17,24,39,.65);z-index:9000;align-items:flex-start;justify-content:center;padding:24px}
+.bm-bg.open,.modal-bg.open{display:flex;padding-top:40px}
+@media(max-width:767px){
+  .bm-bg,.modal-bg{padding:0!important;align-items:flex-end}
+  .bm-bg.open,.modal-bg.open{display:flex;padding-top:0!important}
+  .bm-box,.modal-box{max-width:100%!important;border-radius:16px 16px 0 0!important;max-height:85vh!important;overflow-y:auto}
+  .modal-bg.open .modal-box{border-radius:16px 16px 0 0;max-height:85vh;overflow-y:auto}
+  .form-field input,.form-field select{font-size:16px!important}
+}
+
 </style>
 </head>
 <body data-case-slug="">
@@ -642,7 +655,7 @@ h2.section-title, h2.sec-title, .section-title {
   <ul class="nav-links">
     <li><a href="#quiz">Підібрати тактику</a></li><li><a href="#methods">Методи</a></li><li><a href="#doctors">Лікарі</a></li><li><a href="#faq">FAQ</a></li>
   </ul>
-  <button class="nav-cta" onclick="openModal()">Записатись</button>
+  <button class="nav-cta" onclick="openBookingModal({sourceCTA:'header'})">Записатись</button>
 </nav>
 
 <!-- HERO -->
@@ -972,7 +985,7 @@ h2.section-title, h2.sec-title, .section-title {
         <div class="cred-item"><div class="cred-num">500 грн</div><div class="cred-lbl">консультація</div></div>
       </div>
       <div class="doc-tags"><span class="tag">Лапароскопія</span><span class="tag">Ендометріоз</span><span class="tag">Кісти</span><span class="tag">Безпліддя</span></div>
-      <button class="doc-book db-blue" onclick="openModal('afanasiev')">Записатися до Афанасьєва І.В.</button>
+      <button class="doc-book db-blue" onclick="openBookingModal({prefilledDoctor:'afanasiev',sourceCTA:'doctor_card'})">Записатися до Афанасьєва І.В.</button>
       <a href="/kharkiv/doctors/afanasiev?case=endometrioz" class="dc-profile-link">Профіль лікаря →</a>
     </div>
     <div class="doc-card">
@@ -988,7 +1001,7 @@ h2.section-title, h2.sec-title, .section-title {
         <div class="cred-item"><div class="cred-num">700 грн</div><div class="cred-lbl">консультація</div></div>
       </div>
       <div class="doc-tags"><span class="tag">Лапароскопія</span><span class="tag">Ендометріоз</span><span class="tag">Кісти</span><span class="tag">Безпліддя</span></div>
-      <button class="doc-book db-blue" onclick="openModal('striukov')">Записатися до Стрюкова Д.В.</button>
+      <button class="doc-book db-blue" onclick="openBookingModal({prefilledDoctor:'striukov',sourceCTA:'doctor_card'})">Записатися до Стрюкова Д.В.</button>
       <a href="/kharkiv/doctors/striukov?case=endometrioz" class="dc-profile-link">Профіль лікаря →</a>
     </div>
   </div>
@@ -1014,7 +1027,7 @@ h2.section-title, h2.sec-title, .section-title {
   <div class="cta-banner" id="appointment">
     <h2>ПЕРШИЙ КРОК —<br/><em>консультація гінеколога</em></h2>
     <p>Лікар оцінить УЗД, визначить тип та ступінь захворювання і запропонує тактику. Консультація займає 40–60 хвилин.</p>
-    <div class="cta-text" style="margin-top:20px;font-size:15px;color:inherit;line-height:1.6">Залишились питання? <a href="tel:0800218616" style="color:inherit;font-weight:600">Зателефонуйте: 0 800 21 86 16</a> — або залиште заявку, ми передзвонимо.<br/><button class="btn-outline" onclick="openModal()" style="margin-top:12px">Залишити заявку</button></div>
+    <div class="cta-text" style="margin-top:20px;font-size:15px;color:inherit;line-height:1.6">Залишились питання? <a href="tel:0800218616" style="color:inherit;font-weight:600">Зателефонуйте: 0 800 21 86 16</a> — або залиште заявку, ми передзвонимо.<br/><button class="btn-outline" onclick="openBookingModal({sourceCTA:'cta_banner'})" style="margin-top:12px">Залишити заявку</button></div>
     <div style="margin-top:12px;font-size:13px;color:var(--gray-400)">0 800 21 86 16</div>
   </div>
 </div>
@@ -1066,62 +1079,11 @@ h2.section-title, h2.sec-title, .section-title {
   <div>ОН Клінік Харків · вул. Молочна, 48, м. Левада · <a href="/kharkiv/mioma-matky">Міома матки</a> · <a href="https://check-up.in.ua">check-up.in.ua</a></div>
 </footer>
 
-<!-- MODAL -->
-<div class="modal-bg" id="modal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <div id="modal-form-wrap">
-      <div class="modal-title" id="modal-title">Запис на консультацію</div>
-      <p class="modal-sub" id="modal-sub-text">ОН Клінік Харків · Ендометріоз та кіста яєчника</p>
-      <form id="lead-form" onsubmit="submitLead(event)">
-        <div class="form-honey"><input type="text" name="website" autocomplete="off" tabindex="-1"/></div>
-        <input type="hidden" name="case_slug" value=""/>
-        <input type="hidden" name="preferred_doctor" value=""/>
-        <input type="hidden" name="source_page" value=""/>
-        <input type="hidden" name="quiz_answers" value=""/>
-        <input type="hidden" name="selected_criteria" value=""/>
-        <div class="form-field"><label>Ваше ім'я</label><input type="text" name="name" required placeholder="Як до вас звертатись"/></div>
-        <div class="form-field"><label>Телефон</label><input type="tel" name="phone" required placeholder="+380"/></div>
-        <div class="form-field">
-          <label>Зручний спосіб зв'язку</label>
-          <div class="contact-methods">
-            <label class="cm-opt selected" onclick="selectContact(this)"><input type="radio" name="contact_method" value="Дзвінок" checked/>Дзвінок</label>
-            <label class="cm-opt" onclick="selectContact(this)"><input type="radio" name="contact_method" value="Telegram"/>Telegram</label>
-            <label class="cm-opt" onclick="selectContact(this)"><input type="radio" name="contact_method" value="Viber"/>Viber</label>
-          </div>
-        </div>
-        <label class="form-consent"><input type="checkbox" id="consent-check" onchange="checkConsent()"/>Я даю згоду на обробку персональних даних відповідно до законодавства України</label>
-        <button type="submit" class="form-submit" id="submit-btn" disabled>Записатися на консультацію</button>
-        <div style="font-size:11px;color:var(--gray-500);text-align:center">Ми зв'яжемось протягом робочого дня</div>
-      </form>
-    </div>
-    <div class="form-success" id="form-success" style="display:none">
-      <div class="fs-icon">✓</div>
-      <div class="fs-title">Дякуємо!</div>
-      <p class="fs-sub">Ми зв'яжемось з вами протягом робочого дня.</p>
-    </div>
-  </div>
-</div>
-
 <script>
-const SUPABASE_URL='https://apuivrfokciooovrpmgj.supabase.co';
-const SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFwdWl2cmZva2Npb29vdnJwbWdqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2NTQ1MzAsImV4cCI6MjA5MDIzMDUzMH0.iOEmFU4w-Obl4IZGwqQcRsY0-_zO9pa68Q9ycJkhfOU';
 const QUIZ_CONFIG_ID='8511b49b-8d10-45a3-8351-5fc6bd5b2e62';
 
 /* ─── STATE ─── */
 const qState={symptom:null,diagnosed:null,cyst_size:null,pregnancy:null,criteria:[]};
-let preferredDoctor='';
-
-/* ─── STEP NAVIGATION ─── */
-function pickQ(el,key,val){
-  const parent=el.closest('.quiz-opts');
-  parent.querySelectorAll('.q-opt').forEach(o=>o.classList.remove('selected'));
-  el.classList.add('selected');
-  qState[key]=val;
-  const nextBtn=el.closest('.quiz-step').querySelector('.q-btn-next');
-  if(nextBtn) nextBtn.disabled=false;
-}
-
 function goStep(n){
   document.querySelectorAll('.quiz-step').forEach(s=>s.classList.remove('active'));
   const step=document.getElementById('qs'+n);
@@ -1240,12 +1202,12 @@ async function showResult(){
     <div class="qr-doc">
       <img class="qrd-av" src="../assets/doctors/afanasiev-card.webp" alt="Афанасьєв І.В." loading="lazy">
       <div class="qrd-info"><div class="qrd-name">Афанасьєв Ігор Володимирович</div><div class="qrd-role">33 р. досвіду · к.м.н.</div></div>
-      <button class="qrd-cta" onclick="openModal('afanasiev')">Записатись</button>
+      <button class="qrd-cta" onclick="openBookingModal({prefilledDoctor:'afanasiev',sourceCTA:'quiz_result'})">Записатись</button>
     </div>
     <div class="qr-doc">
       <img class="qrd-av" src="../assets/doctors/striukov-card.webp" alt="Стрюков Д.В." loading="lazy">
       <div class="qrd-info"><div class="qrd-name">Стрюков Дмитро Владиславович</div><div class="qrd-role">24 р. досвіду · к.м.н. · 700 грн</div></div>
-      <button class="qrd-cta" onclick="openModal('striukov')">Записатись</button>
+      <button class="qrd-cta" onclick="openBookingModal({prefilledDoctor:'striukov',sourceCTA:'quiz_result'})">Записатись</button>
     </div>
   </div>
   <div class="qr-note">Остаточне рішення — після консультації та УЗД</div>`;
@@ -1299,44 +1261,7 @@ async function fetchAndRenderCriteria(){
 }
 
 /* ─── MODAL ─── */
-function openModal(doctorSlug){
-  const caseSlug = document.body.dataset.caseSlug ||
-                   new URLSearchParams(window.location.search).get('case') || '';
-  const preferredDoctor = doctorSlug || '';
-  const titles = {
-    'mioma-laparoskopichna-miomektomiia': 'Запис · Лапароскопічна міомектомія',
-    'endometrioz-kista-laparoskopia':     'Запис · Лапароскопія при ендометріозі',
-    'polip-endometriia-gisteroskopia':    'Запис · Гістероскопія',
-    '': 'Записатися на консультацію'
-  };
-  const titleEl = document.getElementById('modal-title');
-  if(titleEl) titleEl.textContent = titles[caseSlug] || titles[''];
-  const form = document.getElementById('lead-form');
-  if(form){
-    const cs = form.querySelector('[name=case_slug]');
-    const pd = form.querySelector('[name=preferred_doctor]');
-    const sp = form.querySelector('[name=source_page]');
-    if(cs) cs.value = caseSlug;
-    if(pd) pd.value = preferredDoctor;
-    if(sp) sp.value = window.location.pathname;
-  }
-  document.getElementById('modal').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeModal(){
-  document.getElementById('modal').classList.remove('open');
-  document.body.style.overflow='';
-}
 document.getElementById('modal').addEventListener('click',function(e){if(e.target===this) closeModal();});
-
-function selectContact(el){
-  document.querySelectorAll('.cm-opt').forEach(o=>o.classList.remove('selected'));
-  el.classList.add('selected');
-  el.querySelector('input').checked=true;
-}
-function checkConsent(){
-  document.getElementById('submit-btn').disabled=!document.getElementById('consent-check').checked;
-}
 
 function toggleFaq(el){
   const isOpen=el.classList.contains('open');
@@ -1351,70 +1276,6 @@ function toggleFaq(el){
 }
 
 /* ─── FORM SUBMIT: two INSERTs ─── */
-async function submitLead(e){
-  e.preventDefault();
-  if(document.querySelector('[name="website"]').value) return;
-  const form=e.target;
-  const btn=document.getElementById('submit-btn');
-  btn.disabled=true; btn.textContent='Відправляємо...';
-
-  const resultData=calcResult();
-  const payload={
-    name:form.name.value.trim(),
-    phone:form.phone.value.trim(),
-    contact_method:form.contact_method.value,
-    preferred_doctor:(form.querySelector('[name=preferred_doctor]')?.value)||preferredDoctor||null,
-    case_slug:'endometrioz-kista-laparoskopia',
-    quiz_answers:{symptom:qState.symptom,diagnosed:qState.diagnosed,cyst_size:qState.cyst_size,pregnancy:qState.pregnancy},
-    selected_criteria:qState.criteria.length>0?qState.criteria:null,
-    recommended_method:resultData.type==='laparoscopy'?'endometrioz-kista-laparoskopia':null,
-    source_page:'/kharkiv/endometrioz',
-    page_url:window.location.href,
-    consent_given:true
-  };
-
-  try{
-    const leadsRes=await fetch(`${SUPABASE_URL}/rest/v1/onclinic_leads`,{
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'apikey':SUPABASE_ANON_KEY,
-        'Authorization':`Bearer ${SUPABASE_ANON_KEY}`,
-        'Prefer':'return=representation'
-      },
-      body:JSON.stringify(payload)
-    });
-
-    if(leadsRes.ok||leadsRes.status===201){
-      const leadData=await leadsRes.json();
-      const leadId=Array.isArray(leadData)?leadData[0]?.id:leadData?.id;
-
-      if(leadId&&qState.criteria.length>0){
-        await fetch(`${SUPABASE_URL}/rest/v1/patient_criteria`,{
-          method:'POST',
-          headers:{
-            'Content-Type':'application/json',
-            'apikey':SUPABASE_ANON_KEY,
-            'Authorization':`Bearer ${SUPABASE_ANON_KEY}`,
-            'Prefer':'return=minimal'
-          },
-          body:JSON.stringify({
-            source_lead_id:leadId,
-            source_lead_table:'onclinic_leads',
-            selected_criteria:qState.criteria,
-            source:'quiz',
-            quiz_config_id:QUIZ_CONFIG_ID,
-            page_url:window.location.href
-          })
-        });
-      }
-    }
-  }catch(err){
-    console.warn('Supabase error:',err);
-  }
-  showSuccess();
-}
-
 function showSuccess(){
   document.getElementById('modal-form-wrap').style.display='none';
   document.getElementById('form-success').style.display='block';
@@ -1464,5 +1325,6 @@ function showSuccess(){
 })();
 </script>
 <!-- ===== END SPRINT UX JS ===== -->
+<script src="/kharkiv/js/booking.js"></script>
 </body>
 </html>

@@ -1033,6 +1033,19 @@ h2.section-title, h2.sec-title, .section-title {
   .price-section .price-amount { font-size: 28px; }
 }
 /* ===== END REDESIGN V2 ===== */
+
+/* ===== BOOKING MODAL V2 ===== */
+/* These styles are loaded here as a fallback; primary styles injected by booking.js */
+.bm-bg,.modal-bg{display:none;position:fixed;inset:0;background:rgba(17,24,39,.65);z-index:9000;align-items:flex-start;justify-content:center;padding:24px}
+.bm-bg.open,.modal-bg.open{display:flex;padding-top:40px}
+@media(max-width:767px){
+  .bm-bg,.modal-bg{padding:0!important;align-items:flex-end}
+  .bm-bg.open,.modal-bg.open{display:flex;padding-top:0!important}
+  .bm-box,.modal-box{max-width:100%!important;border-radius:16px 16px 0 0!important;max-height:85vh!important;overflow-y:auto}
+  .modal-bg.open .modal-box{border-radius:16px 16px 0 0;max-height:85vh;overflow-y:auto}
+  .form-field input,.form-field select{font-size:16px!important}
+}
+
 </style>
 </head>
 <body data-case-slug="endometrioz-kista-laparoskopia">
@@ -1044,7 +1057,7 @@ h2.section-title, h2.sec-title, .section-title {
   <ul class="nav-links">
     <li><a href="#indications">Показання</a></li><li><a href="#stages">Етапи</a></li><li><a href="#doctors">Хірурги</a></li><li><a href="#faq">FAQ</a></li>
   </ul>
-  <button class="nav-cta" onclick="openModal()">Записатись</button>
+  <button class="nav-cta" onclick="openBookingModal({sourceCTA:'header'})">Записатись</button>
 </nav>
 
 <nav class="breadcrumb-nav-top">
@@ -1062,7 +1075,7 @@ h2.section-title, h2.sec-title, .section-title {
     <h1><span class="hero-title-line1">ЛАПАРОСКОПІЯ</span><em>при ендометріозі та кісті яєчника</em></h1>
     <p class="hero-sub">Три мікророзрізи замість великого розрізу. Хірург видаляє кісту або вогнища ендометріозу і одночасно підтверджує діагноз — за 1–2 дні стаціонару.</p>
     <div class="hero-actions">
-      <button class="btn-primary" onclick="openModal()">Записатися на консультацію →</button>
+      <button class="btn-primary" onclick="openBookingModal({prefilledCase:document.body.dataset.caseSlug||'endometrioz-kista-laparoskopia',sourceCTA:'hero'})">Записатися на консультацію →</button>
       <a class="btn-ghost" href="#price">Вартість операції →</a>
     </div>
   </div>
@@ -1235,7 +1248,7 @@ h2.section-title, h2.sec-title, .section-title {
         <div class="price-left">
           <div class="price-amount">від 21 745 грн</div>
           <div class="price-note">Точна ціна — після консультації та УЗД</div>
-          <button class="price-cta btn-primary" onclick="openModal('endometrioz-kista-laparoskopia')">Записатися на консультацію →</button>
+          <button class="price-cta btn-primary" onclick="openBookingModal({prefilledCase:document.body.dataset.caseSlug||'endometrioz-kista-laparoskopia',sourceCTA:'price'})">Записатися на консультацію →</button>
         </div>
         <div class="price-right">
           <div class="price-includes">
@@ -1296,7 +1309,7 @@ h2.section-title, h2.sec-title, .section-title {
         <div class="cred-item"><div class="cred-num">Вища</div><div class="cred-lbl">категорія</div></div>
         <div class="cred-item"><div class="cred-num">500 грн</div><div class="cred-lbl">консультація</div></div></div>
       <div class="doc-tags"><span class="tag">Лапароскопія</span><span class="tag">Ендометріоз</span><span class="tag">Кісти</span><span class="tag">Безпліддя</span></div>
-      <button class="doc-book db-blue" onclick="openModal('afanasiev')">Записатися до Афанасьєва І.В.</button>
+      <button class="doc-book db-blue" onclick="openBookingModal({prefilledDoctor:'afanasiev',prefilledCase:document.body.dataset.caseSlug||'endometrioz-kista-laparoskopia',sourceCTA:'doctor_card'})">Записатися до Афанасьєва І.В.</button>
       <a href="/kharkiv/doctors/afanasiev?case=endometrioz-kista-laparoskopia" class="dc-profile-link">Профіль лікаря →</a>
     </div>
     <div class="doc-card">
@@ -1311,7 +1324,7 @@ h2.section-title, h2.sec-title, .section-title {
         <div class="cred-item"><div class="cred-num">Вища</div><div class="cred-lbl">категорія</div></div>
         <div class="cred-item"><div class="cred-num">700 грн</div><div class="cred-lbl">консультація</div></div></div>
       <div class="doc-tags"><span class="tag">Лапароскопія</span><span class="tag">Ендометріоз</span><span class="tag">Кісти</span><span class="tag">Безпліддя</span></div>
-      <button class="doc-book db-blue" onclick="openModal('striukov')">Записатися до Стрюкова Д.В.</button>
+      <button class="doc-book db-blue" onclick="openBookingModal({prefilledDoctor:'striukov',prefilledCase:document.body.dataset.caseSlug||'endometrioz-kista-laparoskopia',sourceCTA:'doctor_card'})">Записатися до Стрюкова Д.В.</button>
       <a href="/kharkiv/doctors/striukov?case=endometrioz-kista-laparoskopia" class="dc-profile-link">Профіль лікаря →</a>
     </div>
   </div>
@@ -1419,7 +1432,7 @@ h2.section-title, h2.sec-title, .section-title {
     <div class="cta-banner" id="appointment">
       <h2>ПЕРШИЙ КРОК —<br/><em>консультація гінеколога</em></h2>
       <p>Лікар оцінить УЗД та клінічну картину і визначить чи потрібна операція і в який термін. Консультація займає 40–60 хвилин.</p>
-      <div class="cta-text" style="margin-top:20px;font-size:15px;color:inherit;line-height:1.6">Залишились питання? <a href="tel:0800218616" style="color:inherit;font-weight:600">Зателефонуйте: 0 800 21 86 16</a> — або залиште заявку, ми передзвонимо.<br/><button class="btn-outline" onclick="openModal()" style="margin-top:12px">Залишити заявку</button></div>
+      <div class="cta-text" style="margin-top:20px;font-size:15px;color:inherit;line-height:1.6">Залишились питання? <a href="tel:0800218616" style="color:inherit;font-weight:600">Зателефонуйте: 0 800 21 86 16</a> — або залиште заявку, ми передзвонимо.<br/><button class="btn-outline" onclick="openBookingModal({sourceCTA:'cta_banner'})" style="margin-top:12px">Залишити заявку</button></div>
     </div>
 
     <!-- E-E-A-T -->
@@ -1475,101 +1488,9 @@ h2.section-title, h2.sec-title, .section-title {
   <a href="https://check-up.in.ua">check-up.in.ua</a>
 </footer>
 
-<!-- MODAL -->
-<div class="modal-bg" id="modal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <div id="modal-form-wrap">
-      <div class="modal-title" id="modal-title">Записатися на консультацію</div>
-      <div class="modal-sub" id="modal-sub-text">ОН Клінік Харків · Лапароскопія при ендометріозі</div>
-      <form onsubmit="submitLead(event)">
-        <input type="text" name="website" class="form-honey" tabindex="-1" autocomplete="off"/>
-        <input type="hidden" name="case_slug" value=""/>
-        <input type="hidden" name="preferred_doctor" value=""/>
-        <input type="hidden" name="source_page" value=""/>
-        <input type="hidden" name="quiz_answers" value=""/>
-        <input type="hidden" name="selected_criteria" value=""/>
-        <div class="form-field">
-          <label>Ваше ім'я</label>
-          <input type="text" name="name" placeholder="Олена" required/>
-        </div>
-        <div class="form-field">
-          <label>Телефон</label>
-          <input type="tel" name="phone" placeholder="+380" required/>
-        </div>
-        <div class="form-field">
-          <label>Зручний спосіб зв'язку</label>
-          <div class="contact-methods">
-            <label class="cm-opt selected" onclick="selectContact(this)">
-              <input type="radio" name="contact_method" value="call" checked/>Дзвінок
-            </label>
-            <label class="cm-opt" onclick="selectContact(this)">
-              <input type="radio" name="contact_method" value="telegram"/>Telegram
-            </label>
-            <label class="cm-opt" onclick="selectContact(this)">
-              <input type="radio" name="contact_method" value="viber"/>Viber
-            </label>
-          </div>
-        </div>
-        <label class="form-consent">
-          <input type="checkbox" id="consent-check" onchange="checkConsent()"/>
-          Я даю згоду на обробку персональних даних
-        </label>
-        <button type="submit" class="form-submit" id="submit-btn" disabled>Записатися на консультацію</button>
-      </form>
-    </div>
-    <div class="form-success" id="form-success">
-      <div class="fs-icon">✅</div>
-      <div class="fs-title">Дякуємо!</div>
-      <div class="fs-sub">Ми зв'яжемось з вами протягом робочого дня.</div>
-    </div>
-  </div>
-</div>
-
 <script>
-const SUPABASE_URL='https://apuivrfokciooovrpmgj.supabase.co';
-const SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFwdWl2cmZva2Npb29vdnJwbWdqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2NTQ1MzAsImV4cCI6MjA5MDIzMDUzMH0.iOEmFU4w-Obl4IZGwqQcRsY0-_zO9pa68Q9ycJkhfOU';
 
-let preferredDoctor='';
-
-function openModal(doctorSlug){
-  const caseSlug = document.body.dataset.caseSlug ||
-                   new URLSearchParams(window.location.search).get('case') || '';
-  const preferredDoctor = doctorSlug || '';
-  const titles = {
-    'mioma-laparoskopichna-miomektomiia': 'Запис · Лапароскопічна міомектомія',
-    'endometrioz-kista-laparoskopia':     'Запис · Лапароскопія при ендометріозі',
-    'polip-endometriia-gisteroskopia':    'Запис · Гістероскопія',
-    '': 'Записатися на консультацію'
-  };
-  const titleEl = document.getElementById('modal-title');
-  if(titleEl) titleEl.textContent = titles[caseSlug] || titles[''];
-  const form = document.getElementById('lead-form');
-  if(form){
-    const cs = form.querySelector('[name=case_slug]');
-    const pd = form.querySelector('[name=preferred_doctor]');
-    const sp = form.querySelector('[name=source_page]');
-    if(cs) cs.value = caseSlug;
-    if(pd) pd.value = preferredDoctor;
-    if(sp) sp.value = window.location.pathname;
-  }
-  document.getElementById('modal').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeModal(){
-  document.getElementById('modal').classList.remove('open');
-  document.body.style.overflow='';
-}
-document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
-
-function selectContact(el){
-  document.querySelectorAll('.cm-opt').forEach(o=>o.classList.remove('selected'));
-  el.classList.add('selected');
-  el.querySelector('input').checked=true;
-}
-function checkConsent(){
-  document.getElementById('submit-btn').disabled=!document.getElementById('consent-check').checked;
-}
+);
 
 function toggleFaq(el){
   const isOpen=el.classList.contains('open');
@@ -1588,48 +1509,6 @@ function switchPregTab(btn, panelId){
   document.querySelectorAll('.preg-panel').forEach(p=>p.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById(panelId).classList.add('active');
-}
-
-async function submitLead(e){
-  e.preventDefault();
-  if(document.querySelector('[name="website"]').value) return;
-  const form=e.target;
-  const btn=document.getElementById('submit-btn');
-  btn.disabled=true; btn.textContent='Відправляємо...';
-
-  const caseSlug     = (form.querySelector('[name=case_slug]')?.value)     || null;
-  const preferredDoc = (form.querySelector('[name=preferred_doctor]')?.value) || null;
-  const sourcePage   = (form.querySelector('[name=source_page]')?.value)   || window.location.pathname;
-
-  const payload={
-    name:          form.name.value.trim(),
-    phone:         form.phone.value.trim(),
-    contact_method:form.contact_method.value,
-    case_slug:     caseSlug,
-    preferred_doctor: preferredDoc,
-    source_page:   sourcePage,
-    quiz_answers:  null,
-    selected_criteria: null,
-    consent_given: true
-  };
-
-  try{
-    if(!SUPABASE_URL.includes('YOUR_PROJECT')){
-      await fetch(`${SUPABASE_URL}/rest/v1/onclinic_leads`,{
-        method:'POST',
-        headers:{
-          'Content-Type':'application/json',
-          'apikey':SUPABASE_ANON_KEY,
-          'Authorization':`Bearer ${SUPABASE_ANON_KEY}`,
-          'Prefer':'return=minimal'
-        },
-        body:JSON.stringify(payload)
-      });
-    }
-  }catch(err){
-    console.warn('Supabase error:',err);
-  }
-  showSuccess();
 }
 
 function showSuccess(){
@@ -1691,5 +1570,6 @@ function toggleMethod(btn) {
   btn.textContent = isCollapsed ? 'Згорнути ↑' : 'Показати деталі методу та обладнання ↓';
 }
 </script>
+<script src="/kharkiv/js/booking.js"></script>
 </body>
 </html>
