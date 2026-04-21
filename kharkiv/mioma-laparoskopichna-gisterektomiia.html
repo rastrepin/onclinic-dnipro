@@ -608,8 +608,21 @@ h2 { margin-bottom: 20px; }
 }
 
 @media (max-width: 960px) {
-  .hero-right-block { display: none; }
   .hero { grid-template-columns: 1fr !important; }
+  .hero-right-block {
+    display: flex;
+    margin-top: 24px;
+    border-radius: 12px;
+  }
+  /* на mobile: хірурги і метрики — горизонтальний рядок */
+  .hero-surgeons { border-bottom: none; border-right: 1px solid rgba(255,255,255,0.15); flex: 1; }
+  .hero-metrics  { flex: 1; }
+}
+@media (max-width: 560px) {
+  /* на вузьких екранах — вертикальний стек */
+  .hero-right-block { flex-direction: column; }
+  .hero-surgeons { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.15); }
+  .hm-row { padding: 6px 0; }
 }
 @media (max-width: 768px) {
   .price-section { padding: 24px; margin-bottom: 32px; }
