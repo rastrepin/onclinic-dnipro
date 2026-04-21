@@ -906,6 +906,120 @@ h2.section-title, h2.sec-title, .section-title {
 }
 
 /* ===== END SPRINT UX ===== */
+
+/* ===== REDESIGN V2 ===== */
+
+/* HERO RIGHT BLOCK */
+.hero-right-block {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255,255,255,0.09);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.hero-surgeons { padding: 22px 24px; border-bottom: 1px solid rgba(255,255,255,0.15); }
+.hero-metrics  { padding: 22px 24px; }
+.hb-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: block;
+}
+.hs-item { display: flex; align-items: center; gap: 14px; padding: 9px 0; }
+.hs-item + .hs-item { border-top: 1px solid rgba(255,255,255,0.1); }
+.hs-avatar {
+  width: 56px; height: 56px; border-radius: 50%; overflow: hidden;
+  flex-shrink: 0; border: 2px solid rgba(255,255,255,0.3);
+}
+.hs-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.hs-name { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 3px; line-height: 1.2; }
+.hs-cred { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.4; }
+.hm-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 0; font-size: 14px;
+}
+.hm-row + .hm-row { border-top: 1px solid rgba(255,255,255,0.08); }
+.hm-label { color: rgba(255,255,255,0.65); }
+.hm-val { color: #fff; font-weight: 700; }
+
+/* MAIN WRAP — single column (sidebar removed) */
+.main-wrap { display: block !important; max-width: 1120px !important; }
+.price-sidebar { display: none !important; }
+
+/* METHOD EXPAND */
+.method-content { position: relative; overflow: hidden; }
+.method-content[data-collapsed="true"] { max-height: 400px; }
+.method-content[data-collapsed="true"]::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 110px; background: linear-gradient(transparent, #fff);
+  pointer-events: none;
+}
+.method-content[data-collapsed="false"] { max-height: 9999px; }
+.method-content[data-collapsed="false"]::after { display: none; }
+.method-photo-placeholder {
+  width: 100%; max-width: 480px; aspect-ratio: 16/10;
+  background: var(--gray-50); border: 1px dashed var(--gray-300);
+  border-radius: 12px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  color: var(--gray-400); font-size: 14px; margin-top: 24px;
+}
+.method-photo-placeholder small { font-size: 12px; margin-top: 4px; opacity: 0.7; }
+.method-equip-section { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--gray-200); }
+.method-equip-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--gray-500); margin-bottom: 16px; display: block;
+}
+.method-toggle {
+  display: inline-block; margin-top: 20px;
+  background: transparent; border: 1.5px solid var(--gray-200);
+  border-radius: 8px; padding: 12px 22px;
+  font-family: 'Onest', sans-serif; font-size: 14px; font-weight: 500;
+  color: var(--gray-700); cursor: pointer; transition: border-color .15s, color .15s;
+}
+.method-toggle:hover { border-color: var(--blue); color: var(--blue); }
+
+/* PRICE SECTION (horizontal) */
+.price-section {
+  background: #fff; border: 1px solid var(--gray-200);
+  border-radius: 16px; padding: 40px; margin-bottom: 44px;
+}
+.price-section > .section-label { margin-bottom: 8px; }
+.price-section > .section-title { margin-bottom: 4px !important; }
+.price-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 48px; align-items: start; margin-top: 28px;
+}
+.price-section .price-amount {
+  font-size: 36px; font-weight: 800; color: var(--blue);
+  margin-bottom: 6px; line-height: 1;
+}
+.price-section .price-note {
+  font-size: 14px; color: var(--gray-500); margin-bottom: 20px; line-height: 1.5;
+}
+.price-section .price-cta {
+  width: 100%; display: block; text-align: center;
+  padding: 14px 20px; font-size: 15px; border-radius: 10px; margin-bottom: 20px;
+  cursor: pointer; border: none; font-family: 'Onest', sans-serif; font-weight: 600;
+}
+.price-includes h3, .price-excludes h3 {
+  font-size: 11px; text-transform: uppercase; letter-spacing: .05em;
+  color: var(--gray-400); margin: 0 0 12px; font-weight: 700;
+}
+.price-excludes { margin-top: 24px; }
+.price-doctors-row {
+  margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--gray-200);
+  font-size: 14px; color: var(--gray-500); text-align: center;
+}
+
+@media (max-width: 960px) {
+  .hero-right-block { display: none; }
+  .hero { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 768px) {
+  .price-section { padding: 24px; margin-bottom: 32px; }
+  .price-grid { grid-template-columns: 1fr; gap: 24px; }
+  .price-section .price-amount { font-size: 28px; }
+}
+/* ===== END REDESIGN V2 ===== */
 </style>
 </head>
 <body data-case-slug="endometrioz-kista-laparoskopia">
@@ -939,68 +1053,32 @@ h2.section-title, h2.sec-title, .section-title {
       <a class="btn-ghost" href="#price">Вартість операції →</a>
     </div>
   </div>
-  <div class="hero-roadmap">
-  <div class="roadmap-step">
-    <div class="roadmap-marker">
-      <div class="roadmap-dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg></div>
-      <div class="roadmap-line"></div>
+    <div class="hero-right-block">
+  <div class="hero-surgeons">
+    <span class="hb-label">Хірурги</span>
+    <div class="hs-item">
+      <div class="hs-avatar"><img src="../assets/doctors/afanasiev-card.webp" alt="Афанасьєв І.В." loading="eager"></div>
+      <div>
+        <div class="hs-name">Афанасьєв І.В.</div>
+        <div class="hs-cred">к.м.н., вища категорія, 34 роки досвіду</div>
+      </div>
     </div>
-    <div class="roadmap-content">
-      <div class="roadmap-title">Консультація гінеколога</div>
-      <div class="roadmap-sub">УЗД, аналізи, призначення дати</div>
-    </div>
-  </div>
-  <div class="roadmap-step">
-    <div class="roadmap-marker">
-      <div class="roadmap-dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg></div>
-      <div class="roadmap-line"></div>
-    </div>
-    <div class="roadmap-content">
-      <div class="roadmap-title">Підготовка до операції</div>
-      <div class="roadmap-sub">Обстеження, пам'ятка, госпіталізація</div>
+    <div class="hs-item">
+      <div class="hs-avatar"><img src="../assets/doctors/striukov-card.webp" alt="Стрюков Д.В." loading="eager"></div>
+      <div>
+        <div class="hs-name">Стрюков Д.В.</div>
+        <div class="hs-cred">к.м.н., вища категорія, 24 роки досвіду</div>
+      </div>
     </div>
   </div>
-  <div class="roadmap-step">
-    <div class="roadmap-marker">
-      <div class="roadmap-dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-      <div class="roadmap-line"></div>
-    </div>
-    <div class="roadmap-content">
-      <div class="roadmap-title">Лапароскопія — 40–70 хв</div>
-      <div class="roadmap-sub">Ендометріоз і кіста одночасно</div>
-    </div>
-  </div>
-  <div class="roadmap-step">
-    <div class="roadmap-marker">
-      <div class="roadmap-dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg></div>
-    </div>
-    <div class="roadmap-content">
-      <div class="roadmap-title">Стаціонар 1–2 дні</div>
-      <div class="roadmap-sub">Виписка, контрольний огляд</div>
-    </div>
+  <div class="hero-metrics">
+    <div class="hm-row"><span class="hm-label">Стаціонар</span><span class="hm-val">1–2 дні</span></div>
+    <div class="hm-row"><span class="hm-label">До роботи</span><span class="hm-val">5–7 днів</span></div>
+    <div class="hm-row"><span class="hm-label">Тривалість операції</span><span class="hm-val">40–90 хв</span></div>
   </div>
 </div>
 </div>
-</div>
-
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div class="sbar-item"><div class="sbar-num">3</div><div class="sbar-lbl">Мікророзрізи<br>по 0,5–1 см</div></div>
-    <div class="sbar-item"><div class="sbar-num">1–2</div><div class="sbar-lbl">Дні<br>стаціонару</div></div>
-    <div class="sbar-item"><div class="sbar-num">5–7</div><div class="sbar-lbl">Днів<br>до роботи</div></div>
-    <div class="sbar-item"><div class="sbar-num">Karl Storz</div><div class="sbar-lbl">Обладнання<br>Full HD</div></div>
-  </div>
-</div>
-
-<div class="trust-bar">
-  <div class="trust-inner">
-    <div class="trust-item"><div class="trust-fact">Два хірурги к.м.н.</div><div class="trust-lbl">вища категорія</div></div>
-    <div class="trust-item"><div class="trust-fact">Karl Storz кл. A</div><div class="trust-lbl">обладнання (Німеччина)</div></div>
-    <div class="trust-item"><div class="trust-fact">Стаціонар під наглядом</div><div class="trust-lbl">після кожної операції</div></div>
-  </div>
-</div>
-
-<!-- MAIN -->
+</div><!-- MAIN -->
 <div class="main-wrap">
   <div class="content-area">
 
@@ -1087,46 +1165,89 @@ h2.section-title, h2.sec-title, .section-title {
       </div>
     </section>
 
-    <!-- МЕТОД -->
-    <section>
+    <section id="method">
       <p class="section-label">Метод детально</p>
-      <h2 class="section-title">Як виконується операція</h2>
-      <div class="prose">
-        <p>Лапароскопія при ендометріозі та кісті яєчника — це одночасно діагностична і лікувальна операція. Три проколи по 0,5–1 см на животі. Хірург вводить лапароскоп Karl Storz IMAGE1 S з камерою Full HD та інструменти.</p>
-        <p>Хірург оглядає малий таз і виявляє вогнища ендометріозу, злуки, кісту яєчника. Кіста вилущується або видаляється прецизійно — з максимальним збереженням здорової тканини яєчника та оваріального резерву. Вогнища ендометріозу видаляються або коагулюються. Злуки розсікаються.</p>
-        <p>Для мінімальної крововтрати та точного розрізу — система ВЧ-хірургії Karl Storz AUTOCON III 400. Видалена тканина направляється на гістологічне дослідження для підтвердження діагнозу.</p>
+      <h2 class="section-title">Як ми проводимо операцію в ОН Клінік Левада</h2>
+      <div class="method-content" data-collapsed="true">
+        <!-- PREVIEW — завжди видимо -->
+        <div class="method-preview">
+          <div class="prose">
+            <p>Лапароскопія при ендометріозі та кісті яєчника — одночасно діагностична і лікувальна операція. Три проколи по 0,5–1 см на животі дозволяють хірургу оглянути весь малий таз, видалити виявлені вогнища ендометріозу і одночасно підтвердити діагноз гістологічно.</p>
+            <p>Кіста вилущується або видаляється прецизійно — з максимальним збереженням здорової тканини яєчника. Це критично важливо для збереження оваріального резерву (запасу яйцеклітин), особливо для жінок, які планують вагітність. Вогнища ендометріозу видаляються або коагулюються, злуки розсікаються.</p>
+            <p style="font-size:14px;color:var(--gray-500);margin-top:8px"><strong style="color:var(--gray-700)">Обладнання:</strong> Karl Storz Full HD, система ВЧ-хірургії AUTOCON, аспіратор-іригатор Lapomed, наркозний апарат Drager Primus.</p>
+          </div>
+          <div class="method-photo-placeholder">
+            <span>Фото операційної ОН Клінік Левада</span>
+            <small>Очікуємо фото від клініки</small>
+          </div>
+        </div>
+        <!-- FULL — завжди в DOM для SEO, ховається через max-height -->
+        <div class="method-full">
+          <div class="prose" style="margin-top:20px">
+            <p>Видалена тканина (і стінка кісти, і вогнища ендометріозу) направляється на гістологічне дослідження — це обов'язковий крок, який підтверджує характер тканини і виключає атипові зміни.</p>
+            <p>Операція триває 40–90 хвилин залежно від ступеня ендометріозу, розміру кісти та наявності злук. Анестезія загальна внутрішньовенна з ШВЛ, стан пацієнтки контролюється анестезіологом протягом усієї операції.</p>
+          </div>
+          <div class="method-equip-section">
+            <span class="method-equip-label">Обладнання операційної</span>
+            <div class="equip-grid">
+              <div class="equip-card">
+                <h4>Лапароскопічна стійка Karl Storz (Німеччина)</h4>
+                <p>Повний комплект обладнання для лапароскопії від лідера ринку ендоскопічної хірургії. Full HD-візуалізація дозволяє хірургу побачити навіть дрібні вогнища ендометріозу на очеревині — це критично для повноти лікування, бо пропущені вогнища ведуть до рецидиву.</p>
+              </div>
+              <div class="equip-card">
+                <h4>Система ВЧ-хірургії Karl Storz AUTOCON</h4>
+                <p>Електрохірургічний блок з моно- і біполярним режимами. Дозволяє видаляти вогнища ендометріозу і обробляти ложе кісти точково, без травми здорової тканини яєчника. Для пацієнтки це збережений оваріальний резерв і шанс на вагітність.</p>
+              </div>
+              <div class="equip-card">
+                <h4>Аспіратор-іригатор Lapomed</h4>
+                <p>Промивання і відсмоктування в операційній зоні — для чистого операційного поля. Особливо важливо при роботі з ендометріоїдною кістою, вміст якої (темна рідина) не має потрапити в черевну порожнину — це профілактика рецидиву.</p>
+              </div>
+              <div class="equip-card">
+                <h4>Операційна та анестезіологічний контроль</h4>
+                <p>Операційний стіл Maquet (Німеччина) з гнучким позиціонуванням — для забезпечення оптимального кута доступу при роботі з малим тазом. Наркозний апарат Drager Primus з штучною вентиляцією легень автоматично контролює глибину анестезії. Монітор стану пацієнтки показує тиск, пульс, насичення крові киснем у реальному часі.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="callout callout-info">
-        <strong>Тривалість та анестезія</strong>
-        Операція займає 40–90 хвилин залежно від ступеня ендометріозу та розміру кісти. Анестезія: загальна внутрішньовенна (апарат Drager Primus).
-      </div>
+      <button class="method-toggle" aria-expanded="false" onclick="toggleMethod(this)">Показати деталі методу та обладнання ↓</button>
     </section>
 
-    <!-- ОБЛАДНАННЯ -->
-    <section>
-      <p class="section-label">Обладнання</p>
-      <h2 class="section-title">Технічне забезпечення операцій</h2>
-      <p class="equip-intro" style="font-size:15px;color:var(--gray-600);margin-bottom:24px;max-width:760px;line-height:1.7">ОН Клінік використовує обладнання Karl Storz (Німеччина) — стандарт університетських клінік Європи. Точна візуалізація Full HD дозволяє хірургу мінімізувати травму тканин при видаленні вузлів.</p>
-<div class="equip-grid">
-        <div class="equip-card">
-          <h4>Karl Storz IMAGE1 S H3-Z</h4>
-          <p>Камера Full HD для точної візуалізації операційного поля. Монітор 27" Full HD — точне збереження тканини яєчника.</p>
+
+    <!-- ЦІНА (горизонтальний layout) -->
+    <section class="price-section" id="price">
+      <p class="section-label">Вартість операції</p>
+      <h2 class="section-title">Ціна лапароскопії на придатках</h2>
+      <div class="price-grid">
+        <div class="price-left">
+          <div class="price-amount">від 21 745 грн</div>
+          <div class="price-note">Точна ціна — після консультації та УЗД</div>
+          <button class="price-cta btn-primary" onclick="openModal('endometrioz-kista-laparoskopia')">Записатися на консультацію →</button>
         </div>
-        <div class="equip-card">
-          <h4>AUTOCON III 400</h4>
-          <p>Система ВЧ-хірургії Karl Storz — мінімальна крововтрата при видаленні кісти та вогнищ ендометріозу.</p>
-        </div>
-        <div class="equip-card">
-          <h4>Аспіратор-іригатор Lapomed</h4>
-          <p>Промивання і відсмоктування в операційній зоні — для чистого операційного поля при видаленні вмісту кісти.</p>
-        </div>
-        <div class="equip-card">
-          <h4>Drager Primus</h4>
-          <p>Наркозно-дихальний апарат. Моніторинг і підтримка загальної анестезії протягом усієї операції.</p>
+        <div class="price-right">
+          <div class="price-includes">
+            <h3>Входить у вартість</h3>
+            <ul class="pi-list">
+              <li>Консультація гінеколога-хірурга</li>
+              <li>Операція (лапароскопія на придатках)</li>
+              <li>Загальна анестезія та робота анестезіолога</li>
+              <li>1–2 дні стаціонару</li>
+              <li>Контрольний огляд</li>
+            </ul>
+          </div>
+          <div class="price-excludes">
+            <h3>Оплачується окремо</h3>
+            <ul class="pi-list excludes">
+              <li>Передопераційні аналізи <span class="data-pending">(≈ 2 000 грн)</span></li>
+              <li>Гістологічне дослідження <span class="data-pending">(≈ 500 грн)</span></li>
+            </ul>
+          </div>
         </div>
       </div>
+      <div class="price-doctors-row">
+        Консультація гінеколога: <strong>Афанасьєв І.В.</strong> — 500 грн &nbsp;·&nbsp; <strong>Стрюков Д.В.</strong> — 700 грн
+      </div>
     </section>
-
     <!-- ВАГІТНІСТЬ -->
     <section>
       <p class="section-label">Планування вагітності</p>
@@ -1154,10 +1275,10 @@ h2.section-title, h2.sec-title, .section-title {
       <div class="dc-tag-strip dc-strip-blue" style="background: var(--blue)"></div>
       <div class="doc-avatar"><img src="../assets/doctors/afanasiev-card.webp" alt="Афанасьєв Ігор Володимирович" loading="lazy"></div>
       <div class="doc-name">Афанасьєв Ігор Володимирович</div>
-      <div class="doc-title">Акушер-гінеколог·Оперуючий гінеколог</div>
+      <div class="doc-title">Акушер-гінеколог · Оперуючий гінеколог</div>
       <div class="doc-cred">
         
-        <div class="cred-item"><div class="cred-num">33</div><div class="cred-lbl">роки досвіду</div></div>
+        <div class="cred-item"><div class="cred-num">34</div><div class="cred-lbl">роки досвіду</div></div>
         <div class="cred-item"><div class="cred-num">к.м.н.</div><div class="cred-lbl">ступінь</div></div>
         <div class="cred-item"><div class="cred-num">Вища</div><div class="cred-lbl">категорія</div></div>
         <div class="cred-item"><div class="cred-num">500 грн</div><div class="cred-lbl">консультація</div></div></div>
@@ -1169,7 +1290,7 @@ h2.section-title, h2.sec-title, .section-title {
       <div class="dc-tag-strip dc-strip-blue" style="background: var(--blue)"></div>
       <div class="doc-avatar"><img src="../assets/doctors/striukov-card.webp" alt="Стрюков Дмитро Владиславович" loading="lazy"></div>
       <div class="doc-name">Стрюков Дмитро Владиславович</div>
-      <div class="doc-title">Акушер-гінеколог·Оперуючий гінеколог</div>
+      <div class="doc-title">Акушер-гінеколог · Оперуючий гінеколог</div>
       <div class="doc-cred">
         
         <div class="cred-item"><div class="cred-num">24</div><div class="cred-lbl">роки досвіду</div></div>
@@ -1313,11 +1434,6 @@ h2.section-title, h2.sec-title, .section-title {
 </div>
 
   </div><!-- /content-area -->
-
-  <!-- SIDEBAR -->
-  <div class="price-sidebar" id="price">
-    <div class="price-card">
-      <div class="price-label">Вартість операції</div>
       <div class="price-amount">від 21 745 грн</div>
       <div class="price-note">Точна ціна — після консультації та УЗД</div>
       <button class="price-cta" onclick="openModal()">Записатися на консультацію</button>
@@ -1356,7 +1472,7 @@ h2.section-title, h2.sec-title, .section-title {
     видалення кіст яєчників. Вартість лапароскопії на придатках —
     від 21 745 грн, включає операцію, загальну анестезію та стаціонар
     1–2 дні. Операції виконують Афанасьєв Ігор Володимирович (оперуючий
-    гінеколог, к.м.н., вища категорія, 33 роки досвіду) та Стрюков
+    гінеколог, к.м.н., вища категорія, 34 роки досвіду) та Стрюков
     Дмитро Владиславович (оперуючий гінеколог, к.м.н., вища категорія,
     24 роки досвіду). Обладнання Karl Storz (Німеччина) — Full HD
     візуалізація для точного збереження яєчника. До роботи — через
@@ -1399,13 +1515,13 @@ h2.section-title, h2.sec-title, .section-title {
           <label>Зручний спосіб зв'язку</label>
           <div class="contact-methods">
             <label class="cm-opt selected" onclick="selectContact(this)">
-              <input type="radio" name="contact_method" value="call" checked/>📞 Дзвінок
+              <input type="radio" name="contact_method" value="call" checked/>Дзвінок
             </label>
             <label class="cm-opt" onclick="selectContact(this)">
-              <input type="radio" name="contact_method" value="telegram"/>✈️ Telegram
+              <input type="radio" name="contact_method" value="telegram"/>Telegram
             </label>
             <label class="cm-opt" onclick="selectContact(this)">
-              <input type="radio" name="contact_method" value="viber"/>💬 Viber
+              <input type="radio" name="contact_method" value="viber"/>Viber
             </label>
           </div>
         </div>
@@ -1579,5 +1695,15 @@ function showSuccess(){
 })();
 </script>
 <!-- ===== END SPRINT UX JS ===== -->
+
+<script>
+function toggleMethod(btn) {
+  var content = btn.previousElementSibling;
+  var isCollapsed = content.dataset.collapsed === 'true';
+  content.dataset.collapsed = isCollapsed ? 'false' : 'true';
+  btn.setAttribute('aria-expanded', String(isCollapsed));
+  btn.textContent = isCollapsed ? 'Згорнути ↑' : 'Показати деталі методу та обладнання ↓';
+}
+</script>
 </body>
 </html>
