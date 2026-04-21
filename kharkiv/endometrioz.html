@@ -529,14 +529,9 @@ h2.section-title, h2.sec-title, .section-title {
   font-size: clamp(18px, 2vw, 26px) !important;
 }
 
-/* #18  sym-title: стиль як h4 на mioma-matky */
-.sym-head .sym-title {
-  font-size: 15px !important;
-  font-weight: 600 !important;
-  color: var(--gray-900, #111827) !important;
-  line-height: 1.35 !important;
-  margin-bottom: 4px !important;
-}
+/* symptom-list: 2-column grid (matches mioma-matky template) */
+.symptom-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media(max-width:768px) { .symptom-list { grid-template-columns: 1fr; } }
 
 /* MOBILE OVERFLOW FIX: CSS Grid min-content inflation prevention */
 /* 1fr track в CSS Grid розтягується до min-content дочірнього елемента без min-width:0 */
@@ -767,32 +762,26 @@ h2.section-title, h2.sec-title, .section-title {
     <p class="section-label">Симптоми</p>
     <h2 class="section-title">Коли варто перевіритись</h2>
     <p class="prose" style="margin-bottom:0">Симптоми ендометріозу часто списують на "звичайний" менструальний біль — і відкладають звернення роками. Якщо ви впізнаєте щось із переліченого — це привід зробити УЗД і консультацію гінеколога.</p>
-    <div class="symptoms-grid">
+    <div class="symptom-list">
       <div class="sym-item">
-        <div class="sym-head">
-          <div class="sym-title">Сильний біль під час місячних</div>
-          <div class="sym-badge">Основний симптом</div>
-        </div>
-        <div class="sym-text">Біль що не знімається звичайними знеболювальними, заважає жити і працювати — це не норма. При ендометріозі біль пов'язаний із запаленням та злуками в малому тазу.</div>
+        <h4>Сильний біль під час місячних <span class="sym-badge">Основний симптом</span></h4>
+        <p>Біль що не знімається звичайними знеболювальними, заважає жити і працювати — це не норма. При ендометріозі біль пов'язаний із запаленням та злуками в малому тазу.</p>
       </div>
       <div class="sym-item">
-        <div class="sym-head"><div class="sym-title">Біль під час або після статевого акту</div></div>
-        <div class="sym-text">Глибокий біль при статевому акті — характерна ознака ендометріозу, особливо при ураженні позаду матки (ретроцервікальний ендометріоз).</div>
+        <h4>Біль під час або після статевого акту</h4>
+        <p>Глибокий біль при статевому акті — характерна ознака ендометріозу, особливо при ураженні позаду матки (ретроцервікальний ендометріоз).</p>
       </div>
       <div class="sym-item">
-        <div class="sym-head">
-          <div class="sym-title">Безпліддя без очевидної причини</div>
-          <div class="sym-badge">Фактор безпліддя</div>
-        </div>
-        <div class="sym-text">Ендометріоз — одна з трьох основних причин жіночого безпліддя. Злуки в маткових трубах і зміна середовища в малому тазу заважають заплідненню та імплантації.</div>
+        <h4>Безпліддя без очевидної причини <span class="sym-badge">Фактор безпліддя</span></h4>
+        <p>Ендометріоз — одна з трьох основних причин жіночого безпліддя. Злуки в маткових трубах і зміна середовища в малому тазу заважають заплідненню та імплантації.</p>
       </div>
       <div class="sym-item">
-        <div class="sym-head"><div class="sym-title">Хронічний тазовий біль</div></div>
-        <div class="sym-text">Тупий або тягнучий біль внизу живота, що не пов'язаний із циклом — може бути проявом ендометріозу з активними злуками.</div>
+        <h4>Хронічний тазовий біль</h4>
+        <p>Тупий або тягнучий біль внизу живота, що не пов'язаний із циклом — може бути проявом ендометріозу з активними злуками.</p>
       </div>
       <div class="sym-item">
-        <div class="sym-head"><div class="sym-title">Знахідка на УЗД — кіста яєчника</div></div>
-        <div class="sym-text">Виявлена кіста яєчника (особливо однорідна, темна) у поєднанні з будь-яким больовим симптомом — висока імовірність ендометріоми. Потребує консультації і вирішення питання про лікування.</div>
+        <h4>Знахідка на УЗД — кіста яєчника</h4>
+        <p>Виявлена кіста яєчника (особливо однорідна, темна) у поєднанні з будь-яким больовим симптомом — висока імовірність ендометріоми. Потребує консультації і вирішення питання про лікування.</p>
       </div>
     </div>
     <div class="callout callout-warn" style="margin-top:16px">
