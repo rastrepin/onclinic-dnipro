@@ -154,6 +154,11 @@
     '.bm-success .fs-sub{font-size:14px;color:#6b7280;line-height:1.6;margin-bottom:16px}',
     '.bm-success .fs-close{width:100%;background:#0B4F9A;border:none;border-radius:10px;padding:12px;font-family:"Onest",sans-serif;font-size:14px;font-weight:500;color:#fff;cursor:pointer}',
     '.bm-errblock{background:#fef2f2;border:1px solid #fca5a5;border-radius:8px;padding:12px 16px;color:#dc2626;font-size:13px;margin-top:8px;display:none}',
+    '.bm-select{width:100%;padding:12px 14px;border:1.5px solid #e5e7eb;border-radius:8px;font-family:"Onest",sans-serif;font-size:16px;color:#111827;outline:none;transition:border-color .15s;box-sizing:border-box;background:#fff;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'16\' height=\'16\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%236b7280\' stroke-width=\'2\'%3E%3Cpolyline points=\'6 9 12 15 18 9\'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}',
+    '.bm-select:focus{border-color:#0B4F9A}',
+    '.bm-select.err{border-color:#dc2626}',
+    '.bm-textarea{width:100%;padding:12px 14px;border:1.5px solid #e5e7eb;border-radius:8px;font-family:"Onest",sans-serif;font-size:14px;color:#111827;outline:none;transition:border-color .15s;box-sizing:border-box;resize:vertical;min-height:80px}',
+    '.bm-textarea:focus{border-color:#0B4F9A}',
     '@media(max-width:767px){',
     '  .bm-bg{padding:0!important;align-items:flex-end}',
     '  .bm-bg.open{display:flex;padding-top:0!important}',
@@ -300,6 +305,7 @@
       '          <input type="hidden" name="preferred_day" value="">',
       '          <input type="hidden" name="quiz_answers" value="">',
       '          <input type="hidden" name="selected_criteria" value="">',
+      '          <input type="hidden" name="other_purpose" value="">',
       '          <div class="bm-ff">',
       '            <label for="bm-name">Ваше ім\'я *</label>',
       '            <input type="text" id="bm-name" name="name" autocomplete="given-name" placeholder="Як до вас звертатись">',
@@ -324,6 +330,27 @@
       '              <button type="button" class="bm-pill" data-day="today">Сьогодні</button>',
       '              <button type="button" class="bm-pill" data-day="tomorrow">Завтра</button>',
       '              <button type="button" class="bm-pill" data-day="this_week">Цього тижня</button>',
+      '            </div>',
+      '          </div>',
+      '          <div id="bm-purpose-wrap" style="display:none">',
+      '            <div class="bm-ff">',
+      '              <label for="bm-purpose">Мета запису *</label>',
+      '              <select id="bm-purpose" class="bm-select">',
+      '                <option value="">\u2014 Оберіть мету \u2014</option>',
+      '                <option value="mioma-laparoskopichna-miomektomiia">Лапароскопічна міомектомія</option>',
+      '                <option value="endometrioz-kista-laparoskopia">Лапароскопія при ендометріозі та кісті яєчника</option>',
+      '                <option value="mioma-laparoskopichna-gisterektomiia">Лапароскопічна гістеректомія</option>',
+      '                <option value="gisteroskopia-polipektomia">Гістероскопія</option>',
+      '                <option value="prolapс-matky-kolporafia">Кольпорафія</option>',
+      '                <option value="other">Інша мета</option>',
+      '              </select>',
+      '              <div class="bm-ferr" id="bm-err-purpose"></div>',
+      '            </div>',
+      '            <div id="bm-other-wrap" style="display:none">',
+      '              <div class="bm-ff">',
+      '                <label for="bm-other-purpose">Опишіть мету (необов\u2019язково)</label>',
+      '                <textarea id="bm-other-purpose" class="bm-textarea" placeholder="Опишіть вашу ситуацію або мету запису"></textarea>',
+      '              </div>',
       '            </div>',
       '          </div>',
       '          <label class="bm-consent">',
@@ -388,6 +415,34 @@
         form.querySelector('[name=preferred_day]').value = pill.dataset.day;
       } else {
         form.querySelector('[name=preferred_day]').value = '';
+      }
+    });
+
+    // Purpose dropdown
+    document.getElementById('bm-purpose').addEventListener('change', function () {
+      var val = this.value;
+      var form = document.getElementById('bm-form');
+      var otherWrap = document.getElementById('bm-other-wrap');
+      var summaryEl = document.getElementById('bm-summary');
+      var doctorSlug = form.querySelector('[name=preferred_doctor]').value || null;
+      var errPurpose = document.getElementById('bm-err-purpose');
+      if (errPurpose) { errPurpose.style.display = 'none'; this.classList.remove('err'); }
+
+      if (val === 'other') {
+        form.querySelector('[name=case_slug]').value = '';
+        form.querySelector('[name=other_purpose]').value = '';
+        otherWrap.style.display = 'block';
+        summaryEl.innerHTML = buildSummaryCardHTML(null, doctorSlug);
+      } else if (val) {
+        form.querySelector('[name=case_slug]').value = val;
+        form.querySelector('[name=other_purpose]').value = '';
+        otherWrap.style.display = 'none';
+        summaryEl.innerHTML = buildSummaryCardHTML(val, doctorSlug);
+      } else {
+        form.querySelector('[name=case_slug]').value = '';
+        form.querySelector('[name=other_purpose]').value = '';
+        otherWrap.style.display = 'none';
+        summaryEl.innerHTML = buildSummaryCardHTML(null, doctorSlug);
       }
     });
 
@@ -475,9 +530,29 @@
     var phoneOk = validatePhone(phoneInput);
     if (!nameOk || !phoneOk) return;
 
+    // Validate purpose dropdown if shown
+    var purposeWrap = document.getElementById('bm-purpose-wrap');
+    if (purposeWrap && purposeWrap.style.display !== 'none') {
+      var purposeSel = document.getElementById('bm-purpose');
+      if (!purposeSel || !purposeSel.value) {
+        var errPurpose = document.getElementById('bm-err-purpose');
+        if (errPurpose) { errPurpose.textContent = 'Будь ласка, оберіть мету запису'; errPurpose.style.display = 'block'; }
+        if (purposeSel) purposeSel.classList.add('err');
+        return;
+      }
+    }
+
     var sessionId = getSessionId();
     var utm = getUTM();
     var caseSlug = form.querySelector('[name=case_slug]').value || null;
+
+    // Collect other_purpose if "Інша мета" selected
+    var otherPurposeVal = null;
+    var otherWrap2 = document.getElementById('bm-other-wrap');
+    if (otherWrap2 && otherWrap2.style.display !== 'none') {
+      var otherTa2 = document.getElementById('bm-other-purpose');
+      otherPurposeVal = otherTa2 && otherTa2.value.trim() ? otherTa2.value.trim() : null;
+    }
 
     var payload = {
       name:             nameInput.value.trim(),
@@ -490,6 +565,7 @@
       source_cta:       form.querySelector('[name=source_cta]').value || null,
       quiz_answers:     tryParseJSON(form.querySelector('[name=quiz_answers]').value),
       selected_criteria:tryParseJSON(form.querySelector('[name=selected_criteria]').value),
+      other_purpose:    otherPurposeVal,
       session_id:       sessionId,
       referrer:         document.referrer || null,
       utm_source:       utm.utm_source,
@@ -571,6 +647,16 @@
     form.querySelector('[name=source_cta]').value = '';
     form.querySelector('[name=quiz_answers]').value = '';
     form.querySelector('[name=selected_criteria]').value = '';
+    form.querySelector('[name=other_purpose]').value = '';
+    // Reset purpose dropdown
+    var purposeSel = document.getElementById('bm-purpose');
+    if (purposeSel) { purposeSel.value = ''; purposeSel.classList.remove('err'); }
+    var otherWrap = document.getElementById('bm-other-wrap');
+    if (otherWrap) otherWrap.style.display = 'none';
+    var otherTa = document.getElementById('bm-other-purpose');
+    if (otherTa) otherTa.value = '';
+    var errPurpose = document.getElementById('bm-err-purpose');
+    if (errPurpose) errPurpose.style.display = 'none';
     document.getElementById('bm-consent').checked = false;
     document.getElementById('bm-submit').disabled = true;
     document.getElementById('bm-submit').textContent = 'Записатися на консультацію →';
@@ -643,6 +729,20 @@
       summaryEl.innerHTML = buildQuizSummaryCardHTML(caseSlug, doctorSlug, opts.quizContext);
     } else {
       summaryEl.innerHTML = buildSummaryCardHTML(caseSlug, doctorSlug);
+    }
+
+    // Purpose dropdown: show when no prefilledCase
+    var purposeWrap = document.getElementById('bm-purpose-wrap');
+    if (purposeWrap) {
+      purposeWrap.style.display = caseSlug ? 'none' : 'block';
+      var purposeSel = document.getElementById('bm-purpose');
+      if (purposeSel) purposeSel.value = '';
+      var otherWrap = document.getElementById('bm-other-wrap');
+      if (otherWrap) otherWrap.style.display = 'none';
+      var otherTa = document.getElementById('bm-other-purpose');
+      if (otherTa) otherTa.value = '';
+      var errPurpose = document.getElementById('bm-err-purpose');
+      if (errPurpose) errPurpose.style.display = 'none';
     }
 
     // Open

@@ -99,6 +99,9 @@ function buildTelegramMessage(record, leadId, fullUrl) {
       lines.push(svc.officialName);
       lines.push(`Вартість: ${svc.price}`);
     }
+  } else if (!record.case_slug && record.other_purpose) {
+    lines.push('Мета запису:');
+    lines.push(`Інша мета — "${record.other_purpose}"`);
   } else if (!record.case_slug) {
     lines.push('Тип звернення: Загальна консультація');
   } else {
@@ -265,6 +268,7 @@ module.exports = async function handler(req, res) {
     source_cta:        body.source_cta        || null,
     quiz_answers:      body.quiz_answers      || null,
     selected_criteria: body.selected_criteria || null,
+    other_purpose:     body.other_purpose     || null,
     session_id:        body.session_id        || null,
     referrer:          body.referrer          || null,
     utm_source:        body.utm_source        || null,
