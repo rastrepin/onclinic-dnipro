@@ -43,7 +43,7 @@
     'mioma-matky': {
       searchName: 'Міома матки — консультація',
       officialName: 'Консультація гінеколога-хірурга',
-      price: 'від 500 грн',
+      price: 'від 700 грн',
     },
   };
 
@@ -51,7 +51,7 @@
     afanasiev: {
       name: 'Афанасьєв І.В.',
       role: 'Оперуючий гінеколог, к.м.н.',
-      price: '500 грн',
+      price: '700 грн',
       avatar: '/assets/doctors/afanasiev-card.webp',
     },
     striukov: {
@@ -201,7 +201,7 @@
       html += '</div>';
     } else if (!doctorSlug && (type === 'single' || type === 'multiple')) {
       html += '<div style="font-size:12px;color:#6b7280;margin:8px 0 4px">Клініка запропонує лікаря з наявних:</div>';
-      html += '<div style="font-size:13px;color:#374151;margin-bottom:2px">Афанасьєв І.В. — 500 грн</div>';
+      html += '<div style="font-size:13px;color:#374151;margin-bottom:2px">Афанасьєв І.В. — 700 грн</div>';
       html += '<div style="font-size:13px;color:#374151">Стрюков Д.В. — 700 грн</div>';
     }
 
