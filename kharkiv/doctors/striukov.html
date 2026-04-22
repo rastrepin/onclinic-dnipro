@@ -560,6 +560,24 @@ h2.section-title, h2.sec-title, .section-title {
   .hero-photo{width:100%!important;height:auto!important;aspect-ratio:4/5;border-width:4px!important}
   .hero-photo img{object-fit:cover;object-position:center top}
 }
+/* Desktop 2-col spec grid */
+@media(min-width:768px){
+  .spec-grid{grid-template-columns:1fr 1fr!important}
+}
+/* Mobile spec card collapse */
+@media(max-width:767px){
+  .spec-card-header{cursor:pointer;user-select:none}
+  .spec-card-header::after{content:'+';position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:20px;color:rgba(255,255,255,.75);line-height:1}
+  .spec-card.open .spec-card-header::after{content:'\2212'}
+  .spec-card:not(.open) .spec-divider,
+  .spec-card:not(.open) .spec-sub-label,
+  .spec-card:not(.open) .spec-sub-text,
+  .spec-card:not(.open) .spec-official,
+  .spec-card:not(.open) .spec-price,
+  .spec-card:not(.open) .spec-ctas{display:none!important}
+}
+/* nav-logo-img */
+.nav-logo-img{height:28px;width:auto}
 /* ===== END DOCTOR PAGES REDESIGN ===== */
 </style>
 </head>
@@ -568,8 +586,7 @@ h2.section-title, h2.sec-title, .section-title {
 <!-- NAV -->
 <nav>
   <a href="/kharkiv" class="nav-logo">
-    <img src="../../assets/logo/logo-mark.png" alt="ОН Клінік" style="width:34px;height:34px;border-radius:8px;object-fit:contain;background:#fff;padding:2px">
-    <div><div class="logo-text">ОН Клінік Харків</div><div class="logo-sub">check-up.in.ua</div></div>
+    <img class="nav-logo-img" src="../../assets/logo/logo-horizontal.png" alt="ОН Клінік">
   </a>
   <ul class="nav-links">
     <li><a href="/kharkiv">Операції</a></li>
@@ -617,24 +634,11 @@ h2.section-title, h2.sec-title, .section-title {
       </div>
       <div class="hero-ctas">
         <button class="btn-gold" onclick="openBookingModal({prefilledDoctor:'striukov',sourceCTA:'doctor_page'})">Записатися до Стрюкова Д.В.</button>
-        <a href="/kharkiv" class="btn-outline">Всі операції</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTEXT BLOCK (shown when ?case= is present) -->
-<div id="context-block" style="display:none">
-  <div class="context-block">
-    <div class="context-inner">
-      <h2 id="context-headline"></h2>
-      <p class="context-focus" id="context-focus"></p>
-      <div class="context-stat-badge" id="context-stat"></div>
-      <br><br>
-      <a href="#" id="context-cta-link" class="context-cta-link"></a>
-    </div>
-  </div>
-</div>
 
 <!-- ABOUT -->
 <section class="section">
@@ -980,61 +984,6 @@ h2.section-title, h2.sec-title, .section-title {
 </section>
 
 <script>
-// ?case= context logic
-const CASE_CONTEXTS = {
-  'mioma-matky': {
-    headline: 'Лапароскопічна міомектомія — видалення міоми зі збереженням матки',
-    focus: 'Дмитро Владиславович виконує лапароскопічне видалення вузлів міоми. Поєднує класичні підходи та сучасні малоінвазивні технології, активно займається науковою та викладацькою діяльністю.',
-    stat: '24 роки клінічного досвіду, к.м.н., асистент кафедри ХНМУ',
-    ctaText: 'Детальніше про операцію →',
-    ctaHref: '/kharkiv/mioma-laparoskopichna-miomektomiia#appointment'
-  },
-  'mioma-laparoskopichna-miomektomiia': {
-    headline: 'Лапароскопічна міомектомія — видалення міоми зі збереженням матки',
-    focus: 'Дмитро Владиславович виконує лапароскопічне видалення вузлів міоми. Поєднує класичні підходи та сучасні малоінвазивні технології, активно займається науковою та викладацькою діяльністю.',
-    stat: '24 роки клінічного досвіду, к.м.н., асистент кафедри ХНМУ',
-    ctaText: 'Детальніше про операцію →',
-    ctaHref: '/kharkiv/mioma-laparoskopichna-miomektomiia#appointment'
-  },
-  'endometrioz': {
-    headline: 'Лапароскопія при ендометріозі та кісті яєчника',
-    focus: 'Виконує лапароскопічне видалення ендометріоїдних кіст та вогнищ ендометріозу. Впроваджує у практику сучасні методи лікування — завдяки активній науковій та викладацькій діяльності.',
-    stat: '24 роки клінічного досвіду, к.м.н., поглиблена УЗД-підготовка',
-    ctaText: 'Детальніше про операцію →',
-    ctaHref: '/kharkiv/endometrioz-kista-laparoskopia#appointment'
-  },
-  'endometrioz-kista-laparoskopia': {
-    headline: 'Лапароскопія при ендометріозі та кісті яєчника',
-    focus: 'Виконує лапароскопічне видалення ендометріоїдних кіст та вогнищ ендометріозу. Впроваджує у практику сучасні методи лікування — завдяки активній науковій та викладацькій діяльності.',
-    stat: '24 роки клінічного досвіду, к.м.н., поглиблена УЗД-підготовка',
-    ctaText: 'Детальніше про операцію →',
-    ctaHref: '/kharkiv/endometrioz-kista-laparoskopia#appointment'
-  },
-  'mioma-laparoskopichna-gisterektomiia': {
-    headline: 'Лапароскопічна гістеректомія — видалення матки малоінвазивним методом',
-    focus: 'Дмитро Владиславович виконує лапароскопічну гістеректомію з опорою на сучасні малоінвазивні протоколи. Поєднує хірургічну практику з викладанням на кафедрі акушерства і гінекології №2 ХНМУ — постійне оновлення методів. Обсяг операції визначається індивідуально.',
-    stat: '24 роки клінічного досвіду, к.м.н., асистент кафедри ХНМУ',
-    ctaText: 'Детальніше →',
-    ctaHref: '/kharkiv/mioma-laparoskopichna-gisterektomiia#appointment'
-  }
-};
-
-function initCaseContext() {
-  const params = new URLSearchParams(window.location.search);
-  const caseParam = params.get('case');
-  const ctx = caseParam && CASE_CONTEXTS[caseParam];
-  if (ctx) {
-    document.getElementById('context-headline').textContent = ctx.headline;
-    document.getElementById('context-focus').textContent = ctx.focus;
-    document.getElementById('context-stat').textContent = ctx.stat;
-    const ctaEl = document.getElementById('context-cta-link');
-    ctaEl.textContent = ctx.ctaText;
-    ctaEl.href = ctx.ctaHref;
-    document.getElementById('context-block').style.display = 'block';
-    document.getElementById('cases-block').style.display = 'none';
-  }
-}
-initCaseContext();
 
 // Modal
 let currentDoctor = 'Стрюков Д.В.';
@@ -1094,6 +1043,25 @@ function showSuccess() {
   } else {
     init();
   }
+})();
+</script>
+
+<!-- Mobile spec card expand -->
+<script>
+(function(){
+  function initSpecCards(){
+    document.querySelectorAll('.spec-card').forEach(function(card){
+      var hdr=card.querySelector('.spec-card-header');
+      if(!hdr)return;
+      hdr.addEventListener('click',function(){
+        if(window.innerWidth>767)return;
+        card.classList.toggle('open');
+      });
+    });
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',initSpecCards);
+  }else{initSpecCards();}
 })();
 </script>
 <!-- ===== END SPRINT UX JS ===== -->
