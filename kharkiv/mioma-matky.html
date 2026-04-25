@@ -867,16 +867,17 @@ h2.section-title, h2.sec-title, .section-title {
       </div>
       <div class="method-card">
         <div class="method-tagline">Без розрізів</div>
-        <h3>Гістероскопічне видалення</h3>
-        <p>Видалення вузлів через порожнину матки без жодних розрізів на шкірі. Гістероскоп Karl Storz вводиться природним шляхом. 1 день стаціонару.</p>
+        <h3>Гістероскопія</h3>
+        <p class="method-card-sub">видалення поліпів і субмукозних вузлів</p>
+        <p>Процедура виконується через природний шлях — без розрізів на шкірі. Гістероскоп вводиться через шийку матки. Лікар оглядає порожнину і, якщо виявляє поліп або субмукозний вузол — видаляє його в ту саму процедуру. Матка повністю зберігається.</p>
         <ul class="method-inds">
-          <li>Вузли в порожнині матки (субмукозні)</li>
-          <li>Розмір вузла до 5 см</li>
-          <li>Рясні або тривалі місячні</li>
+          <li>Субмукозні вузли до 6 см</li>
+          <li>Поліпи, гіперплазія ендометрію</li>
+          <li>Аномальні кровотечі</li>
           <li>Безпліддя або невиношування</li>
         </ul>
-        <div class="method-price">від 13 395 грн</div>
-        <a class="method-link" href="/kharkiv/gisteroskopia-polipektomia">Детальніше про метод →</a>
+        <div class="method-price">від 11 505 грн</div>
+        <a class="method-link" href="/kharkiv/gisteroskopia">Детальніше про метод →</a>
       </div>
     </div>
   </div>
@@ -1036,8 +1037,14 @@ function hqComputeResult() {
     return { type: 'no_recommendation', prefilledCase: null, methods: [] };
   }
   if (loc === 'submucous') {
-    return { type: 'single', prefilledCase: 'gisteroskopia-polipektomia',
-      methods: [{ name: 'Гістероскопія (діагностична + з поліпектомією)', price: 'від 11 505 грн' }] };
+    if (sz === 'large') {
+      return { type: 'multiple', prefilledCase: null, methods: [
+        { name: 'Гістероскопія (якщо розмір дозволяє ендоскопічне видалення)', price: 'від 11 505 грн' },
+        { name: 'Лапароскопічна міомектомія (якщо гістероскопічно не вдасться)', price: '26 690 грн' }
+      ]};
+    }
+    return { type: 'single', prefilledCase: 'gisteroskopia',
+      methods: [{ name: 'Гістероскопія', price: 'від 11 505 грн' }] };
   }
   if (loc === 'intramural' || loc === 'subserous') {
     if (sz === 'small' || sz === 'medium') {
@@ -1072,8 +1079,12 @@ function hqShowResult() {
   var r = hqResult;
   var html = '<div class="hq-result-eyebrow">РЕЗУЛЬТАТ</div>';
   if (r.type === 'single') {
+    html += '<div style="font-size:12px;color:var(--gray-500,#6B7280);margin-bottom:6px">За вашими відповідями лікар імовірно запропонує:</div>';
     html += '<div class="hq-result-heading">' + r.methods[0].name + '</div>';
     html += '<div class="hq-result-price">' + r.methods[0].price + '</div>';
+    if (r.prefilledCase === 'gisteroskopia') {
+      html += '<div class="hq-result-note">В ході процедури лікар оцінює порожнину матки і, якщо бачить вузол — видаляє одразу, без окремої операції.</div>';
+    }
     html += '<div class="hq-result-note">Остаточне рішення прийме лікар на консультації після огляду та оцінки результатів УЗД.</div>';
   } else if (r.type === 'multiple') {
     html += '<div style="font-size:13px;color:var(--gray-600,#4B5563);margin-bottom:10px">За вашими відповідями можливі два варіанти:</div>';
