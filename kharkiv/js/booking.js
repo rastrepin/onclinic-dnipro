@@ -773,8 +773,343 @@
   // Legacy alias — some pages may still call closeModal()
   window.closeModal = window.closeBookingModal;
 
+  // ══════════════════════════════════════════════════════════════════════════
+  // CALLBACK MODAL
+  // Simple 3-field callback request: name + phone + preferred time pill
+  // window.openCallbackModal(opts) — opts: { sourceCTA }
+  // ══════════════════════════════════════════════════════════════════════════
+
+  var CB_CSS = [
+    '.cb-bg{display:none;position:fixed;inset:0;background:rgba(17,24,39,.65);z-index:9100;align-items:flex-start;justify-content:center;padding:24px}',
+    '.cb-bg.open{display:flex;padding-top:40px}',
+    '.cb-box{background:#fff;border-radius:16px;width:100%;max-width:440px;overflow-y:auto;max-height:90vh;position:relative;box-shadow:0 25px 50px rgba(0,0,0,.25)}',
+    '.cb-drag{display:none;width:40px;height:4px;background:#d1d5db;border-radius:2px;margin:10px auto 0}',
+    '.cb-head{background:linear-gradient(135deg,#0B4F9A 0%,#1565C0 100%);padding:24px 28px;position:relative}',
+    '.cb-close{position:absolute;top:12px;right:12px;background:rgba(255,255,255,.12);border:none;border-radius:50%;width:32px;height:32px;color:rgba(255,255,255,.8);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;transition:background .15s}',
+    '.cb-close:hover{background:rgba(255,255,255,.2)}',
+    '.cb-kicker{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:4px}',
+    '.cb-title{font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:600;color:#fff;line-height:1.2}',
+    '.cb-sub{font-size:12px;color:rgba(255,255,255,.65);margin-top:4px;line-height:1.4}',
+    '.cb-body{padding:24px 28px}',
+    '.cb-ff{margin-bottom:14px}',
+    '.cb-ff label{display:block;font-size:13px;font-weight:500;color:#374151;margin-bottom:5px}',
+    '.cb-ff input[type=text],.cb-ff input[type=tel]{width:100%;padding:12px 14px;border:1.5px solid #e5e7eb;border-radius:8px;font-family:"Onest",sans-serif;font-size:16px;color:#111827;outline:none;transition:border-color .15s;box-sizing:border-box}',
+    '.cb-ff input:focus{border-color:#0B4F9A}',
+    '.cb-ff input::placeholder{color:#9ca3af}',
+    '.cb-ff input.err{border-color:#dc2626}',
+    '.cb-ferr{color:#dc2626;font-size:11px;margin-top:4px;display:none}',
+    '.cb-label{font-size:13px;font-weight:500;color:#374151;margin-bottom:8px;display:block}',
+    '.cb-pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}',
+    '.cb-pill{padding:9px 12px;min-height:40px;display:inline-flex;align-items:center;border:1.5px solid #e5e7eb;border-radius:8px;cursor:pointer;font-size:13px;font-weight:500;font-family:"Onest",sans-serif;background:#fff;color:#374151;transition:all .15s;user-select:none}',
+    '.cb-pill.sel{border-color:#0B4F9A;background:#EBF2FF;color:#0B4F9A}',
+    '.cb-consent{display:flex;align-items:flex-start;gap:10px;margin:14px 0;font-size:12px;color:#6b7280;line-height:1.5;cursor:pointer}',
+    '.cb-consent input{margin-top:2px;flex-shrink:0;cursor:pointer;width:16px;height:16px}',
+    '.cb-submit{width:100%;background:#0B4F9A;border:none;border-radius:10px;padding:14px;font-family:"Onest",sans-serif;font-size:15px;font-weight:500;color:#fff;cursor:pointer;transition:background .2s}',
+    '.cb-submit:hover{background:#1565C0}',
+    '.cb-submit:disabled{background:#d1d5db;cursor:not-allowed}',
+    '.cb-hint{font-size:11px;color:#9ca3af;text-align:center;margin-top:6px}',
+    '.cb-honey{display:none}',
+    '.cb-success{text-align:center;padding:24px 0}',
+    '.cb-success .cs-icon{font-size:48px;margin-bottom:12px;color:#16a34a}',
+    '.cb-success .cs-title{font-family:"Cormorant Garamond",serif;font-size:24px;font-weight:600;color:#0B4F9A;margin-bottom:8px}',
+    '.cb-success .cs-sub{font-size:14px;color:#6b7280;line-height:1.6;margin-bottom:16px}',
+    '.cb-success .cs-close{width:100%;background:#0B4F9A;border:none;border-radius:10px;padding:12px;font-family:"Onest",sans-serif;font-size:14px;font-weight:500;color:#fff;cursor:pointer}',
+    '.cb-errblock{background:#fef2f2;border:1px solid #fca5a5;border-radius:8px;padding:12px 16px;color:#dc2626;font-size:13px;margin-top:8px;display:none}',
+    '@media(max-width:767px){',
+    '  .cb-bg{padding:0!important;align-items:flex-end}',
+    '  .cb-bg.open{display:flex;padding-top:0!important}',
+    '  .cb-box{max-width:100%!important;border-radius:16px 16px 0 0!important;max-height:85vh}',
+    '  .cb-drag{display:block}',
+    '}',
+  ].join('\n');
+
+  function injectCallbackStyles() {
+    if (document.getElementById('cb-styles')) return;
+    var st = document.createElement('style');
+    st.id = 'cb-styles';
+    st.textContent = CB_CSS;
+    document.head.appendChild(st);
+  }
+
+  var CB_TIME_PILLS = [
+    { value: 'morning',   label: 'Зранку (8–12)' },
+    { value: 'afternoon', label: 'Вдень (12–17)' },
+    { value: 'evening',   label: 'Ввечері (17–20)' },
+    { value: 'anytime',   label: 'Будь-коли' },
+  ];
+
+  function buildCallbackModalHTML() {
+    var pillsHtml = CB_TIME_PILLS.map(function (p, i) {
+      return '<span class="cb-pill' + (i === 3 ? ' sel' : '') + '" data-value="' + p.value + '">' + escHtml(p.label) + '</span>';
+    }).join('');
+
+    return [
+      '<div class="cb-bg" id="cb-overlay">',
+      '  <div class="cb-box" role="dialog" aria-modal="true" aria-labelledby="cb-title-text">',
+      '    <div class="cb-drag"></div>',
+      '    <div class="cb-head">',
+      '      <button class="cb-close" id="cb-close-btn" aria-label="Закрити">✕</button>',
+      '      <div class="cb-kicker">ОН Клінік Харків · Безкоштовно</div>',
+      '      <div class="cb-title" id="cb-title-text">Замовте дзвінок</div>',
+      '      <div class="cb-sub">Передзвонимо протягом 30 хвилин у робочий час</div>',
+      '    </div>',
+      '    <div class="cb-body">',
+      '      <div id="cb-form-wrap">',
+      '        <div class="cb-ff">',
+      '          <label for="cb-name">Ваше ім\'я</label>',
+      '          <input type="text" id="cb-name" name="cb-name" autocomplete="given-name" placeholder="Наприклад, Марина" maxlength="80">',
+      '          <div class="cb-ferr" id="cb-err-name">Вкажіть ім\'я (мінімум 2 символи)</div>',
+      '        </div>',
+      '        <div class="cb-ff">',
+      '          <label for="cb-phone">Номер телефону</label>',
+      '          <input type="tel" id="cb-phone" name="cb-phone" autocomplete="tel" placeholder="+38 (0__) ___-__-__" maxlength="20">',
+      '          <div class="cb-ferr" id="cb-err-phone">Перевірте номер телефону</div>',
+      '        </div>',
+      '        <span class="cb-label">Зручний час для дзвінка</span>',
+      '        <div class="cb-pills" id="cb-time-pills">' + pillsHtml + '</div>',
+      '        <label class="cb-consent">',
+      '          <input type="checkbox" id="cb-consent" checked>',
+      '          <span>Я погоджуюся на обробку персональних даних відповідно до <a href="https://check-up.in.ua/privacy" target="_blank" style="color:#0B4F9A">Політики конфіденційності</a></span>',
+      '        </label>',
+      '        <input type="text" name="website" class="cb-honey" tabindex="-1" autocomplete="off" aria-hidden="true">',
+      '        <button class="cb-submit" id="cb-submit">Передзвоніть мені</button>',
+      '        <div class="cb-hint">Дзвонимо з 8:00 до 19:00</div>',
+      '        <div class="cb-errblock" id="cb-errblock"></div>',
+      '      </div>',
+      '      <div class="cb-success" id="cb-success" style="display:none">',
+      '        <div class="cs-icon">✓</div>',
+      '        <div class="cs-title">Дякуємо!</div>',
+      '        <div class="cs-sub">Ваша заявка прийнята.<br>Передзвонимо найближчим часом.</div>',
+      '        <button class="cs-close" id="cb-success-close">Закрити</button>',
+      '      </div>',
+      '    </div>',
+      '  </div>',
+      '</div>',
+    ].join('\n');
+  }
+
+  function injectCallbackModal() {
+    if (document.getElementById('cb-overlay')) return;
+    injectCallbackStyles();
+    var container = document.createElement('div');
+    container.innerHTML = buildCallbackModalHTML();
+    document.body.appendChild(container.firstElementChild);
+
+    // Close button
+    document.getElementById('cb-close-btn').addEventListener('click', window.closeCallbackModal);
+
+    // Backdrop click
+    document.getElementById('cb-overlay').addEventListener('click', function (e) {
+      if (e.target === this) window.closeCallbackModal();
+    });
+
+    // Time pill toggles
+    document.getElementById('cb-time-pills').addEventListener('click', function (e) {
+      var pill = e.target.closest('.cb-pill');
+      if (!pill) return;
+      document.querySelectorAll('#cb-time-pills .cb-pill').forEach(function (p) { p.classList.remove('sel'); });
+      pill.classList.add('sel');
+    });
+
+    // Escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && document.getElementById('cb-overlay').classList.contains('open')) {
+        window.closeCallbackModal();
+      }
+    });
+
+    // Phone mask (re-use bm style)
+    var cbPhoneInput = document.getElementById('cb-phone');
+    cbPhoneInput.addEventListener('input', function () {
+      var digits = this.value.replace(/\D/g, '').slice(0, 12);
+      var d = digits;
+      var fmt = '';
+      if (d.length === 0) { this.value = ''; return; }
+      if (d[0] !== '3') d = '38' + d;
+      if (d.length >= 2)  fmt = '+' + d.slice(0, 2);
+      if (d.length >= 3)  fmt += ' (' + d.slice(2, 5);
+      if (d.length >= 5)  fmt += (d.length > 5 ? ')' : '');
+      if (d.length >= 5)  fmt += ' ' + d.slice(5, 8);
+      if (d.length >= 8)  fmt += '-' + d.slice(8, 10);
+      if (d.length >= 10) fmt += '-' + d.slice(10, 12);
+      this.value = fmt;
+    });
+
+    // Success close
+    document.getElementById('cb-success-close').addEventListener('click', window.closeCallbackModal);
+
+    // Submit
+    document.getElementById('cb-submit').addEventListener('click', function () {
+      var nameEl   = document.getElementById('cb-name');
+      var phoneEl  = document.getElementById('cb-phone');
+      var consent  = document.getElementById('cb-consent');
+      var errName  = document.getElementById('cb-err-name');
+      var errPhone = document.getElementById('cb-err-phone');
+      var errBlock = document.getElementById('cb-errblock');
+
+      var valid = true;
+      errName.style.display  = 'none'; nameEl.classList.remove('err');
+      errPhone.style.display = 'none'; phoneEl.classList.remove('err');
+      errBlock.style.display = 'none';
+
+      if (!nameEl.value.trim() || nameEl.value.trim().length < 2) {
+        errName.style.display = 'block'; nameEl.classList.add('err'); valid = false;
+      }
+      var digits = (phoneEl.value || '').replace(/\D/g, '');
+      if (digits.length < 10) {
+        errPhone.style.display = 'block'; phoneEl.classList.add('err'); valid = false;
+      }
+      if (!valid) return;
+
+      // Honeypot check
+      var honey = document.querySelector('#cb-overlay input[name="website"]');
+      if (honey && honey.value) return;
+
+      // Get selected time
+      var selPill = document.querySelector('#cb-time-pills .cb-pill.sel');
+      var preferredTime = selPill ? selPill.getAttribute('data-value') : 'anytime';
+
+      var btn = document.getElementById('cb-submit');
+      btn.disabled = true;
+      btn.textContent = 'Відправляємо…';
+
+      var utm = getUTM();
+      var payload = {
+        name:             nameEl.value.trim(),
+        phone:            phoneEl.value.trim(),
+        callback_request: true,
+        preferred_time:   preferredTime,
+        consent_given:    consent ? consent.checked : true,
+        source_page:      window.location.pathname,
+        source_cta:       window._cbSourceCTA || 'callback',
+        session_id:       getSessionId(),
+        referrer:         document.referrer || null,
+        utm_source:       utm.utm_source,
+        utm_medium:       utm.utm_medium,
+        utm_campaign:     utm.utm_campaign,
+        utm_content:      utm.utm_content,
+        utm_term:         utm.utm_term,
+      };
+
+      fetch('/api/leads/onclinic', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(payload),
+      })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data.ok) {
+          document.getElementById('cb-form-wrap').style.display = 'none';
+          document.getElementById('cb-success').style.display   = 'block';
+          ga4('callback_lead_created', {
+            session_id:     getSessionId(),
+            source_cta:     payload.source_cta,
+            preferred_time: preferredTime,
+            lead_id:        data.leadId,
+          });
+        } else {
+          errBlock.textContent  = data.error || 'Щось пішло не так. Спробуйте ще раз.';
+          errBlock.style.display = 'block';
+          btn.disabled = false;
+          btn.textContent = 'Передзвоніть мені';
+        }
+      })
+      .catch(function () {
+        errBlock.textContent  = 'Помилка мережі. Перевірте з\'єднання та спробуйте.';
+        errBlock.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Передзвоніть мені';
+      });
+    });
+  }
+
+  window.openCallbackModal = function (opts) {
+    opts = opts || {};
+    window._cbSourceCTA = opts.sourceCTA || 'callback';
+
+    injectCallbackModal();
+
+    // Reset form state
+    var formWrap = document.getElementById('cb-form-wrap');
+    var success  = document.getElementById('cb-success');
+    var btn      = document.getElementById('cb-submit');
+    if (formWrap) formWrap.style.display = '';
+    if (success)  success.style.display  = 'none';
+    if (btn)    { btn.disabled = false; btn.textContent = 'Передзвоніть мені'; }
+
+    var nameEl  = document.getElementById('cb-name');
+    var phoneEl = document.getElementById('cb-phone');
+    var errBlock = document.getElementById('cb-errblock');
+    if (nameEl)  { nameEl.value = ''; nameEl.classList.remove('err'); }
+    if (phoneEl) { phoneEl.value = ''; phoneEl.classList.remove('err'); }
+    if (errBlock) errBlock.style.display = 'none';
+
+    // Reset pills to "Будь-коли"
+    document.querySelectorAll('#cb-time-pills .cb-pill').forEach(function (p) { p.classList.remove('sel'); });
+    var anytimePill = document.querySelector('#cb-time-pills .cb-pill[data-value="anytime"]');
+    if (anytimePill) anytimePill.classList.add('sel');
+
+    document.getElementById('cb-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    setTimeout(function () {
+      var nameField = document.getElementById('cb-name');
+      if (nameField) nameField.focus();
+    }, 100);
+
+    ga4('callback_modal_opened', {
+      source_cta: window._cbSourceCTA,
+      session_id: getSessionId(),
+    });
+  };
+
+  window.closeCallbackModal = function () {
+    var overlay = document.getElementById('cb-overlay');
+    if (overlay) overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // TRACKING PHONE — dynamic phone number from Supabase
+  // Replaces [data-phone-placeholder] elements with:
+  //   • <a href="tel:..."> if tracking_phone is set in DB
+  //   • <button onclick="openCallbackModal(...)"> if NULL
+  // ══════════════════════════════════════════════════════════════════════════
+
+  function initTrackingPhone() {
+    var placeholders = document.querySelectorAll('[data-phone-placeholder]');
+    if (!placeholders.length) return;
+
+    var branchSlug = placeholders[0].getAttribute('data-phone-placeholder') || 'onclinic-kharkiv-levada';
+
+    fetch('/api/tracking-phone?branch=' + encodeURIComponent(branchSlug))
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        placeholders.forEach(function (el) {
+          if (data && data.phone) {
+            // Format for display: +38 057 000-00-00
+            var raw = data.phone;
+            el.outerHTML = '<a href="tel:' + escHtml(raw) + '" class="tracking-phone-link" style="color:inherit;font-weight:600">' + escHtml(data.phoneDisplay || raw) + '</a>';
+          } else {
+            el.outerHTML = '<button class="btn-callback-inline" onclick="window.openCallbackModal({sourceCTA:\'geo_phone\'})" style="display:inline;background:none;border:none;padding:0;color:inherit;font-weight:600;cursor:pointer;text-decoration:underline;font-family:inherit;font-size:inherit">Замовити дзвінок</button>';
+          }
+        });
+      })
+      .catch(function () {
+        // On network error show callback button
+        placeholders.forEach(function (el) {
+          el.outerHTML = '<button class="btn-callback-inline" onclick="window.openCallbackModal({sourceCTA:\'geo_phone\'})" style="display:inline;background:none;border:none;padding:0;color:inherit;font-weight:600;cursor:pointer;text-decoration:underline;font-family:inherit;font-size:inherit">Замовити дзвінок</button>';
+        });
+      });
+  }
+
   // ── INIT ───────────────────────────────────────────────────────────────────
   parseAndStoreUTM();
   getSessionId();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTrackingPhone);
+  } else {
+    initTrackingPhone();
+  }
 
 })();
