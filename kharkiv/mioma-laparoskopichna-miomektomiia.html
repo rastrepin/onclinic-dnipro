@@ -38,13 +38,15 @@
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Fixel+Display:wght@600;700&family=Fixel+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --blue:#0B4F9A;--blue-mid:#1464B8;--blue-light:#EEF5FF;
-  --gold:#C49A1A;--gold-light:#FBF6E2;--gold-mid:#F0DFA0;
+  --gold:#C49A1A;--gold2:#e8b820;--gold-light:#FBF6E2;--gold-mid:#F0DFA0;
   --gray-50:#F9FAFB;--gray-100:#F3F4F6;--gray-200:#E5E7EB;
   --gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;
   --gray-600:#6B7280;--gray-700:#374151;--gray-900:#111827;
@@ -52,7 +54,7 @@
   --shadow-md:0 4px 20px rgba(0,0,0,.08);
   --shadow-lg:0 8px 40px rgba(0,0,0,.10);
 }
-body{font-family:'Onest',sans-serif;background:#fff;color:var(--gray-900);line-height:1.6;-webkit-font-smoothing:antialiased}
+body{font-family:'Fixel Text',sans-serif;background:#fff;color:var(--gray-900);line-height:1.6;-webkit-font-smoothing:antialiased}
 /* NAV */
 .nav{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;border-bottom:1px solid var(--gray-200);position:sticky;top:0;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);z-index:200}
 .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
@@ -64,22 +66,23 @@ body{font-family:'Onest',sans-serif;background:#fff;color:var(--gray-900);line-h
 .nav-links{display:flex;gap:28px;list-style:none}
 .nav-links a{text-decoration:none;color:var(--gray-600);font-size:14px;font-weight:400;cursor:pointer;transition:color .15s}
 .nav-links a:hover{color:var(--blue)}
-.nav-cta{background:var(--blue);color:#fff;border:none;padding:9px 22px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Onest',sans-serif;transition:background .2s}
+.nav-cta{background:var(--blue);color:#fff;border:none;padding:9px 22px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Fixel Text',sans-serif;transition:background .2s}
 .nav-cta:hover{background:var(--blue-mid)}
 /* HERO */
 .hero{max-width:1120px;margin:0 auto;padding:72px 48px 80px;display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:center}
 .hero-label{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:8px}
 .hero-label::before{content:'';width:24px;height:1.5px;background:var(--gold);flex-shrink:0}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;color:var(--blue);line-height:1.1;margin-bottom:24px;letter-spacing:-.5px}
+.hero h1{font-family:'Source Serif 4',serif;font-size:52px;font-weight:600;color:var(--blue);line-height:1.1;margin-bottom:24px;letter-spacing:-.5px}
 .hero h1 em{font-style:italic;color:var(--gold)}
 .hero-sub{font-size:15px;color:var(--gray-600);line-height:1.75;margin-bottom:36px;max-width:480px}
+.hero-price-sub{font-size:16px;color:var(--gold2);font-weight:600;margin:10px 0 20px;line-height:1.4}
 .hero-stats{display:flex;gap:32px;margin-bottom:40px}
-.stat-num{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--blue);line-height:1}
+.stat-num{font-family:'Source Serif 4',serif;font-size:32px;font-weight:700;color:var(--blue);line-height:1}
 .stat-lbl{font-size:12px;color:var(--gray-400);margin-top:4px;line-height:1.4}
 .hero-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-.btn-primary{background:var(--blue);color:#fff;border:none;padding:13px 28px;border-radius:10px;font-size:15px;font-weight:500;cursor:pointer;font-family:'Onest',sans-serif;transition:all .2s;text-decoration:none;display:inline-block}
+.btn-primary{background:var(--blue);color:#fff;border:none;padding:13px 28px;border-radius:10px;font-size:15px;font-weight:500;cursor:pointer;font-family:'Fixel Text',sans-serif;transition:all .2s;text-decoration:none;display:inline-block}
 .btn-primary:hover{background:var(--blue-mid);transform:translateY(-1px);box-shadow:0 6px 20px rgba(11,79,154,.25)}
-.btn-ghost{background:transparent;color:var(--gray-700);border:1.5px solid var(--gray-200);padding:13px 20px;border-radius:10px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Onest',sans-serif;transition:border-color .2s;text-decoration:none;display:inline-block}
+.btn-ghost{background:transparent;color:var(--gray-700);border:1.5px solid var(--gray-200);padding:13px 20px;border-radius:10px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Fixel Text',sans-serif;transition:border-color .2s;text-decoration:none;display:inline-block}
 .btn-ghost:hover{border-color:var(--gray-400)}
 /* HERO VISUAL */
 .hero-visual{display:flex;flex-direction:column;gap:12px}
@@ -94,7 +97,7 @@ body{font-family:'Onest',sans-serif;background:#fff;color:var(--gray-900);line-h
 .stats-inner{max-width:1120px;margin:0 auto;padding:24px 48px;display:grid;grid-template-columns:repeat(4,1fr);text-align:center;gap:0}
 .sbar-item{padding:0 16px}
 .sbar-item+.sbar-item{border-left:1px solid var(--gray-200)}
-.sbar-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--blue);line-height:1;margin-bottom:4px}
+.sbar-num{font-family:'Source Serif 4',serif;font-size:28px;font-weight:700;color:var(--blue);line-height:1;margin-bottom:4px}
 .sbar-lbl{font-size:12px;color:var(--gray-400);line-height:1.35}
 /* TRUST */
 .trust-bar{background:var(--gray-50);border-bottom:1px solid var(--gray-100);padding:12px 48px}
@@ -105,7 +108,7 @@ body{font-family:'Onest',sans-serif;background:#fff;color:var(--gray-900);line-h
 .section{max-width:1120px;margin:0 auto;padding:80px 48px}
 .section-label{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px}
 .section-label::before{content:'';width:20px;height:1.5px;background:var(--gold);flex-shrink:0}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:var(--blue);line-height:1.15;margin-bottom:12px}
+.section-title{font-family:'Source Serif 4',serif;font-size:40px;font-weight:600;color:var(--blue);line-height:1.15;margin-bottom:12px}
 .section-sub{font-size:15px;color:var(--gray-600);line-height:1.7;margin-bottom:48px}
 .bg-gray{background:var(--gray-50);border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100)}
 hr.divider{border:none;border-top:1px solid var(--gray-100);max-width:1120px;margin:0 auto}
@@ -144,7 +147,7 @@ hr.divider{border:none;border-top:1px solid var(--gray-100);max-width:1120px;mar
 .quiz-top{text-align:center;margin-bottom:48px}
 .quiz-top .section-label{justify-content:center}
 .quiz-top .section-label::before{display:none}
-.quiz-top h2{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;color:var(--blue);margin-bottom:8px}
+.quiz-top h2{font-family:'Source Serif 4',serif;font-size:34px;font-weight:600;color:var(--blue);margin-bottom:8px}
 .quiz-top p{font-size:15px;color:var(--gray-500)}
 .quiz-progress{display:flex;align-items:center;justify-content:center;margin-bottom:40px}
 .qp-step{display:flex;flex-direction:column;align-items:center;gap:8px}
@@ -159,22 +162,22 @@ hr.divider{border:none;border-top:1px solid var(--gray-100);max-width:1120px;mar
 .quiz-step.active{display:block}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .quiz-step-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-400);text-align:center;margin-bottom:8px}
-.quiz-q{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--blue);text-align:center;margin-bottom:8px}
+.quiz-q{font-family:'Source Serif 4',serif;font-size:30px;font-weight:600;color:var(--blue);text-align:center;margin-bottom:8px}
 .quiz-hint{text-align:center;color:var(--gray-400);font-size:14px;margin-bottom:32px}
 .quiz-opts{display:flex;flex-direction:column;gap:10px}
-.q-opt{border:1.5px solid var(--gray-200);border-radius:12px;padding:18px 20px;cursor:pointer;transition:all .18s;background:#fff;text-align:left;width:100%;font-family:'Onest',sans-serif}
+.q-opt{border:1.5px solid var(--gray-200);border-radius:12px;padding:18px 20px;cursor:pointer;transition:all .18s;background:#fff;text-align:left;width:100%;font-family:'Fixel Text',sans-serif}
 .q-opt:hover{border-color:var(--gray-300);box-shadow:var(--shadow-sm);transform:translateY(-1px)}
 .q-opt.selected{border-color:var(--blue);background:var(--blue-light)}
 .q-opt-title{font-weight:600;font-size:14px;color:var(--gray-900);margin-bottom:4px}
 .q-opt-sub{font-size:12px;color:var(--gray-400)}
 .quiz-nav{display:flex;justify-content:center;gap:12px;margin-top:28px}
-.q-btn-back{background:transparent;border:1.5px solid var(--gray-200);border-radius:10px;padding:12px 20px;font-family:'Onest',sans-serif;font-size:14px;color:var(--gray-600);cursor:pointer;transition:border-color .2s}
+.q-btn-back{background:transparent;border:1.5px solid var(--gray-200);border-radius:10px;padding:12px 20px;font-family:'Fixel Text',sans-serif;font-size:14px;color:var(--gray-600);cursor:pointer;transition:border-color .2s}
 .q-btn-back:hover{border-color:var(--gray-400)}
-.q-btn-next{background:var(--blue);border:none;border-radius:10px;padding:12px 32px;font-family:'Onest',sans-serif;font-size:14px;font-weight:600;color:#fff;cursor:pointer;transition:background .2s}
+.q-btn-next{background:var(--blue);border:none;border-radius:10px;padding:12px 32px;font-family:'Fixel Text',sans-serif;font-size:14px;font-weight:600;color:#fff;cursor:pointer;transition:background .2s}
 .q-btn-next:hover{background:var(--blue-mid)}
 .q-btn-next:disabled{background:var(--gray-300);cursor:not-allowed}
 .crit-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 8px}
-.crit-pill{background:#fff;border:1.5px solid var(--gray-200);border-radius:10px;padding:12px 14px;text-align:center;font-size:14px;font-weight:500;cursor:pointer;transition:all .15s;color:var(--gray-700);font-family:'Onest',sans-serif;line-height:1.35}
+.crit-pill{background:#fff;border:1.5px solid var(--gray-200);border-radius:10px;padding:12px 14px;text-align:center;font-size:14px;font-weight:500;cursor:pointer;transition:all .15s;color:var(--gray-700);font-family:'Fixel Text',sans-serif;line-height:1.35}
 .crit-pill:hover:not(.inactive){border-color:var(--gray-300)}
 .crit-pill.selected{border-color:var(--blue);background:var(--blue-light);color:var(--blue);font-weight:600}
 .crit-pill.inactive{opacity:.35;cursor:not-allowed;pointer-events:none}
@@ -184,7 +187,7 @@ hr.divider{border:none;border-top:1px solid var(--gray-100);max-width:1120px;mar
 .quiz-result.active{display:block}
 .result-card,.qr-card{background:#fff;border-radius:20px;border:1.5px solid var(--gray-200);padding:28px;margin-bottom:20px;box-shadow:var(--shadow-md)}
 .qr-label{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;text-align:center}
-.qr-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--blue);margin-bottom:6px}
+.qr-title{font-family:'Source Serif 4',serif;font-size:28px;font-weight:600;color:var(--blue);margin-bottom:6px}
 .qr-subtitle{font-size:14px;color:var(--gray-600);margin-bottom:18px;line-height:1.5}
 .qr-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:18px}
 .qrf{background:var(--gray-50);border-radius:8px;padding:10px 8px;text-align:center}
@@ -205,7 +208,7 @@ hr.divider{border:none;border-top:1px solid var(--gray-100);max-width:1120px;mar
 .qrd-info{flex:1}
 .qrd-name{font-size:14px;font-weight:600;color:var(--gray-900)}
 .qrd-role{font-size:12px;color:var(--gray-400);margin-top:1px}
-.qrd-cta{background:var(--blue);color:#fff;border:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:'Onest',sans-serif;transition:background .2s}
+.qrd-cta{background:var(--blue);color:#fff;border:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:'Fixel Text',sans-serif;transition:background .2s}
 .qrd-cta:hover{background:var(--blue-mid)}
 .qr-note{font-size:12px;color:var(--gray-400);text-align:center;margin-top:14px;line-height:1.5}
 .qr-consult{background:var(--blue-light);border-radius:14px;padding:24px;text-align:center;margin-bottom:20px}
@@ -220,15 +223,15 @@ hr.divider{border:none;border-top:1px solid var(--gray-100);max-width:1120px;mar
 .dc-strip-gold{background:linear-gradient(90deg,var(--gold),#E0B84A)}
 .doc-avatar{width:64px;height:64px;border-radius:50%;margin-bottom:18px;overflow:hidden;border:2px solid var(--gray-200);display:block}
 .doc-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-.doc-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--blue);margin-bottom:4px;line-height:1.2}
+.doc-name{font-family:'Source Serif 4',serif;font-size:22px;font-weight:600;color:var(--blue);margin-bottom:4px;line-height:1.2}
 .doc-title{font-size:12px;color:var(--gold);font-weight:500;margin-bottom:16px;letter-spacing:.2px}
 .doc-cred{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px}
 .cred-item{background:var(--gray-50);border-radius:8px;padding:10px 12px}
-.cred-num{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--blue);line-height:1}
+.cred-num{font-family:'Source Serif 4',serif;font-size:20px;font-weight:700;color:var(--blue);line-height:1}
 .cred-lbl{font-size:11px;color:var(--gray-400);margin-top:2px;line-height:1.3}
 .doc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:18px}
 .tag{background:var(--gray-100);color:var(--gray-700);font-size:11px;padding:4px 10px;border-radius:20px;font-weight:500}
-.doc-book{width:100%;border:none;padding:12px;border-radius:10px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Onest',sans-serif;transition:all .2s;margin-bottom:8px}
+.doc-book{width:100%;border:none;padding:12px;border-radius:10px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Fixel Text',sans-serif;transition:all .2s;margin-bottom:8px}
 .db-blue{background:var(--blue);color:#fff}
 .db-blue:hover{background:var(--blue-mid)}
 .db-gold{background:var(--gold-light);color:#7A5C00;border:1.5px solid var(--gold-mid)}
@@ -244,21 +247,22 @@ hr.divider{border:none;border-top:1px solid var(--gray-100);max-width:1120px;mar
 .faq-q.open{color:var(--blue)}
 .faq-icon{font-size:18px;color:var(--gray-400);transition:transform .2s;flex-shrink:0}
 .faq-q.open .faq-icon{transform:rotate(45deg);color:var(--blue)}
-.faq-a{display:none;padding:0 24px 20px;font-size:14px;color:var(--gray-600);line-height:1.7}
+.faq-a{overflow:hidden;max-height:0;padding:0 24px;font-size:14px;color:var(--gray-600);line-height:1.7;transition:max-height .3s ease,padding .3s ease}
+.faq-a.open{max-height:600px;padding:0 24px 20px}
 .faq-a.open{display:block}
 /* CTA SECTION */
 .cta-section{background:var(--gray-50);border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100);padding:80px 48px;text-align:center}
-.cta-title{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:var(--blue);margin-bottom:12px}
+.cta-title{font-family:'Source Serif 4',serif;font-size:40px;font-weight:600;color:var(--blue);margin-bottom:12px}
 .cta-sub{font-size:15px;color:var(--gray-600);margin-bottom:32px;line-height:1.7}
 /* backward compat: old cta-banner class → same style */
 .cta-banner{background:var(--gray-50);border-radius:0;padding:56px 48px;text-align:center}
-.cta-banner h2{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:var(--blue);margin-bottom:12px;line-height:1.15}
+.cta-banner h2{font-family:'Source Serif 4',serif;font-size:40px;font-weight:600;color:var(--blue);margin-bottom:12px;line-height:1.15}
 .cta-banner h2 em{font-style:italic;color:var(--gold)}
 .cta-banner p{font-size:15px;color:var(--gray-600);margin-bottom:32px;line-height:1.7}
 /* GEO */
 .geo-section,.geo-block{background:var(--gray-50);border-top:1px solid var(--gray-100);padding:48px 48px;max-width:1120px;margin:0 auto}
 .geo-inner{max-width:800px;margin:0 auto;padding:64px 48px}
-.geo-title,.geo-block h2{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--blue);margin-bottom:16px}
+.geo-title,.geo-block h2{font-family:'Source Serif 4',serif;font-size:28px;font-weight:600;color:var(--blue);margin-bottom:16px}
 .geo-text,.geo-block p{font-size:14px;color:var(--gray-600);line-height:1.8;max-width:780px}
 .geo-text p{margin-bottom:12px}
 .geo-text strong,.geo-block strong{color:var(--gray-900)}
@@ -274,27 +278,27 @@ hr.divider{border:none;border-top:1px solid var(--gray-100);max-width:1120px;mar
 .modal-close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.12);border:none;border-radius:50%;width:32px;height:32px;color:rgba(255,255,255,.8);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s}
 .modal-close:hover{background:rgba(255,255,255,.2)}
 .modal-kicker{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:6px}
-.modal-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#fff;line-height:1.2;margin-bottom:4px}
+.modal-title{font-family:'Source Serif 4',serif;font-size:26px;font-weight:600;color:#fff;line-height:1.2;margin-bottom:4px}
 .modal-sub{font-size:13px;color:rgba(255,255,255,.65);line-height:1.5}
 .modal-body{padding:28px 32px}
 .form-field{margin-bottom:14px}
 .form-field label{display:block;font-size:13px;font-weight:500;color:var(--gray-700);margin-bottom:5px}
-.form-field input{width:100%;padding:12px 14px;border:1.5px solid var(--gray-200);border-radius:8px;font-family:'Onest',sans-serif;font-size:14px;color:var(--gray-900);outline:none;transition:border-color .15s}
+.form-field input{width:100%;padding:12px 14px;border:1.5px solid var(--gray-200);border-radius:8px;font-family:'Fixel Text',sans-serif;font-size:14px;color:var(--gray-900);outline:none;transition:border-color .15s}
 .form-field input:focus{border-color:var(--blue)}
 .form-field input::placeholder{color:var(--gray-400)}
 .contact-methods{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
-.cm-opt{display:flex;align-items:center;gap:6px;padding:8px 12px;border:1.5px solid var(--gray-200);border-radius:8px;cursor:pointer;font-size:13px;font-weight:500;transition:all .15s;font-family:'Onest',sans-serif;background:#fff}
+.cm-opt{display:flex;align-items:center;gap:6px;padding:8px 12px;border:1.5px solid var(--gray-200);border-radius:8px;cursor:pointer;font-size:13px;font-weight:500;transition:all .15s;font-family:'Fixel Text',sans-serif;background:#fff}
 .cm-opt input{display:none}
 .cm-opt.selected{border-color:var(--blue);background:var(--blue-light);color:var(--blue)}
 .form-consent{display:flex;align-items:flex-start;gap:10px;margin:16px 0;font-size:12px;color:var(--gray-500);line-height:1.5;cursor:pointer}
 .form-consent input{margin-top:2px;flex-shrink:0}
 .form-honey{display:none}
-.form-submit{width:100%;background:var(--blue);border:none;border-radius:10px;padding:14px;font-family:'Onest',sans-serif;font-size:15px;font-weight:500;color:#fff;cursor:pointer;transition:background .2s}
+.form-submit{width:100%;background:var(--blue);border:none;border-radius:10px;padding:14px;font-family:'Fixel Text',sans-serif;font-size:15px;font-weight:500;color:#fff;cursor:pointer;transition:background .2s}
 .form-submit:hover{background:var(--blue-mid)}
 .form-submit:disabled{background:var(--gray-300);cursor:not-allowed}
 .form-success{text-align:center;padding:20px 0}
 .fs-icon{font-size:40px;margin-bottom:12px}
-.fs-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--blue);margin-bottom:8px}
+.fs-title{font-family:'Source Serif 4',serif;font-size:26px;font-weight:600;color:var(--blue);margin-bottom:8px}
 .fs-sub{font-size:14px;color:var(--gray-500);line-height:1.6}
 /* FOOTER */
 footer,.site-footer{border-top:1px solid var(--gray-100);padding:28px 48px;display:flex;justify-content:space-between;align-items:center;max-width:1120px;margin:0 auto;font-size:13px;color:var(--gray-400)}
@@ -336,7 +340,7 @@ nav{background:#fff;border-bottom:1px solid var(--gray-200);padding:0 24px;heigh
 
 .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.85);padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;letter-spacing:.05em;margin-bottom:24px}
 
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,6vw,58px);font-weight:600;color:#fff;line-height:1.1;margin-bottom:20px;letter-spacing:-.5px}
+.hero h1{font-family:'Source Serif 4',serif;font-size:clamp(34px,6vw,58px);font-weight:600;color:#fff;line-height:1.1;margin-bottom:20px;letter-spacing:-.5px}
 
 .hero h1 em{font-style:italic;color:var(--gold)}
 
@@ -350,7 +354,7 @@ nav{background:#fff;border-bottom:1px solid var(--gray-200);padding:0 24px;heigh
 
 .btn-gold:hover{background:var(--gold);color:#fff}
 
-.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35);padding:14px 28px;border-radius:8px;font-family:'Onest',sans-serif;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block;transition:border-color .15s}
+.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35);padding:14px 28px;border-radius:8px;font-family:'Fixel Text',sans-serif;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block;transition:border-color .15s}
 
 .btn-outline:hover{border-color:rgba(255,255,255,.65)}
 
@@ -380,7 +384,7 @@ nav{background:#fff;border-bottom:1px solid var(--gray-200);padding:0 24px;heigh
 
 .sec-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
 
-h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--blue);margin-bottom:12px;line-height:1.2}
+h2.sec-title{font-family:'Source Serif 4',serif;font-size:30px;font-weight:600;color:var(--blue);margin-bottom:12px;line-height:1.2}
 
 /* CALLOUTS */
 
@@ -476,7 +480,7 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:6
 
 .dc-recommended{background:var(--blue-light);border-radius:6px;padding:8px 12px;font-size:12px;color:var(--blue);margin-bottom:14px;font-weight:500}
 
-.dc-cta{width:100%;background:transparent;color:var(--gold);border:2px solid var(--gold);padding:12px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;transition:all .18s;margin-bottom:8px;font-family:'Onest',sans-serif}
+.dc-cta{width:100%;background:transparent;color:var(--gold);border:2px solid var(--gold);padding:12px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;transition:all .18s;margin-bottom:8px;font-family:'Fixel Text',sans-serif}
 
 .dc-cta:hover{background:var(--gold);color:#fff}
 
@@ -514,7 +518,7 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:6
 
 .price-note{font-size:12px;color:var(--gray-500);margin-bottom:20px;line-height:1.5}
 
-.price-cta{width:100%;background:var(--gold);color:#fff;border:none;padding:14px;border-radius:8px;font-family:'Onest',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:background .15s;margin-bottom:16px}
+.price-cta{width:100%;background:var(--gold);color:#fff;border:none;padding:14px;border-radius:8px;font-family:'Fixel Text',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:background .15s;margin-bottom:16px}
 
 .price-cta:hover{background:var(--gold)}
 
@@ -546,7 +550,7 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:6
 
 .fs-icon{font-size:40px;margin-bottom:12px}
 
-.fs-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--blue);margin-bottom:8px}
+.fs-title{font-family:'Source Serif 4',serif;font-size:24px;font-weight:600;color:var(--blue);margin-bottom:8px}
 
 .fs-sub{font-size:14px;color:var(--gray-500);line-height:1.6}
 
@@ -569,18 +573,18 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:6
   .alt-grid{grid-template-columns:1fr}
 
 .hero-section{background:linear-gradient(135deg,#0B4F9A 0%,#0a3d7a 60%,#07295c 100%)}
-.hero-title-line1{font-family:'Onest',sans-serif;font-weight:700;color:#fff;text-transform:uppercase;font-size:clamp(28px,5vw,48px);display:block;line-height:1.1}
-.hero h1 em{font-family:'Cormorant Garamond',serif;font-style:italic;color:#e8b820;font-size:clamp(32px,5.5vw,54px)}
-.hero-label{color:rgba(255,255,255,0.6)!important}
+.hero-title-line1{font-family:'Fixel Text',sans-serif;font-weight:700;color:#fff;text-transform:uppercase;font-size:clamp(28px,5vw,48px);display:block;line-height:1.1}
+.hero h1 em{font-style:normal;color:inherit}
+.hero-label{color:var(--gold)!important}
 .hero-label::before{background:var(--gold)!important}
 .hero-sub{color:rgba(255,255,255,0.75)!important}
 .hero-stats .stat-num{color:#fff!important}
 .hero-stats .stat-lbl{color:rgba(255,255,255,0.6)!important}
 .hero .btn-ghost{color:rgba(255,255,255,0.9);border-color:rgba(255,255,255,0.4)}
 .hero .btn-ghost:hover{background:rgba(255,255,255,0.1);color:#fff}
-.sbar-num{font-family:'Onest',sans-serif!important;font-weight:800;color:var(--blue)}
-.sbar-lbl{font-family:'Onest',sans-serif}
-.cred-num{font-family:'Onest',sans-serif!important;font-weight:700}
+.sbar-num{font-family:'Fixel Text',sans-serif!important;font-weight:800;color:var(--blue)}
+.sbar-lbl{font-family:'Fixel Text',sans-serif}
+.cred-num{font-family:'Fixel Text',sans-serif!important;font-weight:700}
 .data-pending{text-decoration:line-through;color:var(--gray-400);font-style:normal}
 .section{padding-top:96px!important;padding-bottom:96px!important}
 .hero{padding-bottom:80px}
@@ -594,12 +598,12 @@ h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:6
 .roadmap-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}
 .roadmap-sub{font-size:13px;color:rgba(255,255,255,0.75);line-height:1.4}
 
-.price-cta{width:100%;background:var(--gold-light,#fffbeb);color:#7A5C00;border:1.5px solid #C49A1A;border-radius:10px;font-weight:500;padding:12px 24px;font-family:'Onest',sans-serif;cursor:pointer;font-size:15px;transition:all .2s}
+.price-cta{width:100%;background:var(--gold-light,#fffbeb);color:#7A5C00;border:1.5px solid #C49A1A;border-radius:10px;font-weight:500;padding:12px 24px;font-family:'Fixel Text',sans-serif;cursor:pointer;font-size:15px;transition:all .2s}
 .price-cta:hover{background:#C49A1A;color:#fff}
 /* === FONT OVERRIDES === */
-.hero h1 em, .hero-title em { font-family: 'Cormorant Garamond', serif; font-style: italic; }
+.hero h1 em, .hero-title em { font-family: 'Source Serif 4', serif; font-style: italic; }
 .fact-value, .fact-val, .stat-num, .sbar-num, .cred-num, .doc-name,
-.section-title, .hero-stats { font-family: 'Onest', sans-serif; }
+.section-title, .hero-stats { font-family: 'Fixel Text', sans-serif; }
 /* === HERO BUTTONS === */
 .hero .btn-primary, .hero-section .btn-primary {
   background: white; color: var(--blue);
@@ -691,7 +695,7 @@ h2 { margin-bottom: 20px; }
 
 /* #1  H2: Onest, margin 30px, max-width 720px */
 h2.section-title, h2.sec-title, .section-title {
-  font-family: 'Onest', sans-serif !important;
+  font-family: 'Fixel Text', sans-serif !important;
   font-size: clamp(20px, 2.2vw, 28px) !important;
   margin-bottom: 30px !important;
   max-width: 720px;
@@ -700,10 +704,16 @@ h2.section-title, h2.sec-title, .section-title {
 
 /* #2/#3  Doctor H1 і sec-title: Onest */
 .hero h1, section.hero h1 {
-  font-family: 'Onest', sans-serif !important;
+  font-family: 'Source Serif 4', serif !important;
+  font-style: normal !important;
+  color: #fff !important;
+  font-size: clamp(28px, 6vw, 56px) !important;
+  font-weight: 600 !important;
+  line-height: 1.18 !important;
+  letter-spacing: -0.02em !important;
 }
 .sec-title {
-  font-family: 'Onest', sans-serif !important;
+  font-family: 'Fixel Text', sans-serif !important;
   font-size: clamp(20px, 2.2vw, 28px) !important;
   margin-bottom: 30px !important;
 }
@@ -795,7 +805,7 @@ h2.section-title, h2.sec-title, .section-title {
 .quiz-top h2,
 .quiz-inner h2,
 #quiz h2 {
-  font-family: 'Onest', sans-serif !important;
+  font-family: 'Fixel Text', sans-serif !important;
   font-size: clamp(18px, 2vw, 26px) !important;
 }
 
@@ -958,6 +968,7 @@ h2.section-title, h2.sec-title, .section-title {
   color: var(--gray-400); font-size: 14px; margin-top: 24px;
 }
 .method-photo-placeholder small { font-size: 12px; margin-top: 4px; opacity: 0.7; }
+.method-photo{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:12px;margin-top:24px;display:block}
 .method-equip-section { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--gray-200); }
 .method-equip-label {
   font-size: 11px; font-weight: 700; letter-spacing: .12em;
@@ -967,7 +978,7 @@ h2.section-title, h2.sec-title, .section-title {
   display: inline-block; margin-top: 20px;
   background: transparent; border: 1.5px solid var(--gray-200);
   border-radius: 8px; padding: 12px 22px;
-  font-family: 'Onest', sans-serif; font-size: 14px; font-weight: 500;
+  font-family: 'Fixel Text', sans-serif; font-size: 14px; font-weight: 500;
   color: var(--gray-700); cursor: pointer; transition: border-color .15s, color .15s;
 }
 .method-toggle:hover { border-color: var(--blue); color: var(--blue); }
@@ -993,7 +1004,7 @@ h2.section-title, h2.sec-title, .section-title {
 .price-section .price-cta {
   width: 100%; display: block; text-align: center;
   padding: 14px 20px; font-size: 15px; border-radius: 10px; margin-bottom: 20px;
-  cursor: pointer; border: none; font-family: 'Onest', sans-serif; font-weight: 600;
+  cursor: pointer; border: none; font-family: 'Fixel Text', sans-serif; font-weight: 600;
 }
 .price-includes h3, .price-excludes h3 {
   font-size: 11px; text-transform: uppercase; letter-spacing: .05em;
@@ -1073,13 +1084,100 @@ h2.section-title, h2.sec-title, .section-title {
   .decision-cards{grid-template-columns:1fr}
   .decision-block{padding:32px 20px}
 }
+
+/* STICKY CTA (mobile) */
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:100;box-shadow:0 -4px 16px rgba(11,79,154,0.08);transform:translateY(100%);transition:transform .3s ease}
+.sticky-cta.visible{transform:translateY(0)}
+@media(min-width:769px){.sticky-cta{display:none!important}}
+.sticky-cta__info{display:flex;flex-direction:column;gap:2px}
+.sticky-cta__name{font-family:'Fixel Text',sans-serif;font-weight:600;font-size:14px;color:var(--text)}
+.sticky-cta__price{font-family:'Fixel Text',sans-serif;font-size:13px;color:var(--muted)}
+.sticky-cta__btn{white-space:nowrap;min-width:130px;background:var(--gold);color:#fff;border:none;padding:12px 18px;border-radius:8px;font-family:'Fixel Text',sans-serif;font-weight:700;font-size:14px;cursor:pointer}
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чи можна завагітніти після лапароскопічної міомектомії?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Так — матка зберігається повністю. Більшість жінок успішно виношують дитину після операції. Рекомендація — зачекати 6–12 місяців для формування рубця та пройти контрольне УЗД перед плануванням."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Скільки часу займає відновлення?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "2–3 дні в стаціонарі, потім виписка. До офісної роботи — через 2–3 тижні. Фізичні навантаження — від 4–6 тижнів. Шви розсмоктуються самостійно."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чим лапароскопія відрізняється від відкритої операції?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "При відкритій лапаротомії — розріз 10–15 см, 5–7 днів стаціонару, 4–6 тижнів відновлення. При лапароскопії — три проколи по 0,5–1 см, 2–3 дні стаціонару, 2–3 тижні до роботи. Хірургічний результат однаковий."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чи боляче після лапароскопії?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Операція під загальною анестезією — під час втручання нічого не відчуваєте. Після — помірний дискомфорт у животі та плечах (від газу CO₂) протягом 1–2 діб. Лікарі призначають знеболення. Більшість пацієнток відзначають, що відновлення легше, ніж очікували."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чи може міома вирости знову?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Видалені вузли не повертаються. Нові вузли можуть утворитись з часом — ризик 15–30% протягом 5 років. Менопауза зупиняє ріст міоми. Контрольне УЗД через 6–12 місяців після операції."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чи є альтернатива операції?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Якщо вузол субмукозний (в порожнині матки) — гістероскопія без жодних розрізів, виписка за 1 день. Якщо вузол великий і матку зберегти неможливо — лапароскопічна гістеректомія. Метод визначає лікар після УЗД."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "ОН Клінік Харків",
+  "url": "https://onclinic.check-up.in.ua/kharkiv",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "вул. Молочна, 48",
+    "addressLocality": "Харків",
+    "addressRegion": "Харківська область",
+    "addressCountry": "UA"
+  },
+  "openingHours": [
+    "Mo-Fr 08:00-18:00",
+    "Sa 08:00-17:00",
+    "Su 08:30-14:00"
+  ],
+  "medicalSpecialty": "Gynecology"
+}
+</script>
 </head>
 <body data-case-slug="mioma-laparoskopichna-miomektomiia">
 
 <nav class="nav">
   <a class="nav-brand" href="/kharkiv/levada">
-    <img class="nav-logo-img" src="../assets/logo/logo-horizontal.png" alt="ОН Клінік">
+    <img class="nav-logo-img" src="/assets/logo/logo-horizontal.png" alt="ОН Клінік">
   </a>
   <ul class="nav-links">
     <li><a href="#indications">Показання</a></li><li><a href="#stages">Етапи</a></li><li><a href="#doctors">Хірурги</a></li><li><a href="#faq">FAQ</a></li>
@@ -1100,8 +1198,9 @@ h2.section-title, h2.sec-title, .section-title {
 <div class="hero-section">
 <div class="hero">
   <div>
-    <div class="hero-label">Оперативна гінекологія · ОН Клінік Харків</div>
-    <h1><span class="hero-title-line1">ЛАПАРОСКОПІЧНА</span><em>міомектомія</em></h1>
+    <div class="hero-label">ОПЕРАТИВНА ГІНЕКОЛОГІЯ · ОН КЛІНІК ЛЕВАДА</div>
+    <h1>Лапароскопічна міомектомія</h1>
+    <p class="hero-price-sub">Видалення фіброматозного вузла лапароскопічним методом</p>
     <p class="hero-sub">Видалення вузлів міоми через три мікророзрізи — без відкритої операції, без великих шрамів. Матка зберігається. Вагітність після операції можлива.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="openBookingModal({prefilledCase:document.body.dataset.caseSlug||'mioma-laparoskopichna-miomektomiia',sourceCTA:'hero'})">Записатися на консультацію →</button>
@@ -1112,14 +1211,14 @@ h2.section-title, h2.sec-title, .section-title {
   <div class="hero-surgeons">
     <span class="hb-label">Хірурги</span>
     <div class="hs-item">
-      <div class="hs-avatar"><img src="../assets/doctors/afanasiev-card.webp" alt="Афанасьєв І.В." loading="eager"></div>
+      <div class="hs-avatar"><img src="/assets/doctors/afanasiev-card.webp" alt="Афанасьєв І.В." loading="eager"></div>
       <div>
         <div class="hs-name">Афанасьєв І.В.</div>
         <div class="hs-cred">к.м.н., вища категорія, 34 роки досвіду</div>
       </div>
     </div>
     <div class="hs-item">
-      <div class="hs-avatar"><img src="../assets/doctors/striukov-card.webp" alt="Стрюков Д.В." loading="eager"></div>
+      <div class="hs-avatar"><img src="/assets/doctors/striukov-card.webp" alt="Стрюков Д.В." loading="eager"></div>
       <div>
         <div class="hs-name">Стрюков Д.В.</div>
         <div class="hs-cred">к.м.н., вища категорія, 24 роки досвіду</div>
@@ -1185,7 +1284,7 @@ h2.section-title, h2.sec-title, .section-title {
           <div class="r-step-l"><div class="r-step-num">2</div><div class="r-step-line"></div></div>
           <div class="r-step-body">
             <h4>Передопераційна підготовка</h4>
-            <p>Аналізи крові (загальний, біохімічний, коагулограма, група та резус, ВІЛ/гепатит Б/сифіліс), мазок на флору, ПАП-тест, ЕКГ, УЗД органів малого таза.</p>
+            <p>Аналізи крові (загальний, біохімічний, коагулограма, група та резус, ВІЛ/гепатит Б/сифіліс), мазок на флору, ПАП-тест, ЕКГ, УЗД органів малого таза, колпоскопія, УЗД маткових труб (за показаннями).</p>
             <div class="r-step-meta">Тривалість: 1–3 дні</div>
             <div class="r-step-note"><span class="data-pending">≈ 2 000 грн</span></div>
           </div>
@@ -1329,7 +1428,7 @@ h2.section-title, h2.sec-title, .section-title {
   <div class="doctors-grid">
     <div class="doc-card">
       <div class="dc-tag-strip dc-strip-blue" style="background: var(--blue)"></div>
-      <div class="doc-avatar"><img src="../assets/doctors/afanasiev-card.webp" alt="Афанасьєв Ігор Володимирович" loading="lazy"></div>
+      <div class="doc-avatar"><img src="/assets/doctors/afanasiev-card.webp" alt="Афанасьєв Ігор Володимирович" loading="lazy"></div>
       <div class="doc-name">Афанасьєв Ігор Володимирович</div>
       <div class="doc-title">Акушер-гінеколог · Оперуючий гінеколог</div>
       <div class="doc-cred">
@@ -1344,7 +1443,7 @@ h2.section-title, h2.sec-title, .section-title {
     </div>
     <div class="doc-card">
       <div class="dc-tag-strip dc-strip-blue" style="background: var(--blue)"></div>
-      <div class="doc-avatar"><img src="../assets/doctors/striukov-card.webp" alt="Стрюков Дмитро Владиславович" loading="lazy"></div>
+      <div class="doc-avatar"><img src="/assets/doctors/striukov-card.webp" alt="Стрюков Дмитро Владиславович" loading="lazy"></div>
       <div class="doc-name">Стрюков Дмитро Владиславович</div>
       <div class="doc-title">Акушер-гінеколог · Оперуючий гінеколог</div>
       <div class="doc-cred">
@@ -1515,7 +1614,7 @@ h2.section-title, h2.sec-title, .section-title {
       Харківської, Сумської та Полтавської областей.
       ОН Клінік Харків Левада, вул. Молочна, 48, м. Левада.
       Пн–Пт 8:00–18:00, Сб 8:00–17:00, Нд 8:30–14:00.
-      Тел.: <span data-phone-placeholder="onclinic-kharkiv-levada">Замовити дзвінок</span>.
+      Тел.: <span data-phone-placeholder="callback">Замовити дзвінок</span>.
     </p>
   </div>
 </section>
@@ -1579,6 +1678,27 @@ function toggleMethod(btn) {
   btn.setAttribute('aria-expanded', String(isCollapsed));
   btn.textContent = isCollapsed ? 'Згорнути ↑' : 'Показати деталі методу та обладнання ↓';
 }
+</script>
+
+<!-- STICKY CTA (mobile) -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta__info">
+    <span class="sticky-cta__name">Афанасьєв / Стрюков</span>
+    <span class="sticky-cta__price">Консультація — 700 грн</span>
+  </div>
+  <button class="sticky-cta__btn" onclick="openBookingModal({prefilledCase:document.body.dataset.caseSlug,sourceCTA:'sticky'})">ЗАПИСАТИСЬ</button>
+</div>
+<!-- STICKY CTA JS -->
+<script>
+(function(){
+  var cta = document.getElementById('stickyCta');
+  if(!cta||!('IntersectionObserver' in window)) return;
+  var heroCta = document.querySelector('.hero-actions .btn-primary');
+  if(!heroCta) return;
+  new IntersectionObserver(function(entries){
+    cta.classList.toggle('visible', !entries[0].isIntersecting);
+  },{threshold:0}).observe(heroCta);
+})();
 </script>
 <script src="/kharkiv/js/booking.js"></script>
 </body>

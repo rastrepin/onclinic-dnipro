@@ -182,8 +182,8 @@ body{font-family:'Onest',sans-serif;background:#fff;color:var(--gray-900);line-h
 .faq-q.open{color:var(--blue)}
 .faq-icon{font-size:18px;color:var(--gray-400);transition:transform .2s;flex-shrink:0}
 .faq-q.open .faq-icon{transform:rotate(45deg);color:var(--blue)}
-.faq-a{display:none;padding:0 24px 20px;font-size:14px;color:var(--gray-600);line-height:1.7}
-.faq-a.open{display:block}
+.faq-a{overflow:hidden;max-height:0;padding:0 24px;font-size:14px;color:var(--gray-600);line-height:1.7;transition:max-height .3s ease,padding .3s ease}
+.faq-a.open{max-height:600px;padding:0 24px 20px}
 
 /* INLINE FORM */
 .inline-form-section{background:var(--blue);padding:80px 48px}
@@ -272,7 +272,7 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
 <!-- NAV -->
 <nav class="nav">
   <a class="nav-brand" href="/kharkiv/levada">
-    <img class="nav-logo-img" src="../assets/logo/logo-horizontal.png" alt="ОН Клінік" onerror="this.style.display='none'">
+    <img class="nav-logo-img" src="/assets/logo/logo-horizontal.png" alt="ОН Клінік" onerror="this.style.display='none'">
   </a>
   <ul class="nav-links">
     <li><a href="#operations">Операції</a></li>
@@ -311,7 +311,7 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
         <div class="hero-surgeons-label">ХІРУРГИ</div>
         <div class="surgeon-mini">
           <div class="surgeon-mini-avatar">
-            <img src="../assets/doctors/afanasiev-card.webp" alt="Афанасьєв І.В." loading="eager" onerror="this.parentElement.style.background='var(--blue-light)'">
+            <img src="/assets/doctors/afanasiev-card.webp" alt="Афанасьєв І.В." loading="eager" onerror="this.parentElement.style.background='var(--blue-light)'">
           </div>
           <div>
             <div class="surgeon-mini-name">Афанасьєв І.В.</div>
@@ -320,7 +320,7 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
         </div>
         <div class="surgeon-mini">
           <div class="surgeon-mini-avatar">
-            <img src="../assets/doctors/striukov-card.webp" alt="Стрюков Д.В." loading="eager" onerror="this.parentElement.style.background='var(--blue-light)'">
+            <img src="/assets/doctors/striukov-card.webp" alt="Стрюков Д.В." loading="eager" onerror="this.parentElement.style.background='var(--blue-light)'">
           </div>
           <div>
             <div class="surgeon-mini-name">Стрюков Д.В.</div>
@@ -393,7 +393,7 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
     <div class="doc-card">
       <div class="dc-tag-strip dc-strip-blue"></div>
       <div class="doc-photo">
-        <img src="../assets/doctors/afanasiev-full.webp" alt="Афанасьєв Ігор Володимирович" loading="lazy" onerror="this.style.display='none'">
+        <img src="/assets/doctors/afanasiev-full.webp" alt="Афанасьєв Ігор Володимирович" loading="lazy" onerror="this.style.display='none'">
       </div>
       <div class="doc-name">Афанасьєв Ігор Володимирович</div>
       <div class="doc-role">Акушер-гінеколог · Оперуючий гінеколог</div>
@@ -415,7 +415,7 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
     <div class="doc-card">
       <div class="dc-tag-strip dc-strip-gold"></div>
       <div class="doc-photo">
-        <img src="../assets/doctors/striukov-full.webp" alt="Стрюков Дмитро Владиславович" loading="lazy" onerror="this.style.display='none'">
+        <img src="/assets/doctors/striukov-full.webp" alt="Стрюков Дмитро Владиславович" loading="lazy" onerror="this.style.display='none'">
       </div>
       <div class="doc-name">Стрюков Дмитро Владиславович</div>
       <div class="doc-role">Акушер-гінеколог · Оперуючий гінеколог</div>
