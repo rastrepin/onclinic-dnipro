@@ -56,7 +56,7 @@
   --border:#e2e8f0;--radius:12px;
 }
 html{scroll-behavior:smooth}
-body{font-family:'Onest',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
+body{font-family:'Fixel Text',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
 
 /* NAV */
 nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--border);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
@@ -85,7 +85,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 .hero-photo{width:160px;height:200px;border-radius:var(--radius);overflow:hidden;flex-shrink:0;border:3px solid rgba(255,255,255,.25)}
 .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
 .hero-specialty{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:10px}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,40px);font-weight:600;color:#fff;line-height:1.15;margin-bottom:8px}
+.hero h1{font-family:'Source Serif 4',serif;font-size:clamp(26px,3.5vw,40px);font-weight:600;color:#fff;line-height:1.15;margin-bottom:8px}
 .hero-title{font-size:14px;color:rgba(255,255,255,.75);margin-bottom:16px;line-height:1.5}
 .price-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(196,154,26,.18);border:1px solid rgba(196,154,26,.4);border-radius:20px;padding:5px 14px;font-size:13px;font-weight:700;color:var(--gold2);margin-bottom:20px}
 .hero-stats{display:flex;gap:28px;flex-wrap:wrap;margin-bottom:24px}
@@ -96,14 +96,14 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
 .btn-gold{background:transparent;color:var(--gold);border:2px solid var(--gold);padding:14px 32px;border-radius:8px;font-size:15px;font-weight:500;cursor:pointer;text-decoration:none;display:inline-block;transition:all .18s}
 .btn-gold:hover{background:var(--gold);color:#fff}
-.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35);padding:13px 24px;border-radius:8px;font-family:'Onest',sans-serif;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block;transition:border-color .15s}
+.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35);padding:13px 24px;border-radius:8px;font-family:'Fixel Text',sans-serif;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block;transition:border-color .15s}
 .btn-outline:hover{border-color:rgba(255,255,255,.7)}
 @media(max-width:600px){.hero-inner{grid-template-columns:1fr;gap:20px}.hero-photo{width:100%;height:160px}}
 
 /* CONTEXT BLOCK */
 .context-block{background:var(--white);border-bottom:3px solid var(--blue-deep);padding:32px 24px}
 .context-inner{max-width:1100px;margin:0 auto}
-.context-block h2{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--blue-deep);margin-bottom:12px;line-height:1.2}
+.context-block h2{font-family:'Source Serif 4',serif;font-size:26px;font-weight:600;color:var(--blue-deep);margin-bottom:12px;line-height:1.2}
 .context-focus{font-size:15px;color:var(--text);margin-bottom:16px;line-height:1.75}
 .context-stat-badge{display:inline-flex;align-items:center;gap:8px;background:var(--blue-light);border:1px solid #bfdbfe;border-radius:8px;padding:8px 16px;font-size:14px;font-weight:600;color:var(--blue-deep);margin-bottom:16px}
 .context-cta-link{color:var(--blue-deep);text-decoration:none;font-weight:600;font-size:15px;border-bottom:2px solid var(--blue-light);padding-bottom:1px;transition:border-color .15s}
@@ -113,7 +113,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 .section{padding:52px 24px}
 .section-inner{max-width:1100px;margin:0 auto}
 .sec-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,34px);font-weight:600;color:var(--text);margin-bottom:20px;line-height:1.2}
+.sec-title{font-family:'Source Serif 4',serif;font-size:clamp(24px,3vw,34px);font-weight:600;color:var(--text);margin-bottom:20px;line-height:1.2}
 .section-alt{background:var(--white)}
 
 /* FACTS GRID */
@@ -148,11 +148,13 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 .faq-icon{font-size:18px;color:var(--muted);flex-shrink:0;transition:transform .2s}
 .faq-q.open .faq-icon{transform:rotate(45deg);color:var(--blue-deep)}
 .faq-item .faq-a{display:none;padding:0 22px 18px;font-size:14px;color:var(--muted);line-height:1.7}
+.faq-item .faq-a.open{max-height:600px}
+.faq-a.open{max-height:600px;padding:0 24px 20px}
 .faq-item.open .faq-a{display:block}
 
 /* CTA BANNER */
 .cta-banner{background:linear-gradient(135deg,var(--blue-deep) 0%,#073878 100%);padding:56px 48px;color:#fff;text-align:center}
-.cta-banner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,36px);font-weight:600;margin-bottom:10px;line-height:1.2}
+.cta-banner h2{font-family:'Source Serif 4',serif;font-size:clamp(24px,3vw,36px);font-weight:600;margin-bottom:10px;line-height:1.2}
 .cta-banner p{font-size:16px;color:rgba(255,255,255,.75);margin-bottom:28px;line-height:1.6}
 .cta-banner-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 
@@ -171,29 +173,29 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 .modal-overlay.active{display:flex}
 .modal{background:var(--white);border-radius:20px;width:100%;max-width:480px;padding:32px;position:relative;max-height:90vh;overflow-y:auto}
 .modal-close{position:absolute;top:16px;right:16px;background:var(--bg);border:none;border-radius:50%;width:32px;height:32px;font-size:16px;cursor:pointer;color:var(--muted);display:flex;align-items:center;justify-content:center}
-.modal h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;margin-bottom:6px;color:var(--blue-deep)}
+.modal h3{font-family:'Source Serif 4',serif;font-size:24px;font-weight:600;margin-bottom:6px;color:var(--blue-deep)}
 .modal-subtitle{font-size:14px;color:var(--muted);margin-bottom:22px;line-height:1.5}
 .form-group{margin-bottom:14px}
 .form-group label{display:block;font-size:13px;font-weight:600;color:var(--text);margin-bottom:5px}
-.form-group input[type=text],.form-group input[type=tel]{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:'Onest',sans-serif;color:var(--text);outline:none;transition:border-color .15s;background:var(--white)}
+.form-group input[type=text],.form-group input[type=tel]{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:'Fixel Text',sans-serif;color:var(--text);outline:none;transition:border-color .15s;background:var(--white)}
 .form-group input:focus{border-color:var(--blue-deep)}
 .radio-group{display:flex;gap:8px;flex-wrap:wrap}
-.radio-label{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:500;cursor:pointer;padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;transition:all .15s;font-family:'Onest',sans-serif;background:var(--white)}
+.radio-label{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:500;cursor:pointer;padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;transition:all .15s;font-family:'Fixel Text',sans-serif;background:var(--white)}
 .radio-label:has(input:checked){border-color:var(--blue-deep);background:var(--blue-light);color:var(--blue-deep)}
 .consent-row{display:flex;gap:10px;align-items:flex-start;margin:16px 0}
 .consent-row input{margin-top:2px;cursor:pointer;accent-color:var(--blue-deep);flex-shrink:0}
 .consent-row label{font-size:12px;color:var(--muted);line-height:1.5;cursor:pointer}
 .honeypot{display:none}
-.submit-btn{width:100%;background:var(--gold);color:#fff;border:none;border-radius:8px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Onest',sans-serif;transition:background .15s;margin-bottom:8px}
+.submit-btn{width:100%;background:var(--gold);color:#fff;border:none;border-radius:8px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Fixel Text',sans-serif;transition:background .15s;margin-bottom:8px}
 .submit-btn:hover{background:var(--gold2)}
 .submit-btn:disabled{background:var(--border);cursor:not-allowed}
 .success-msg{display:none;text-align:center;padding:20px 0}
-.success-msg h4{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--blue-deep);margin-bottom:8px}
+.success-msg h4{font-family:'Source Serif 4',serif;font-size:24px;font-weight:600;color:var(--blue-deep);margin-bottom:8px}
 .success-msg p{font-size:14px;color:var(--muted)}
 
 .hero-section{background:linear-gradient(135deg,#0B4F9A 0%,#0a3d7a 60%,#07295c 100%)}
-.hero-title-line1{font-family:'Onest',sans-serif;font-weight:700;color:#fff;text-transform:uppercase;font-size:clamp(28px,5vw,48px);display:block;line-height:1.1}
-.hero h1 em{font-family:'Cormorant Garamond',serif;font-style:italic;color:#e8b820;font-size:clamp(32px,5.5vw,54px)}
+.hero-title-line1{font-family:'Fixel Text',sans-serif;font-weight:700;color:#fff;text-transform:uppercase;font-size:clamp(28px,5vw,48px);display:block;line-height:1.1}
+.hero h1 em{font-family:'Source Serif 4',serif;font-style:italic;color:#e8b820;font-size:clamp(32px,5.5vw,54px)}
 .hero-label{color:rgba(255,255,255,0.6)!important}
 .hero-label::before{background:var(--gold)!important}
 .hero-sub{color:rgba(255,255,255,0.75)!important}
@@ -201,16 +203,16 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 .hero-stats .stat-lbl{color:rgba(255,255,255,0.6)!important}
 .hero .btn-ghost{color:rgba(255,255,255,0.9);border-color:rgba(255,255,255,0.4)}
 .hero .btn-ghost:hover{background:rgba(255,255,255,0.1);color:#fff}
-.sbar-num{font-family:'Onest',sans-serif!important;font-weight:800;color:var(--blue)}
-.sbar-lbl{font-family:'Onest',sans-serif}
-.cred-num{font-family:'Onest',sans-serif!important;font-weight:700}
+.sbar-num{font-family:'Fixel Text',sans-serif!important;font-weight:800;color:var(--blue)}
+.sbar-lbl{font-family:'Fixel Text',sans-serif}
+.cred-num{font-family:'Fixel Text',sans-serif!important;font-weight:700}
 .data-pending{text-decoration:line-through;color:var(--gray-400);font-style:normal}
 .section{padding-top:96px!important;padding-bottom:96px!important}
 .hero{padding-bottom:80px}
 /* === FONT OVERRIDES === */
-.hero h1 em, .hero-title em { font-family: 'Cormorant Garamond', serif; font-style: italic; }
+.hero h1 em, .hero-title em { font-family: 'Source Serif 4', serif; font-style: italic; }
 .fact-value, .fact-val, .stat-num, .sbar-num, .cred-num, .doc-name,
-.section-title, .hero-stats { font-family: 'Onest', sans-serif; }
+.section-title, .hero-stats { font-family: 'Fixel Text', sans-serif; }
 /* === HERO BUTTONS === */
 .hero .btn-primary, .hero-section .btn-primary {
   background: white; color: var(--blue);
@@ -293,7 +295,7 @@ h2 { margin-bottom: 20px; }
 
 /* #1  H2: Onest, margin 30px, max-width 720px */
 h2.section-title, h2.sec-title, .section-title {
-  font-family: 'Onest', sans-serif !important;
+  font-family: 'Fixel Text', sans-serif !important;
   font-size: clamp(20px, 2.2vw, 28px) !important;
   margin-bottom: 30px !important;
   max-width: 720px;
@@ -302,10 +304,10 @@ h2.section-title, h2.sec-title, .section-title {
 
 /* #2/#3  Doctor H1 і sec-title: Onest */
 .hero h1, section.hero h1 {
-  font-family: 'Onest', sans-serif !important;
+  font-family: 'Fixel Text', sans-serif !important;
 }
 .sec-title {
-  font-family: 'Onest', sans-serif !important;
+  font-family: 'Fixel Text', sans-serif !important;
   font-size: clamp(20px, 2.2vw, 28px) !important;
   margin-bottom: 30px !important;
 }
@@ -397,7 +399,7 @@ h2.section-title, h2.sec-title, .section-title {
 .quiz-top h2,
 .quiz-inner h2,
 #quiz h2 {
-  font-family: 'Onest', sans-serif !important;
+  font-family: 'Fixel Text', sans-serif !important;
   font-size: clamp(18px, 2vw, 26px) !important;
 }
 
@@ -547,11 +549,11 @@ h2.section-title, h2.sec-title, .section-title {
 .spec-official{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:4px}
 .spec-price{font-size:16px;font-weight:700;color:var(--blue-deep);margin:8px 0 16px}
 .spec-ctas{display:flex;gap:10px;flex-wrap:wrap}
-.spec-cta-primary{background:var(--gold);color:#fff;border:none;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Onest',sans-serif;transition:background .15s;text-decoration:none;display:inline-block}
+.spec-cta-primary{background:var(--gold);color:#fff;border:none;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Fixel Text',sans-serif;transition:background .15s;text-decoration:none;display:inline-block}
 .spec-cta-primary:hover{background:#b88a16}
-.spec-cta-ghost{background:transparent;color:var(--blue-deep);border:1.5px solid var(--blue-deep);border-radius:8px;padding:10px 18px;font-size:13px;font-weight:600;font-family:'Onest',sans-serif;transition:all .15s;text-decoration:none;display:inline-block}
+.spec-cta-ghost{background:transparent;color:var(--blue-deep);border:1.5px solid var(--blue-deep);border-radius:8px;padding:10px 18px;font-size:13px;font-weight:600;font-family:'Fixel Text',sans-serif;transition:all .15s;text-decoration:none;display:inline-block}
 .spec-cta-ghost:hover{background:var(--blue-light)}
-.spec-cta-disabled{background:transparent;color:var(--muted);border:1.5px solid var(--border);border-radius:8px;padding:10px 18px;font-size:13px;font-weight:600;cursor:not-allowed;opacity:.4;font-family:'Onest',sans-serif;display:inline-block}
+.spec-cta-disabled{background:transparent;color:var(--muted);border:1.5px solid var(--border);border-radius:8px;padding:10px 18px;font-size:13px;font-weight:600;cursor:not-allowed;opacity:.4;font-family:'Fixel Text',sans-serif;display:inline-block}
 @media(max-width:768px){
   .spec-ctas{flex-direction:column}
   .spec-cta-primary,.spec-cta-ghost,.spec-cta-disabled{text-align:center;display:block}
@@ -580,9 +582,31 @@ h2.section-title, h2.sec-title, .section-title {
 /* nav-logo-img */
 .nav-logo-img{height:28px;width:auto}
 /* ===== END DOCTOR PAGES REDESIGN ===== */
+
+/* STICKY CTA (mobile) */
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:100;box-shadow:0 -4px 16px rgba(11,79,154,0.08);transform:translateY(100%);transition:transform .3s ease}
+.sticky-cta.visible{transform:translateY(0)}
+@media(min-width:769px){.sticky-cta{display:none!important}}
+.sticky-cta__info{display:flex;flex-direction:column;gap:2px}
+.sticky-cta__name{font-family:'Fixel Text',sans-serif;font-weight:600;font-size:14px;color:var(--text)}
+.sticky-cta__price{font-family:'Fixel Text',sans-serif;font-size:13px;color:var(--muted)}
+.sticky-cta__btn{white-space:nowrap;min-width:130px;background:var(--gold);color:#fff;border:none;padding:12px 18px;border-radius:8px;font-family:'Fixel Text',sans-serif;font-weight:700;font-size:14px;cursor:pointer}
 </style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"MedicalWebPage",
+  "url":"https://onclinic.check-up.in.ua/kharkiv/doctors/striukov",
+  "name":"Стрюков Дмитро Владиславович — гінеколог-хірург ОН Клінік Харків",
+  "description":"Профіль оперуючого гінеколога Стрюкова Д.В., к.м.н., вища категорія, 24 роки досвіду.",
+  "lastReviewed":"2026-04-25",
+  "reviewedBy":{"@type":"Person","name":"Олена Буценко","worksFor":{"@type":"MedicalClinic","name":"ОН Клінік Харків Левада"}},
+  "medicalAudience":"Patient",
+  "specialty":"Gynecology"
+}
+</script>
 </head>
-<body data-case-slug="">
+<body data-case-slug="doctor-striukov">
 
 <!-- NAV -->
 <nav>
@@ -626,6 +650,10 @@ h2.section-title, h2.sec-title, .section-title {
         <div class="hero-stat">
           <div class="hero-stat-val">К.м.н.</div>
           <div class="hero-stat-lbl">кандидат медичних наук</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-val">700 грн</div>
+          <div class="hero-stat-lbl">консультація</div>
         </div>
       </div>
       <div class="hero-tags">
@@ -749,7 +777,8 @@ h2.section-title, h2.sec-title, .section-title {
       <div class="career-item">
         <div class="career-year">2020</div>
         <div class="career-events">
-          <div class="career-event">Початок роботи в ОН Клінік Харків Левада</div>
+          <div class="career-event">Оперуючий гінеколог · ОН Клінік Харків Гагаріна (з 2020 року)</div>
+          <div class="career-event" style="color:var(--text-muted);font-size:13px;margin-top:4px">Стара назва філії — на 2026 рік працює у філії на вул. Молочна, 48 (Левада).</div>
         </div>
       </div>
     </div>
@@ -770,7 +799,7 @@ h2.section-title, h2.sec-title, .section-title {
           <p class="spec-desc">Видалення вузлів міоми через три мікророзрізи зі збереженням матки. Підходить для жінок, які планують вагітність.</p>
           <div class="spec-divider"></div>
           <span class="spec-sub-label">Досвід лікаря</span>
-          <p class="spec-sub-text">Спеціалізація з ендоскопічної хірургії з 2016 року. Поглиблена УЗД-підготовка (3 курси тематичного удосконалення 2013–2015) дозволяє детально планувати операцію ще до її проведення — точно оцінити розташування і розмір вузлів.</p>
+          <p class="spec-sub-text">У 2016 році пройшов тематичне удосконалення «Основи ендоскопічної хірургії». Поглиблена УЗД-підготовка (3 курси тематичного удосконалення 2013–2015) дозволяє детально планувати операцію ще до її проведення — точно оцінити розташування і розмір вузлів.</p>
           <div class="spec-divider"></div>
           <span class="spec-sub-label">Інструментарій ОН Клінік Левада</span>
           <p class="spec-sub-text">Karl Storz Full HD · ультразвуковий скальпель Ethicon · морцелятор Lapomed</p>
@@ -940,7 +969,7 @@ h2.section-title, h2.sec-title, .section-title {
   <div class="cta-banner-btns">
     <button class="btn-gold" onclick="openBookingModal({prefilledDoctor:'striukov',sourceCTA:'doctor_page'})">Записатися на консультацію</button>
   </div>
-  <p style="margin-top:16px;font-size:13px;opacity:.7">Тел.: <span data-phone-placeholder="onclinic-kharkiv-levada">Замовити дзвінок</span></p>
+  <p style="margin-top:16px;font-size:13px;opacity:.7">Тел.: <span data-phone-placeholder="callback">Замовити дзвінок</span></p>
 </section>
 
 <!-- E-E-A-T -->
@@ -954,6 +983,11 @@ h2.section-title, h2.sec-title, .section-title {
     <span class="eeat-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg></span>
     <span class="eeat-label">Рецензент:</span>
     <span class="eeat-value">Стрюков Дмитро Владиславович, оперуючий гінеколог, к.м.н., вища категорія, 24 роки досвіду</span>
+  </div>
+  <div class="eeat-row">
+    <span class="eeat-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></span>
+    <span class="eeat-label">Медичний редактор:</span>
+    <span class="eeat-value">Олена Буценко, маркетолог ОН Клінік Харків</span>
   </div>
   <div class="eeat-row">
     <span class="eeat-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
@@ -980,7 +1014,7 @@ h2.section-title, h2.sec-title, .section-title {
     (Німеччина). Приймає пацієнток з Харкова, Харківської, Сумської
     та Полтавської областей.
     ОН Клінік Харків Левада, вул. Молочна, 48, м. Левада.
-    Тел.: <span data-phone-placeholder="onclinic-kharkiv-levada">Замовити дзвінок</span>.
+    Тел.: <span data-phone-placeholder="callback">Замовити дзвінок</span>.
   </p>
 </section>
 
@@ -1066,6 +1100,27 @@ function showSuccess() {
 })();
 </script>
 <!-- ===== END SPRINT UX JS ===== -->
+
+<!-- STICKY CTA (mobile) -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta__info">
+    <span class="sticky-cta__name">Стрюков Д.В.</span>
+    <span class="sticky-cta__price">Консультація — 700 грн</span>
+  </div>
+  <button class="sticky-cta__btn" onclick="openBookingModal({prefilledDoctor:'striukov',prefilledCase:document.body.dataset.caseSlug,sourceCTA:'sticky'})">ЗАПИСАТИСЬ</button>
+</div>
+<!-- STICKY CTA JS -->
+<script>
+(function(){
+  var cta = document.getElementById('stickyCta');
+  if(!cta||!('IntersectionObserver' in window)) return;
+  var heroCta = document.querySelector('.hero-actions .btn-primary');
+  if(!heroCta) return;
+  new IntersectionObserver(function(entries){
+    cta.classList.toggle('visible', !entries[0].isIntersecting);
+  },{threshold:0}).observe(heroCta);
+})();
+</script>
 <script src="/kharkiv/js/booking.js"></script>
 </body>
 </html>
