@@ -228,8 +228,8 @@ hr.divider{border:none;border-top:1px solid var(--gray-100);max-width:1120px;mar
 .faq-q.open{color:var(--blue)}
 .faq-icon{font-size:18px;color:var(--gray-400);transition:transform .2s;flex-shrink:0}
 .faq-q.open .faq-icon{transform:rotate(45deg);color:var(--blue)}
-.faq-a{display:none;padding:0 24px 20px;font-size:14px;color:var(--gray-600);line-height:1.7}
-.faq-a.open{display:block}
+.faq-a{overflow:hidden;max-height:0;padding:0 24px;font-size:14px;color:var(--gray-600);line-height:1.7;transition:max-height .3s ease,padding .3s ease}
+.faq-a.open{max-height:600px;padding:0 24px 20px}
 /* CTA SECTION */
 .cta-section{background:var(--gray-50);border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100);padding:80px 48px;text-align:center}
 .cta-title{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:var(--blue);margin-bottom:12px}
@@ -734,7 +734,7 @@ h2.section-title, h2.sec-title, .section-title {
 
 <nav class="nav">
   <a class="nav-brand" href="/kharkiv/levada">
-    <img class="nav-logo-img" src="../assets/logo/logo-horizontal.png" alt="ОН Клінік">
+    <img class="nav-logo-img" src="/assets/logo/logo-horizontal.png" alt="ОН Клінік">
   </a>
   <ul class="nav-links">
     <li><a href="#methods">Методи</a></li><li><a href="#doctors">Лікарі</a></li><li><a href="#faq">FAQ</a></li>
@@ -893,7 +893,7 @@ h2.section-title, h2.sec-title, .section-title {
   <div class="doctors-grid">
     <div class="doc-card">
       <div class="dc-tag-strip dc-strip-blue"></div>
-      <div class="doc-avatar"><img src="../assets/doctors/afanasiev-card.webp" alt="Афанасьєв Ігор Володимирович" loading="lazy"></div>
+      <div class="doc-avatar"><img src="/assets/doctors/afanasiev-card.webp" alt="Афанасьєв Ігор Володимирович" loading="lazy"></div>
       <div class="doc-name">Афанасьєв Ігор Володимирович</div>
       <div class="doc-title">Акушер-гінеколог·Оперуючий гінеколог</div>
       <div class="doc-cred">
@@ -909,7 +909,7 @@ h2.section-title, h2.sec-title, .section-title {
     </div>
     <div class="doc-card">
       <div class="dc-tag-strip dc-strip-gold"></div>
-      <div class="doc-avatar"><img src="../assets/doctors/striukov-card.webp" alt="Стрюков Дмитро Владиславович" loading="lazy"></div>
+      <div class="doc-avatar"><img src="/assets/doctors/striukov-card.webp" alt="Стрюков Дмитро Владиславович" loading="lazy"></div>
       <div class="doc-name">Стрюков Дмитро Владиславович</div>
       <div class="doc-title">Акушер-гінеколог·Оперуючий гінеколог</div>
       <div class="doc-cred">

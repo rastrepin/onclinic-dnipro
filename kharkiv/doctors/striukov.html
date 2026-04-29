@@ -39,8 +39,7 @@
       "itemListElement": [
         {"@type":"ListItem","position":1,"name":"ОН Клінік Харків","item":"https://onclinic.check-up.in.ua/kharkiv"},
         {"@type":"ListItem","position":2,"name":"ОН Клінік Левада","item":"https://onclinic.check-up.in.ua/kharkiv/levada"},
-        {"@type":"ListItem","position":3,"name":"Лікарі","item":"https://onclinic.check-up.in.ua/kharkiv/doctors"},
-        {"@type":"ListItem","position":4,"name":"Стрюков Д.В.","item":"https://onclinic.check-up.in.ua/kharkiv/doctors/striukov"}
+        {"@type":"ListItem","position":3,"name":"Стрюков Д.В.","item":"https://onclinic.check-up.in.ua/kharkiv/doctors/striukov"}
       ]
     }
   ]
@@ -67,8 +66,8 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 .nav-links{display:flex;gap:24px;align-items:center;list-style:none}
 .nav-links a{font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;transition:color .15s}
 .nav-links a:hover{color:var(--blue-deep)}
-.nav-cta{background:transparent;color:var(--gold);border:2px solid var(--gold);padding:7px 18px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;transition:all .18s}
-.nav-cta:hover{background:var(--gold);color:#fff}
+.nav-cta{background:var(--blue-deep,#0B4F9A);color:#fff;border:none;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Fixel Text',sans-serif;transition:background .2s}
+.nav-cta:hover{background:#1464B8}
 @media(max-width:640px){.nav-links{display:none}}
 
 /* BREADCRUMB */
@@ -147,10 +146,10 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 .faq-q.open{color:var(--blue-deep)}
 .faq-icon{font-size:18px;color:var(--muted);flex-shrink:0;transition:transform .2s}
 .faq-q.open .faq-icon{transform:rotate(45deg);color:var(--blue-deep)}
-.faq-item .faq-a{display:none;padding:0 22px 18px;font-size:14px;color:var(--muted);line-height:1.7}
-.faq-item .faq-a.open{max-height:600px}
-.faq-a.open{max-height:600px;padding:0 24px 20px}
-.faq-item.open .faq-a{display:block}
+.faq-item .faq-a{overflow:hidden;max-height:0;padding:0 22px;font-size:14px;color:var(--muted);line-height:1.7;transition:max-height .3s ease,padding .3s ease}
+.faq-item .faq-a.open{max-height:600px;padding:0 22px 18px}
+.faq-a.open{max-height:600px;padding:0 22px 18px}
+/* faq open via max-height */
 
 /* CTA BANNER */
 .cta-banner{background:linear-gradient(135deg,var(--blue-deep) 0%,#073878 100%);padding:56px 48px;color:#fff;text-align:center}
@@ -591,6 +590,16 @@ h2.section-title, h2.sec-title, .section-title {
 .sticky-cta__name{font-family:'Fixel Text',sans-serif;font-weight:600;font-size:14px;color:var(--text)}
 .sticky-cta__price{font-family:'Fixel Text',sans-serif;font-size:13px;color:var(--muted)}
 .sticky-cta__btn{white-space:nowrap;min-width:130px;background:var(--gold);color:#fff;border:none;padding:12px 18px;border-radius:8px;font-family:'Fixel Text',sans-serif;font-weight:700;font-size:14px;cursor:pointer}
+
+/* Б.5 — mobile: ховаємо spec-card 3+ */
+@media(max-width:768px){
+  .spec-grid .spec-card:nth-child(n+3){display:none}
+  .spec-grid.expanded .spec-card:nth-child(n+3){display:block}
+  .show-more-spec{display:flex;justify-content:center;margin-top:16px}
+  .show-more-spec-btn{background:transparent;border:1.5px solid var(--border,#e2e8f0);border-radius:10px;padding:11px 24px;font-size:14px;font-weight:600;color:var(--blue-deep,#0B4F9A);cursor:pointer;font-family:'Fixel Text',sans-serif;transition:border-color .2s}
+  .show-more-spec-btn:hover{border-color:var(--blue-deep,#0B4F9A)}
+}
+@media(min-width:769px){.show-more-spec{display:none}}
 </style>
 <script type="application/ld+json">
 {
@@ -605,18 +614,67 @@ h2.section-title, h2.sec-title, .section-title {
   "specialty":"Gynecology"
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Як підготуватись до консультації?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Якщо у вас є попередні аналізи, УЗД, виписки — візьміть з собою. Це пришвидшує консультацію і дає лікарю повніший контекст. Якщо документації немає — нічого страшного, лікар призначить необхідні обстеження. УЗД можна зробити в ОН Клінік на місці."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Скільки часу триває консультація?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "40–60 хвилин. Лікар проводить огляд, аналізує наявну документацію або виконує УЗД, обговорює варіанти лікування і складає індивідуальний план. Якщо потрібні додаткові обстеження — призначає їх з конкретними термінами."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чи можна попередня онлайн-консультація перед очним візитом?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Так. Для пацієнток з інших міст це особливо зручно — лікар може попередньо оцінити вашу ситуацію за фото документів і УЗД, дати орієнтовну тактику до очного візиту. Запис через форму на сайті або за телефоном."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чи приймають пацієнток без направлення?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Так, направлення не обов'язкове. Так, направлення не обов'язкове. Запис прямий — через форму на цій сторінці або за телефоном клініки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Що буде якщо за результатами консультації потрібна операція?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Лікар обговорить з вами обсяг операції, метод, вартість і терміни. Передопераційна підготовка займає 3–7 днів (аналізи, ЕКГ, кольпоскопія за показаннями). Госпіталізація — у будь-який зручний для вас день після підготовки."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body data-case-slug="doctor-striukov">
 
 <!-- NAV -->
 <nav>
   <a href="/kharkiv/levada" class="nav-logo">
-    <img class="nav-logo-img" src="../../assets/logo/logo-horizontal.png" alt="ОН Клінік">
+    <img class="nav-logo-img" src="/assets/logo/logo-horizontal.png" alt="ОН Клінік">
   </a>
   <ul class="nav-links">
-    <li><a href="/kharkiv">Операції</a></li>
-    <li><a href="/kharkiv/doctors">Лікарі</a></li>
-    <li><a href="/kharkiv#contact">Контакти</a></li>
+    <li><a href="#operations">Операції</a></li>
+    
+    <li><a href="#contact">Контакти</a></li>
   </ul>
   <button class="nav-cta" onclick="openBookingModal({prefilledDoctor:'striukov',sourceCTA:'header'})">Записатися</button>
 </nav>
@@ -627,8 +685,7 @@ h2.section-title, h2.sec-title, .section-title {
     <a href="/kharkiv">ОН Клінік Харків</a>
     <span>›</span>
     <a href="/kharkiv/levada">ОН Клінік Левада</a>
-    <span>›</span>
-    <a href="/kharkiv/doctors">Лікарі</a>
+    
     <span>›</span>
     <span class="current">Стрюков Д.В.</span>
   </div>
@@ -637,7 +694,7 @@ h2.section-title, h2.sec-title, .section-title {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-photo"><img src="../../assets/doctors/striukov-hero.webp" alt="Стрюков Дмитро Владиславович" loading="eager"></div>
+    <div class="hero-photo"><img src="/assets/doctors/striukov-hero.webp" alt="Стрюков Дмитро Владиславович" loading="eager"></div>
     <div>
       <div class="hero-specialty">Акушер-гінеколог · Оперуючий гінеколог</div>
       <h1>Стрюков Дмитро Владиславович</h1>
@@ -786,7 +843,7 @@ h2.section-title, h2.sec-title, .section-title {
 </section>
 
 <!-- SPECIALIZATION -->
-<section class="section" id="cases-block">
+<section class="section" id="operations">
   <div class="section-inner">
     <div class="sec-label">Напрямки роботи</div>
     <h2 class="sec-title">Лікар Стрюков Д.В. виконує операції</h2>
@@ -903,6 +960,11 @@ h2.section-title, h2.sec-title, .section-title {
           </div>
         </div>
       </div>
+    </div><!-- /spec-grid -->
+    <div class="show-more-spec">
+      <button class="show-more-spec-btn" onclick="expandSpecCards(this)">
+        Показати ще 3 операцій ↓
+      </button>
     </div>
   </div>
 </section>
@@ -946,7 +1008,7 @@ h2.section-title, h2.sec-title, .section-title {
           <span class="faq-icon">+</span>
         </div>
         <div class="faq-a">
-          Так, направлення не обов'язкове. Запис прямий — за телефоном 0&nbsp;800&nbsp;21&nbsp;86&nbsp;16 або через форму на цій сторінці.
+          Так, направлення не обов'язкове. Так, направлення не обов'язкове. Запис прямий — через форму на цій сторінці або за телефоном клініки.
         </div>
       </div>
       <div class="faq-item">
@@ -963,6 +1025,7 @@ h2.section-title, h2.sec-title, .section-title {
 </section>
 
 <!-- CTA BANNER -->
+<div id="contact"></div>
 <section id="appointment" class="cta-banner">
   <h2>Записатися до Стрюкова Д.В.</h2>
   <p>Консультація оперуючого гінеколога в ОН Клінік Харків, вул. Молочна, 48. Вартість консультації — 700 грн.</p>
@@ -974,16 +1037,7 @@ h2.section-title, h2.sec-title, .section-title {
 
 <!-- E-E-A-T -->
 <div class="eeat-block">
-  <div class="eeat-row">
-    <span class="eeat-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></span>
-    <span class="eeat-label">Автор:</span>
-    <span class="eeat-value">Ігор Растрепін, засновник check-up.in.ua</span>
-  </div>
-  <div class="eeat-row">
-    <span class="eeat-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg></span>
-    <span class="eeat-label">Рецензент:</span>
-    <span class="eeat-value">Стрюков Дмитро Владиславович, оперуючий гінеколог, к.м.н., вища категорія, 24 роки досвіду</span>
-  </div>
+
   <div class="eeat-row">
     <span class="eeat-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></span>
     <span class="eeat-label">Медичний редактор:</span>
@@ -997,7 +1051,7 @@ h2.section-title, h2.sec-title, .section-title {
   <div class="eeat-row">
     <span class="eeat-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
     <span class="eeat-label">Джерела:</span>
-    <span class="eeat-value">Mayo Clinic Family Health Book, 5th Edition · Стандарти медичної допомоги: Лейоміома матки, МОЗ України, 2023</span>
+    <span class="eeat-value">Джерела даних про лікаря: офіційний сайт ОН Клінік Харків, інформація надана клінікою</span>
   </div>
 </div>
 
@@ -1101,6 +1155,15 @@ function showSuccess() {
 </script>
 <!-- ===== END SPRINT UX JS ===== -->
 
+<script>
+function expandSpecCards(btn) {
+  var grid = btn.closest('.section').querySelector('.spec-grid');
+  if (grid) {
+    grid.classList.add('expanded');
+    btn.closest('.show-more-spec').style.display = 'none';
+  }
+}
+</script>
 <!-- STICKY CTA (mobile) -->
 <div class="sticky-cta" id="stickyCta">
   <div class="sticky-cta__info">
