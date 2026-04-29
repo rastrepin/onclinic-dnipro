@@ -362,8 +362,6 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
   .hero-surgeons{border-right:none;border-bottom:1px solid rgba(255,255,255,.15)}
   .stages-grid{grid-template-columns:1fr}
   .ind-grid{grid-template-columns:1fr}
-  .equip-grid{grid-template-columns:1fr}
-  .alt-grid{grid-template-columns:1fr}
   .price-grid{grid-template-columns:1fr;gap:24px}
   .main-wrap > .price-section{padding:24px}
   .doc-single{grid-template-columns:1fr}
@@ -376,7 +374,26 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
 /* MOBILE OVERFLOW FIX */
 @media(max-width:640px){
   .method-equip-label{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .tl-body h4{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+}
+
+/* CAROUSEL (mobile) */
+@media(max-width:768px){
+  /* Equipment */
+  .equip-grid{display:flex!important;flex-direction:row!important;overflow-x:auto!important;gap:12px!important;padding-bottom:10px!important;padding-right:24px!important;scroll-snap-type:x mandatory!important;-webkit-overflow-scrolling:touch!important;grid-template-columns:unset!important;scrollbar-width:none!important}
+  .equip-grid::-webkit-scrollbar{display:none!important}
+  .equip-grid .equip-card{min-width:75vw!important;max-width:75vw!important;flex-shrink:0!important;scroll-snap-align:start!important}
+  /* Timeline */
+  .timeline{display:flex!important;flex-direction:row!important;overflow-x:auto!important;gap:12px!important;padding-bottom:10px!important;padding-right:24px!important;scroll-snap-type:x mandatory!important;-webkit-overflow-scrolling:touch!important;scrollbar-width:none!important}
+  .timeline::-webkit-scrollbar{display:none!important}
+  .tl-item{min-width:75vw!important;max-width:75vw!important;flex-shrink:0!important;scroll-snap-align:start!important;padding-bottom:0!important;border:1px solid var(--border);border-radius:var(--radius);padding:16px!important;background:#fff}
+  /* Alternatives */
+  .alt-grid{display:flex!important;flex-direction:row!important;overflow-x:auto!important;gap:12px!important;padding-bottom:10px!important;padding-right:24px!important;scroll-snap-type:x mandatory!important;-webkit-overflow-scrolling:touch!important;grid-template-columns:unset!important;scrollbar-width:none!important}
+  .alt-grid::-webkit-scrollbar{display:none!important}
+  .alt-grid .alt-card{min-width:82vw!important;max-width:82vw!important;flex-shrink:0!important;scroll-snap-align:start!important}
+  /* Dots */
+  .scroll-dots{display:flex!important;justify-content:center!important;gap:6px!important;margin-top:14px!important}
+  .scroll-dot{width:6px!important;height:6px!important;border-radius:50%!important;background:var(--border)!important;transition:background .25s,transform .25s!important;flex-shrink:0!important}
+  .scroll-dot.active{background:var(--blue-deep)!important;transform:scale(1.4)!important}
 }
 
 /* STICKY CTA (mobile) */
@@ -960,6 +977,45 @@ document.addEventListener('DOMContentLoaded', function() {
   }, { threshold: 0 });
   io.observe(heroCta);
   stickyCta.style.display = 'none'; // hidden initially
+})();
+</script>
+<!-- CAROUSEL JS -->
+<script>
+(function(){
+  function initScrollDots(container, itemSel){
+    var items = container.querySelectorAll(itemSel);
+    if(items.length < 2) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'scroll-dots';
+    for(var i = 0; i < items.length; i++){
+      var d = document.createElement('span');
+      d.className = 'scroll-dot' + (i === 0 ? ' active' : '');
+      wrap.appendChild(d);
+    }
+    container.parentNode.insertBefore(wrap, container.nextSibling);
+    var dots = wrap.querySelectorAll('.scroll-dot');
+    container.addEventListener('scroll', function(){
+      var cardW = items[0].getBoundingClientRect().width + 12; // +gap
+      var idx = Math.round(container.scrollLeft / cardW);
+      idx = Math.max(0, Math.min(idx, items.length - 1));
+      dots.forEach(function(dot, i){ dot.classList.toggle('active', i === idx); });
+    }, { passive: true });
+  }
+  function init(){
+    if(window.innerWidth > 768) return;
+    document.querySelectorAll('.equip-grid').forEach(function(el){
+      initScrollDots(el, '.equip-card');
+    });
+    document.querySelectorAll('.timeline').forEach(function(el){
+      initScrollDots(el, '.tl-item');
+    });
+    document.querySelectorAll('.alt-grid').forEach(function(el){
+      initScrollDots(el, '.alt-card');
+    });
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
 })();
 </script>
 <script src="/kharkiv/js/booking.js"></script>
