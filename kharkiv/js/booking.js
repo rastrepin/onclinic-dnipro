@@ -35,10 +35,12 @@
       ],
       price: 'від 11 505 грн',
     },
-    'prolapс-matky-kolporafia': {
+    'kolporafia': {
       searchName: 'Кольпорафія',
       officialName: 'Кольпорафія (опущення, випадіння матки)',
       price: '25 525 грн',
+      priceRaw: 25525,
+      pageUrl: '/kharkiv/kolporafia',
     },
     'mioma-matky': {
       searchName: 'Міома матки — консультація',
@@ -341,7 +343,7 @@
       '                <option value="endometrioz-kista-laparoskopia">Лапароскопія при ендометріозі та кісті яєчника</option>',
       '                <option value="mioma-laparoskopichna-gisterektomiia">Лапароскопічна гістеректомія</option>',
       '                <option value="gisteroskopia-polipektomia">Гістероскопія</option>',
-      '                <option value="prolapс-matky-kolporafia">Кольпорафія</option>',
+      '                <option value="kolporafia">Кольпорафія</option>',
       '                <option value="other">Інша мета</option>',
       '              </select>',
       '              <div class="bm-ferr" id="bm-err-purpose"></div>',
