@@ -1469,6 +1469,16 @@ h2.section-title, h2.sec-title, .section-title {
 </script>
 <!-- ===== END SPRINT UX JS ===== -->
 
+<script>
+function toggleMethod(btn) {
+  var content = btn.previousElementSibling;
+  var isCollapsed = content.dataset.collapsed === 'true';
+  content.dataset.collapsed = isCollapsed ? 'false' : 'true';
+  btn.setAttribute('aria-expanded', String(isCollapsed));
+  btn.textContent = isCollapsed ? 'Згорнути ↑' : 'Показати деталі методу та обладнання ↓';
+}
+</script>
+
 <!-- STICKY CTA (mobile) -->
 <div class="sticky-cta" id="stickyCta">
   <div class="sticky-cta__info">
