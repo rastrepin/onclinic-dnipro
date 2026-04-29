@@ -171,9 +171,9 @@ body{font-family:'Fixel Text',sans-serif;background:#fff;color:var(--gray-900);l
 
 /* SECTIONS */
 .main-wrap{max-width:1120px;margin:0 auto;padding:0 48px 80px}
-.section{padding:64px 0}
-.section+.section{border-top:1px solid var(--border)}
-@media(max-width:768px){.section{padding:48px 0}}
+.main-wrap > section{padding:64px 0}
+.main-wrap > section + section{border-top:1px solid var(--border)}
+@media(max-width:768px){.main-wrap > section{padding:48px 0}}
 .section-label{font-size:13px;font-weight:600;color:var(--gold);margin-bottom:10px;display:block}
 .section-label::before{content:"\2014\2014\A0"}
 h2.section-title{font-family:'Fixel Display',sans-serif;font-size:clamp(20px,2.2vw,28px);font-weight:700;color:var(--blue);line-height:1.2;margin-bottom:30px;max-width:720px}
@@ -193,7 +193,7 @@ h2.section-title{font-family:'Fixel Display',sans-serif;font-size:clamp(20px,2.2
 .ind-card:last-child{border-top-color:#e53e3e}
 
 /* DIAGNOSIS BLOCK */
-.diagnosis-block{background:var(--gray-50);border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100);padding:80px 0;margin:0 -48px;padding-left:48px;padding-right:48px}
+.main-wrap > .diagnosis-block{background:var(--gray-50);border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100);padding:80px 0;margin:0 -48px;padding-left:48px;padding-right:48px}
 .stages-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
 .stage-card{background:#fff;border:1px solid var(--gray-200);border-radius:12px;padding:20px}
 .stage-num{font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;display:block}
@@ -205,7 +205,7 @@ h2.section-title{font-family:'Fixel Display',sans-serif;font-size:clamp(20px,2.2
 .symptoms-cta-note{font-size:14px;color:var(--blue);font-weight:600;margin-top:16px;padding:14px 18px;background:var(--blue-light);border-radius:10px;border-left:3px solid var(--blue)}
 
 /* CAUSES BLOCK */
-.causes-block{padding:80px 0}
+.main-wrap > .causes-block{padding:80px 0}
 .causes-list{list-style:none;padding:0;margin-top:20px;display:flex;flex-direction:column;gap:12px}
 .causes-list li{font-size:14px;color:var(--gray-700);padding:14px 16px;background:var(--gray-50);border-radius:10px;border-left:3px solid var(--gold);line-height:1.55}
 .causes-list li strong{color:var(--gray-900);display:block;margin-bottom:2px}
@@ -245,7 +245,8 @@ h2.section-title{font-family:'Fixel Display',sans-serif;font-size:clamp(20px,2.2
 .method-photo-placeholder{width:100%;max-width:480px;aspect-ratio:16/10;background:var(--gray-50);border:1px dashed var(--gray-300);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--gray-400);font-size:14px;margin-top:24px}
 
 /* PRICE SECTION */
-.price-section{background:#fff;border:1px solid var(--gray-200);border-radius:16px;padding:40px;margin-bottom:0}
+.price-section{background:#fff;border:1px solid var(--gray-200);border-radius:16px;margin-bottom:0}
+.main-wrap > .price-section{padding:40px}
 .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:28px}
 .price-amount{font-size:36px;font-weight:800;color:var(--blue);margin-bottom:6px;line-height:1}
 .price-name{font-size:17px;font-weight:600;color:var(--blue);margin-bottom:4px}
@@ -354,7 +355,7 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
   .main-wrap{padding:0 24px 60px}
   .cta-banner{padding:56px 24px;margin:0 -24px}
   .geo-block{padding:48px 24px}
-  .diagnosis-block{padding:60px 24px;margin:0 -24px}
+  .main-wrap > .diagnosis-block{padding:60px 24px;margin:0 -24px}
 }
 @media(max-width:640px){
   .hero-right-block{flex-direction:column}
@@ -364,12 +365,18 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
   .equip-grid{grid-template-columns:1fr}
   .alt-grid{grid-template-columns:1fr}
   .price-grid{grid-template-columns:1fr;gap:24px}
-  .price-section{padding:24px}
+  .main-wrap > .price-section{padding:24px}
   .doc-single{grid-template-columns:1fr}
   .doc-photo{width:80px;height:96px}
   .doc-cred-grid{grid-template-columns:1fr 1fr}
   footer,.site-footer{flex-direction:column;gap:8px;text-align:center;padding:24px}
   .site-footer{max-width:100%}
+}
+
+/* MOBILE OVERFLOW FIX */
+@media(max-width:640px){
+  .method-equip-label{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tl-body h4{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 }
 
 /* STICKY CTA (mobile) */
@@ -700,7 +707,7 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
   </section>
 
   <!-- ХІРУРГ -->
-  <section id="doctor" style="padding-top:80px">
+  <section id="doctor">
     <p class="section-label">Хірург</p>
     <h2 class="section-title">Хто виконує операцію</h2>
     <div class="doc-single">
@@ -937,6 +944,11 @@ function toggleMethod(btn) {
   btn.setAttribute('aria-expanded', collapsed ? 'true' : 'false');
   btn.textContent = collapsed ? 'Згорнути ↑' : 'Показати деталі операції та обладнання ↓';
 }
+// Open first FAQ item by default
+document.addEventListener('DOMContentLoaded', function() {
+  var firstQ = document.querySelector('.faq-q');
+  if (firstQ) toggleFaq(firstQ);
+});
 // Sticky CTA: show when Hero CTA scrolls out of view
 (function() {
   var stickyCta = document.getElementById('stickyCta');

@@ -244,9 +244,10 @@
     if (prefilledCase && SERVICE_MAP[prefilledCase]) {
       var svc = SERVICE_MAP[prefilledCase];
       html += '<div class="bm-sc-kick">Ви записуєтесь на:</div>';
-      html += '<div class="bm-sc-name">' + escHtml(svc.searchName) + '</div>';
-      html += '<div class="bm-sc-offlabel">Офіційна назва послуги:</div>';
       if (Array.isArray(svc.officialName)) {
+        // Multiple official variants — show searchName + list
+        html += '<div class="bm-sc-name">' + escHtml(svc.searchName) + '</div>';
+        html += '<div class="bm-sc-offlabel">Офіційна назва послуги:</div>';
         html += '<ul class="bm-sc-offlist">';
         svc.officialName.forEach(function (n) {
           html += '<li>' + escHtml(n) + '</li>';
@@ -254,7 +255,8 @@
         html += '</ul>';
         html += '<div class="bm-sc-note">Точний варіант визначить лікар</div>';
       } else {
-        html += '<ul class="bm-sc-offlist"><li>' + escHtml(svc.officialName) + '</li></ul>';
+        // Single official name — show directly, no extra label
+        html += '<div class="bm-sc-name">' + escHtml(svc.officialName) + '</div>';
       }
       html += '<div class="bm-sc-price">Вартість ' + escHtml(svc.price) + '</div>';
     } else if (prefilledDoctor && !prefilledCase) {
@@ -334,7 +336,7 @@
       '              <button type="button" class="bm-pill" data-day="other">Інший день</button>',
       '            </div>',
       '          </div>',
-      '          <div id="bm-purpose-wrap" style="display:none">',
+      '          <div id="bm-purpose-wrap">',
       '            <div class="bm-ff">',
       '              <label for="bm-purpose">Мета запису *</label>',
       '              <select id="bm-purpose" class="bm-select">',
@@ -733,12 +735,12 @@
       summaryEl.innerHTML = buildSummaryCardHTML(caseSlug, doctorSlug);
     }
 
-    // Purpose dropdown: show when no prefilledCase
+    // Purpose dropdown: always visible, pre-select when case is prefilled
     var purposeWrap = document.getElementById('bm-purpose-wrap');
     if (purposeWrap) {
-      purposeWrap.style.display = caseSlug ? 'none' : 'block';
+      purposeWrap.style.display = 'block';
       var purposeSel = document.getElementById('bm-purpose');
-      if (purposeSel) purposeSel.value = '';
+      if (purposeSel) purposeSel.value = caseSlug || '';
       var otherWrap = document.getElementById('bm-other-wrap');
       if (otherWrap) otherWrap.style.display = 'none';
       var otherTa = document.getElementById('bm-other-purpose');
