@@ -251,6 +251,8 @@ h2.section-title{font-family:'Fixel Display',sans-serif;font-size:clamp(20px,2.2
 .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:28px}
 .price-amount{font-size:36px;font-weight:800;color:var(--blue);margin-bottom:6px;line-height:1}
 .price-name{font-size:17px;font-weight:600;color:var(--blue);margin-bottom:4px}
+.price-service-name{font-size:17px;font-weight:600;color:var(--blue);margin:2px 0 2px}
+.price-service-sub{font-size:13px;color:var(--gray-500);margin:0 0 16px;font-style:italic}
 .price-note{font-size:14px;color:var(--gray-500);margin-bottom:20px;line-height:1.5}
 .price-cta{width:100%;display:block;text-align:center;padding:14px 20px;font-size:15px;border-radius:10px;margin-bottom:20px;cursor:pointer;border:none;font-family:'Fixel Text',sans-serif;font-weight:600;background:var(--gold);color:#fff;transition:background .2s}
 .price-cta:hover{background:#b88a16}
@@ -692,7 +694,8 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
     <h2 class="section-title">Вартість операції</h2>
     <div class="price-grid">
       <div class="price-left">
-        <div class="price-name">Кольпорафія (опущення, випадіння матки)</div>
+        <p class="price-service-name">Кольпорафія</p>
+        <p class="price-service-sub">(опущення, випадіння матки)</p>
         <div class="price-amount">25 525 грн</div>
         <p class="price-note">Точна ціна може уточнюватись залежно від обсягу — передня, задня кольпорафія або поєднана. Лікар визначить це після огляду.</p>
         <button class="price-cta" onclick="openBookingModal({prefilledCase:'kolporafia',prefilledDoctor:'striukov',sourceCTA:'price'})">Записатися на консультацію →</button>
