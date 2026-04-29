@@ -245,9 +245,7 @@
       var svc = SERVICE_MAP[prefilledCase];
       html += '<div class="bm-sc-kick">Ви записуєтесь на:</div>';
       if (Array.isArray(svc.officialName)) {
-        // Multiple official variants — show searchName + list
-        html += '<div class="bm-sc-name">' + escHtml(svc.searchName) + '</div>';
-        html += '<div class="bm-sc-offlabel">Офіційна назва послуги:</div>';
+        // Multiple official variants — show list directly (no searchName header, no label)
         html += '<ul class="bm-sc-offlist">';
         svc.officialName.forEach(function (n) {
           html += '<li>' + escHtml(n) + '</li>';
@@ -255,7 +253,7 @@
         html += '</ul>';
         html += '<div class="bm-sc-note">Точний варіант визначить лікар</div>';
       } else {
-        // Single official name — show directly, no extra label
+        // Single official name — show directly
         html += '<div class="bm-sc-name">' + escHtml(svc.officialName) + '</div>';
       }
       html += '<div class="bm-sc-price">Вартість ' + escHtml(svc.price) + '</div>';

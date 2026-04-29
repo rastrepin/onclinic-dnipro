@@ -96,7 +96,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --blue:#0B4F9A;--blue-mid:#1464B8;--blue-light:#EEF5FF;
-  --gold:#C49A1A;--gold-light:#FBF6E2;--gold-mid:#F0DFA0;
+  --gold:#C49A1A;--gold2:#e8b820;--gold-light:#FBF6E2;--gold-mid:#F0DFA0;
   --gray-50:#F9FAFB;--gray-100:#F3F4F6;--gray-200:#E5E7EB;
   --gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;
   --gray-600:#6B7280;--gray-700:#374151;--gray-900:#111827;
@@ -388,8 +388,8 @@ h2.sec-title{font-family:'Source Serif 4',serif;font-size:30px;font-weight:600;c
 
 .hero-section{background:linear-gradient(135deg,#0B4F9A 0%,#0a3d7a 60%,#07295c 100%)}
 .hero-title-line1{font-family:'Fixel Text',sans-serif;font-weight:700;color:#fff;text-transform:uppercase;font-size:clamp(28px,5vw,48px);display:block;line-height:1.1}
-.hero h1 em{font-family:'Source Serif 4',serif;font-style:italic;color:#e8b820;font-size:clamp(32px,5.5vw,54px)}
-.hero-label{color:rgba(255,255,255,0.6)!important}
+.hero h1 em{font-style:normal;color:inherit}
+.hero-label{color:var(--gold)!important}
 .hero-label::before{background:var(--gold)!important}
 .hero-sub{color:rgba(255,255,255,0.75)!important}
 .hero-stats .stat-num{color:#fff!important}
@@ -649,7 +649,12 @@ h2.section-title, h2.sec-title, .section-title {
 
 /* #2/#3  Doctor H1 і sec-title: Onest */
 .hero h1, section.hero h1 {
-  font-family: 'Fixel Text', sans-serif !important;
+  font-family: 'Source Serif 4', serif !important;
+  font-style: normal !important;
+  color: #fff !important;
+  font-size: clamp(28px, 6vw, 56px) !important;
+  line-height: 1.18 !important;
+  letter-spacing: -0.02em !important;
 }
 .sec-title {
   font-family: 'Fixel Text', sans-serif !important;
@@ -945,8 +950,8 @@ h2.section-title, h2.sec-title, .section-title {
 <div class="hero-section">
 <div class="hero">
   <div>
-    <div class="hero-label">Оперативна гінекологія · ОН Клінік Харків</div>
-    <h1><span class="hero-title-line1">ЛАПАРОСКОПІЧНА</span><em>гістеректомія</em></h1>
+    <div class="hero-label">ОПЕРАТИВНА ГІНЕКОЛОГІЯ · ОН КЛІНІК ЛЕВАДА</div>
+    <h1>Лапароскопічна гістеректомія</h1>
     <p class="hero-price-sub">Екстирпація матки лапароскопічним методом — з придатками або без</p>
     <p class="hero-sub">Видалення матки через три мікророзрізи — без великого розрізу живота. Повертаєтесь до звичного життя за 3–4 тижні замість 6–8.</p>
     <div class="hero-actions">
