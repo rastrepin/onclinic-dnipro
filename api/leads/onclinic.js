@@ -21,8 +21,8 @@ const SERVICE_MAP = {
     officialName: 'Лапароскопія на придатках (видалення кіст яєчників, ендометріоз)',
     price: 'від 21 745 грн',
   },
-  'gisteroskopia-polipektomia': {
-    searchName: 'Гістероскопія (діагностична + з поліпектомією)',
+  'gisteroskopia': {
+    searchName: 'Гістероскопія',
     officialName: [
       'Діагностична гістероскопія — 11 505 грн',
       'Гістероскопія з поліпектомією ендоскопічним методом — 13 395 грн',
@@ -64,6 +64,13 @@ const DAY_LABELS = {
   this_week: 'Цього тижня',
 };
 
+const TIME_LABELS = {
+  morning:   'Зранку (8–12)',
+  afternoon: 'Вдень (12–17)',
+  evening:   'Ввечері (17–20)',
+  anytime:   'Будь-коли',
+};
+
 function formatDay(preferred_day) {
   if (!preferred_day) return 'Не вказано';
   if (DAY_LABELS[preferred_day]) return DAY_LABELS[preferred_day];
@@ -78,6 +85,36 @@ function formatDay(preferred_day) {
   } catch (e) {
     return preferred_day;
   }
+}
+
+function buildCallbackTelegramMessage(record, leadId, fullUrl) {
+  const timeLabel = TIME_LABELS[record.preferred_time] || record.preferred_time || 'Будь-коли';
+  const lines = [];
+  lines.push('📞 Замовлений дзвінок · ОН Клінік Харків');
+  lines.push('');
+  lines.push(`Сторінка: ${fullUrl}`);
+  lines.push('');
+  lines.push(`Ім'я: ${record.name}`);
+  lines.push(`Телефон: ${record.phone}`);
+  lines.push(`Зручний час: ${timeLabel}`);
+  lines.push('');
+  if (record.utm_source) {
+    const utmParts = [`utm_source=${record.utm_source}`];
+    if (record.utm_medium)   utmParts.push(`utm_medium=${record.utm_medium}`);
+    if (record.utm_campaign) utmParts.push(`utm_campaign=${record.utm_campaign}`);
+    lines.push(`Джерело: ${record.utm_source} (${utmParts.join(', ')})`);
+  } else {
+    lines.push('Джерело: прямий перехід');
+  }
+  const now = new Date();
+  const kyivTime = now.toLocaleString('uk-UA', {
+    timeZone: 'Europe/Kyiv',
+    day: '2-digit', month: '2-digit', year: 'numeric',
+    hour: '2-digit', minute: '2-digit',
+  });
+  lines.push(`Час: ${kyivTime} (Europe/Kyiv)`);
+  lines.push(`Lead ID: ${leadId}`);
+  return lines.join('\n');
 }
 
 function buildTelegramMessage(record, leadId, fullUrl) {
@@ -179,7 +216,9 @@ async function sendTelegram(record, leadId, fullUrl, supabaseUrl, serviceKey) {
     return;
   }
 
-  const text = buildTelegramMessage(record, leadId, fullUrl);
+  const text = record.callback_request
+    ? buildCallbackTelegramMessage(record, leadId, fullUrl)
+    : buildTelegramMessage(record, leadId, fullUrl);
   const tgRes = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -262,6 +301,8 @@ module.exports = async function handler(req, res) {
     phone,
     contact_method:    body.contact_method    || null,
     preferred_day:     body.preferred_day     || null,
+    callback_request:  body.callback_request  === true,
+    preferred_time:    body.preferred_time    || null,
     case_slug:         body.case_slug         || null,
     preferred_doctor:  body.preferred_doctor  || null,
     source_page:       body.source_page       || null,

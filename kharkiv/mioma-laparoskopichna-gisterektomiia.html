@@ -29,7 +29,8 @@
       "itemListElement":[
         {"@type":"ListItem","position":1,"name":"check-up.in.ua","item":"https://check-up.in.ua"},
         {"@type":"ListItem","position":2,"name":"ОН Клінік Харків","item":"https://onclinic.check-up.in.ua/kharkiv"},
-        {"@type":"ListItem","position":3,"name":"Лапароскопічна гістеректомія","item":"https://onclinic.check-up.in.ua/kharkiv/mioma-laparoskopichna-gisterektomiia"}
+        {"@type":"ListItem","position":3,"name":"ОН Клінік Левада","item":"https://onclinic.check-up.in.ua/kharkiv/levada"},
+        {"@type":"ListItem","position":4,"name":"Лапароскопічна гістеректомія","item":"https://onclinic.check-up.in.ua/kharkiv/mioma-laparoskopichna-gisterektomiia"}
       ]
     }
   },
@@ -895,7 +896,7 @@ h2.section-title, h2.sec-title, .section-title {
 <body data-case-slug="mioma-laparoskopichna-gisterektomiia">
 
 <nav class="nav">
-  <a class="nav-brand" href="/kharkiv">
+  <a class="nav-brand" href="/kharkiv/levada">
     <img class="nav-logo-img" src="../assets/logo/logo-horizontal.png" alt="ОН Клінік">
   </a>
   <ul class="nav-links">
@@ -908,6 +909,8 @@ h2.section-title, h2.sec-title, .section-title {
   <a href="https://check-up.in.ua">check-up.in.ua</a>
   <span>›</span>
   <a href="/kharkiv">ОН Клінік Харків</a>
+  <span>›</span>
+  <a href="/kharkiv/levada">ОН Клінік Левада</a>
   <span>›</span>
   Лапароскопічна гістеректомія
 </nav>
@@ -1079,10 +1082,21 @@ h2.section-title, h2.sec-title, .section-title {
             <p>Матка відсікається від зв'язок і судин ультразвуковим скальпелем і біполярною коагуляцією. Це забезпечує мінімальну крововтрату і точний контроль над судинами. Видалена матка витягується через піхву або через спеціальну систему морцеляції — мікропроколи при цьому не розширюються.</p>
             <p style="font-size:14px;color:var(--gray-500);margin-top:8px"><strong style="color:var(--gray-700)">Обладнання:</strong> Karl Storz Full HD, гармоніки Ethicon, морцелятор Lapomed, наркозний апарат Drager Primus.</p>
           </div>
-          <div class="method-photo-placeholder">
-            <span>Фото операційної ОН Клінік Левада</span>
-            <small>Очікуємо фото від клініки</small>
-          </div>
+<picture>
+              <source
+                srcset="/assets/images/kharkiv/operating-room/onclinic-kharkiv-operating-room-gisterektomiia.webp"
+                type="image/webp"
+              />
+              <img
+                src="/assets/images/kharkiv/operating-room/onclinic-kharkiv-operating-room-gisterektomiia.jpg"
+                alt="Операційна зала ОН Клінік Харків Левада · лапароскопічне обладнання Karl Storz для гістеректомії"
+                width="2600"
+                height="1733"
+                loading="lazy"
+                decoding="async"
+                class="method-photo"
+              />
+            </picture>
         </div>
         <!-- FULL — завжди в DOM для SEO, ховається через max-height -->
         <div class="method-full">
@@ -1321,7 +1335,7 @@ h2.section-title, h2.sec-title, .section-title {
     <div class="cta-banner" id="appointment">
       <h2>ПЕРШИЙ КРОК —<br/><em>консультація гінеколога</em></h2>
       <p>Лікар оцінить показання за УЗД, визначить обсяг операції та чи підходить лапароскопічний метод саме вам. Консультація займає 40–60 хвилин.</p>
-      <div class="cta-text" style="margin-top:20px;font-size:15px;color:inherit;line-height:1.6">Залишились питання? <a href="tel:0800218616" style="color:inherit;font-weight:600">Зателефонуйте: 0 800 21 86 16</a> — або залиште заявку, ми передзвонимо.<br/><button class="btn-outline" onclick="openBookingModal({sourceCTA:'cta_banner'})" style="margin-top:12px">Залишити заявку</button></div>
+      <div class="cta-text" style="margin-top:20px;font-size:15px;color:inherit;line-height:1.6">Залишились питання? залиште заявку, ми передзвонимо.<br/><button class="btn-outline" onclick="openBookingModal({sourceCTA:'cta_banner'})" style="margin-top:12px">Залишити заявку</button></div>
     </div>
 
     <!-- E-E-A-T -->
@@ -1372,7 +1386,7 @@ h2.section-title, h2.sec-title, .section-title {
       з Харкова, Харківської, Сумської та Полтавської областей.
       ОН Клінік Харків Левада, вул. Молочна, 48, м. Левада.
       Пн–Пт 8:00–18:00, Сб 8:00–17:00, Нд 8:30–14:00.
-      Тел.: <span class="data-pending">+38 (057) 000-00-00</span>.
+      Тел.: <span data-phone-placeholder="onclinic-kharkiv-levada">Замовити дзвінок</span>.
     </p>
   </div>
 </section>

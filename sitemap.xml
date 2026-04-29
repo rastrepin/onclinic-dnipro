@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Root -->
+  <url>
+    <loc>https://onclinic.check-up.in.ua/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Харків — хаб міста -->
+  <url>
+    <loc>https://onclinic.check-up.in.ua/kharkiv</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Харків Левада — хаб філії -->
+  <url>
+    <loc>https://onclinic.check-up.in.ua/kharkiv/levada</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Харків — кейси операцій -->
+  <url>
+    <loc>https://onclinic.check-up.in.ua/kharkiv/mioma-matky</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://onclinic.check-up.in.ua/kharkiv/mioma-laparoskopichna-miomektomiia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://onclinic.check-up.in.ua/kharkiv/mioma-laparoskopichna-gisterektomiia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://onclinic.check-up.in.ua/kharkiv/endometrioz</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://onclinic.check-up.in.ua/kharkiv/endometrioz-kista-laparoskopia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://onclinic.check-up.in.ua/kharkiv/gisteroskopia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://onclinic.check-up.in.ua/kharkiv/kolporafia</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Харків — лікарі -->
+  <url>
+    <loc>https://onclinic.check-up.in.ua/kharkiv/doctors/afanasiev</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://onclinic.check-up.in.ua/kharkiv/doctors/striukov</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
