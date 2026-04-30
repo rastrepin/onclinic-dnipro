@@ -19,6 +19,20 @@
   },
   {
     "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"ОН Клінік Харків Левада",
+    "image":"https://onclinic.check-up.in.ua/assets/logo/logo-horizontal.png",
+    "url":"https://onclinic.check-up.in.ua/kharkiv/levada",
+    "address":{"@type":"PostalAddress","streetAddress":"вул. Молочна, 48","addressLocality":"Харків","addressRegion":"Харківська область","postalCode":"61000","addressCountry":"UA"},
+    "geo":{"@type":"GeoCoordinates","latitude":49.9988,"longitude":36.2547},
+    "openingHoursSpecification":[
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:00","closes":"17:00"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"08:30","closes":"14:00"}
+    ]
+  },
+  {
+    "@context":"https://schema.org",
     "@type":"ItemList",
     "name":"Операції в ОН Клінік Харків Левада",
     "itemListElement":[
@@ -27,6 +41,17 @@
       {"@type":"ListItem","position":3,"name":"Гістероскопія","url":"https://onclinic.check-up.in.ua/kharkiv/gisteroskopia"},
       {"@type":"ListItem","position":4,"name":"Лапароскопія при ендометріозі та кісті яєчника","url":"https://onclinic.check-up.in.ua/kharkiv/endometrioz-kista-laparoskopia"},
       {"@type":"ListItem","position":5,"name":"Кольпорафія","url":"https://onclinic.check-up.in.ua/kharkiv/kolporafia"}
+    ]
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Чи потрібно мати свіже УЗД для консультації?","acceptedAnswer":{"@type":"Answer","text":"Бажано. Якщо у вас є УЗД за останні 1–3 місяці — приносьте з собою. Якщо немає або давніше — лікар може зробити УЗД на консультації або призначити обстеження. Це не критично для першого візиту."}},
+      {"@type":"Question","name":"Як швидко можна потрапити на операцію після консультації?","acceptedAnswer":{"@type":"Answer","text":"Зазвичай 7–14 днів — стільки часу займає підготовка (аналізи, ЕКГ, консультація терапевта). Якщо у вас уже є частина обстежень, терміни скорочуються."}},
+      {"@type":"Question","name":"Що робити якщо я з іншого міста?","acceptedAnswer":{"@type":"Answer","text":"Можлива попередня онлайн-консультація — лікар оцінює ситуацію за фото документів і УЗД, дає орієнтовну тактику. Очний візит плануємо коли вже є попередня домовленість. Стаціонар надається у клініці на час відновлення."}},
+      {"@type":"Question","name":"Чи приймаєте без направлення?","acceptedAnswer":{"@type":"Answer","text":"Так. Запис прямий — через форму на сайті або зателефонувавши. Направлення не потрібне."}},
+      {"@type":"Question","name":"Чи дзвонять перед операцією?","acceptedAnswer":{"@type":"Answer","text":"Так. Менеджер зв'язується з вами після подачі заявки протягом робочого дня, узгоджує дату консультації і відповідає на ваші питання. На самій консультації лікар дає повний план дій."}}
     ]
   },
   {
@@ -64,7 +89,7 @@ body{font-family:'Fixel Text',sans-serif;background:#fff;color:var(--gray-900);l
 .nav-links{display:flex;gap:28px;list-style:none}
 .nav-links a{text-decoration:none;color:var(--gray-600);font-size:14px;font-weight:400;cursor:pointer;transition:color .15s}
 .nav-links a:hover{color:var(--blue)}
-.nav-cta{background:var(--blue);color:#fff;border:none;padding:9px 22px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Fixel Text',sans-serif;transition:background .2s}
+.nav-cta{background:var(--blue-deep,#0B4F9A);color:#fff;border:none;padding:9px 22px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Fixel Text',sans-serif;transition:background .2s}
 .nav-cta:hover{background:var(--blue-mid)}
 
 /* BREADCRUMB */
@@ -116,7 +141,10 @@ body{font-family:'Fixel Text',sans-serif;background:#fff;color:var(--gray-900);l
 .equip-tag{font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
 .equip-name{font-size:15px;font-weight:600;color:var(--gray-900);margin-bottom:10px;line-height:1.3}
 .equip-desc{font-size:13px;color:var(--gray-600);line-height:1.65}
-.equip-photo-placeholder{background:var(--gray-100);border:2px dashed var(--gray-300);border-radius:14px;padding:40px;text-align:center;color:var(--gray-400);font-size:13px;margin-top:8px}
+
+/* OPERATING ROOM PHOTO */
+.or-photo{width:100%;border-radius:14px;overflow:hidden;margin:0 0 32px;aspect-ratio:3/2;background:var(--gray-100)}
+.or-photo img{width:100%;height:100%;object-fit:cover;display:block}
 
 /* DOCTOR CARDS */
 .doctors-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -126,7 +154,7 @@ body{font-family:'Fixel Text',sans-serif;background:#fff;color:var(--gray-900);l
 .dc-strip-blue{background:linear-gradient(90deg,var(--blue),#3B7DCA)}
 .dc-strip-gold{background:linear-gradient(90deg,var(--gold),#E0B84A)}
 .doc-photo{width:100%;aspect-ratio:280/320;border-radius:12px;overflow:hidden;margin-bottom:20px;background:var(--gray-100)}
-.doc-photo img{width:100%;height:100%;object-fit:cover}
+.doc-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
 .doc-name{font-family:'Fixel Display',sans-serif;font-size:22px;font-weight:600;color:var(--blue);margin-bottom:4px;line-height:1.2}
 .doc-role{font-size:12px;color:var(--gold);font-weight:500;margin-bottom:16px;letter-spacing:.2px}
 .doc-creds{display:flex;flex-direction:column;gap:4px;margin-bottom:16px}
@@ -144,25 +172,31 @@ body{font-family:'Fixel Text',sans-serif;background:#fff;color:var(--gray-900);l
 .dc-profile-link{display:block;text-align:center;font-size:12px;color:var(--gray-400);text-decoration:none;margin-top:4px}
 .dc-profile-link:hover{color:var(--blue)}
 
-/* OPERATIONS PORTAL */
+/* OPERATIONS CARDS — new format */
 .ops-group{margin-bottom:40px}
 .ops-group-label{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);padding:8px 0;margin-bottom:16px;border-bottom:1px solid var(--gold-mid);display:flex;align-items:center;gap:8px}
 .ops-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .ops-grid-2{grid-template-columns:repeat(2,1fr)}
+.ops-grid-1{grid-template-columns:repeat(1,1fr);max-width:560px}
 .ops-card{background:#fff;border:1.5px solid var(--gray-200);border-radius:14px;padding:24px;display:flex;flex-direction:column;transition:all .2s;text-decoration:none}
 .ops-card:hover{border-color:var(--blue);box-shadow:var(--shadow-md);transform:translateY(-1px)}
 .ops-name{font-size:15px;font-weight:600;color:var(--blue);margin-bottom:8px;line-height:1.3}
-.ops-desc{font-size:13px;color:var(--gray-600);line-height:1.6;margin-bottom:16px;flex:1}
-.ops-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
-.ops-meta-item{background:var(--gray-50);border-radius:7px;padding:8px 10px}
-.ops-meta-lbl{font-size:10px;color:var(--gray-400);font-weight:500;margin-bottom:2px}
-.ops-meta-val{font-size:12px;color:var(--gray-700);font-weight:600}
-.ops-price{font-size:16px;font-weight:700;color:var(--blue);margin-bottom:12px}
-.ops-link{font-size:13px;color:var(--blue);font-weight:500;text-decoration:none;display:flex;align-items:center;gap:4px}
+.ops-desc{font-size:13px;color:var(--gray-600);line-height:1.6;margin-bottom:14px;flex:1}
+.ops-surgeons{font-size:12px;color:var(--gray-600);margin-bottom:4px}
+.ops-surgeons strong,.ops-method strong{font-weight:600;color:var(--gray-700);margin-right:4px}
+.ops-method{font-size:12px;color:var(--gray-600);margin-bottom:14px}
+.ops-price{font-size:17px;font-weight:700;color:var(--gold);margin-bottom:12px}
+.ops-link{font-size:13px;color:var(--blue);font-weight:500;text-decoration:none;display:flex;align-items:center;gap:4px;margin-top:auto}
 .ops-link:hover{text-decoration:underline}
 .ops-hubs{display:flex;gap:16px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--gray-100)}
 .ops-hub-link{font-size:13px;color:var(--blue);text-decoration:none;font-weight:500;display:flex;align-items:center;gap:4px}
 .ops-hub-link:hover{text-decoration:underline}
+
+/* PLACEHOLDER BLOCK (стаціонар, відновлення) */
+.placeholder-block{background:var(--gray-50);border:1.5px dashed var(--gray-300);border-radius:14px;padding:40px 32px;text-align:center;max-width:640px}
+.placeholder-block p{font-size:14px;color:var(--gray-600);line-height:1.75;margin-bottom:20px}
+.btn-placeholder{background:transparent;color:var(--blue);border:1.5px solid var(--blue);padding:10px 22px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Fixel Text',sans-serif;transition:all .2s;text-decoration:none;display:inline-block}
+.btn-placeholder:hover{background:var(--blue-light)}
 
 /* ROUTE STEPS */
 .route-steps{display:flex;flex-direction:column;gap:0}
@@ -223,7 +257,6 @@ body{font-family:'Fixel Text',sans-serif;background:#fff;color:var(--gray-900);l
 /* CTA BANNER */
 .cta-section{background:var(--gray-50);border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100);padding:72px 48px;text-align:center}
 .cta-title{font-family:'Fixel Display',sans-serif;font-size:38px;font-weight:600;color:var(--blue);margin-bottom:12px;line-height:1.15}
-.cta-title em{font-style:italic;color:var(--gold)}
 .cta-sub{font-size:15px;color:var(--gray-600);margin-bottom:32px;line-height:1.7;max-width:560px;margin-left:auto;margin-right:auto}
 .btn-primary{background:var(--blue);color:#fff;border:none;padding:13px 28px;border-radius:10px;font-size:15px;font-weight:500;cursor:pointer;font-family:'Fixel Text',sans-serif;transition:all .2s;text-decoration:none;display:inline-block}
 .btn-primary:hover{background:var(--blue-mid)}
@@ -235,9 +268,12 @@ body{font-family:'Fixel Text',sans-serif;background:#fff;color:var(--gray-900);l
 .geo-inner p{font-size:14px;color:var(--gray-600);line-height:1.8;max-width:760px}
 
 /* EEAT */
-.eeat{background:#fff;border:1px solid var(--gray-200);border-radius:12px;padding:18px 22px;max-width:1120px;margin:0 auto 0}
-.eeat p{font-size:12px;color:var(--gray-500);line-height:1.7}
-.eeat strong{color:var(--gray-700)}
+.eeat-block{background:#fff;border:1px solid var(--gray-200);border-radius:12px;padding:16px 20px;margin:0 auto 0;max-width:1120px}
+.eeat-row{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--gray-100);font-size:13px}
+.eeat-row:last-child{border-bottom:none;padding-bottom:0}
+.eeat-icon{color:var(--gold);flex-shrink:0;margin-top:1px}
+.eeat-label{font-weight:600;color:var(--gray-900);margin-right:6px;min-width:90px}
+.eeat-value{color:var(--gray-500);line-height:1.55}
 
 /* FOOTER */
 footer,.site-footer{border-top:1px solid var(--gray-100);padding:28px 48px;display:flex;justify-content:space-between;align-items:center;max-width:1120px;margin:0 auto;font-size:13px;color:var(--gray-400);flex-wrap:wrap;gap:8px}
@@ -257,7 +293,7 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
   .section-title{font-size:32px}
   .equip-grid{grid-template-columns:1fr}
   .doctors-grid{grid-template-columns:1fr}
-  .ops-grid,.ops-grid-2{grid-template-columns:1fr}
+  .ops-grid,.ops-grid-2,.ops-grid-1{grid-template-columns:1fr}
   .inline-form-section{padding:56px 24px}
   .inline-form-title{font-size:32px}
   .if-form{padding:24px}
@@ -276,8 +312,8 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
     <img class="nav-logo-img" src="/assets/logo/logo-horizontal.png" alt="ОН Клінік" onerror="this.style.display='none'">
   </a>
   <ul class="nav-links">
-    <li><a href="#operations">Операції</a></li>
     <li><a href="#doctors">Хірурги</a></li>
+    <li><a href="#operations">Операції</a></li>
     <li><a href="#route">Маршрут</a></li>
     <li><a href="#booking-form">Запис</a></li>
   </ul>
@@ -293,7 +329,7 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
   ОН Клінік Левада
 </nav>
 
-<!-- HERO -->
+<!-- БЛОК 1: HERO -->
 <div class="hero-dark">
   <div class="hero-grid">
     <!-- LEFT -->
@@ -312,7 +348,7 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
         <div class="hero-surgeons-label">ХІРУРГИ</div>
         <div class="surgeon-mini">
           <div class="surgeon-mini-avatar">
-            <img src="/assets/doctors/afanasiev-card.webp" alt="Афанасьєв І.В." loading="eager" onerror="this.parentElement.style.background='var(--blue-light)'">
+            <img src="/assets/images/kharkiv/doctors/onclinic-kharkiv-doctor-afanasiev-card.webp" alt="Афанасьєв І.В." loading="eager" onerror="this.parentElement.style.background='var(--blue-light)'">
           </div>
           <div>
             <div class="surgeon-mini-name">Афанасьєв І.В.</div>
@@ -321,7 +357,7 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
         </div>
         <div class="surgeon-mini">
           <div class="surgeon-mini-avatar">
-            <img src="/assets/doctors/striukov-card.webp" alt="Стрюков Д.В." loading="eager" onerror="this.parentElement.style.background='var(--blue-light)'">
+            <img src="/assets/images/kharkiv/doctors/onclinic-kharkiv-doctor-striukov-card.webp" alt="Стрюков Д.В." loading="eager" onerror="this.parentElement.style.background='var(--blue-light)'">
           </div>
           <div>
             <div class="surgeon-mini-name">Стрюков Д.В.</div>
@@ -351,50 +387,21 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
   </div>
 </div>
 
-<!-- OPERATING BLOCK -->
-<div class="bg-gray">
-  <section class="section">
-    <div class="section-eyebrow">ОПЕРАЦІЙНА</div>
-    <h2 class="section-title">Обладнання операційної</h2>
-    <p class="section-sub">В операційній філії Левада використовується обладнання провідних європейських і американських виробників. Це не маркетингова теза, а конкретний перелік систем, які працюють під час кожної операції.</p>
-    <div class="equip-grid">
-      <div class="equip-card">
-        <div class="equip-tag">ВІЗУАЛІЗАЦІЯ</div>
-        <div class="equip-name">Karl Storz Full HD (Німеччина)</div>
-        <p class="equip-desc">Лапароскопічна та гістероскопічна стійка з Full HD-візуалізацією. Дозволяє хірургу бачити операційне поле з точністю до міліметра — критично при роботі поблизу великих судин і сечоводів.</p>
-      </div>
-      <div class="equip-card">
-        <div class="equip-tag">КОАГУЛЯЦІЯ</div>
-        <div class="equip-name">Ультразвуковий скальпель Ethicon (США) + AUTOCON (Karl Storz)</div>
-        <p class="equip-desc">Енергетичні платформи для безкровного відсікання тканин і коагуляції. Ультразвук замінює класичний електрокоагулятор — менша травма, мінімальна крововтрата.</p>
-      </div>
-      <div class="equip-card">
-        <div class="equip-tag">МОРЦЕЛЯЦІЯ</div>
-        <div class="equip-name">Система морцеляції Lapomed</div>
-        <p class="equip-desc">Дозволяє витягти видалені тканини через мікропроколи 0,5–1 см без додаткових розрізів. Збережені мінімальні шрами і короткий термін відновлення.</p>
-      </div>
-      <div class="equip-card">
-        <div class="equip-tag">АНЕСТЕЗІЯ</div>
-        <div class="equip-name">Анестезіологічний контроль Drager + Maquet</div>
-        <p class="equip-desc">Наркозний апарат Drager Primus (Німеччина) з ШВЛ і автоматичним контролем глибини анестезії. Операційний стіл Maquet з гнучким позиціонуванням. Монітор стану пацієнтки в реальному часі.</p>
-      </div>
-    </div>
-    <div class="equip-photo-placeholder">
-      📷 Фото операційної ОН Клінік Левада — очікуємо від клініки
-    </div>
-  </section>
-</div>
-
-<!-- DOCTORS -->
+<!-- БЛОК 2: ХІРУРГИ -->
 <section class="section" id="doctors">
-  <div class="section-eyebrow">ХІРУРГИ ФІЛІЇ</div>
+  <div class="section-eyebrow">ЛІКАРІ ОН КЛІНІК ЛЕВАДА</div>
   <h2 class="section-title">Хто оперує в Леваді</h2>
   <div class="doctors-grid">
-    <!-- Afanasiev -->
+    <!-- Афанасьєв -->
     <div class="doc-card">
       <div class="dc-tag-strip dc-strip-blue"></div>
       <div class="doc-photo">
-        <img src="/assets/doctors/afanasiev-full.webp" alt="Афанасьєв Ігор Володимирович" loading="lazy" onerror="this.style.display='none'">
+        <picture>
+          <source srcset="/assets/images/kharkiv/doctors/onclinic-kharkiv-doctor-afanasiev-card.webp" type="image/webp">
+          <img src="/assets/images/kharkiv/doctors/onclinic-kharkiv-doctor-afanasiev-card.jpg"
+               alt="Афанасьєв Ігор Володимирович · оперуючий гінеколог ОН Клінік Левада"
+               width="280" height="320" loading="lazy" decoding="async">
+        </picture>
       </div>
       <div class="doc-name">Афанасьєв Ігор Володимирович</div>
       <div class="doc-role">Акушер-гінеколог · Оперуючий гінеколог</div>
@@ -402,7 +409,7 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
         <div class="doc-cred-item">34 роки досвіду (з 1992 року)</div>
         <div class="doc-cred-item">К.м.н., вища категорія</div>
         <div class="doc-cred-item">Спеціалізація «Ендоскопія» з 2006 року</div>
-        <div class="doc-cred-item">Асистент кафедри акушерства і гінекології №2 ХДМУ</div>
+        <div class="doc-cred-item">Асистент кафедри акушерства і гінекології №2 ХНМУ</div>
       </div>
       <div class="doc-performs">
         <div class="doc-performs-label">Виконує:</div>
@@ -412,18 +419,24 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
       <button class="doc-book db-blue" onclick="openBookingModal({prefilledDoctor:'afanasiev',sourceCTA:'kharkiv_levada_doctor_card'})">Записатись до Афанасьєва І.В.</button>
       <a class="dc-profile-link" href="/kharkiv/doctors/afanasiev">Профіль лікаря →</a>
     </div>
-    <!-- Striukov -->
+    <!-- Стрюков -->
     <div class="doc-card">
       <div class="dc-tag-strip dc-strip-gold"></div>
       <div class="doc-photo">
-        <img src="/assets/doctors/striukov-full.webp" alt="Стрюков Дмитро Владиславович" loading="lazy" onerror="this.style.display='none'">
+        <picture>
+          <source srcset="/assets/images/kharkiv/doctors/onclinic-kharkiv-doctor-striukov-card.webp" type="image/webp">
+          <img src="/assets/images/kharkiv/doctors/onclinic-kharkiv-doctor-striukov-card.jpg"
+               alt="Стрюков Дмитро Владиславович · оперуючий гінеколог ОН Клінік Левада"
+               width="280" height="320" loading="lazy" decoding="async">
+        </picture>
       </div>
       <div class="doc-name">Стрюков Дмитро Владиславович</div>
       <div class="doc-role">Акушер-гінеколог · Оперуючий гінеколог</div>
       <div class="doc-creds">
-        <div class="doc-cred-item">24 роки досвіду (з 2001 року)</div>
+        <div class="doc-cred-item">24 роки досвіду</div>
         <div class="doc-cred-item">К.м.н., вища категорія</div>
-        <div class="doc-cred-item">Спеціалізація з ендоскопічної хірургії (2016)</div>
+        <div class="doc-cred-item">Тематичне удосконалення «Основи ендоскопічної хірургії» (2016)</div>
+        <div class="doc-cred-item">Поглиблена УЗД-підготовка</div>
         <div class="doc-cred-item">Асистент кафедри акушерства і гінекології №2 ХНМУ</div>
       </div>
       <div class="doc-performs">
@@ -437,84 +450,74 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
   </div>
 </section>
 
-<!-- OPERATIONS PORTAL -->
+<!-- БЛОК 3: ОПЕРАЦІЇ З ГІНЕКОЛОГІЇ -->
 <div class="bg-gray">
   <section class="section" id="operations">
-    <div class="section-eyebrow">ПОРТАЛ ОПЕРАЦІЙ</div>
+    <div class="section-eyebrow">ОПЕРАЦІЇ З ГІНЕКОЛОГІЇ</div>
     <h2 class="section-title">Які операції виконуємо</h2>
 
-    <!-- Group 1: Myoma -->
+    <!-- Група 1: Міома матки -->
     <div class="ops-group">
       <div class="ops-group-label">МІОМА МАТКИ</div>
       <div class="ops-grid">
         <a class="ops-card" href="/kharkiv/mioma-laparoskopichna-miomektomiia">
           <div class="ops-name">Лапароскопічна міомектомія</div>
           <p class="ops-desc">Видалення вузлів через 3 мікророзрізи зі збереженням матки. Підходить для жінок, які планують вагітність.</p>
-          <div class="ops-meta">
-            <div class="ops-meta-item"><div class="ops-meta-lbl">Стаціонар</div><div class="ops-meta-val">2–3 дні</div></div>
-            <div class="ops-meta-item"><div class="ops-meta-lbl">До роботи</div><div class="ops-meta-val">2–3 тижні</div></div>
-          </div>
+          <div class="ops-surgeons"><strong>Хірурги:</strong> Афанасьєв І.В., Стрюков Д.В.</div>
+          <div class="ops-method"><strong>Метод:</strong> лапароскопічна</div>
           <div class="ops-price">26 690 грн</div>
           <span class="ops-link">Детальніше →</span>
         </a>
         <a class="ops-card" href="/kharkiv/mioma-laparoskopichna-gisterektomiia">
           <div class="ops-name">Лапароскопічна гістеректомія</div>
           <p class="ops-desc">Видалення матки малоінвазивним методом — без великого розрізу. При множинних вузлах, аденоміозі, поєднаній патології.</p>
-          <div class="ops-meta">
-            <div class="ops-meta-item"><div class="ops-meta-lbl">Стаціонар</div><div class="ops-meta-val">2–3 дні</div></div>
-            <div class="ops-meta-item"><div class="ops-meta-lbl">До роботи</div><div class="ops-meta-val">3–4 тижні</div></div>
-          </div>
+          <div class="ops-surgeons"><strong>Хірурги:</strong> Афанасьєв І.В., Стрюков Д.В.</div>
+          <div class="ops-method"><strong>Метод:</strong> лапароскопічна</div>
           <div class="ops-price">від 28 895 грн</div>
           <span class="ops-link">Детальніше →</span>
         </a>
         <a class="ops-card" href="/kharkiv/gisteroskopia">
           <div class="ops-name">Гістероскопія</div>
-          <p class="ops-desc">Видалення поліпів і субмукозних вузлів через природний шлях, без розрізів на шкірі. Виписка за 1 день.</p>
-          <div class="ops-meta">
-            <div class="ops-meta-item"><div class="ops-meta-lbl">Стаціонар</div><div class="ops-meta-val">1 день</div></div>
-            <div class="ops-meta-item"><div class="ops-meta-lbl">До роботи</div><div class="ops-meta-val">2–3 дні</div></div>
-          </div>
+          <p class="ops-desc">Видалення поліпів і субмукозних вузлів через природний шлях, без розрізів на шкірі.</p>
+          <div class="ops-surgeons"><strong>Хірурги:</strong> Афанасьєв І.В., Стрюков Д.В.</div>
+          <div class="ops-method"><strong>Метод:</strong> гістероскопічна (трансцервікальна)</div>
           <div class="ops-price">від 11 505 грн</div>
           <span class="ops-link">Детальніше →</span>
         </a>
       </div>
     </div>
 
-    <!-- Group 2: Endometriosis -->
+    <!-- Група 2: Ендометріоз / кіста яєчника -->
     <div class="ops-group">
       <div class="ops-group-label">ЕНДОМЕТРІОЗ / КІСТА ЯЄЧНИКА</div>
       <div class="ops-grid ops-grid-2">
         <a class="ops-card" href="/kharkiv/endometrioz-kista-laparoskopia">
           <div class="ops-name">Лапароскопія на придатках</div>
           <p class="ops-desc">Видалення кісти або вогнищ ендометріозу зі збереженням здорової тканини яєчника. Одночасна діагностика і лікування.</p>
-          <div class="ops-meta">
-            <div class="ops-meta-item"><div class="ops-meta-lbl">Стаціонар</div><div class="ops-meta-val">1–2 дні</div></div>
-            <div class="ops-meta-item"><div class="ops-meta-lbl">До роботи</div><div class="ops-meta-val">5–7 днів</div></div>
-          </div>
+          <div class="ops-surgeons"><strong>Хірурги:</strong> Афанасьєв І.В., Стрюков Д.В.</div>
+          <div class="ops-method"><strong>Метод:</strong> лапароскопічна</div>
           <div class="ops-price">від 21 745 грн</div>
           <span class="ops-link">Детальніше →</span>
         </a>
       </div>
     </div>
 
-    <!-- Group 3: Prolapse -->
+    <!-- Група 3: Опущення матки -->
     <div class="ops-group">
       <div class="ops-group-label">ОПУЩЕННЯ МАТКИ</div>
       <div class="ops-grid ops-grid-2">
         <a class="ops-card" href="/kharkiv/kolporafia">
           <div class="ops-name">Кольпорафія</div>
           <p class="ops-desc">Хірургічна корекція опущення стінок піхви через природний шлях, без розрізів на животі. Відновлює нормальне положення тазових органів.</p>
-          <div class="ops-meta">
-            <div class="ops-meta-item"><div class="ops-meta-lbl">Стаціонар</div><div class="ops-meta-val">2–3 дні</div></div>
-            <div class="ops-meta-item"><div class="ops-meta-lbl">До роботи</div><div class="ops-meta-val">4–6 тижнів</div></div>
-          </div>
+          <div class="ops-surgeons"><strong>Хірург:</strong> Стрюков Д.В.</div>
+          <div class="ops-method"><strong>Метод:</strong> трансвагінальна</div>
           <div class="ops-price">25 525 грн</div>
           <span class="ops-link">Детальніше →</span>
         </a>
       </div>
     </div>
 
-    <!-- Diagnosis hubs -->
+    <!-- Хаби діагнозів -->
     <div class="ops-hubs">
       <span style="font-size:13px;color:var(--gray-500)">Більше про діагноз і вибір методу:</span>
       <a class="ops-hub-link" href="/kharkiv/mioma-matky">→ Міома матки</a>
@@ -523,82 +526,143 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
   </section>
 </div>
 
-<!-- ROUTE -->
-<section class="section" id="route">
-  <div class="section-eyebrow">ЯК ЦЕ ВІДБУВАЄТЬСЯ</div>
-  <h2 class="section-title">Маршрут пацієнта</h2>
-  <div class="route-steps">
-    <div class="route-step">
-      <div class="step-num">1</div>
-      <div class="step-content">
-        <div class="step-title">Консультація гінеколога-хірурга (40–60 хв)</div>
-        <p class="step-desc">Лікар проводить огляд, аналізує результати УЗД (приносьте з собою якщо є), визначає показання до операції. Обговорюєте обсяг, анестезію, орієнтовну вартість, терміни.</p>
-        <span class="step-note">700 грн</span>
-      </div>
+<!-- БЛОК 4: ОПЕРАЦІЙНА ФІЛІЇ ЛЕВАДА -->
+<section class="section" id="equipment">
+  <div class="section-eyebrow">ОПЕРАЦІЙНА ФІЛІЇ ЛЕВАДА</div>
+  <h2 class="section-title">Як обладнана операційна</h2>
+  <p class="section-sub">В операційній філії Левада використовується обладнання провідних європейських і американських виробників. Це не маркетингова теза, а конкретний перелік систем, які працюють під час кожної операції.</p>
+
+  <div class="or-photo">
+    <picture>
+      <source srcset="/assets/images/kharkiv/operating-room/onclinic-kharkiv-levada-operating-room.webp" type="image/webp">
+      <img src="/assets/images/kharkiv/operating-room/onclinic-kharkiv-levada-operating-room.jpg"
+           alt="Операційна філії ОН Клінік Харків Левада · обладнання Karl Storz, Drager, Maquet, Ethicon для лапароскопічних операцій"
+           width="1200" height="800" loading="lazy" decoding="async">
+    </picture>
+  </div>
+
+  <div class="equip-grid">
+    <div class="equip-card">
+      <div class="equip-tag">ВІЗУАЛІЗАЦІЯ</div>
+      <div class="equip-name">Лапароскопічна стійка Karl Storz (Німеччина)</div>
+      <p class="equip-desc">Повний комплект обладнання для лапароскопії від лідера ринку ендоскопічної хірургії. Full HD-візуалізація дозволяє хірургу бачити операційне поле з точністю до міліметра — критично при роботі поблизу великих судин і сечоводів. Для пацієнтки це менший ризик ускладнень і менша крововтрата.</p>
     </div>
-    <div class="route-step">
-      <div class="step-num">2</div>
-      <div class="step-content">
-        <div class="step-title">Передопераційна підготовка (3–7 днів)</div>
-        <p class="step-desc">Аналізи крові, мазки, ЕКГ, консультація терапевта. Перелік залежить від типу операції — лікар видає на консультації.</p>
-        <span class="step-note">орієнтовно ≈ 2 000 грн</span>
-      </div>
+    <div class="equip-card">
+      <div class="equip-tag">КОАГУЛЯЦІЯ</div>
+      <div class="equip-name">Ультразвуковий скальпель Ethicon (США)</div>
+      <p class="equip-desc">Замість класичного електрокоагулятора використовується ультразвукова енергія. Тканина відсікається і одночасно запаюється — без опіку сусідніх ділянок. Результат: мінімальна крововтрата, менша травма тканин, якісніший рубець.</p>
     </div>
-    <div class="route-step">
-      <div class="step-num">3</div>
-      <div class="step-content">
-        <div class="step-title">День операції (1 день у клініці)</div>
-        <p class="step-desc">Госпіталізація вранці, операція під загальною або спінальною анестезією. Тривалість 15–180 хв залежно від типу.</p>
-      </div>
+    <div class="equip-card">
+      <div class="equip-tag">МОРЦЕЛЯЦІЯ</div>
+      <div class="equip-name">Система морцеляції Lapomed</div>
+      <p class="equip-desc">Дозволяє витягти видалені тканини через ті самі мікропроколи 0,5–1 см, якими зайшли в операцію. Без цього обладнання хірург мусив би зробити додатковий розріз. Для пацієнтки це збережені мінімальні шрами і короткий термін відновлення.</p>
     </div>
-    <div class="route-step">
-      <div class="step-num">4</div>
-      <div class="step-content">
-        <div class="step-title">Стаціонар (1–3 дні)</div>
-        <p class="step-desc">Спостереження анестезіологом і гінекологом, знеболення за потреби, поступове розширення активності. Перев'язки і догляд.</p>
-      </div>
-    </div>
-    <div class="route-step">
-      <div class="step-num">5</div>
-      <div class="step-content">
-        <div class="step-title">Виписка та відновлення (2–6 тижнів)</div>
-        <p class="step-desc">Виписуєтесь з рекомендаціями. Контрольний огляд через 10–14 днів. До побутової активності — 1–3 тижні залежно від типу операції. До фізичних навантажень — 4–8 тижнів.</p>
-      </div>
+    <div class="equip-card">
+      <div class="equip-tag">АНЕСТЕЗІЯ</div>
+      <div class="equip-name">Анестезіологічний контроль Drager + Maquet (Німеччина)</div>
+      <p class="equip-desc">Наркозний апарат Drager Primus з ШВЛ автоматично контролює глибину анестезії і склад газів. Операційний стіл Maquet з гнучким позиціонуванням. Монітор стану пацієнтки показує тиск, пульс, насичення крові киснем у реальному часі — анестезіолог реагує на будь-яку зміну одразу.</p>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
+<!-- БЛОК 5: СТАЦІОНАР (ЗАГЛУШКА) -->
 <div class="bg-gray">
-  <section class="section" id="faq">
-    <div class="section-eyebrow">ПИТАННЯ І ВІДПОВІДІ</div>
-    <h2 class="section-title">Часті питання</h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Чи потрібно мати свіже УЗД для консультації? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Бажано. Якщо у вас є УЗД за останні 1–3 місяці — приносьте з собою. Якщо немає або давніше — лікар може зробити УЗД на консультації або призначити обстеження. Це не критично для першого візиту.</div>
+  <section class="section" id="stay">
+    <div class="section-eyebrow">ПЕРЕБУВАННЯ У ФІЛІЇ</div>
+    <h2 class="section-title">Стаціонар у ОН Клінік Левада</h2>
+    <div class="placeholder-block">
+      <p>Інформація про умови перебування у відділенні готується. Очікуємо підтвердження клінікою деталей: тип палат, харчування, побутові умови, цілодобовий медичний нагляд.</p>
+      <p>Якщо у вас є питання щодо стаціонару — звертайтесь напряму через форму запису.</p>
+      <button class="btn-placeholder" onclick="openBookingModal({sourceCTA:'kharkiv_levada_stay_block'})">Записатись і поставити питання →</button>
+    </div>
+  </section>
+</div>
+
+<!-- БЛОК 6: ВІДНОВЛЕННЯ -->
+<section class="section" id="recovery">
+  <div class="section-eyebrow">ПІСЛЯ ОПЕРАЦІЇ</div>
+  <h2 class="section-title">Як відбувається відновлення</h2>
+  <p class="section-sub" style="margin-bottom:24px">Після виписки пацієнтка отримує детальні рекомендації лікаря з відновлення — обмеження фізичних навантажень, режим харчування, гігієна швів. Контрольний огляд призначається залежно від типу операції.</p>
+  <p style="font-size:15px;color:var(--gray-600);line-height:1.7;margin-bottom:28px">Терміни відновлення індивідуальні для кожної пацієнтки і залежать від типу втручання і загального стану. Детальні терміни вказані на сторінці кожної конкретної операції.</p>
+  <a class="btn-primary" href="#operations">Подивитись детальні описи операцій →</a>
+</section>
+
+<!-- БЛОК 7: МАРШРУТ ПАЦІЄНТА -->
+<div class="bg-gray">
+  <section class="section" id="route">
+    <div class="section-eyebrow">ЯК ЦЕ ВІДБУВАЄТЬСЯ</div>
+    <h2 class="section-title">Маршрут пацієнта</h2>
+    <div class="route-steps">
+      <div class="route-step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-title">Консультація гінеколога-хірурга (40–60 хв)</div>
+          <p class="step-desc">Лікар проводить огляд, аналізує результати УЗД (приносьте з собою якщо є), визначає показання до операції. Обговорюєте обсяг, анестезію, орієнтовну вартість, терміни.</p>
+          <span class="step-note">700 грн</span>
+        </div>
       </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Як швидко можна потрапити на операцію після консультації? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Зазвичай 7–14 днів — стільки часу займає підготовка (аналізи, ЕКГ, консультація терапевта). Якщо у вас уже є частина обстежень, терміни скорочуються.</div>
+      <div class="route-step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-title">Передопераційна підготовка (3–7 днів)</div>
+          <p class="step-desc">Аналізи крові, мазки, ЕКГ, консультація терапевта. Перелік залежить від типу операції — лікар видає на консультації.</p>
+          <span class="step-note">орієнтовно ≈ 2 000 грн</span>
+        </div>
       </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Що робити якщо я з іншого міста? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Можлива попередня онлайн-консультація — лікар оцінює ситуацію за фото документів і УЗД, дає орієнтовну тактику. Очний візит плануємо коли вже є попередня домовленість. Стаціонар надається у клініці на час відновлення.</div>
+      <div class="route-step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-title">День операції (1 день у клініці)</div>
+          <p class="step-desc">Госпіталізація вранці, операція під загальною або спінальною анестезією. Тривалість 15–180 хв залежно від типу.</p>
+        </div>
       </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Чи приймаєте без направлення? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Так. Запис прямий — через форму на сайті або зателефонувавши. Направлення не потрібне.</div>
+      <div class="route-step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-title">Стаціонар (1–3 дні)</div>
+          <p class="step-desc">Спостереження анестезіологом і гінекологом, знеболення за потреби, поступове розширення активності. Перев'язки і догляд.</p>
+        </div>
       </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Чи дзвонять перед операцією? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Так. Менеджер зв'язується з вами після подачі заявки протягом робочого дня, узгоджує дату консультації і відповідає на ваші питання. На самій консультації лікар дає повний план дій.</div>
+      <div class="route-step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <div class="step-title">Виписка та відновлення (2–6 тижнів)</div>
+          <p class="step-desc">Виписуєтесь з рекомендаціями. Контрольний огляд через 10–14 днів. До побутової активності — 1–3 тижні залежно від типу операції. До фізичних навантажень — 4–8 тижнів.</p>
+        </div>
       </div>
     </div>
   </section>
 </div>
 
-<!-- INLINE FORM -->
+<!-- БЛОК 8: FAQ -->
+<section class="section" id="faq">
+  <div class="section-eyebrow">ПИТАННЯ І ВІДПОВІДІ</div>
+  <h2 class="section-title">Часті питання</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Чи потрібно мати свіже УЗД для консультації? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Бажано. Якщо у вас є УЗД за останні 1–3 місяці — приносьте з собою. Якщо немає або давніше — лікар може зробити УЗД на консультації або призначити обстеження. Це не критично для першого візиту.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Як швидко можна потрапити на операцію після консультації? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Зазвичай 7–14 днів — стільки часу займає підготовка (аналізи, ЕКГ, консультація терапевта). Якщо у вас уже є частина обстежень, терміни скорочуються.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Що робити якщо я з іншого міста? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Можлива попередня онлайн-консультація — лікар оцінює ситуацію за фото документів і УЗД, дає орієнтовну тактику. Очний візит плануємо коли вже є попередня домовленість. Стаціонар надається у клініці на час відновлення.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Чи приймаєте без направлення? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Так. Запис прямий — через форму на сайті або зателефонувавши. Направлення не потрібне.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Чи дзвонять перед операцією? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Так. Менеджер зв'язується з вами після подачі заявки протягом робочого дня, узгоджує дату консультації і відповідає на ваші питання. На самій консультації лікар дає повний план дій.</div>
+    </div>
+  </div>
+</section>
+
+<!-- БЛОК 9: INLINE ФОРМА -->
 <section class="inline-form-section" id="booking-form">
   <div class="inline-form-inner">
     <div class="inline-form-eyebrow">ЗАПИС ОНЛАЙН</div>
@@ -655,14 +719,14 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
   </div>
 </section>
 
-<!-- CTA BANNER -->
-<section class="cta-section">
-  <h2 class="cta-title">Знаходитесь не у Харкові? <em>Можливо.</em></h2>
+<!-- БЛОК 10: CTA БАНЕР -->
+<section class="cta-section" id="contact">
+  <h2 class="cta-title">Знаходитесь не у Харкові?</h2>
   <p class="cta-sub">Можемо провести попередню онлайн-консультацію — лікар оцінить вашу ситуацію за документами і дасть орієнтовну тактику. Очний візит плануємо коли вже є попередня домовленість.</p>
   <a class="btn-primary" href="#booking-form">Залишити заявку</a>
 </section>
 
-<!-- GEO -->
+<!-- БЛОК 11: GEO -->
 <div class="geo-section">
   <div class="geo-inner">
     <h2>Оперативна гінекологія в Харкові — ОН Клінік Левада</h2>
@@ -681,15 +745,29 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
   </div>
 </div>
 
-<!-- E-E-A-T -->
-<div style="max-width:1120px;margin:0 auto;padding:0 48px 48px" class="eeat-wrap">
-  <div class="eeat">
-    <p>
-      <strong>Автор:</strong> Ігор Растрепін, засновник check-up.in.ua ·
-      <strong>Рецензент:</strong> Афанасьєв Ігор Володимирович, оперуючий гінеколог ОН Клінік Харків, к.м.н., вища категорія, 34 роки досвіду ·
-      <strong>Оновлено:</strong> квітень 2026 ·
-      <strong>Партнер:</strong> ОН Клінік Харків Левада, <a href="https://onclinic.ua" rel="noopener" target="_blank" style="color:var(--blue)">onclinic.ua</a>
-    </p>
+<!-- БЛОК 12: E-E-A-T -->
+<div style="max-width:1120px;margin:0 auto;padding:0 48px 48px">
+  <div class="eeat-block">
+    <div class="eeat-row">
+      <span class="eeat-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></span>
+      <span class="eeat-label">Автор:</span>
+      <span class="eeat-value">Ігор Растрепін, засновник <a href="https://check-up.in.ua" target="_blank" rel="noopener" style="color:inherit">check-up.in.ua</a></span>
+    </div>
+    <div class="eeat-row">
+      <span class="eeat-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></span>
+      <span class="eeat-label">Рецензент:</span>
+      <span class="eeat-value">Афанасьєв Ігор Володимирович, оперуючий гінеколог ОН Клінік Харків, к.м.н., вища категорія, 34 роки досвіду</span>
+    </div>
+    <div class="eeat-row">
+      <span class="eeat-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+      <span class="eeat-label">Оновлено:</span>
+      <span class="eeat-value">квітень 2026</span>
+    </div>
+    <div class="eeat-row">
+      <span class="eeat-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
+      <span class="eeat-label">Партнер:</span>
+      <span class="eeat-value">ОН Клінік Харків Левада, вул. Молочна, 48 · <a href="https://onclinic.ua" rel="noopener" target="_blank" style="color:inherit">onclinic.ua</a></span>
+    </div>
   </div>
 </div>
 
@@ -699,7 +777,7 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
   <div>Платформа <a href="https://check-up.in.ua">check-up.in.ua</a></div>
 </footer>
 
-<script src="../js/booking.js"></script>
+<script src="/kharkiv/js/booking.js"></script>
 <script>
 // FAQ toggle
 function toggleFaq(el) {
