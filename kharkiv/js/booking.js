@@ -308,6 +308,7 @@
       '          <input type="hidden" name="quiz_answers" value="">',
       '          <input type="hidden" name="selected_criteria" value="">',
       '          <input type="hidden" name="other_purpose" value="">',
+      '          <input type="hidden" name="selected_doctor" value="">',
       '          <div class="bm-ff">',
       '            <label for="bm-name">Ваше ім\'я *</label>',
       '            <input type="text" id="bm-name" name="name" autocomplete="given-name" placeholder="Як до вас звертатись">',
@@ -353,6 +354,16 @@
       '                <label for="bm-other-purpose">Опишіть мету (необов\u2019язково)</label>',
       '                <textarea id="bm-other-purpose" class="bm-textarea" placeholder="Опишіть вашу ситуацію або мету запису"></textarea>',
       '              </div>',
+      '            </div>',
+      '          </div>',
+      '          <div id="bm-doctor-wrap" style="display:none">',
+      '            <div class="bm-ff">',
+      '              <label for="bm-doctor">Оберіть лікаря</label>',
+      '              <select id="bm-doctor" class="bm-select">',
+      '                <option value="any">Будь-який доступний (рекомендуємо для першого запису)</option>',
+      '                <option value="afanasiev">Афанасьєв Ігор Володимирович (700 грн)</option>',
+      '                <option value="striukov">Стрюков Дмитро Владиславович (700 грн)</option>',
+      '              </select>',
       '            </div>',
       '          </div>',
       '          <label class="bm-consent">',
@@ -556,13 +567,29 @@
       otherPurposeVal = otherTa2 && otherTa2.value.trim() ? otherTa2.value.trim() : null;
     }
 
+    // Doctor selection: check dropdown or prefilled hidden field
+    var selectedDoctorVal = null;
+    var doctorSelectWrap = document.getElementById('bm-doctor-wrap');
+    if (doctorSelectWrap && doctorSelectWrap.style.display !== 'none') {
+      var doctorDropdown = document.getElementById('bm-doctor');
+      selectedDoctorVal = doctorDropdown ? doctorDropdown.value : 'any';
+    }
+    var preferredDoctorVal = form.querySelector('[name=preferred_doctor]').value || null;
+    // If dropdown was shown and user picked a specific doctor, override preferred_doctor
+    if (selectedDoctorVal && selectedDoctorVal !== 'any') {
+      preferredDoctorVal = selectedDoctorVal;
+    } else if (selectedDoctorVal === 'any') {
+      preferredDoctorVal = null;
+    }
+
     var payload = {
       name:             nameInput.value.trim(),
       phone:            phoneInput.value.trim(),
       contact_method:   (form.querySelector('input[name=contact_method]:checked') || {}).value || 'call',
       preferred_day:    form.querySelector('[name=preferred_day]').value || null,
       case_slug:        caseSlug,
-      preferred_doctor: form.querySelector('[name=preferred_doctor]').value || null,
+      preferred_doctor: preferredDoctorVal,
+      selected_doctor:  selectedDoctorVal,
       source_page:      form.querySelector('[name=source_page]').value || window.location.pathname,
       source_cta:       form.querySelector('[name=source_cta]').value || null,
       quiz_answers:     tryParseJSON(form.querySelector('[name=quiz_answers]').value),
@@ -650,6 +677,13 @@
     form.querySelector('[name=quiz_answers]').value = '';
     form.querySelector('[name=selected_criteria]').value = '';
     form.querySelector('[name=other_purpose]').value = '';
+    // Reset doctor dropdown
+    var doctorWrapR = document.getElementById('bm-doctor-wrap');
+    if (doctorWrapR) doctorWrapR.style.display = 'none';
+    var doctorSelR = document.getElementById('bm-doctor');
+    if (doctorSelR) doctorSelR.value = 'any';
+    var selDocHidden = form.querySelector('[name=selected_doctor]');
+    if (selDocHidden) selDocHidden.value = '';
     // Reset purpose dropdown
     var purposeSel = document.getElementById('bm-purpose');
     if (purposeSel) { purposeSel.value = ''; purposeSel.classList.remove('err'); }
@@ -745,6 +779,18 @@
       if (otherTa) otherTa.value = '';
       var errPurpose = document.getElementById('bm-err-purpose');
       if (errPurpose) errPurpose.style.display = 'none';
+    }
+
+    // Doctor selection dropdown (for hub pages with doctorList)
+    var doctorWrap = document.getElementById('bm-doctor-wrap');
+    if (doctorWrap) {
+      var showDoctorSelect = !!(opts.doctorList && opts.doctorList.length > 0 && !doctorSlug);
+      doctorWrap.style.display = showDoctorSelect ? 'block' : 'none';
+      if (showDoctorSelect) {
+        var doctorSel = document.getElementById('bm-doctor');
+        if (doctorSel) doctorSel.value = 'any';
+        form.querySelector('[name=selected_doctor]').value = 'any';
+      }
     }
 
     // Open

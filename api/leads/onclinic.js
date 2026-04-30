@@ -148,9 +148,14 @@ function buildTelegramMessage(record, leadId, fullUrl) {
   lines.push('');
 
   // Doctor
-  const docLabel = record.preferred_doctor
-    ? (DOCTOR_MAP[record.preferred_doctor] || record.preferred_doctor)
-    : 'Не обрано (клініка запропонує)';
+  let docLabel;
+  if (record.selected_doctor === 'any') {
+    docLabel = 'Будь-який доступний (на вибір клініки)';
+  } else if (record.preferred_doctor) {
+    docLabel = DOCTOR_MAP[record.preferred_doctor] || record.preferred_doctor;
+  } else {
+    docLabel = 'Не обрано (клініка запропонує)';
+  }
   lines.push(`Обраний лікар: ${docLabel}`);
 
   // CTA
@@ -309,6 +314,7 @@ module.exports = async function handler(req, res) {
     source_cta:        body.source_cta        || null,
     quiz_answers:      body.quiz_answers      || null,
     selected_criteria: body.selected_criteria || null,
+    selected_doctor:   body.selected_doctor   || null,
     other_purpose:     body.other_purpose     || null,
     session_id:        body.session_id        || null,
     referrer:          body.referrer          || null,
