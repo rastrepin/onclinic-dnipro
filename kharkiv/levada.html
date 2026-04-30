@@ -188,6 +188,8 @@ body{font-family:'Fixel Text',sans-serif;background:#fff;color:var(--gray-900);l
 .ops-price{font-size:17px;font-weight:700;color:var(--gold);margin-bottom:12px}
 .ops-link{font-size:13px;color:var(--blue);font-weight:500;text-decoration:none;display:flex;align-items:center;gap:4px;margin-top:auto}
 .ops-link:hover{text-decoration:underline}
+.ops-card h3{font-family:'Fixel Display',sans-serif;font-weight:700;font-size:18px;line-height:1.3;color:var(--blue);margin:0 0 4px}
+.ops-card .seo-name{font-family:'Fixel Text',sans-serif;font-weight:500;font-size:13px;color:var(--gray-500);margin:0 0 12px;display:block}
 .ops-hubs{display:flex;gap:16px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--gray-100)}
 .ops-hub-link{font-size:13px;color:var(--blue);text-decoration:none;font-weight:500;display:flex;align-items:center;gap:4px}
 .ops-hub-link:hover{text-decoration:underline}
@@ -317,7 +319,7 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
     <li><a href="#route">Маршрут</a></li>
     <li><a href="#booking-form">Запис</a></li>
   </ul>
-  <button class="nav-cta" onclick="openBookingModal({sourceCTA:'header'})">Записатись</button>
+  <button class="nav-cta" onclick="openBookingModal({sourceCTA:'header',doctorList:['afanasiev','striukov']})">Записатись</button>
 </nav>
 
 <!-- BREADCRUMB -->
@@ -338,7 +340,7 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
       <h1 class="hero-h1">Оперативна гінекологія в Харкові</h1>
       <p class="hero-sub">Лапароскопічні та гістероскопічні операції у філії ОН Клінік Левада. Малоінвазивна хірургія — мінімум травми тканин, короткий стаціонар, швидке відновлення. Адреса: вул. Молочна, 48.</p>
       <div class="hero-actions">
-        <button class="btn-primary-white" onclick="openBookingModal({sourceCTA:'kharkiv_levada_hero'})">Записатися на консультацію</button>
+        <button class="btn-primary-white" onclick="openBookingModal({sourceCTA:'kharkiv_levada_hero',doctorList:['afanasiev','striukov']})">Записатися на консультацію</button>
         <a class="btn-ghost-white" href="#operations">Подивитись операції</a>
       </div>
     </div>
@@ -363,24 +365,6 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
             <div class="surgeon-mini-name">Стрюков Д.В.</div>
             <div class="surgeon-mini-role">к.м.н., вища категорія, 24 роки досвіду</div>
           </div>
-        </div>
-      </div>
-      <div class="hero-metrics">
-        <div class="metric-item">
-          <div class="metric-label">Адреса</div>
-          <div class="metric-value">вул. Молочна, 48</div>
-        </div>
-        <div class="metric-item">
-          <div class="metric-label">Графік</div>
-          <div class="metric-value">Пн–Нд (8:00–18:00)</div>
-        </div>
-        <div class="metric-item">
-          <div class="metric-label">Стаціонар</div>
-          <div class="metric-value">1–3 дні</div>
-        </div>
-        <div class="metric-item">
-          <div class="metric-label">Консультація</div>
-          <div class="metric-value">700 грн</div>
         </div>
       </div>
     </div>
@@ -461,7 +445,8 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
       <div class="ops-group-label">МІОМА МАТКИ</div>
       <div class="ops-grid">
         <a class="ops-card" href="/kharkiv/mioma-laparoskopichna-miomektomiia">
-          <div class="ops-name">Лапароскопічна міомектомія</div>
+          <h3>Видалення фіброматозного вузла лапароскопічним методом</h3>
+          <span class="seo-name">Лапароскопічна міомектомія</span>
           <p class="ops-desc">Видалення вузлів через 3 мікророзрізи зі збереженням матки. Підходить для жінок, які планують вагітність.</p>
           <div class="ops-surgeons"><strong>Хірурги:</strong> Афанасьєв І.В., Стрюков Д.В.</div>
           <div class="ops-method"><strong>Метод:</strong> лапароскопічна</div>
@@ -469,7 +454,8 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
           <span class="ops-link">Детальніше →</span>
         </a>
         <a class="ops-card" href="/kharkiv/mioma-laparoskopichna-gisterektomiia">
-          <div class="ops-name">Лапароскопічна гістеректомія</div>
+          <h3>Екстирпація матки лапароскопічним методом</h3>
+          <span class="seo-name">Лапароскопічна гістеректомія — з придатками або без</span>
           <p class="ops-desc">Видалення матки малоінвазивним методом — без великого розрізу. При множинних вузлах, аденоміозі, поєднаній патології.</p>
           <div class="ops-surgeons"><strong>Хірурги:</strong> Афанасьєв І.В., Стрюков Д.В.</div>
           <div class="ops-method"><strong>Метод:</strong> лапароскопічна</div>
@@ -477,7 +463,7 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
           <span class="ops-link">Детальніше →</span>
         </a>
         <a class="ops-card" href="/kharkiv/gisteroskopia">
-          <div class="ops-name">Гістероскопія</div>
+          <h3>Діагностична гістероскопія / Гістероскопія з поліпектомією</h3>
           <p class="ops-desc">Видалення поліпів і субмукозних вузлів через природний шлях, без розрізів на шкірі.</p>
           <div class="ops-surgeons"><strong>Хірурги:</strong> Афанасьєв І.В., Стрюков Д.В.</div>
           <div class="ops-method"><strong>Метод:</strong> гістероскопічна (трансцервікальна)</div>
@@ -492,7 +478,8 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
       <div class="ops-group-label">ЕНДОМЕТРІОЗ / КІСТА ЯЄЧНИКА</div>
       <div class="ops-grid ops-grid-2">
         <a class="ops-card" href="/kharkiv/endometrioz-kista-laparoskopia">
-          <div class="ops-name">Лапароскопія на придатках</div>
+          <h3>Лапароскопія на придатках (видалення кіст яєчників, ендометріоз)</h3>
+          <span class="seo-name">Лапароскопія при ендометріозі та кісті яєчника</span>
           <p class="ops-desc">Видалення кісти або вогнищ ендометріозу зі збереженням здорової тканини яєчника. Одночасна діагностика і лікування.</p>
           <div class="ops-surgeons"><strong>Хірурги:</strong> Афанасьєв І.В., Стрюков Д.В.</div>
           <div class="ops-method"><strong>Метод:</strong> лапароскопічна</div>
@@ -507,7 +494,7 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
       <div class="ops-group-label">ОПУЩЕННЯ МАТКИ</div>
       <div class="ops-grid ops-grid-2">
         <a class="ops-card" href="/kharkiv/kolporafia">
-          <div class="ops-name">Кольпорафія</div>
+          <h3>Кольпорафія (опущення, випадіння матки)</h3>
           <p class="ops-desc">Хірургічна корекція опущення стінок піхви через природний шлях, без розрізів на животі. Відновлює нормальне положення тазових органів.</p>
           <div class="ops-surgeons"><strong>Хірург:</strong> Стрюков Д.В.</div>
           <div class="ops-method"><strong>Метод:</strong> трансвагінальна</div>
@@ -573,7 +560,7 @@ footer a,.site-footer a{color:var(--gray-400);text-decoration:none}
     <div class="placeholder-block">
       <p>Інформація про умови перебування у відділенні готується. Очікуємо підтвердження клінікою деталей: тип палат, харчування, побутові умови, цілодобовий медичний нагляд.</p>
       <p>Якщо у вас є питання щодо стаціонару — звертайтесь напряму через форму запису.</p>
-      <button class="btn-placeholder" onclick="openBookingModal({sourceCTA:'kharkiv_levada_stay_block'})">Записатись і поставити питання →</button>
+      <button class="btn-placeholder" onclick="openBookingModal({sourceCTA:'kharkiv_levada_stay_block',doctorList:['afanasiev','striukov']})">Записатись і поставити питання →</button>
     </div>
   </section>
 </div>
