@@ -12,8 +12,8 @@
   /* ─── PRIMARY BLUE ──────────────────────────────────────────────── */
   --blue-deep:  #0B4F9A;   /* primary — кнопки, hero, заголовки H2/H3  */
   --blue:       #0B4F9A;   /* alias --blue-deep (зворотна сумісність)   */
-  --blue-mid:   #1464B8;   /* secondary — hover-стани, акценти          */
-  --blue-light: #EEF5FF;   /* selected state, light backgrounds          */
+  --blue-mid:   #1a6bc7;   /* secondary — hover-стани, акценти          */
+  --blue-light: #dbeafe;   /* selected state, light backgrounds          */
 
   /* ─── GOLD ACCENT ───────────────────────────────────────────────── */
   --gold:       #C49A1A;   /* accent — CTA кнопки, ціни, іконки E-E-A-T */
